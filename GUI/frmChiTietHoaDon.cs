@@ -18,6 +18,11 @@ namespace GUI
             InitializeComponent();
             info = billInfo;
         }
+
+        public frmChiTietHoaDon(List<frmChiTietDoanhThu.BillInfo> billInfo)
+        {
+        }
+
         List<BillInfo> info = new List<BillInfo>();
 
         private void frmChiTietHoaDon_Load(object sender, EventArgs e)

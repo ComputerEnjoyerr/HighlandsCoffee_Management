@@ -20,7 +20,6 @@ namespace GUI
         private string userRole;
         // Biến tạm
         Form currentForm = new Form();
-        int index = 0;
         private void OpenMain(Form childForm)
         {
             // Tắt form hiện tại để chuyển form mới

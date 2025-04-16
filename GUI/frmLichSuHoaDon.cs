@@ -72,20 +72,11 @@ namespace GUI
             }).ToList();
         }
 
-        private void dgvHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return; // Kiểm tra nếu không phải hàng dữ liệu
             // Lấy thông tin hóa đơn từ dòng được chọn
             string billID = dgvHoaDon.Rows[e.RowIndex].Cells["BillID"].Value.ToString();
-            string tableID = dgvHoaDon.Rows[e.RowIndex].Cells["TableID"].Value.ToString();
-            string employee = dgvHoaDon.Rows[e.RowIndex].Cells["Employee"].Value.ToString();
-            string date = dgvHoaDon.Rows[e.RowIndex].Cells["Date"].Value.ToString();
-            string totalAmount = dgvHoaDon.Rows[e.RowIndex].Cells["TotalAmount"].Value.ToString();
             // Hiển thị thông tin chi tiết hóa đơn
             List<BillInfo> billInfo = billInfos.Where(b => b.BillID == billID).ToList();
             // Bạn có thể sử dụng một form mới để hiển thị chi tiết hóa đơn
