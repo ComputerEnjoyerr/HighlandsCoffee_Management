@@ -33,6 +33,7 @@ namespace GUI
             this.Icon = new Icon("icon-1.ico");
 
             dgvBillInfo.DataSource = info;
+            
         }
     }
 }
