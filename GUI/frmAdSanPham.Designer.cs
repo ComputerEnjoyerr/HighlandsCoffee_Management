@@ -70,6 +70,8 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabCtrSanPham = new System.Windows.Forms.TabControl();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabCongThuc.SuspendLayout();
             this.pnlMain2.SuspendLayout();
             this.pnl1.SuspendLayout();
@@ -368,9 +370,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gpNguyenLieu.Controls.Add(this.dgvNguyenLieu);
             this.gpNguyenLieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpNguyenLieu.Location = new System.Drawing.Point(12, 212);
+            this.gpNguyenLieu.Location = new System.Drawing.Point(12, 259);
             this.gpNguyenLieu.Name = "gpNguyenLieu";
-            this.gpNguyenLieu.Size = new System.Drawing.Size(362, 409);
+            this.gpNguyenLieu.Size = new System.Drawing.Size(362, 362);
             this.gpNguyenLieu.TabIndex = 4;
             this.gpNguyenLieu.TabStop = false;
             this.gpNguyenLieu.Text = "NGUYÊN LIỆU";
@@ -383,7 +385,7 @@
             this.dgvNguyenLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNguyenLieu.Location = new System.Drawing.Point(3, 20);
             this.dgvNguyenLieu.Name = "dgvNguyenLieu";
-            this.dgvNguyenLieu.Size = new System.Drawing.Size(356, 386);
+            this.dgvNguyenLieu.Size = new System.Drawing.Size(356, 339);
             this.dgvNguyenLieu.TabIndex = 0;
             // 
             // gpSanPham
@@ -397,12 +399,14 @@
             this.gpSanPham.Controls.Add(this.button2);
             this.gpSanPham.Controls.Add(this.label1);
             this.gpSanPham.Controls.Add(this.label2);
+            this.gpSanPham.Controls.Add(this.label12);
             this.gpSanPham.Controls.Add(this.label3);
+            this.gpSanPham.Controls.Add(this.textBox8);
             this.gpSanPham.Controls.Add(this.textBox3);
             this.gpSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpSanPham.Location = new System.Drawing.Point(12, 13);
             this.gpSanPham.Name = "gpSanPham";
-            this.gpSanPham.Size = new System.Drawing.Size(362, 193);
+            this.gpSanPham.Size = new System.Drawing.Size(362, 240);
             this.gpSanPham.TabIndex = 2;
             this.gpSanPham.TabStop = false;
             this.gpSanPham.Text = "SẢN PHẨM";
@@ -416,7 +420,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(243, 134);
+            this.button4.Location = new System.Drawing.Point(249, 176);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(103, 53);
             this.button4.TabIndex = 14;
@@ -425,7 +429,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(125, 134);
+            this.button3.Location = new System.Drawing.Point(131, 176);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(103, 53);
             this.button3.TabIndex = 15;
@@ -441,7 +445,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(7, 134);
+            this.button2.Location = new System.Drawing.Point(13, 176);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(103, 53);
             this.button2.TabIndex = 16;
@@ -502,6 +506,22 @@
             this.tabCtrSanPham.SelectedIndex = 0;
             this.tabCtrSanPham.Size = new System.Drawing.Size(974, 661);
             this.tabCtrSanPham.TabIndex = 0;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(113, 113);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(158, 24);
+            this.textBox8.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(5, 119);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(70, 18);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Hình ảnh:";
             // 
             // frmAdSanPham
             // 
@@ -581,5 +601,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }
