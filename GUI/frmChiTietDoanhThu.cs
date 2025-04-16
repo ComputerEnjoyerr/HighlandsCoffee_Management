@@ -86,6 +86,8 @@ namespace GUI
             this.BackColor = ColorTranslator.FromHtml("#52362A");
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
 
+            this.Icon = new Icon("icon-1.ico");
+
             LoadData();
             int tongTien = 0;
             for (int  i = 0;  i < dgvChiTietDoanhThu.Rows.Count;  i++)

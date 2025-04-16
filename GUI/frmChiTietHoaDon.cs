@@ -28,6 +28,10 @@ namespace GUI
         private void frmChiTietHoaDon_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#52362A");
+            pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
+
+            this.Icon = new Icon("icon-1.ico");
+
             dgvBillInfo.DataSource = info;
         }
     }
