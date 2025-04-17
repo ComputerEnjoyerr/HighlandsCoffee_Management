@@ -46,6 +46,7 @@ namespace GUI
 
         private void frmChiTietDoanhThu_Load(object sender, EventArgs e)
         {
+            this.Icon = new Icon("icon-1.ico");
             //this.BackColor = ColorTranslator.FromHtml("#52362A");
             //pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
 

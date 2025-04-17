@@ -25,6 +25,7 @@ namespace GUI
 
         private void frmChiTietHoaDon_Load(object sender, EventArgs e)
         {
+            this.Icon = new Icon("icon-1.ico");
             this.BackColor = ColorTranslator.FromHtml("#52362A");
             //dgvBillInfo.DataSource = info;
         }

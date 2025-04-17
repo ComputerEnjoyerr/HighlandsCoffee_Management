@@ -41,7 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DAL_Account.cs" />
+    <Compile Include="DAL_Bill.cs" />
+    <Compile Include="DAL_BillInfo.cs" />
+    <Compile Include="DAL_Branch.cs" />
+    <Compile Include="DAL_Customer.cs" />
+    <Compile Include="DAL_Employee.cs" />
+    <Compile Include="DAL_Financial.cs" />
+    <Compile Include="DAL_Ingredient.cs" />
+    <Compile Include="DAL_Inventory.cs" />
+    <Compile Include="DAL_Promotion.cs" />
+    <Compile Include="DAL_PromotionCustomer.cs" />
+    <Compile Include="DAL_Recipe.cs" />
+    <Compile Include="DAL_Suplier.cs" />
+    <Compile Include="DAL_Table.cs" />
+    <Compile Include="DAL_Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
