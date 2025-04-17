@@ -80,7 +80,7 @@ namespace GUI
 
         private void bànĂnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAdBanAn fr = new frmAdBanAn();
+            frmBanAn fr = new frmBanAn();
             OpenMain(fr);
         }
 

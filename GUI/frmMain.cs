@@ -65,15 +65,20 @@ namespace GUI
             btnKho.BackColor = ColorTranslator.FromHtml("#52362A");
             btnKho.ForeColor = ColorTranslator.FromHtml("#DED4CA");
 
+            btnBanAn.BackColor = ColorTranslator.FromHtml("#52362A");
+            btnBanAn.ForeColor = ColorTranslator.FromHtml("#DED4CA");
+
             if (userRole == "Nhân viên")
             {
                 btnThemNV.Enabled = false;
                 btnThuNhap.Enabled = false;
                 btnKho.Enabled = false;
+                btnBanAn.Enabled = false;
 
                 btnThemNV.BackColor = ColorTranslator.FromHtml("#812F2D");
                 btnThuNhap.BackColor = ColorTranslator.FromHtml("#812F2D");
                 btnKho.BackColor = ColorTranslator.FromHtml("#812F2D");
+                btnBanAn.BackColor = ColorTranslator.FromHtml("#812F2D");
             }
         }
 
@@ -139,6 +144,12 @@ namespace GUI
         private void thuNhỏToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void btnBanAn_Click(object sender, EventArgs e)
+        {
+            frmBanAn frm = new frmBanAn();
+            OpenMain(frm);
         }
     }
 }

@@ -48,11 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAdBanAn.cs">
+    <Compile Include="frmBanAn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdBanAn.Designer.cs">
-      <DependentUpon>frmAdBanAn.cs</DependentUpon>
+    <Compile Include="frmBanAn.Designer.cs">
+      <DependentUpon>frmBanAn.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdChiNhanh.cs">
       <SubType>Form</SubType>
@@ -158,8 +158,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAdBanAn.resx">
-      <DependentUpon>frmAdBanAn.cs</DependentUpon>
+    <EmbeddedResource Include="frmBanAn.resx">
+      <DependentUpon>frmBanAn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdChiNhanh.resx">
       <DependentUpon>frmAdChiNhanh.cs</DependentUpon>
