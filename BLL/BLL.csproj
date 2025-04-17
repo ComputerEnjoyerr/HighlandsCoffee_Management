@@ -41,7 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BLL_Account.cs" />
+    <Compile Include="BLL_Bill.cs" />
+    <Compile Include="BLL_BillInfo.cs" />
+    <Compile Include="BLL_Branch.cs" />
+    <Compile Include="BLL_Customer.cs" />
+    <Compile Include="BLL_Employee.cs" />
+    <Compile Include="BLL_Financial.cs" />
+    <Compile Include="BLL_Ingredient.cs" />
+    <Compile Include="BLL_Inventory.cs" />
+    <Compile Include="BLL_Product.cs" />
+    <Compile Include="BLL_Promotion.cs" />
+    <Compile Include="BLL_PromotionCustomer.cs" />
+    <Compile Include="BLL_Recipe.cs" />
+    <Compile Include="BLL_Supplier.cs" />
+    <Compile Include="BLL_Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
