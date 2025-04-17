@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmAdBanAn : Form
+    public partial class frmBanAn : Form
     {
-        public frmAdBanAn()
+        public frmBanAn()
         {
             InitializeComponent();
         }
@@ -23,7 +23,6 @@ namespace GUI
             this.BackColor = ColorTranslator.FromHtml("#52362A");
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
             flpBanAn.BackColor = ColorTranslator.FromHtml("#DED4CA");
-            lbChiNhanh.ForeColor = ColorTranslator.FromHtml("#DED4CA");
 
             // Hiển thị các button Bàn ăn
             //var table = //Nhập dữ liệu để tạo bản;
