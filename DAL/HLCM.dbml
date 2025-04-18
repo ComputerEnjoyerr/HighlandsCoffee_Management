@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Highlands_Database" Class="HLCMDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-G3KQ7AL\SQLEXPRESS;Initial Catalog=Highlands_Database;Integrated Security=True;Encrypt=False;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="Highlands_DatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
+    <Type Name="ACCOUNT">
+      <Column Name="AccountId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccountName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="EMPLOYEE_ACCOUNT" Member="EMPLOYEE" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="EMPLOYEE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TABLES" Member="TABLEs">
+    <Type Name="TABLE">
+      <Column Name="TableId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TableName" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Capacity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TABLE_BILL" Member="BILLs" ThisKey="TableId" OtherKey="TableId" Type="BILL" />
+      <Association Name="BRANCH_TABLE" Member="BRANCH" ThisKey="BranchId" OtherKey="BranchId" Type="BRANCH" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BILL" Member="BILLs">
+    <Type Name="BILL">
+      <Column Name="BillId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TableId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="BILL_BILLINFO" Member="BILLINFOs" ThisKey="BillId" OtherKey="BillId" Type="BILLINFO" />
+      <Association Name="TABLE_BILL" Member="TABLE" ThisKey="TableId" OtherKey="TableId" Type="TABLE" IsForeignKey="true" />
+      <Association Name="BRANCH_BILL" Member="BRANCH" ThisKey="BranchId" OtherKey="BranchId" Type="BRANCH" IsForeignKey="true" />
+      <Association Name="CUSTOMER_BILL" Member="CUSTOMER" ThisKey="CustomerId" OtherKey="CustomerId" Type="CUSTOMER" IsForeignKey="true" />
+      <Association Name="EMPLOYEE_BILL" Member="EMPLOYEE" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="EMPLOYEE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BILLINFO" Member="BILLINFOs">
+    <Type Name="BILLINFO">
+      <Column Name="BillInfoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BillId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="BILL_BILLINFO" Member="BILL" ThisKey="BillId" OtherKey="BillId" Type="BILL" IsForeignKey="true" />
+      <Association Name="PRODUCT_BILLINFO" Member="PRODUCT" ThisKey="ProductId" OtherKey="ProductId" Type="PRODUCT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BRANCHES" Member="BRANCHes">
+    <Type Name="BRANCH">
+      <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BranchName" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="ManagerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="OpenTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="CloseTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="MonthlyRent" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="BRANCH_TABLE" Member="TABLEs" ThisKey="BranchId" OtherKey="BranchId" Type="TABLE" />
+      <Association Name="BRANCH_BILL" Member="BILLs" ThisKey="BranchId" OtherKey="BranchId" Type="BILL" />
+      <Association Name="BRANCH_EMPLOYEE" Member="EMPLOYEEs" ThisKey="BranchId" OtherKey="BranchId" Type="EMPLOYEE" />
+      <Association Name="BRANCH_FINANCIAL" Member="FINANCIALs" ThisKey="BranchId" OtherKey="BranchId" Type="FINANCIAL" />
+      <Association Name="BRANCH_INVENTORY" Member="INVENTORies" ThisKey="BranchId" OtherKey="BranchId" Type="INVENTORY" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMER" Member="CUSTOMERs">
+    <Type Name="CUSTOMER">
+      <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="Point" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tier" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="CUSTOMER_BILL" Member="BILLs" ThisKey="CustomerId" OtherKey="CustomerId" Type="BILL" />
+      <Association Name="CUSTOMER_PROMOTION_CUSTOMER" Member="PROMOTION_CUSTOMERs" ThisKey="CustomerId" OtherKey="CustomerId" Type="PROMOTION_CUSTOMER" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EMPLOYEE" Member="EMPLOYEEs">
+    <Type Name="EMPLOYEE">
+      <Column Name="EmployeeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="HireDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="BaseSalary" Type="System.Decimal" DbType="Decimal(8,0) NOT NULL" CanBeNull="false" />
+      <Column Name="OverTimeHours" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalSalary" Type="System.Decimal" DbType="Decimal(8,0)" CanBeNull="true" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="EMPLOYEE_ACCOUNT" Member="ACCOUNTs" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="ACCOUNT" />
+      <Association Name="EMPLOYEE_BILL" Member="BILLs" ThisKey="EmployeeId" OtherKey="EmployeeId" Type="BILL" />
+      <Association Name="BRANCH_EMPLOYEE" Member="BRANCH" ThisKey="BranchId" OtherKey="BranchId" Type="BRANCH" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FINANCIAL" Member="FINANCIALs">
+    <Type Name="FINANCIAL">
+      <Column Name="FinancialId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Revenue" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="OperationCost" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="IngredientCost" Type="System.Decimal" DbType="Decimal(12,0)" CanBeNull="true" />
+      <Column Name="Profit" Type="System.Decimal" DbType="Decimal(14,0)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="BRANCH_FINANCIAL" Member="BRANCH" ThisKey="BranchId" OtherKey="BranchId" Type="BRANCH" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.INGREDIENT" Member="INGREDIENTs">
+    <Type Name="INGREDIENT">
+      <Column Name="IngredientId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IngredientName" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="EXPDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="INGREDIENT_INVENTORY" Member="INVENTORies" ThisKey="IngredientId" OtherKey="IngredientId" Type="INVENTORY" />
+      <Association Name="INGREDIENT_RECIPE" Member="RECIPEs" ThisKey="IngredientId" OtherKey="IngredientId" Type="RECIPE" />
+      <Association Name="SUPPLIER_INGREDIENT" Member="SUPPLIER" ThisKey="SupplierId" OtherKey="SupplierId" Type="SUPPLIER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.INVENTORY" Member="INVENTORies">
+    <Type Name="INVENTORY">
+      <Column Name="InventoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngredientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RestockDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EXPDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EXPDate" Type="System.DateTime" DbType="Date" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(21,2)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="BRANCH_INVENTORY" Member="BRANCH" ThisKey="BranchId" OtherKey="BranchId" Type="BRANCH" IsForeignKey="true" />
+      <Association Name="INGREDIENT_INVENTORY" Member="INGREDIENT" ThisKey="IngredientId" OtherKey="IngredientId" Type="INGREDIENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PRODUCTS" Member="PRODUCTs">
+    <Type Name="PRODUCT">
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="PRODUCT_BILLINFO" Member="BILLINFOs" ThisKey="ProductId" OtherKey="ProductId" Type="BILLINFO" />
+      <Association Name="PRODUCT_RECIPE" Member="RECIPEs" ThisKey="ProductId" OtherKey="ProductId" Type="RECIPE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PROMOTION" Member="PROMOTIONs">
+    <Type Name="PROMOTION">
+      <Column Name="PromotionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PromotionName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RequirePoint" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(3,2)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="PROMOTION_PROMOTION_CUSTOMER" Member="PROMOTION_CUSTOMERs" ThisKey="PromotionId" OtherKey="PromotionId" Type="PROMOTION_CUSTOMER" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PROMOTION_CUSTOMER" Member="PROMOTION_CUSTOMERs">
+    <Type Name="PROMOTION_CUSTOMER">
+      <Column Name="CustomerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PromotionId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ApplyDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="CUSTOMER_PROMOTION_CUSTOMER" Member="CUSTOMER" ThisKey="CustomerId" OtherKey="CustomerId" Type="CUSTOMER" IsForeignKey="true" />
+      <Association Name="PROMOTION_PROMOTION_CUSTOMER" Member="PROMOTION" ThisKey="PromotionId" OtherKey="PromotionId" Type="PROMOTION" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RECIPE" Member="RECIPEs">
+    <Type Name="RECIPE">
+      <Column Name="RecipeId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IngredientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="INGREDIENT_RECIPE" Member="INGREDIENT" ThisKey="IngredientId" OtherKey="IngredientId" Type="INGREDIENT" IsForeignKey="true" />
+      <Association Name="PRODUCT_RECIPE" Member="PRODUCT" ThisKey="ProductId" OtherKey="ProductId" Type="PRODUCT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SUPPLIER" Member="SUPPLIERs">
+    <Type Name="SUPPLIER">
+      <Column Name="SupplierId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SUPPLIER_INGREDIENT" Member="INGREDIENTs" ThisKey="SupplierId" OtherKey="SupplierId" Type="INGREDIENT" />
+    </Type>
+  </Table>
+</Database>

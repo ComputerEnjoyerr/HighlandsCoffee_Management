@@ -43,6 +43,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.phóngToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thuNhỏToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnBanAn = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -53,6 +54,7 @@
             this.pnlMenu.Controls.Add(this.pictureBox1);
             this.pnlMenu.Controls.Add(this.btnKho);
             this.pnlMenu.Controls.Add(this.btnDangXuat);
+            this.pnlMenu.Controls.Add(this.btnBanAn);
             this.pnlMenu.Controls.Add(this.btnThemNV);
             this.pnlMenu.Controls.Add(this.btnThuNhap);
             this.pnlMenu.Controls.Add(this.btnLichSu);
@@ -83,7 +85,7 @@
             this.btnKho.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKho.Image = ((System.Drawing.Image)(resources.GetObject("btnKho.Image")));
-            this.btnKho.Location = new System.Drawing.Point(0, 465);
+            this.btnKho.Location = new System.Drawing.Point(0, 521);
             this.btnKho.Name = "btnKho";
             this.btnKho.Size = new System.Drawing.Size(186, 50);
             this.btnKho.TabIndex = 5;
@@ -100,7 +102,7 @@
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.Image")));
-            this.btnDangXuat.Location = new System.Drawing.Point(0, 521);
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 577);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(186, 50);
             this.btnDangXuat.TabIndex = 6;
@@ -120,7 +122,7 @@
             this.btnThemNV.Name = "btnThemNV";
             this.btnThemNV.Size = new System.Drawing.Size(186, 50);
             this.btnThemNV.TabIndex = 4;
-            this.btnThemNV.Text = "THÊM NHÂN VIÊN";
+            this.btnThemNV.Text = "QL NHÂN VIÊN";
             this.btnThemNV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemNV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThemNV.UseVisualStyleBackColor = true;
@@ -231,6 +233,22 @@
             this.thuNhỏToolStripMenuItem.Text = "Thu nhỏ";
             this.thuNhỏToolStripMenuItem.Click += new System.EventHandler(this.thuNhỏToolStripMenuItem_Click);
             // 
+            // btnBanAn
+            // 
+            this.btnBanAn.FlatAppearance.BorderSize = 0;
+            this.btnBanAn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBanAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBanAn.Image = ((System.Drawing.Image)(resources.GetObject("btnBanAn.Image")));
+            this.btnBanAn.Location = new System.Drawing.Point(0, 465);
+            this.btnBanAn.Name = "btnBanAn";
+            this.btnBanAn.Size = new System.Drawing.Size(186, 50);
+            this.btnBanAn.TabIndex = 4;
+            this.btnBanAn.Text = "QL BÀN ĂN";
+            this.btnBanAn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBanAn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBanAn.UseVisualStyleBackColor = true;
+            this.btnBanAn.Click += new System.EventHandler(this.btnBanAn_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -270,5 +288,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem phóngToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thuNhỏToolStripMenuItem;
+        private System.Windows.Forms.Button btnBanAn;
     }
 }

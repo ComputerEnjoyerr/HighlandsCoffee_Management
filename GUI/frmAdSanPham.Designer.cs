@@ -43,7 +43,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.pnl3 = new System.Windows.Forms.Panel();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,12 +65,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabCtrSanPham = new System.Windows.Forms.TabControl();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tabCongThuc.SuspendLayout();
             this.pnlMain2.SuspendLayout();
             this.pnl1.SuspendLayout();
@@ -86,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvNguyenLieu)).BeginInit();
             this.gpSanPham.SuspendLayout();
             this.tabCtrSanPham.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCongThuc
@@ -114,6 +115,7 @@
             // 
             this.pnl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl1.Controls.Add(this.numericUpDown1);
             this.pnl1.Controls.Add(this.comboBox3);
             this.pnl1.Controls.Add(this.comboBox2);
             this.pnl1.Controls.Add(this.comboBox1);
@@ -126,7 +128,6 @@
             this.pnl1.Controls.Add(this.label11);
             this.pnl1.Controls.Add(this.label10);
             this.pnl1.Controls.Add(this.label9);
-            this.pnl1.Controls.Add(this.textBox10);
             this.pnl1.Location = new System.Drawing.Point(5, 4);
             this.pnl1.Name = "pnl1";
             this.pnl1.Size = new System.Drawing.Size(407, 240);
@@ -135,7 +136,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(129, 142);
+            this.comboBox3.Location = new System.Drawing.Point(129, 144);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(158, 26);
             this.comboBox3.TabIndex = 27;
@@ -211,7 +212,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 150);
+            this.label11.Location = new System.Drawing.Point(21, 152);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 18);
             this.label11.TabIndex = 19;
@@ -234,13 +235,6 @@
             this.label9.Size = new System.Drawing.Size(88, 18);
             this.label9.TabIndex = 19;
             this.label9.Text = "Nguyên liệu:";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(129, 114);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(88, 24);
-            this.textBox10.TabIndex = 22;
             // 
             // pnl3
             // 
@@ -470,6 +464,15 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên sản phẩm:";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(5, 119);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(70, 18);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Hình ảnh:";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -478,6 +481,13 @@
             this.label3.Size = new System.Drawing.Size(63, 18);
             this.label3.TabIndex = 0;
             this.label3.Text = "Giá bán:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(113, 113);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(158, 24);
+            this.textBox8.TabIndex = 1;
             // 
             // textBox3
             // 
@@ -507,21 +517,12 @@
             this.tabCtrSanPham.Size = new System.Drawing.Size(974, 661);
             this.tabCtrSanPham.TabIndex = 0;
             // 
-            // textBox8
+            // numericUpDown1
             // 
-            this.textBox8.Location = new System.Drawing.Point(113, 113);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(158, 24);
-            this.textBox8.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 119);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 18);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Hình ảnh:";
+            this.numericUpDown1.Location = new System.Drawing.Point(129, 115);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(92, 24);
+            this.numericUpDown1.TabIndex = 28;
             // 
             // frmAdSanPham
             // 
@@ -553,6 +554,7 @@
             this.gpSanPham.ResumeLayout(false);
             this.gpSanPham.PerformLayout();
             this.tabCtrSanPham.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -600,8 +602,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
