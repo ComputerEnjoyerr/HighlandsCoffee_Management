@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdSanPham));
-            this.imlSanPham = new System.Windows.Forms.ImageList(this.components);
             this.tabCongThuc = new System.Windows.Forms.TabPage();
             this.pnlMain2 = new System.Windows.Forms.Panel();
             this.pnl1 = new System.Windows.Forms.Panel();
@@ -59,7 +56,6 @@
             this.dgvNguyenLieu1 = new System.Windows.Forms.DataGridView();
             this.gpSanPham = new System.Windows.Forms.GroupBox();
             this.picHinhAnh = new System.Windows.Forms.PictureBox();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.btnChonAnh = new System.Windows.Forms.Button();
             this.btnSuaSP = new System.Windows.Forms.Button();
             this.btnXoaSP = new System.Windows.Forms.Button();
@@ -69,6 +65,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabCtrSanPham = new System.Windows.Forms.TabControl();
             this.tabCongThuc.SuspendLayout();
@@ -87,41 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).BeginInit();
             this.tabCtrSanPham.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // imlSanPham
-            // 
-            this.imlSanPham.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlSanPham.ImageStream")));
-            this.imlSanPham.TransparentColor = System.Drawing.Color.Transparent;
-            this.imlSanPham.Images.SetKeyName(0, "americano.jpg");
-            this.imlSanPham.Images.SetKeyName(1, "bXiuDa.jpg");
-            this.imlSanPham.Images.SetKeyName(2, "c&c.jpg");
-            this.imlSanPham.Images.SetKeyName(3, "cappuccino.jpg");
-            this.imlSanPham.Images.SetKeyName(4, "cappuccinoDa.jpg");
-            this.imlSanPham.Images.SetKeyName(5, "chDaVien.jpg");
-            this.imlSanPham.Images.SetKeyName(6, "chDaXay.jpg");
-            this.imlSanPham.Images.SetKeyName(7, "cheeseCakes.jpg");
-            this.imlSanPham.Images.SetKeyName(8, "espresso.jpg");
-            this.imlSanPham.Images.SetKeyName(9, "kemDi.jpg");
-            this.imlSanPham.Images.SetKeyName(10, "latte.jpg");
-            this.imlSanPham.Images.SetKeyName(11, "latteDa.jpg");
-            this.imlSanPham.Images.SetKeyName(12, "mCaramel.jpg");
-            this.imlSanPham.Images.SetKeyName(13, "mMocha.jpg");
-            this.imlSanPham.Images.SetKeyName(14, "muffin.jpg");
-            this.imlSanPham.Images.SetKeyName(15, "pastry.jpg");
-            this.imlSanPham.Images.SetKeyName(16, "pCaramelFreeze.jpg");
-            this.imlSanPham.Images.SetKeyName(17, "pCassia.jpg");
-            this.imlSanPham.Images.SetKeyName(18, "pChoco.jpg");
-            this.imlSanPham.Images.SetKeyName(19, "pDenDa.jpg");
-            this.imlSanPham.Images.SetKeyName(20, "pDenNong.jpg");
-            this.imlSanPham.Images.SetKeyName(21, "pHanhNhan.jpg");
-            this.imlSanPham.Images.SetKeyName(22, "pKemSua.jpg");
-            this.imlSanPham.Images.SetKeyName(23, "pSuaDa.jpg");
-            this.imlSanPham.Images.SetKeyName(24, "pSuaNong.jpg");
-            this.imlSanPham.Images.SetKeyName(25, "tcDaVien.jpg");
-            this.imlSanPham.Images.SetKeyName(26, "trOiHong.jpg");
-            this.imlSanPham.Images.SetKeyName(27, "trQuaMongAnhDao.jpg");
-            this.imlSanPham.Images.SetKeyName(28, "trThachDao.jpg");
-            this.imlSanPham.Images.SetKeyName(29, "trThanhDao.jpg");
             // 
             // tabCongThuc
             // 
@@ -192,7 +154,7 @@
             // txtMaCT
             // 
             this.txtMaCT.Enabled = false;
-            this.txtMaCT.Location = new System.Drawing.Point(129, 21);
+            this.txtMaCT.Location = new System.Drawing.Point(130, 15);
             this.txtMaCT.Name = "txtMaCT";
             this.txtMaCT.Size = new System.Drawing.Size(158, 24);
             this.txtMaCT.TabIndex = 20;
@@ -263,6 +225,7 @@
             this.txtTimSP2.Name = "txtTimSP2";
             this.txtTimSP2.Size = new System.Drawing.Size(417, 24);
             this.txtTimSP2.TabIndex = 12;
+            this.txtTimSP2.TextChanged += new System.EventHandler(this.txtTimSP2_TextChanged);
             // 
             // label5
             // 
@@ -307,6 +270,7 @@
             this.txtTimCT.Name = "txtTimCT";
             this.txtTimCT.Size = new System.Drawing.Size(275, 24);
             this.txtTimCT.TabIndex = 9;
+            this.txtTimCT.TextChanged += new System.EventHandler(this.txtTimCT_TextChanged);
             // 
             // label6
             // 
@@ -375,6 +339,7 @@
             this.txtTimSP1.Name = "txtTimSP1";
             this.txtTimSP1.Size = new System.Drawing.Size(291, 24);
             this.txtTimSP1.TabIndex = 1;
+            this.txtTimSP1.TextChanged += new System.EventHandler(this.txtTimSP1_TextChanged);
             // 
             // gpNguyenLieu
             // 
@@ -408,7 +373,6 @@
             this.gpSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gpSanPham.Controls.Add(this.picHinhAnh);
-            this.gpSanPham.Controls.Add(this.txtId);
             this.gpSanPham.Controls.Add(this.btnChonAnh);
             this.gpSanPham.Controls.Add(this.btnSuaSP);
             this.gpSanPham.Controls.Add(this.btnXoaSP);
@@ -418,6 +382,7 @@
             this.gpSanPham.Controls.Add(this.label12);
             this.gpSanPham.Controls.Add(this.label3);
             this.gpSanPham.Controls.Add(this.txtPrice);
+            this.gpSanPham.Controls.Add(this.txtId);
             this.gpSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpSanPham.Location = new System.Drawing.Point(12, 13);
             this.gpSanPham.Name = "gpSanPham";
@@ -436,14 +401,6 @@
             this.picHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHinhAnh.TabIndex = 17;
             this.picHinhAnh.TabStop = false;
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(115, 23);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(158, 24);
-            this.txtId.TabIndex = 1;
-            this.txtId.Visible = false;
             // 
             // btnChonAnh
             // 
@@ -526,6 +483,14 @@
             this.txtPrice.Size = new System.Drawing.Size(158, 24);
             this.txtPrice.TabIndex = 1;
             // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(115, 23);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(158, 24);
+            this.txtId.TabIndex = 1;
+            this.txtId.Visible = false;
+            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -583,7 +548,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ImageList imlSanPham;
         private System.Windows.Forms.TabPage tabCongThuc;
         private System.Windows.Forms.Panel pnlMain2;
         private System.Windows.Forms.Panel pnl1;

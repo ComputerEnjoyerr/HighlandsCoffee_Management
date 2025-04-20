@@ -30,10 +30,8 @@
         {
             this.txtTim = new System.Windows.Forms.TextBox();
             this.lbTim = new System.Windows.Forms.Label();
-            this.btnTim = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.rtbTen = new System.Windows.Forms.RichTextBox();
@@ -46,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.flpNhaCC = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
@@ -55,8 +54,9 @@
             this.txtTim.Location = new System.Drawing.Point(549, 44);
             this.txtTim.Margin = new System.Windows.Forms.Padding(4);
             this.txtTim.Name = "txtTim";
-            this.txtTim.Size = new System.Drawing.Size(206, 24);
+            this.txtTim.Size = new System.Drawing.Size(412, 24);
             this.txtTim.TabIndex = 0;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // lbTim
             // 
@@ -68,21 +68,11 @@
             this.lbTim.TabIndex = 28;
             this.lbTim.Text = "Tìm NCC:";
             // 
-            // btnTim
-            // 
-            this.btnTim.Location = new System.Drawing.Point(762, 40);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(79, 33);
-            this.btnTim.TabIndex = 1;
-            this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = true;
-            // 
             // pnlMain
             // 
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlMain.Controls.Add(this.btnClear);
-            this.pnlMain.Controls.Add(this.btnUpdate);
             this.pnlMain.Controls.Add(this.btnDelete);
             this.pnlMain.Controls.Add(this.btnAdd);
             this.pnlMain.Controls.Add(this.rtbTen);
@@ -95,6 +85,7 @@
             this.pnlMain.Controls.Add(this.label1);
             this.pnlMain.Controls.Add(this.txtMa);
             this.pnlMain.Controls.Add(this.label2);
+            this.pnlMain.Controls.Add(this.btnUpdate);
             this.pnlMain.Location = new System.Drawing.Point(13, 12);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(445, 637);
@@ -109,16 +100,6 @@
             this.btnClear.Text = "Hoàn tác";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(296, 418);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(125, 49);
-            this.btnUpdate.TabIndex = 8;
-            this.btnUpdate.Text = "Sửa";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -233,6 +214,16 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã công ty:";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(296, 418);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(125, 49);
+            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Text = "Sửa";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // flpNhaCC
             // 
             this.flpNhaCC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -252,7 +243,6 @@
             this.Controls.Add(this.flpNhaCC);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.txtTim);
-            this.Controls.Add(this.btnTim);
             this.Controls.Add(this.lbTim);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -270,7 +260,6 @@
 
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label lbTim;
-        private System.Windows.Forms.Button btnTim;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label7;

@@ -32,10 +32,9 @@ namespace GUI
             rtbTen.Focus();
         }
 
-        private void LoadNhaCC()
+        private void LoadNhaCC(List<Supplier> suppliers)
         {
             flpNhaCC.Controls.Clear();
-            var suppliers = supplierBLL.GetAll();
             if (suppliers.Count > 0)
             {
                 // Hiển thị thông tin nhà cc bằng các panel
@@ -104,7 +103,7 @@ namespace GUI
             flpNhaCC.BackColor = ColorTranslator.FromHtml("#DED4CA");
             lbTim.ForeColor = ColorTranslator.FromHtml("#DED4CA");
 
-            LoadNhaCC();
+            LoadNhaCC(supplierBLL.GetAll());
         }
 
         private void panelNhaCC_Click(object sender, EventArgs e)
@@ -146,7 +145,7 @@ namespace GUI
                 // Thêm nhà cung cấp
                 supplierBLL.Add(supplier);
                 MessageBox.Show("Thêm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadNhaCC();
+                LoadNhaCC(supplierBLL.GetAll());
                 ClearDuLieu();
               
             } catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -171,7 +170,7 @@ namespace GUI
                     }
                     // Xóa nhà cung cấp
                     supplierBLL.Delete(id);
-                    LoadNhaCC();
+                    LoadNhaCC(supplierBLL.GetAll());
                     ClearDuLieu();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -210,12 +209,18 @@ namespace GUI
                     };
                     // Sửa nhà cung cấp
                     supplierBLL.Update(supplier);
-                    LoadNhaCC();
+                    LoadNhaCC(supplierBLL.GetAll());
                     ClearDuLieu();
 
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
+        }
+
+        private void txtTim_TextChanged(object sender, EventArgs e)
+        {
+            var data = supplierBLL.GetAll().Where(p => p.SupplierName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
+            LoadNhaCC(data);
         }
     }
 }

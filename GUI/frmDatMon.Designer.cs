@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDatMon));
             this.tabBanAn = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.flpBan = new System.Windows.Forms.FlowLayoutPanel();
@@ -41,14 +43,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lbBan = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.flpSanPham = new System.Windows.Forms.FlowLayoutPanel();
+            this.imlSanPham = new System.Windows.Forms.ImageList(this.components);
             this.tabBanAn.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabDatMon.SuspendLayout();
             this.pnlMain2.SuspendLayout();
             this.pnlDatMon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.SuspendLayout();
             // 
             // tabBanAn
@@ -113,7 +116,7 @@
             this.textBox2.Location = new System.Drawing.Point(116, 30);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(274, 24);
+            this.textBox2.Size = new System.Drawing.Size(325, 24);
             this.textBox2.TabIndex = 7;
             // 
             // lbTim
@@ -135,10 +138,10 @@
             this.pnlDatMon.Controls.Add(this.button2);
             this.pnlDatMon.Controls.Add(this.button1);
             this.pnlDatMon.Controls.Add(this.lbBan);
-            this.pnlDatMon.Controls.Add(this.dataGridView1);
-            this.pnlDatMon.Location = new System.Drawing.Point(397, 3);
+            this.pnlDatMon.Controls.Add(this.dgvSanPham);
+            this.pnlDatMon.Location = new System.Drawing.Point(448, 3);
             this.pnlDatMon.Name = "pnlDatMon";
-            this.pnlDatMon.Size = new System.Drawing.Size(377, 671);
+            this.pnlDatMon.Size = new System.Drawing.Size(326, 671);
             this.pnlDatMon.TabIndex = 5;
             // 
             // button4
@@ -154,7 +157,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(243, 609);
+            this.button3.Location = new System.Drawing.Point(192, 609);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(122, 49);
             this.button3.TabIndex = 3;
@@ -191,15 +194,16 @@
             this.lbBan.TabIndex = 1;
             this.lbBan.Text = "Bàn....";
             // 
-            // dataGridView1
+            // dgvSanPham
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 74);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(380, 338);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSanPham.Location = new System.Drawing.Point(0, 74);
+            this.dgvSanPham.Name = "dgvSanPham";
+            this.dgvSanPham.Size = new System.Drawing.Size(323, 338);
+            this.dgvSanPham.TabIndex = 0;
             // 
             // flpSanPham
             // 
@@ -209,8 +213,42 @@
             this.flpSanPham.AutoScroll = true;
             this.flpSanPham.Location = new System.Drawing.Point(3, 57);
             this.flpSanPham.Name = "flpSanPham";
-            this.flpSanPham.Size = new System.Drawing.Size(388, 617);
+            this.flpSanPham.Size = new System.Drawing.Size(439, 617);
             this.flpSanPham.TabIndex = 4;
+            // 
+            // imlSanPham
+            // 
+            this.imlSanPham.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlSanPham.ImageStream")));
+            this.imlSanPham.TransparentColor = System.Drawing.Color.Transparent;
+            this.imlSanPham.Images.SetKeyName(0, "americano.jpg");
+            this.imlSanPham.Images.SetKeyName(1, "bXiuDa.jpg");
+            this.imlSanPham.Images.SetKeyName(2, "c&c.jpg");
+            this.imlSanPham.Images.SetKeyName(3, "cappuccino.jpg");
+            this.imlSanPham.Images.SetKeyName(4, "cappuccinoDa.jpg");
+            this.imlSanPham.Images.SetKeyName(5, "chDaVien.jpg");
+            this.imlSanPham.Images.SetKeyName(6, "chDaXay.jpg");
+            this.imlSanPham.Images.SetKeyName(7, "cheeseCakes.jpg");
+            this.imlSanPham.Images.SetKeyName(8, "espresso.jpg");
+            this.imlSanPham.Images.SetKeyName(9, "kemDi.jpg");
+            this.imlSanPham.Images.SetKeyName(10, "latte.jpg");
+            this.imlSanPham.Images.SetKeyName(11, "mCaramel.jpg");
+            this.imlSanPham.Images.SetKeyName(12, "mMocha.jpg");
+            this.imlSanPham.Images.SetKeyName(13, "muffin.jpg");
+            this.imlSanPham.Images.SetKeyName(14, "pastry.jpg");
+            this.imlSanPham.Images.SetKeyName(15, "pCaramelFreeze.jpg");
+            this.imlSanPham.Images.SetKeyName(16, "pCassia.jpg");
+            this.imlSanPham.Images.SetKeyName(17, "pChoco.jpg");
+            this.imlSanPham.Images.SetKeyName(18, "pDenDa.jpg");
+            this.imlSanPham.Images.SetKeyName(19, "pDenNong.jpg");
+            this.imlSanPham.Images.SetKeyName(20, "pHanhNhan.jpg");
+            this.imlSanPham.Images.SetKeyName(21, "pKemSua.jpg");
+            this.imlSanPham.Images.SetKeyName(22, "pSuaDa.jpg");
+            this.imlSanPham.Images.SetKeyName(23, "pSuaNong.jpg");
+            this.imlSanPham.Images.SetKeyName(24, "tcDaVien.jpg");
+            this.imlSanPham.Images.SetKeyName(25, "trOiHong.jpg");
+            this.imlSanPham.Images.SetKeyName(26, "trQuaMongAnhDao.jpg");
+            this.imlSanPham.Images.SetKeyName(27, "trThachDao.jpg");
+            this.imlSanPham.Images.SetKeyName(28, "trThanhDao.jpg");
             // 
             // frmDatMon
             // 
@@ -230,7 +268,7 @@
             this.pnlMain2.PerformLayout();
             this.pnlDatMon.ResumeLayout(false);
             this.pnlDatMon.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,7 +288,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbBan;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.FlowLayoutPanel flpSanPham;
+        private System.Windows.Forms.ImageList imlSanPham;
     }
 }

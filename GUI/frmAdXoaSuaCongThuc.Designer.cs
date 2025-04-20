@@ -34,11 +34,11 @@
             this.btnXoaCT = new System.Windows.Forms.Button();
             this.cboNguyenLieu = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtDVT = new System.Windows.Forms.TextBox();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvCongThuc = new System.Windows.Forms.DataGridView();
-            this.txtDVT = new System.Windows.Forms.TextBox();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCongThuc)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +47,6 @@
             // 
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlMain.Controls.Add(this.txtMaCT);
             this.pnlMain.Controls.Add(this.btnSuaCT);
             this.pnlMain.Controls.Add(this.btnXoaCT);
             this.pnlMain.Controls.Add(this.cboNguyenLieu);
@@ -56,6 +55,7 @@
             this.pnlMain.Controls.Add(this.txtSoLuong);
             this.pnlMain.Controls.Add(this.label10);
             this.pnlMain.Controls.Add(this.label9);
+            this.pnlMain.Controls.Add(this.txtMaCT);
             this.pnlMain.Location = new System.Drawing.Point(20, 18);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMain.Name = "pnlMain";
@@ -64,7 +64,7 @@
             // 
             // txtMaCT
             // 
-            this.txtMaCT.Location = new System.Drawing.Point(3, 3);
+            this.txtMaCT.Location = new System.Drawing.Point(132, 30);
             this.txtMaCT.Name = "txtMaCT";
             this.txtMaCT.Size = new System.Drawing.Size(10, 24);
             this.txtMaCT.TabIndex = 35;
@@ -108,6 +108,13 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Đơn vị tính:";
             // 
+            // txtDVT
+            // 
+            this.txtDVT.Location = new System.Drawing.Point(132, 90);
+            this.txtDVT.Name = "txtDVT";
+            this.txtDVT.Size = new System.Drawing.Size(158, 24);
+            this.txtDVT.TabIndex = 30;
+            // 
             // txtSoLuong
             // 
             this.txtSoLuong.Location = new System.Drawing.Point(132, 60);
@@ -146,13 +153,6 @@
             this.dgvCongThuc.Size = new System.Drawing.Size(724, 436);
             this.dgvCongThuc.TabIndex = 1;
             this.dgvCongThuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCongThuc_CellClick);
-            // 
-            // txtDVT
-            // 
-            this.txtDVT.Location = new System.Drawing.Point(132, 90);
-            this.txtDVT.Name = "txtDVT";
-            this.txtDVT.Size = new System.Drawing.Size(158, 24);
-            this.txtDVT.TabIndex = 30;
             // 
             // frmAdXoaSuaCongThuc
             // 

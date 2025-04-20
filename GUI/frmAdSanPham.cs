@@ -369,5 +369,23 @@ namespace GUI
                 MessageBox.Show("Hãy thêm công thức trước khi xem chi tiết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void txtTimSP1_TextChanged(object sender, EventArgs e)
+        {
+            var data = productBLL.GetAll().Where(p => p.ProductName.ToLower().Contains(txtTimSP1.Text.ToLower())).ToList();
+            dgvSanPham1.DataSource = data;
+        }
+
+        private void txtTimSP2_TextChanged(object sender, EventArgs e)
+        {
+            var data = productBLL.GetAll().Where(p => p.ProductName.ToLower().Contains(txtTimSP2.Text.ToLower())).ToList();
+            dgvSanPham2.DataSource = data;
+        }
+
+        private void txtTimCT_TextChanged(object sender, EventArgs e)
+        {
+            var data = ingredientBLL.GetAll().Where(p => p.IngredientName.ToLower().Contains(txtTimCT.Text.ToLower())).ToList();
+            dgvNguyenLieu2.DataSource = data;
+        }
     }
 }
