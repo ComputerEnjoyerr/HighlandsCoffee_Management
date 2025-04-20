@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,9 +77,40 @@ namespace GUI
             {
                 Size = new Size(panel.Width, panel.Width),
                 Tag = product,
-                Image = imlSanPham.Images[0],
                 SizeMode = PictureBoxSizeMode.StretchImage,
             };
+
+            // Xác định đường dẫn ảnh
+            string imagePath;
+            if (string.IsNullOrEmpty(product.Image))
+            {
+                // Sử dụng ảnh mặc định nếu product.Image rỗng hoặc không tồn tại
+                imagePath = Path.Combine(Application.StartupPath, "Products", "americano.jpg");
+            }
+            else
+            {
+                imagePath = Path.Combine(Application.StartupPath, "Products", product.Image);
+            }
+
+            // Tải ảnh vào PictureBox
+            try
+            {
+                if (File.Exists(imagePath))
+                {
+                    pictureBox.Image = Image.FromFile(imagePath);
+                }
+                else
+                {
+                    // Nếu cả ảnh mặc định cũng không tồn tại, sử dụng ảnh tạm từ imlSanPham
+                    pictureBox.Image = imlSanPham.Images[1];
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu không tải được ảnh
+                Console.WriteLine("Lỗi khi tải ảnh: " + ex.Message);
+                pictureBox.Image = imlSanPham.Images[1];
+            }
             Label ten = new Label
             {
                 Text = product.ProductName,
