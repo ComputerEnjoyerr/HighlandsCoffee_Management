@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAdXoaSuaCongThuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdXoaSuaCongThuc.Designer.cs">
+      <DependentUpon>frmAdXoaSuaCongThuc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBanAn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAdXoaSuaCongThuc.resx">
+      <DependentUpon>frmAdXoaSuaCongThuc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBanAn.resx">
       <DependentUpon>frmBanAn.cs</DependentUpon>
     </EmbeddedResource>
