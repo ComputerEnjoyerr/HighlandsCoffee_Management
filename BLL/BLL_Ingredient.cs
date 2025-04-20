@@ -10,7 +10,7 @@ namespace BLL
 {
     public class BLL_Ingredient
     {
-        DAL_Ingredient ingredient = new DAL_Ingredient();
+        private DAL_Ingredient ingredient = new DAL_Ingredient();
 
         public List<Ingredient> GetAll()
         {

@@ -10,7 +10,7 @@ namespace BLL
 {
     public class BLL_Product
     {
-        DAL_Product product = new DAL_Product();
+        private DAL_Product product = new DAL_Product();
 
         public List<Product> GetAll()
         {

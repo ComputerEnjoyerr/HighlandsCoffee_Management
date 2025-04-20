@@ -10,7 +10,7 @@ namespace BLL
 {
     public class BLL_Recipe
     {
-        DAL_Recipe recipe = new DAL_Recipe();
+        private DAL_Recipe recipe = new DAL_Recipe();
 
         public List<Recipe> GetAll()
         {

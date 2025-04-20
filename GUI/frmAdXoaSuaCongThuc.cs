@@ -98,7 +98,7 @@ namespace GUI
                 {
                     if (!int.TryParse(txtMaCT.Text, out int id) || id < 0)
                     {
-                        MessageBox.Show("Vui lòng chọn công thức");
+                        MessageBox.Show("Vui lòng chọn công thức", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     // Xóa công thức
@@ -122,17 +122,17 @@ namespace GUI
                 {
                     if (!double.TryParse(txtSoLuong.Text, out double qty) || qty < 0)
                     {
-                        MessageBox.Show("Vui lòng nhập số lượng");
+                        MessageBox.Show("Vui lòng nhập số lượng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     if (string.IsNullOrEmpty(txtDVT.Text))
                     {
-                        MessageBox.Show("Vui lòng nhập hoặc chọn đơn vị tính");
+                        MessageBox.Show("Vui lòng nhập hoặc chọn đơn vị tính", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     if (!int.TryParse(txtMaCT.Text, out int id) || id < 0)
                     {
-                        MessageBox.Show("Vui lòng chọn công thức");
+                        MessageBox.Show("Vui lòng chọn công thức", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 

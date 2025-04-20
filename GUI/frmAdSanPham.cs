@@ -190,12 +190,12 @@ namespace GUI
             {
                 if (string.IsNullOrEmpty(txtName.Text))
                 {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin sản phẩm");
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin sản phẩm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 if (string.IsNullOrEmpty(txtPrice.Text) || !txtPrice.Text.All(char.IsDigit))
                 {
-                    MessageBox.Show("Vui lòng nhập giá sản phẩm hợp lệ");
+                    MessageBox.Show("Vui lòng nhập giá sản phẩm hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 Product product = new Product
@@ -251,7 +251,7 @@ namespace GUI
                     if (File.Exists(oldImagePath) && oldImagePath != imagePath)
                     {
                         File.Delete(oldImagePath);
-                        MessageBox.Show("Xóa hình ảnh cũ thành công");
+                        MessageBox.Show("Xóa hình ảnh cũ thành công", "Thành cô", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     // Cập nhật sản phẩm
                     productBLL.Update(product);
@@ -274,7 +274,7 @@ namespace GUI
                 {
                     if (string.IsNullOrEmpty(txtId.Text))
                     {
-                        MessageBox.Show("Vui lòng chọn sản phẩm để xóa");
+                        MessageBox.Show("Vui lòng chọn sản phẩm để xóa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                     
@@ -348,10 +348,10 @@ namespace GUI
                 }
                 else
                 {
-                    MessageBox.Show("Hãy thêm công thức trước khi sửa hoặc xóa");
+                    MessageBox.Show("Hãy thêm công thức trước khi xem chi tiết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else MessageBox.Show("Vui lòng chọn sản phẩm trước khi xem");
+            else MessageBox.Show("Vui lòng chọn sản phẩm trước khi xem", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void dgvSanPham2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -366,7 +366,7 @@ namespace GUI
             }
             else
             {
-                MessageBox.Show("Hãy thêm công thức trước khi sửa hoặc xóa");
+                MessageBox.Show("Hãy thêm công thức trước khi xem chi tiết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
