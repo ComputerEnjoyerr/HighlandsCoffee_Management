@@ -32,20 +32,20 @@
             this.lbTim = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.btnHoanTac = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.txtTenCT = new System.Windows.Forms.RichTextBox();
-            this.txtDiaChi = new System.Windows.Forms.RichTextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lbEmail = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.lbDienThoai = new System.Windows.Forms.Label();
-            this.lbDiaChi = new System.Windows.Forms.Label();
-            this.lbTenCT = new System.Windows.Forms.Label();
-            this.txtMaCT = new System.Windows.Forms.TextBox();
-            this.lbMaCT = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.fpnNhaCC = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +55,7 @@
             this.textBox12.Location = new System.Drawing.Point(549, 44);
             this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(206, 28);
+            this.textBox12.Size = new System.Drawing.Size(206, 32);
             this.textBox12.TabIndex = 29;
             // 
             // lbTim
@@ -64,7 +64,7 @@
             this.lbTim.Location = new System.Drawing.Point(467, 47);
             this.lbTim.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTim.Name = "lbTim";
-            this.lbTim.Size = new System.Drawing.Size(92, 24);
+            this.lbTim.Size = new System.Drawing.Size(108, 26);
             this.lbTim.TabIndex = 28;
             this.lbTim.Text = "Tìm NCC:";
             // 
@@ -81,153 +81,153 @@
             // 
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlMain.Controls.Add(this.btnHoanTac);
-            this.pnlMain.Controls.Add(this.btnSua);
-            this.pnlMain.Controls.Add(this.btnXoa);
-            this.pnlMain.Controls.Add(this.btnThem);
-            this.pnlMain.Controls.Add(this.txtTenCT);
-            this.pnlMain.Controls.Add(this.txtDiaChi);
-            this.pnlMain.Controls.Add(this.txtEmail);
-            this.pnlMain.Controls.Add(this.lbEmail);
-            this.pnlMain.Controls.Add(this.txtPhone);
-            this.pnlMain.Controls.Add(this.lbDienThoai);
-            this.pnlMain.Controls.Add(this.lbDiaChi);
-            this.pnlMain.Controls.Add(this.lbTenCT);
-            this.pnlMain.Controls.Add(this.txtMaCT);
-            this.pnlMain.Controls.Add(this.lbMaCT);
+            this.pnlMain.Controls.Add(this.button6);
+            this.pnlMain.Controls.Add(this.button4);
+            this.pnlMain.Controls.Add(this.button3);
+            this.pnlMain.Controls.Add(this.button2);
+            this.pnlMain.Controls.Add(this.richTextBox2);
+            this.pnlMain.Controls.Add(this.richTextBox1);
+            this.pnlMain.Controls.Add(this.textBox7);
+            this.pnlMain.Controls.Add(this.label7);
+            this.pnlMain.Controls.Add(this.textBox4);
+            this.pnlMain.Controls.Add(this.label4);
+            this.pnlMain.Controls.Add(this.label3);
+            this.pnlMain.Controls.Add(this.label1);
+            this.pnlMain.Controls.Add(this.textBox2);
+            this.pnlMain.Controls.Add(this.label2);
             this.pnlMain.Location = new System.Drawing.Point(13, 12);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(445, 646);
             this.pnlMain.TabIndex = 25;
             // 
-            // btnHoanTac
+            // button6
             // 
-            this.btnHoanTac.Location = new System.Drawing.Point(198, 358);
-            this.btnHoanTac.Name = "btnHoanTac";
-            this.btnHoanTac.Size = new System.Drawing.Size(144, 56);
-            this.btnHoanTac.TabIndex = 31;
-            this.btnHoanTac.Text = "Hoàn tác";
-            this.btnHoanTac.UseVisualStyleBackColor = true;
+            this.button6.Location = new System.Drawing.Point(198, 358);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(144, 56);
+            this.button6.TabIndex = 31;
+            this.button6.Text = "Hoàn tác";
+            this.button6.UseVisualStyleBackColor = true;
             // 
-            // btnSua
+            // button4
             // 
-            this.btnSua.Location = new System.Drawing.Point(35, 433);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(144, 56);
-            this.btnSua.TabIndex = 32;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
+            this.button4.Location = new System.Drawing.Point(35, 433);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(144, 56);
+            this.button4.TabIndex = 32;
+            this.button4.Text = "Sửa";
+            this.button4.UseVisualStyleBackColor = true;
             // 
-            // btnXoa
+            // button3
             // 
-            this.btnXoa.Location = new System.Drawing.Point(199, 433);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(144, 56);
-            this.btnXoa.TabIndex = 33;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(199, 433);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(144, 56);
+            this.button3.TabIndex = 33;
+            this.button3.Text = "Xóa";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // btnThem
+            // button2
             // 
-            this.btnThem.Location = new System.Drawing.Point(34, 358);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(144, 56);
-            this.btnThem.TabIndex = 34;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(34, 358);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(144, 56);
+            this.button2.TabIndex = 34;
+            this.button2.Text = "Thêm";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // txtTenCT
+            // richTextBox2
             // 
-            this.txtTenCT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTenCT.Location = new System.Drawing.Point(129, 63);
-            this.txtTenCT.Name = "txtTenCT";
-            this.txtTenCT.Size = new System.Drawing.Size(270, 101);
-            this.txtTenCT.TabIndex = 30;
-            this.txtTenCT.Text = "";
+            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox2.Location = new System.Drawing.Point(129, 63);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(270, 101);
+            this.richTextBox2.TabIndex = 30;
+            this.richTextBox2.Text = "";
             // 
-            // txtDiaChi
+            // richTextBox1
             // 
-            this.txtDiaChi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDiaChi.Location = new System.Drawing.Point(129, 170);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(270, 106);
-            this.txtDiaChi.TabIndex = 30;
-            this.txtDiaChi.Text = "";
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox1.Location = new System.Drawing.Point(129, 170);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(270, 106);
+            this.richTextBox1.TabIndex = 30;
+            this.richTextBox1.Text = "";
             // 
-            // txtEmail
+            // textBox7
             // 
-            this.txtEmail.Location = new System.Drawing.Point(129, 315);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(267, 28);
-            this.txtEmail.TabIndex = 1;
+            this.textBox7.Location = new System.Drawing.Point(129, 315);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(267, 32);
+            this.textBox7.TabIndex = 1;
             // 
-            // lbEmail
+            // label7
             // 
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(32, 321);
-            this.lbEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(62, 24);
-            this.lbEmail.TabIndex = 0;
-            this.lbEmail.Text = "Email:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(32, 321);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 26);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Email:";
             // 
-            // txtPhone
+            // textBox4
             // 
-            this.txtPhone.Location = new System.Drawing.Point(129, 283);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(154, 28);
-            this.txtPhone.TabIndex = 1;
+            this.textBox4.Location = new System.Drawing.Point(129, 283);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(154, 32);
+            this.textBox4.TabIndex = 1;
             // 
-            // lbDienThoai
+            // label4
             // 
-            this.lbDienThoai.AutoSize = true;
-            this.lbDienThoai.Location = new System.Drawing.Point(32, 289);
-            this.lbDienThoai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbDienThoai.Name = "lbDienThoai";
-            this.lbDienThoai.Size = new System.Drawing.Size(99, 24);
-            this.lbDienThoai.TabIndex = 0;
-            this.lbDienThoai.Text = "Điện thoại:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(32, 289);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 26);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Điện thoại:";
             // 
-            // lbDiaChi
+            // label3
             // 
-            this.lbDiaChi.AutoSize = true;
-            this.lbDiaChi.Location = new System.Drawing.Point(32, 170);
-            this.lbDiaChi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbDiaChi.Name = "lbDiaChi";
-            this.lbDiaChi.Size = new System.Drawing.Size(72, 24);
-            this.lbDiaChi.TabIndex = 0;
-            this.lbDiaChi.Text = "Địa chỉ:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 170);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 26);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Địa chỉ:";
             // 
-            // lbTenCT
+            // label1
             // 
-            this.lbTenCT.AutoSize = true;
-            this.lbTenCT.Location = new System.Drawing.Point(32, 63);
-            this.lbTenCT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbTenCT.Name = "lbTenCT";
-            this.lbTenCT.Size = new System.Drawing.Size(115, 24);
-            this.lbTenCT.TabIndex = 0;
-            this.lbTenCT.Text = "Tên công ty:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(32, 63);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 26);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên công ty:";
             // 
-            // txtMaCT
+            // textBox2
             // 
-            this.txtMaCT.Enabled = false;
-            this.txtMaCT.Location = new System.Drawing.Point(129, 32);
-            this.txtMaCT.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaCT.Name = "txtMaCT";
-            this.txtMaCT.Size = new System.Drawing.Size(154, 28);
-            this.txtMaCT.TabIndex = 1;
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(129, 32);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(154, 32);
+            this.textBox2.TabIndex = 1;
             // 
-            // lbMaCT
+            // label2
             // 
-            this.lbMaCT.AutoSize = true;
-            this.lbMaCT.Location = new System.Drawing.Point(32, 38);
-            this.lbMaCT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbMaCT.Name = "lbMaCT";
-            this.lbMaCT.Size = new System.Drawing.Size(107, 24);
-            this.lbMaCT.TabIndex = 0;
-            this.lbMaCT.Text = "Mã công ty:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 26);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Mã công ty:";
             // 
             // fpnNhaCC
             // 
@@ -242,7 +242,7 @@
             // 
             // frmAdNhaCungCap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 661);
             this.Controls.Add(this.fpnNhaCC);
@@ -268,20 +268,20 @@
         private System.Windows.Forms.Label lbTim;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label lbEmail;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.Label lbDienThoai;
-        private System.Windows.Forms.Label lbDiaChi;
-        private System.Windows.Forms.Label lbTenCT;
-        private System.Windows.Forms.TextBox txtMaCT;
-        private System.Windows.Forms.Label lbMaCT;
-        private System.Windows.Forms.RichTextBox txtTenCT;
-        private System.Windows.Forms.RichTextBox txtDiaChi;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.FlowLayoutPanel fpnNhaCC;
-        private System.Windows.Forms.Button btnHoanTac;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }
