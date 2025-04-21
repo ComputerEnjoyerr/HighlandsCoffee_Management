@@ -37,17 +37,17 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.cbHang = new System.Windows.Forms.ComboBox();
+            this.txtDiem = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMaKH = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             this.pnlMain.SuspendLayout();
@@ -58,7 +58,7 @@
             this.textBox12.Location = new System.Drawing.Point(136, 242);
             this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(280, 32);
+            this.textBox12.Size = new System.Drawing.Size(280, 24);
             this.textBox12.TabIndex = 24;
             // 
             // lbTim
@@ -67,7 +67,7 @@
             this.lbTim.Location = new System.Drawing.Point(11, 245);
             this.lbTim.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTim.Name = "lbTim";
-            this.lbTim.Size = new System.Drawing.Size(172, 26);
+            this.lbTim.Size = new System.Drawing.Size(117, 18);
             this.lbTim.TabIndex = 23;
             this.lbTim.Text = "Tìm khách hàng:";
             // 
@@ -101,17 +101,17 @@
             this.pnlMain.Controls.Add(this.button4);
             this.pnlMain.Controls.Add(this.button3);
             this.pnlMain.Controls.Add(this.button2);
-            this.pnlMain.Controls.Add(this.comboBox1);
-            this.pnlMain.Controls.Add(this.textBox7);
+            this.pnlMain.Controls.Add(this.cbHang);
+            this.pnlMain.Controls.Add(this.txtDiem);
             this.pnlMain.Controls.Add(this.label7);
             this.pnlMain.Controls.Add(this.label5);
-            this.pnlMain.Controls.Add(this.textBox4);
+            this.pnlMain.Controls.Add(this.txtPhone);
             this.pnlMain.Controls.Add(this.label4);
-            this.pnlMain.Controls.Add(this.textBox3);
+            this.pnlMain.Controls.Add(this.txtEmail);
             this.pnlMain.Controls.Add(this.label3);
-            this.pnlMain.Controls.Add(this.textBox1);
+            this.pnlMain.Controls.Add(this.txtHoTen);
             this.pnlMain.Controls.Add(this.label1);
-            this.pnlMain.Controls.Add(this.textBox2);
+            this.pnlMain.Controls.Add(this.txtMaKH);
             this.pnlMain.Controls.Add(this.label2);
             this.pnlMain.Location = new System.Drawing.Point(12, 12);
             this.pnlMain.Name = "pnlMain";
@@ -154,22 +154,22 @@
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbHang
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(523, 63);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 34);
-            this.comboBox1.TabIndex = 2;
+            this.cbHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbHang.FormattingEnabled = true;
+            this.cbHang.Location = new System.Drawing.Point(523, 63);
+            this.cbHang.Name = "cbHang";
+            this.cbHang.Size = new System.Drawing.Size(141, 26);
+            this.cbHang.TabIndex = 2;
             // 
-            // textBox7
+            // txtDiem
             // 
-            this.textBox7.Location = new System.Drawing.Point(523, 32);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(141, 32);
-            this.textBox7.TabIndex = 1;
+            this.txtDiem.Location = new System.Drawing.Point(523, 32);
+            this.txtDiem.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDiem.Name = "txtDiem";
+            this.txtDiem.Size = new System.Drawing.Size(141, 24);
+            this.txtDiem.TabIndex = 1;
             // 
             // label7
             // 
@@ -177,7 +177,7 @@
             this.label7.Location = new System.Drawing.Point(416, 38);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 26);
+            this.label7.Size = new System.Drawing.Size(47, 18);
             this.label7.TabIndex = 0;
             this.label7.Text = "Điểm:";
             // 
@@ -187,17 +187,17 @@
             this.label5.Location = new System.Drawing.Point(416, 71);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 26);
+            this.label5.Size = new System.Drawing.Size(47, 18);
             this.label5.TabIndex = 0;
             this.label5.Text = "Hạng:";
             // 
-            // textBox4
+            // txtPhone
             // 
-            this.textBox4.Location = new System.Drawing.Point(147, 128);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(141, 32);
-            this.textBox4.TabIndex = 1;
+            this.txtPhone.Location = new System.Drawing.Point(147, 128);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(141, 24);
+            this.txtPhone.TabIndex = 1;
             // 
             // label4
             // 
@@ -205,17 +205,18 @@
             this.label4.Location = new System.Drawing.Point(32, 134);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 26);
+            this.label4.Size = new System.Drawing.Size(78, 18);
             this.label4.TabIndex = 0;
             this.label4.Text = "Điện thoại:";
             // 
-            // textBox3
+            // txtEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(147, 96);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(242, 32);
-            this.textBox3.TabIndex = 1;
+            this.txtEmail.Location = new System.Drawing.Point(147, 96);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(242, 24);
+            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label3
             // 
@@ -223,17 +224,17 @@
             this.label3.Location = new System.Drawing.Point(32, 102);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 26);
+            this.label3.Size = new System.Drawing.Size(49, 18);
             this.label3.TabIndex = 0;
             this.label3.Text = "Email:";
             // 
-            // textBox1
+            // txtHoTen
             // 
-            this.textBox1.Location = new System.Drawing.Point(147, 64);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(242, 32);
-            this.textBox1.TabIndex = 1;
+            this.txtHoTen.Location = new System.Drawing.Point(147, 64);
+            this.txtHoTen.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(242, 24);
+            this.txtHoTen.TabIndex = 1;
             // 
             // label1
             // 
@@ -241,18 +242,18 @@
             this.label1.Location = new System.Drawing.Point(32, 70);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 26);
+            this.label1.Size = new System.Drawing.Size(75, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ và tên:";
             // 
-            // textBox2
+            // txtMaKH
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(147, 32);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(141, 32);
-            this.textBox2.TabIndex = 1;
+            this.txtMaKH.Enabled = false;
+            this.txtMaKH.Location = new System.Drawing.Point(147, 32);
+            this.txtMaKH.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaKH.Name = "txtMaKH";
+            this.txtMaKH.Size = new System.Drawing.Size(141, 24);
+            this.txtMaKH.TabIndex = 1;
             // 
             // label2
             // 
@@ -260,13 +261,13 @@
             this.label2.Location = new System.Drawing.Point(32, 38);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 26);
+            this.label2.Size = new System.Drawing.Size(113, 18);
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã khách hàng:";
             // 
             // frmAdKhachHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 661);
             this.Controls.Add(this.textBox12);
@@ -294,17 +295,17 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvKhachHang;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox cbHang;
+        private System.Windows.Forms.TextBox txtDiem;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtMaKH;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;

@@ -33,5 +33,16 @@ namespace DAL.Properties {
                 return ((string)(this["Highlands_DatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=bbiChanHuy;Initial Catalog=CoffeeBrandManagement;Integrated Security=" +
+            "True;Encrypt=False")]
+        public string CoffeeBrandManagementConnectionString {
+            get {
+                return ((string)(this["CoffeeBrandManagementConnectionString"]));
+            }
+        }
     }
 }

@@ -39,7 +39,7 @@ namespace GUI
             mnuMain.ForeColor = ColorTranslator.FromHtml("#DED4CA");
             this.BackColor = ColorTranslator.FromHtml("#DED4CA");
 
-            this.Icon = new Icon("icon-1.ico");
+            //this.Icon = new Icon("icon-1.ico");
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)

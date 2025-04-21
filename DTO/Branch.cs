@@ -11,10 +11,10 @@ namespace DTO
         private int branchId, managerId;
         private string branchName, address, phoneNumber, status;
         private double monthlyRent;
-        private DateTime openTime, closeTime;
+        private TimeSpan openTime, closeTime;
 
         public Branch() { }
-        public Branch(int branchId, string branchName, int managerId, string address, string phoneNumber, DateTime openTime, DateTime closeTime, double monthlyRent, string status)
+        public Branch(int branchId, string branchName, int managerId, string address, string phoneNumber, TimeSpan openTime, TimeSpan closeTime, double monthlyRent, string status)
         {
             this.BranchId = branchId;
             this.ManagerId = managerId;
@@ -34,7 +34,7 @@ namespace DTO
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public string Status { get => status; set => status = value; }
         public double MonthlyRent { get => monthlyRent; set => monthlyRent = value; }
-        public DateTime OpenTime { get => openTime; set => openTime = value; }
-        public DateTime CloseTime { get => closeTime; set => closeTime = value; }
+        public TimeSpan OpenTime { get => openTime; set => openTime = value; }
+        public TimeSpan CloseTime { get => closeTime; set => closeTime = value; }
     }
 }

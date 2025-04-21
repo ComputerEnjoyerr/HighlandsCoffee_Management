@@ -16,5 +16,31 @@ namespace BLL
         {
             return dal.GetAll();
         }
+
+        public void AddCustomer(Customer customer)
+        {
+            dal.Add(customer);
+        }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            dal.Update(customer);
+        }
+
+        public void DeleteCustomer( int id) 
+        { 
+            dal.Delete(id);
+        }
+        public List<string> GetTears()
+        {
+            return dal.GetTiers();
+        }
+
+        public void GetCustomer(int id) {
+
+             dal.GetById(id); 
+            
+        }
+
     }
 }
