@@ -131,5 +131,10 @@ namespace GUI
             //string key = txtTimKiem.Text.Trim();
             //var kq = bll.
         }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

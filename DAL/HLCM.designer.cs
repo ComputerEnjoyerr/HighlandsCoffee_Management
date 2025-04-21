@@ -22,7 +22,7 @@ namespace DAL
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="CoffeeBrandManagement")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Highlands_Database")]
 	public partial class HLCMDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,6 +30,12 @@ namespace DAL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertACCOUNT(ACCOUNT instance);
+    partial void UpdateACCOUNT(ACCOUNT instance);
+    partial void DeleteACCOUNT(ACCOUNT instance);
+    partial void InsertTABLE(TABLE instance);
+    partial void UpdateTABLE(TABLE instance);
+    partial void DeleteTABLE(TABLE instance);
     partial void InsertBILL(BILL instance);
     partial void UpdateBILL(BILL instance);
     partial void DeleteBILL(BILL instance);
@@ -69,13 +75,10 @@ namespace DAL
     partial void InsertSUPPLIER(SUPPLIER instance);
     partial void UpdateSUPPLIER(SUPPLIER instance);
     partial void DeleteSUPPLIER(SUPPLIER instance);
-    partial void InsertTABLE(TABLE instance);
-    partial void UpdateTABLE(TABLE instance);
-    partial void DeleteTABLE(TABLE instance);
     #endregion
 		
 		public HLCMDataContext() : 
-				base(global::DAL.Properties.Settings.Default.CoffeeBrandManagementConnectionString, mappingSource)
+				base(global::DAL.Properties.Settings.Default.Highlands_DatabaseConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -102,6 +105,22 @@ namespace DAL
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<ACCOUNT> ACCOUNTs
+		{
+			get
+			{
+				return this.GetTable<ACCOUNT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TABLE> TABLEs
+		{
+			get
+			{
+				return this.GetTable<TABLE>();
+			}
 		}
 		
 		public System.Data.Linq.Table<BILL> BILLs
@@ -207,13 +226,431 @@ namespace DAL
 				return this.GetTable<SUPPLIER>();
 			}
 		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ACCOUNT")]
+	public partial class ACCOUNT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
 		
-		public System.Data.Linq.Table<TABLE> TABLEs
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _AccountId;
+		
+		private string _AccountName;
+		
+		private string _Password;
+		
+		private int _EmployeeId;
+		
+		private System.Nullable<System.DateTime> _CreateDate;
+		
+		private EntityRef<EMPLOYEE> _EMPLOYEE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAccountIdChanging(int value);
+    partial void OnAccountIdChanged();
+    partial void OnAccountNameChanging(string value);
+    partial void OnAccountNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnEmployeeIdChanging(int value);
+    partial void OnEmployeeIdChanged();
+    partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreateDateChanged();
+    #endregion
+		
+		public ACCOUNT()
+		{
+			this._EMPLOYEE = default(EntityRef<EMPLOYEE>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int AccountId
 		{
 			get
 			{
-				return this.GetTable<TABLE>();
+				return this._AccountId;
 			}
+			set
+			{
+				if ((this._AccountId != value))
+				{
+					this.OnAccountIdChanging(value);
+					this.SendPropertyChanging();
+					this._AccountId = value;
+					this.SendPropertyChanged("AccountId");
+					this.OnAccountIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string AccountName
+		{
+			get
+			{
+				return this._AccountName;
+			}
+			set
+			{
+				if ((this._AccountName != value))
+				{
+					this.OnAccountNameChanging(value);
+					this.SendPropertyChanging();
+					this._AccountName = value;
+					this.SendPropertyChanged("AccountName");
+					this.OnAccountNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeId", DbType="Int NOT NULL")]
+		public int EmployeeId
+		{
+			get
+			{
+				return this._EmployeeId;
+			}
+			set
+			{
+				if ((this._EmployeeId != value))
+				{
+					if (this._EMPLOYEE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEmployeeIdChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeId = value;
+					this.SendPropertyChanged("EmployeeId");
+					this.OnEmployeeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="Date")]
+		public System.Nullable<System.DateTime> CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_ACCOUNT", Storage="_EMPLOYEE", ThisKey="EmployeeId", OtherKey="EmployeeId", IsForeignKey=true)]
+		public EMPLOYEE EMPLOYEE
+		{
+			get
+			{
+				return this._EMPLOYEE.Entity;
+			}
+			set
+			{
+				EMPLOYEE previousValue = this._EMPLOYEE.Entity;
+				if (((previousValue != value) 
+							|| (this._EMPLOYEE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EMPLOYEE.Entity = null;
+						previousValue.ACCOUNTs.Remove(this);
+					}
+					this._EMPLOYEE.Entity = value;
+					if ((value != null))
+					{
+						value.ACCOUNTs.Add(this);
+						this._EmployeeId = value.EmployeeId;
+					}
+					else
+					{
+						this._EmployeeId = default(int);
+					}
+					this.SendPropertyChanged("EMPLOYEE");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TABLES")]
+	public partial class TABLE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _TableId;
+		
+		private string _TableName;
+		
+		private int _BranchId;
+		
+		private System.Nullable<int> _Capacity;
+		
+		private System.Nullable<int> _Status;
+		
+		private EntitySet<BILL> _BILLs;
+		
+		private EntityRef<BRANCH> _BRANCH;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnTableIdChanging(int value);
+    partial void OnTableIdChanged();
+    partial void OnTableNameChanging(string value);
+    partial void OnTableNameChanged();
+    partial void OnBranchIdChanging(int value);
+    partial void OnBranchIdChanged();
+    partial void OnCapacityChanging(System.Nullable<int> value);
+    partial void OnCapacityChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public TABLE()
+		{
+			this._BILLs = new EntitySet<BILL>(new Action<BILL>(this.attach_BILLs), new Action<BILL>(this.detach_BILLs));
+			this._BRANCH = default(EntityRef<BRANCH>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TableId
+		{
+			get
+			{
+				return this._TableId;
+			}
+			set
+			{
+				if ((this._TableId != value))
+				{
+					this.OnTableIdChanging(value);
+					this.SendPropertyChanging();
+					this._TableId = value;
+					this.SendPropertyChanged("TableId");
+					this.OnTableIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableName", DbType="NVarChar(10)")]
+		public string TableName
+		{
+			get
+			{
+				return this._TableName;
+			}
+			set
+			{
+				if ((this._TableName != value))
+				{
+					this.OnTableNameChanging(value);
+					this.SendPropertyChanging();
+					this._TableName = value;
+					this.SendPropertyChanged("TableName");
+					this.OnTableNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
+		public int BranchId
+		{
+			get
+			{
+				return this._BranchId;
+			}
+			set
+			{
+				if ((this._BranchId != value))
+				{
+					if (this._BRANCH.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBranchIdChanging(value);
+					this.SendPropertyChanging();
+					this._BranchId = value;
+					this.SendPropertyChanged("BranchId");
+					this.OnBranchIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Capacity", DbType="Int")]
+		public System.Nullable<int> Capacity
+		{
+			get
+			{
+				return this._Capacity;
+			}
+			set
+			{
+				if ((this._Capacity != value))
+				{
+					this.OnCapacityChanging(value);
+					this.SendPropertyChanging();
+					this._Capacity = value;
+					this.SendPropertyChanged("Capacity");
+					this.OnCapacityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TABLE_BILL", Storage="_BILLs", ThisKey="TableId", OtherKey="TableId")]
+		public EntitySet<BILL> BILLs
+		{
+			get
+			{
+				return this._BILLs;
+			}
+			set
+			{
+				this._BILLs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_TABLE", Storage="_BRANCH", ThisKey="BranchId", OtherKey="BranchId", IsForeignKey=true)]
+		public BRANCH BRANCH
+		{
+			get
+			{
+				return this._BRANCH.Entity;
+			}
+			set
+			{
+				BRANCH previousValue = this._BRANCH.Entity;
+				if (((previousValue != value) 
+							|| (this._BRANCH.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BRANCH.Entity = null;
+						previousValue.TABLEs.Remove(this);
+					}
+					this._BRANCH.Entity = value;
+					if ((value != null))
+					{
+						value.TABLEs.Add(this);
+						this._BranchId = value.BranchId;
+					}
+					else
+					{
+						this._BranchId = default(int);
+					}
+					this.SendPropertyChanged("BRANCH");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BILLs(BILL entity)
+		{
+			this.SendPropertyChanging();
+			entity.TABLE = this;
+		}
+		
+		private void detach_BILLs(BILL entity)
+		{
+			this.SendPropertyChanging();
+			entity.TABLE = null;
 		}
 	}
 	
@@ -225,17 +662,21 @@ namespace DAL
 		
 		private int _BillId;
 		
-		private System.Nullable<int> _BranchId;
+		private int _BranchId;
 		
-		private System.Nullable<int> _EmployeeId;
+		private int _EmployeeId;
 		
-		private System.Nullable<int> _CustomerId;
+		private int _CustomerId;
+		
+		private int _TableId;
 		
 		private System.Nullable<decimal> _TotalPrice;
 		
 		private System.Nullable<System.DateTime> _CreateDate;
 		
 		private EntitySet<BILLINFO> _BILLINFOs;
+		
+		private EntityRef<TABLE> _TABLE;
 		
 		private EntityRef<BRANCH> _BRANCH;
 		
@@ -249,12 +690,14 @@ namespace DAL
     partial void OnCreated();
     partial void OnBillIdChanging(int value);
     partial void OnBillIdChanged();
-    partial void OnBranchIdChanging(System.Nullable<int> value);
+    partial void OnBranchIdChanging(int value);
     partial void OnBranchIdChanged();
-    partial void OnEmployeeIdChanging(System.Nullable<int> value);
+    partial void OnEmployeeIdChanging(int value);
     partial void OnEmployeeIdChanged();
-    partial void OnCustomerIdChanging(System.Nullable<int> value);
+    partial void OnCustomerIdChanging(int value);
     partial void OnCustomerIdChanged();
+    partial void OnTableIdChanging(int value);
+    partial void OnTableIdChanged();
     partial void OnTotalPriceChanging(System.Nullable<decimal> value);
     partial void OnTotalPriceChanged();
     partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
@@ -264,6 +707,7 @@ namespace DAL
 		public BILL()
 		{
 			this._BILLINFOs = new EntitySet<BILLINFO>(new Action<BILLINFO>(this.attach_BILLINFOs), new Action<BILLINFO>(this.detach_BILLINFOs));
+			this._TABLE = default(EntityRef<TABLE>);
 			this._BRANCH = default(EntityRef<BRANCH>);
 			this._CUSTOMER = default(EntityRef<CUSTOMER>);
 			this._EMPLOYEE = default(EntityRef<EMPLOYEE>);
@@ -290,8 +734,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int")]
-		public System.Nullable<int> BranchId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
+		public int BranchId
 		{
 			get
 			{
@@ -314,8 +758,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeId", DbType="Int")]
-		public System.Nullable<int> EmployeeId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeId", DbType="Int NOT NULL")]
+		public int EmployeeId
 		{
 			get
 			{
@@ -338,8 +782,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerId", DbType="Int")]
-		public System.Nullable<int> CustomerId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerId", DbType="Int NOT NULL")]
+		public int CustomerId
 		{
 			get
 			{
@@ -362,7 +806,31 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", DbType="Decimal(10,0)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableId", DbType="Int NOT NULL")]
+		public int TableId
+		{
+			get
+			{
+				return this._TableId;
+			}
+			set
+			{
+				if ((this._TableId != value))
+				{
+					if (this._TABLE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTableIdChanging(value);
+					this.SendPropertyChanging();
+					this._TableId = value;
+					this.SendPropertyChanged("TableId");
+					this.OnTableIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", DbType="Decimal(10,2)")]
 		public System.Nullable<decimal> TotalPrice
 		{
 			get
@@ -415,6 +883,40 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TABLE_BILL", Storage="_TABLE", ThisKey="TableId", OtherKey="TableId", IsForeignKey=true)]
+		public TABLE TABLE
+		{
+			get
+			{
+				return this._TABLE.Entity;
+			}
+			set
+			{
+				TABLE previousValue = this._TABLE.Entity;
+				if (((previousValue != value) 
+							|| (this._TABLE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TABLE.Entity = null;
+						previousValue.BILLs.Remove(this);
+					}
+					this._TABLE.Entity = value;
+					if ((value != null))
+					{
+						value.BILLs.Add(this);
+						this._TableId = value.TableId;
+					}
+					else
+					{
+						this._TableId = default(int);
+					}
+					this.SendPropertyChanged("TABLE");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_BILL", Storage="_BRANCH", ThisKey="BranchId", OtherKey="BranchId", IsForeignKey=true)]
 		public BRANCH BRANCH
 		{
@@ -442,7 +944,7 @@ namespace DAL
 					}
 					else
 					{
-						this._BranchId = default(Nullable<int>);
+						this._BranchId = default(int);
 					}
 					this.SendPropertyChanged("BRANCH");
 				}
@@ -476,7 +978,7 @@ namespace DAL
 					}
 					else
 					{
-						this._CustomerId = default(Nullable<int>);
+						this._CustomerId = default(int);
 					}
 					this.SendPropertyChanged("CUSTOMER");
 				}
@@ -510,7 +1012,7 @@ namespace DAL
 					}
 					else
 					{
-						this._EmployeeId = default(Nullable<int>);
+						this._EmployeeId = default(int);
 					}
 					this.SendPropertyChanged("EMPLOYEE");
 				}
@@ -558,9 +1060,9 @@ namespace DAL
 		
 		private int _BillInfoId;
 		
-		private System.Nullable<int> _ProductId;
+		private int _ProductId;
 		
-		private System.Nullable<int> _BillId;
+		private int _BillId;
 		
 		private int _Quantity;
 		
@@ -574,9 +1076,9 @@ namespace DAL
     partial void OnCreated();
     partial void OnBillInfoIdChanging(int value);
     partial void OnBillInfoIdChanged();
-    partial void OnProductIdChanging(System.Nullable<int> value);
+    partial void OnProductIdChanging(int value);
     partial void OnProductIdChanged();
-    partial void OnBillIdChanging(System.Nullable<int> value);
+    partial void OnBillIdChanging(int value);
     partial void OnBillIdChanged();
     partial void OnQuantityChanging(int value);
     partial void OnQuantityChanged();
@@ -609,8 +1111,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", DbType="Int")]
-		public System.Nullable<int> ProductId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", DbType="Int NOT NULL")]
+		public int ProductId
 		{
 			get
 			{
@@ -633,8 +1135,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BillId", DbType="Int")]
-		public System.Nullable<int> BillId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BillId", DbType="Int NOT NULL")]
+		public int BillId
 		{
 			get
 			{
@@ -704,7 +1206,7 @@ namespace DAL
 					}
 					else
 					{
-						this._BillId = default(Nullable<int>);
+						this._BillId = default(int);
 					}
 					this.SendPropertyChanged("BILL");
 				}
@@ -738,7 +1240,7 @@ namespace DAL
 					}
 					else
 					{
-						this._ProductId = default(Nullable<int>);
+						this._ProductId = default(int);
 					}
 					this.SendPropertyChanged("PRODUCT");
 				}
@@ -790,6 +1292,8 @@ namespace DAL
 		
 		private string _Status;
 		
+		private EntitySet<TABLE> _TABLEs;
+		
 		private EntitySet<BILL> _BILLs;
 		
 		private EntitySet<EMPLOYEE> _EMPLOYEEs;
@@ -797,8 +1301,6 @@ namespace DAL
 		private EntitySet<FINANCIAL> _FINANCIALs;
 		
 		private EntitySet<INVENTORY> _INVENTORies;
-		
-		private EntitySet<TABLE> _TABLEs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -826,11 +1328,11 @@ namespace DAL
 		
 		public BRANCH()
 		{
+			this._TABLEs = new EntitySet<TABLE>(new Action<TABLE>(this.attach_TABLEs), new Action<TABLE>(this.detach_TABLEs));
 			this._BILLs = new EntitySet<BILL>(new Action<BILL>(this.attach_BILLs), new Action<BILL>(this.detach_BILLs));
 			this._EMPLOYEEs = new EntitySet<EMPLOYEE>(new Action<EMPLOYEE>(this.attach_EMPLOYEEs), new Action<EMPLOYEE>(this.detach_EMPLOYEEs));
 			this._FINANCIALs = new EntitySet<FINANCIAL>(new Action<FINANCIAL>(this.attach_FINANCIALs), new Action<FINANCIAL>(this.detach_FINANCIALs));
 			this._INVENTORies = new EntitySet<INVENTORY>(new Action<INVENTORY>(this.attach_INVENTORies), new Action<INVENTORY>(this.detach_INVENTORies));
-			this._TABLEs = new EntitySet<TABLE>(new Action<TABLE>(this.attach_TABLEs), new Action<TABLE>(this.detach_TABLEs));
 			OnCreated();
 		}
 		
@@ -1014,6 +1516,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_TABLE", Storage="_TABLEs", ThisKey="BranchId", OtherKey="BranchId")]
+		public EntitySet<TABLE> TABLEs
+		{
+			get
+			{
+				return this._TABLEs;
+			}
+			set
+			{
+				this._TABLEs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_BILL", Storage="_BILLs", ThisKey="BranchId", OtherKey="BranchId")]
 		public EntitySet<BILL> BILLs
 		{
@@ -1066,19 +1581,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_TABLE", Storage="_TABLEs", ThisKey="BranchId", OtherKey="BranchId")]
-		public EntitySet<TABLE> TABLEs
-		{
-			get
-			{
-				return this._TABLEs;
-			}
-			set
-			{
-				this._TABLEs.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1097,6 +1599,18 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_TABLEs(TABLE entity)
+		{
+			this.SendPropertyChanging();
+			entity.BRANCH = this;
+		}
+		
+		private void detach_TABLEs(TABLE entity)
+		{
+			this.SendPropertyChanging();
+			entity.BRANCH = null;
 		}
 		
 		private void attach_BILLs(BILL entity)
@@ -1142,18 +1656,6 @@ namespace DAL
 		}
 		
 		private void detach_INVENTORies(INVENTORY entity)
-		{
-			this.SendPropertyChanging();
-			entity.BRANCH = null;
-		}
-		
-		private void attach_TABLEs(TABLE entity)
-		{
-			this.SendPropertyChanging();
-			entity.BRANCH = this;
-		}
-		
-		private void detach_TABLEs(TABLE entity)
 		{
 			this.SendPropertyChanging();
 			entity.BRANCH = null;
@@ -1408,7 +1910,7 @@ namespace DAL
 		
 		private string _EmployeeName;
 		
-		private System.Nullable<int> _BranchId;
+		private int _BranchId;
 		
 		private string _Address;
 		
@@ -1424,6 +1926,8 @@ namespace DAL
 		
 		private string _Role;
 		
+		private EntitySet<ACCOUNT> _ACCOUNTs;
+		
 		private EntitySet<BILL> _BILLs;
 		
 		private EntityRef<BRANCH> _BRANCH;
@@ -1436,7 +1940,7 @@ namespace DAL
     partial void OnEmployeeIdChanged();
     partial void OnEmployeeNameChanging(string value);
     partial void OnEmployeeNameChanged();
-    partial void OnBranchIdChanging(System.Nullable<int> value);
+    partial void OnBranchIdChanging(int value);
     partial void OnBranchIdChanged();
     partial void OnAddressChanging(string value);
     partial void OnAddressChanged();
@@ -1456,6 +1960,7 @@ namespace DAL
 		
 		public EMPLOYEE()
 		{
+			this._ACCOUNTs = new EntitySet<ACCOUNT>(new Action<ACCOUNT>(this.attach_ACCOUNTs), new Action<ACCOUNT>(this.detach_ACCOUNTs));
 			this._BILLs = new EntitySet<BILL>(new Action<BILL>(this.attach_BILLs), new Action<BILL>(this.detach_BILLs));
 			this._BRANCH = default(EntityRef<BRANCH>);
 			OnCreated();
@@ -1501,8 +2006,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int")]
-		public System.Nullable<int> BranchId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
+		public int BranchId
 		{
 			get
 			{
@@ -1665,6 +2170,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_ACCOUNT", Storage="_ACCOUNTs", ThisKey="EmployeeId", OtherKey="EmployeeId")]
+		public EntitySet<ACCOUNT> ACCOUNTs
+		{
+			get
+			{
+				return this._ACCOUNTs;
+			}
+			set
+			{
+				this._ACCOUNTs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_BILL", Storage="_BILLs", ThisKey="EmployeeId", OtherKey="EmployeeId")]
 		public EntitySet<BILL> BILLs
 		{
@@ -1705,7 +2223,7 @@ namespace DAL
 					}
 					else
 					{
-						this._BranchId = default(Nullable<int>);
+						this._BranchId = default(int);
 					}
 					this.SendPropertyChanged("BRANCH");
 				}
@@ -1730,6 +2248,18 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_ACCOUNTs(ACCOUNT entity)
+		{
+			this.SendPropertyChanging();
+			entity.EMPLOYEE = this;
+		}
+		
+		private void detach_ACCOUNTs(ACCOUNT entity)
+		{
+			this.SendPropertyChanging();
+			entity.EMPLOYEE = null;
 		}
 		
 		private void attach_BILLs(BILL entity)
@@ -1759,7 +2289,7 @@ namespace DAL
 		
 		private System.Nullable<decimal> _Revenue;
 		
-		private System.Nullable<decimal> _OperateCost;
+		private System.Nullable<decimal> _OperationCost;
 		
 		private System.Nullable<decimal> _IngredientCost;
 		
@@ -1779,8 +2309,8 @@ namespace DAL
     partial void OnReportDateChanged();
     partial void OnRevenueChanging(System.Nullable<decimal> value);
     partial void OnRevenueChanged();
-    partial void OnOperateCostChanging(System.Nullable<decimal> value);
-    partial void OnOperateCostChanged();
+    partial void OnOperationCostChanging(System.Nullable<decimal> value);
+    partial void OnOperationCostChanged();
     partial void OnIngredientCostChanging(System.Nullable<decimal> value);
     partial void OnIngredientCostChanged();
     partial void OnProfitChanging(System.Nullable<decimal> value);
@@ -1877,22 +2407,22 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OperateCost", DbType="Decimal(12,0)")]
-		public System.Nullable<decimal> OperateCost
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OperationCost", DbType="Decimal(12,0)")]
+		public System.Nullable<decimal> OperationCost
 		{
 			get
 			{
-				return this._OperateCost;
+				return this._OperationCost;
 			}
 			set
 			{
-				if ((this._OperateCost != value))
+				if ((this._OperationCost != value))
 				{
-					this.OnOperateCostChanging(value);
+					this.OnOperationCostChanging(value);
 					this.SendPropertyChanging();
-					this._OperateCost = value;
-					this.SendPropertyChanged("OperateCost");
-					this.OnOperateCostChanged();
+					this._OperationCost = value;
+					this.SendPropertyChanged("OperationCost");
+					this.OnOperationCostChanged();
 				}
 			}
 		}
@@ -2002,13 +2532,13 @@ namespace DAL
 		
 		private string _IngredientName;
 		
-		private System.Nullable<int> _SupplierId;
+		private int _SupplierId;
+		
+		private System.Nullable<decimal> _Price;
 		
 		private string _Unit;
 		
-		private System.DateTime _MFGDate;
-		
-		private System.DateTime _EXPDate;
+		private System.Nullable<int> _EXPDay;
 		
 		private EntitySet<INVENTORY> _INVENTORies;
 		
@@ -2024,14 +2554,14 @@ namespace DAL
     partial void OnIngredientIdChanged();
     partial void OnIngredientNameChanging(string value);
     partial void OnIngredientNameChanged();
-    partial void OnSupplierIdChanging(System.Nullable<int> value);
+    partial void OnSupplierIdChanging(int value);
     partial void OnSupplierIdChanged();
+    partial void OnPriceChanging(System.Nullable<decimal> value);
+    partial void OnPriceChanged();
     partial void OnUnitChanging(string value);
     partial void OnUnitChanged();
-    partial void OnMFGDateChanging(System.DateTime value);
-    partial void OnMFGDateChanged();
-    partial void OnEXPDateChanging(System.DateTime value);
-    partial void OnEXPDateChanged();
+    partial void OnEXPDayChanging(System.Nullable<int> value);
+    partial void OnEXPDayChanged();
     #endregion
 		
 		public INGREDIENT()
@@ -2082,8 +2612,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierId", DbType="Int")]
-		public System.Nullable<int> SupplierId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierId", DbType="Int NOT NULL")]
+		public int SupplierId
 		{
 			get
 			{
@@ -2102,6 +2632,26 @@ namespace DAL
 					this._SupplierId = value;
 					this.SendPropertyChanged("SupplierId");
 					this.OnSupplierIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
 				}
 			}
 		}
@@ -2126,42 +2676,22 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MFGDate", DbType="Date NOT NULL")]
-		public System.DateTime MFGDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPDay", DbType="Int")]
+		public System.Nullable<int> EXPDay
 		{
 			get
 			{
-				return this._MFGDate;
+				return this._EXPDay;
 			}
 			set
 			{
-				if ((this._MFGDate != value))
+				if ((this._EXPDay != value))
 				{
-					this.OnMFGDateChanging(value);
+					this.OnEXPDayChanging(value);
 					this.SendPropertyChanging();
-					this._MFGDate = value;
-					this.SendPropertyChanged("MFGDate");
-					this.OnMFGDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPDate", DbType="Date NOT NULL")]
-		public System.DateTime EXPDate
-		{
-			get
-			{
-				return this._EXPDate;
-			}
-			set
-			{
-				if ((this._EXPDate != value))
-				{
-					this.OnEXPDateChanging(value);
-					this.SendPropertyChanging();
-					this._EXPDate = value;
-					this.SendPropertyChanged("EXPDate");
-					this.OnEXPDateChanged();
+					this._EXPDay = value;
+					this.SendPropertyChanged("EXPDay");
+					this.OnEXPDayChanged();
 				}
 			}
 		}
@@ -2219,7 +2749,7 @@ namespace DAL
 					}
 					else
 					{
-						this._SupplierId = default(Nullable<int>);
+						this._SupplierId = default(int);
 					}
 					this.SendPropertyChanged("SUPPLIER");
 				}
@@ -2279,15 +2809,23 @@ namespace DAL
 		
 		private int _InventoryId;
 		
-		private System.Nullable<int> _BranchId;
+		private int _BranchId;
 		
-		private System.Nullable<int> _IngredientId;
+		private int _IngredientId;
 		
-		private System.Nullable<System.DateTime> _LastRestock;
+		private System.Nullable<System.DateTime> _RestockDate;
 		
-		private System.Nullable<int> _Quantity;
+		private int _EXPDay;
+		
+		private System.Nullable<System.DateTime> _EXPDate;
+		
+		private System.Nullable<decimal> _Quantity;
 		
 		private string _Unit;
+		
+		private decimal _UnitPrice;
+		
+		private System.Nullable<decimal> _TotalPrice;
 		
 		private EntityRef<BRANCH> _BRANCH;
 		
@@ -2299,16 +2837,24 @@ namespace DAL
     partial void OnCreated();
     partial void OnInventoryIdChanging(int value);
     partial void OnInventoryIdChanged();
-    partial void OnBranchIdChanging(System.Nullable<int> value);
+    partial void OnBranchIdChanging(int value);
     partial void OnBranchIdChanged();
-    partial void OnIngredientIdChanging(System.Nullable<int> value);
+    partial void OnIngredientIdChanging(int value);
     partial void OnIngredientIdChanged();
-    partial void OnLastRestockChanging(System.Nullable<System.DateTime> value);
-    partial void OnLastRestockChanged();
-    partial void OnQuantityChanging(System.Nullable<int> value);
+    partial void OnRestockDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRestockDateChanged();
+    partial void OnEXPDayChanging(int value);
+    partial void OnEXPDayChanged();
+    partial void OnEXPDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEXPDateChanged();
+    partial void OnQuantityChanging(System.Nullable<decimal> value);
     partial void OnQuantityChanged();
     partial void OnUnitChanging(string value);
     partial void OnUnitChanged();
+    partial void OnUnitPriceChanging(decimal value);
+    partial void OnUnitPriceChanged();
+    partial void OnTotalPriceChanging(System.Nullable<decimal> value);
+    partial void OnTotalPriceChanged();
     #endregion
 		
 		public INVENTORY()
@@ -2338,8 +2884,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int")]
-		public System.Nullable<int> BranchId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
+		public int BranchId
 		{
 			get
 			{
@@ -2362,8 +2908,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngredientId", DbType="Int")]
-		public System.Nullable<int> IngredientId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngredientId", DbType="Int NOT NULL")]
+		public int IngredientId
 		{
 			get
 			{
@@ -2386,28 +2932,68 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastRestock", DbType="Date")]
-		public System.Nullable<System.DateTime> LastRestock
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RestockDate", DbType="Date")]
+		public System.Nullable<System.DateTime> RestockDate
 		{
 			get
 			{
-				return this._LastRestock;
+				return this._RestockDate;
 			}
 			set
 			{
-				if ((this._LastRestock != value))
+				if ((this._RestockDate != value))
 				{
-					this.OnLastRestockChanging(value);
+					this.OnRestockDateChanging(value);
 					this.SendPropertyChanging();
-					this._LastRestock = value;
-					this.SendPropertyChanged("LastRestock");
-					this.OnLastRestockChanged();
+					this._RestockDate = value;
+					this.SendPropertyChanged("RestockDate");
+					this.OnRestockDateChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
-		public System.Nullable<int> Quantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPDay", DbType="Int NOT NULL")]
+		public int EXPDay
+		{
+			get
+			{
+				return this._EXPDay;
+			}
+			set
+			{
+				if ((this._EXPDay != value))
+				{
+					this.OnEXPDayChanging(value);
+					this.SendPropertyChanging();
+					this._EXPDay = value;
+					this.SendPropertyChanged("EXPDay");
+					this.OnEXPDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPDate", AutoSync=AutoSync.Always, DbType="Date", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> EXPDate
+		{
+			get
+			{
+				return this._EXPDate;
+			}
+			set
+			{
+				if ((this._EXPDate != value))
+				{
+					this.OnEXPDateChanging(value);
+					this.SendPropertyChanging();
+					this._EXPDate = value;
+					this.SendPropertyChanged("EXPDate");
+					this.OnEXPDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> Quantity
 		{
 			get
 			{
@@ -2446,6 +3032,46 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitPrice", DbType="Decimal(10,0) NOT NULL")]
+		public decimal UnitPrice
+		{
+			get
+			{
+				return this._UnitPrice;
+			}
+			set
+			{
+				if ((this._UnitPrice != value))
+				{
+					this.OnUnitPriceChanging(value);
+					this.SendPropertyChanging();
+					this._UnitPrice = value;
+					this.SendPropertyChanged("UnitPrice");
+					this.OnUnitPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", AutoSync=AutoSync.Always, DbType="Decimal(21,2)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<decimal> TotalPrice
+		{
+			get
+			{
+				return this._TotalPrice;
+			}
+			set
+			{
+				if ((this._TotalPrice != value))
+				{
+					this.OnTotalPriceChanging(value);
+					this.SendPropertyChanging();
+					this._TotalPrice = value;
+					this.SendPropertyChanged("TotalPrice");
+					this.OnTotalPriceChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_INVENTORY", Storage="_BRANCH", ThisKey="BranchId", OtherKey="BranchId", IsForeignKey=true)]
 		public BRANCH BRANCH
 		{
@@ -2473,7 +3099,7 @@ namespace DAL
 					}
 					else
 					{
-						this._BranchId = default(Nullable<int>);
+						this._BranchId = default(int);
 					}
 					this.SendPropertyChanged("BRANCH");
 				}
@@ -2507,7 +3133,7 @@ namespace DAL
 					}
 					else
 					{
-						this._IngredientId = default(Nullable<int>);
+						this._IngredientId = default(int);
 					}
 					this.SendPropertyChanged("INGREDIENT");
 				}
@@ -2547,6 +3173,8 @@ namespace DAL
 		
 		private decimal _Price;
 		
+		private string _Image;
+		
 		private EntitySet<BILLINFO> _BILLINFOs;
 		
 		private EntitySet<RECIPE> _RECIPEs;
@@ -2561,6 +3189,8 @@ namespace DAL
     partial void OnProductNameChanged();
     partial void OnPriceChanging(decimal value);
     partial void OnPriceChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
     #endregion
 		
 		public PRODUCT()
@@ -2626,6 +3256,26 @@ namespace DAL
 					this._Price = value;
 					this.SendPropertyChanged("Price");
 					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(100)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
 				}
 			}
 		}
@@ -3135,9 +3785,9 @@ namespace DAL
 		
 		private int _RecipeId;
 		
-		private System.Nullable<int> _IngredientId;
+		private int _IngredientId;
 		
-		private System.Nullable<int> _ProductId;
+		private int _ProductId;
 		
 		private System.Nullable<decimal> _Quantity;
 		
@@ -3153,9 +3803,9 @@ namespace DAL
     partial void OnCreated();
     partial void OnRecipeIdChanging(int value);
     partial void OnRecipeIdChanged();
-    partial void OnIngredientIdChanging(System.Nullable<int> value);
+    partial void OnIngredientIdChanging(int value);
     partial void OnIngredientIdChanged();
-    partial void OnProductIdChanging(System.Nullable<int> value);
+    partial void OnProductIdChanging(int value);
     partial void OnProductIdChanged();
     partial void OnQuantityChanging(System.Nullable<decimal> value);
     partial void OnQuantityChanged();
@@ -3190,8 +3840,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngredientId", DbType="Int")]
-		public System.Nullable<int> IngredientId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngredientId", DbType="Int NOT NULL")]
+		public int IngredientId
 		{
 			get
 			{
@@ -3214,8 +3864,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", DbType="Int")]
-		public System.Nullable<int> ProductId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductId", DbType="Int NOT NULL")]
+		public int ProductId
 		{
 			get
 			{
@@ -3238,7 +3888,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Decimal(10,2)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Decimal(10,3)")]
 		public System.Nullable<decimal> Quantity
 		{
 			get
@@ -3305,7 +3955,7 @@ namespace DAL
 					}
 					else
 					{
-						this._IngredientId = default(Nullable<int>);
+						this._IngredientId = default(int);
 					}
 					this.SendPropertyChanged("INGREDIENT");
 				}
@@ -3339,7 +3989,7 @@ namespace DAL
 					}
 					else
 					{
-						this._ProductId = default(Nullable<int>);
+						this._ProductId = default(int);
 					}
 					this.SendPropertyChanged("PRODUCT");
 				}
@@ -3550,181 +4200,6 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.SUPPLIER = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TABLES")]
-	public partial class TABLE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _TableId;
-		
-		private string _TableName;
-		
-		private System.Nullable<int> _BranchId;
-		
-		private System.Nullable<int> _Capacity;
-		
-		private EntityRef<BRANCH> _BRANCH;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTableIdChanging(int value);
-    partial void OnTableIdChanged();
-    partial void OnTableNameChanging(string value);
-    partial void OnTableNameChanged();
-    partial void OnBranchIdChanging(System.Nullable<int> value);
-    partial void OnBranchIdChanged();
-    partial void OnCapacityChanging(System.Nullable<int> value);
-    partial void OnCapacityChanged();
-    #endregion
-		
-		public TABLE()
-		{
-			this._BRANCH = default(EntityRef<BRANCH>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int TableId
-		{
-			get
-			{
-				return this._TableId;
-			}
-			set
-			{
-				if ((this._TableId != value))
-				{
-					this.OnTableIdChanging(value);
-					this.SendPropertyChanging();
-					this._TableId = value;
-					this.SendPropertyChanged("TableId");
-					this.OnTableIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableName", DbType="NVarChar(10)")]
-		public string TableName
-		{
-			get
-			{
-				return this._TableName;
-			}
-			set
-			{
-				if ((this._TableName != value))
-				{
-					this.OnTableNameChanging(value);
-					this.SendPropertyChanging();
-					this._TableName = value;
-					this.SendPropertyChanged("TableName");
-					this.OnTableNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int")]
-		public System.Nullable<int> BranchId
-		{
-			get
-			{
-				return this._BranchId;
-			}
-			set
-			{
-				if ((this._BranchId != value))
-				{
-					if (this._BRANCH.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBranchIdChanging(value);
-					this.SendPropertyChanging();
-					this._BranchId = value;
-					this.SendPropertyChanged("BranchId");
-					this.OnBranchIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Capacity", DbType="Int")]
-		public System.Nullable<int> Capacity
-		{
-			get
-			{
-				return this._Capacity;
-			}
-			set
-			{
-				if ((this._Capacity != value))
-				{
-					this.OnCapacityChanging(value);
-					this.SendPropertyChanging();
-					this._Capacity = value;
-					this.SendPropertyChanged("Capacity");
-					this.OnCapacityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_TABLE", Storage="_BRANCH", ThisKey="BranchId", OtherKey="BranchId", IsForeignKey=true)]
-		public BRANCH BRANCH
-		{
-			get
-			{
-				return this._BRANCH.Entity;
-			}
-			set
-			{
-				BRANCH previousValue = this._BRANCH.Entity;
-				if (((previousValue != value) 
-							|| (this._BRANCH.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._BRANCH.Entity = null;
-						previousValue.TABLEs.Remove(this);
-					}
-					this._BRANCH.Entity = value;
-					if ((value != null))
-					{
-						value.TABLEs.Add(this);
-						this._BranchId = value.BranchId;
-					}
-					else
-					{
-						this._BranchId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("BRANCH");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 }
