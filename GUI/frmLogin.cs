@@ -45,7 +45,7 @@ namespace GUI
             btnThoat.BackColor = ColorTranslator.FromHtml("#DED4CA");
             btnThoat.ForeColor = ColorTranslator.FromHtml("#AF262E");
 
-            this.Icon = new Icon("icon-1.ico");
+            //this.Icon = new Icon("icon-1.ico");
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
