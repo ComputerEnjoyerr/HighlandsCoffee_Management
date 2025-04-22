@@ -70,5 +70,22 @@ namespace DAL
                 }
             }
         }
+
+        //Lấy bàn theo chi nhánh
+        public List<Table> GetTablesByBranchId(int branchId)
+        {
+            using (var db = new HLCMDataContext())
+            {
+                var data = db.TABLEs.Where(t => t.BranchId == branchId).Select(t => new Table
+                {
+                    TableId = t.TableId,
+                    BranchId = t.BranchId,
+                    TableName = t.TableName,
+                    Capacity = (int)t.Capacity,
+                    Status = (int)t.Status,
+                });
+                return data.ToList();
+            }
+        }
     }
 }

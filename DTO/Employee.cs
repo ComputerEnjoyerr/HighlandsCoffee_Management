@@ -38,5 +38,6 @@ namespace DTO
         public DateTime HireDate { get => hireDate; set => hireDate = value; }
         public double BaseSalary { get => baseSalary; set => baseSalary = value; }
         public double TotalSalary { get => totalSalary; set => totalSalary = value; }
+        public string Phone { get; set; }
     }
 }

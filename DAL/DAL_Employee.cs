@@ -11,6 +11,7 @@ namespace DAL
 {
     public class DAL_Employee
     {
+        private HLCMDataContext db = new HLCMDataContext();
         public List<Employee> GetAll()
         {
             using (var db = new HLCMDataContext())
@@ -48,8 +49,8 @@ namespace DAL
 
                 var newEmp = new DAL.EMPLOYEE
                 {
-                    
-                    EmployeeName = employee.EmployeeName,                   
+
+                    EmployeeName = employee.EmployeeName,
                     BranchId = employee.BranchId,
                     Address = employee.Address,
                     Phone = employee.PhoneNumber,
@@ -60,13 +61,13 @@ namespace DAL
                     TotalSalary = (decimal)employee.TotalSalary
 
                 };
-                    db.EMPLOYEEs.InsertOnSubmit(newEmp);
-                    db.SubmitChanges();
+                db.EMPLOYEEs.InsertOnSubmit(newEmp);
+                db.SubmitChanges();
 
                 employee.EmployeeId = newEmp.EmployeeId;
             }
         }
-        
+
         public void Update(DTO.Employee employee)
         {
             if (employee == null)
@@ -78,7 +79,7 @@ namespace DAL
                 var up = db.EMPLOYEEs.FirstOrDefault(x => x.EmployeeId == employee.EmployeeId);
                 if (up != null)
                 {
-                    
+
                     up.EmployeeName = employee.EmployeeName;
                     up.Address = employee.Address;
                     up.Phone = employee.PhoneNumber;
@@ -98,20 +99,20 @@ namespace DAL
             }
         }
         public void Delete(int id)
-        { 
-                using (var db = new HLCMDataContext())
+        {
+            using (var db = new HLCMDataContext())
+            {
+                var del = db.EMPLOYEEs.FirstOrDefault(x => x.EmployeeId == id);
+                if (del != null)
                 {
-                    var del = db.EMPLOYEEs.FirstOrDefault(x => x.EmployeeId == id);
-                    if (del != null)
-                    {
-                        db.EMPLOYEEs.DeleteOnSubmit(del);
-                        db.SubmitChanges();
-                    }
-                    else
-                    {
-                        throw new Exception("Item không tồn tại để xóa!");
-                    }
+                    db.EMPLOYEEs.DeleteOnSubmit(del);
+                    db.SubmitChanges();
                 }
+                else
+                {
+                    throw new Exception("Item không tồn tại để xóa!");
+                }
+            }
         }
 
         public List<string> GetRoles()
@@ -136,9 +137,128 @@ namespace DAL
         //            OpenTime = (TimeSpan)b.OpenTime,
         //        });
         //    }
-        //} 
+        //}
 
-       
+        //Lấy nhân viên theo chi nhánh
+        public List<Employee> GetEmployeesByBranch(int branchId, int currentManagerId)
+        {
+            using (var db = new HLCMDataContext())
+            {
+                var query = from em in db.EMPLOYEEs
+                            where em.BranchId == branchId && em.EmployeeId != currentManagerId
+                            select new Employee
+                            {
+                                EmployeeId = em.EmployeeId,
+                                EmployeeName = em.EmployeeName,
+                                PhoneNumber = em.Phone,
+                                Address = em.Address,
+                                Role = em.Role,
+                                BranchId = em.BranchId,
+                                HireDate = (DateTime)em.HireDate,
+                                OverTimeHour = em.OverTimeHours ?? 0,
+                                BaseSalary = (double)em.BaseSalary,
+                                TotalSalary = (double)(em.TotalSalary ?? 0)
+                            };
 
+                return query.ToList();
+            }
+        }
+
+        //Lấy Role
+        public List<string> GetsRoles()
+        {
+            return db.EMPLOYEEs
+                     .Select(e => e.Role)
+                     .Distinct()
+                     .ToList();
+        }
+
+        //Add nhân viên theo chi nhánh
+        public bool Adds(Employee emp)
+        {
+            try
+            {
+                EMPLOYEE em = new EMPLOYEE
+                {
+                    EmployeeName = emp.EmployeeName,
+                    Phone = emp.PhoneNumber,
+                    Address = emp.Address,
+                    Role = emp.Role,
+                    HireDate = emp.HireDate,
+                    BranchId = emp.BranchId,
+                    OverTimeHours = emp.OverTimeHour,
+                    BaseSalary = (decimal)emp.BaseSalary,
+                    TotalSalary = (decimal)emp.TotalSalary
+                };
+                db.EMPLOYEEs.InsertOnSubmit(em);
+                db.SubmitChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+
+        //Update nhân viên theo chi nhánh
+        public bool Updates(Employee emp)
+        {
+            try
+            {
+                EMPLOYEE e = db.EMPLOYEEs.FirstOrDefault(x => x.EmployeeId == emp.EmployeeId);
+                if (e == null) return false;
+
+                e.EmployeeName = emp.EmployeeName;
+                e.Phone = emp.PhoneNumber;
+                e.Address = emp.Address;
+                e.Role = emp.Role;
+                e.HireDate = emp.HireDate;
+                e.BranchId = emp.BranchId;
+                e.OverTimeHours = emp.OverTimeHour;
+                e.BaseSalary = (decimal)emp.BaseSalary;
+                e.TotalSalary = (decimal)emp.TotalSalary;
+
+                db.SubmitChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+
+        //Delete nhân viên theo chi nhánh
+        public bool Deletes(int employeeId)
+        {
+            try
+            {
+                var emp = db.EMPLOYEEs.FirstOrDefault(e => e.EmployeeId == employeeId);
+                if (emp == null) return false;
+
+                db.EMPLOYEEs.DeleteOnSubmit(emp);
+                db.SubmitChanges();
+                return true;
+            }
+            catch { return false; }
+        }
+
+        //Create account nhân viên theo chi nhánh
+        public bool AddAccount(Account ac)
+        {
+            try
+            {
+                ACCOUNT entity = new ACCOUNT
+                {
+                    AccountName = ac.AccountName,
+                    Password = ac.Password,
+                    EmployeeId = ac.EmployeeId,
+                    CreateDate = ac.CreateDate
+                };
+
+                db.ACCOUNTs.InsertOnSubmit(entity);
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        //Tìm Nhân 
     }
 }

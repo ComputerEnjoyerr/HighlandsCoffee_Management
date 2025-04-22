@@ -26,8 +26,8 @@ namespace DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-DU2DCF6\\SQLEXPRESS;Initial Catalog=Highlands_Database;Integra" +
-            "ted Security=True;Encrypt=False;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-9VSNCL6\\VALKYRIE;Initial Catalog=Highlands_Database;Integrate" +
+            "d Security=True;Encrypt=False;TrustServerCertificate=True")]
         public string Highlands_DatabaseConnectionString {
             get {
                 return ((string)(this["Highlands_DatabaseConnectionString"]));

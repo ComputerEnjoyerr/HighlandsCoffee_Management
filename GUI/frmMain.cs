@@ -7,19 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
 
 namespace GUI
 {
     public partial class frmMain : Form
     {
-        public frmMain(string role)
+        private Employee data;
+        public frmMain(string role, Employee employee)
         {
             InitializeComponent();
             this.userRole = role;
+            this.data = employee;
         }
+
         private string userRole;
         // Biến tạm
         Form currentForm = new Form();
+
         private void OpenMain(Form childForm)
         {
             // Tắt form hiện tại để chuyển form mới
@@ -114,7 +119,7 @@ namespace GUI
 
         private void btnThemNV_Click(object sender, EventArgs e)
         {
-            frmNhanVien fr = new frmNhanVien();
+            frmNhanVien fr = new frmNhanVien(data.BranchId, data.EmployeeId);
             OpenMain(fr);
         }
 
@@ -132,7 +137,7 @@ namespace GUI
 
         private void btnKho_Click(object sender, EventArgs e)
         {
-            frmKhoHang fr = new frmKhoHang();
+            frmKhoHang fr = new frmKhoHang(data.BranchId);
             OpenMain(fr);
         }
 

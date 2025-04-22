@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace GUI
 {
     public partial class frmKhoHang : Form
     {
-        public frmKhoHang()
+        private BLL_Inventory bll = new BLL_Inventory();
+        private int branchId;
+        public frmKhoHang(int branchId)
         {
             InitializeComponent();
+            this.branchId = branchId;
         }
 
         private void frmKhoHang_Load(object sender, EventArgs e)
@@ -22,6 +26,14 @@ namespace GUI
             this.BackColor = ColorTranslator.FromHtml("#52362A");
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
             lbTim.ForeColor = ColorTranslator.FromHtml("#DED4CA");
+
+            LoadData();
+        }
+
+        public void LoadData()
+        {
+            List<DTO.Inventory> list = bll.GetInventoryByBranchId(branchId);
+            dgvNguyenLieu.DataSource = list;
         }
 
     }

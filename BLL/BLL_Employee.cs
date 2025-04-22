@@ -37,7 +37,23 @@ namespace BLL
         //{
         //    return dal.GetBranchList();
         //}
-       
+
+        //Lấy nhân viên theo chi nhánh
+        public List<Employee> GetEmployeesForManager(int branchId, int currentManagerId)
+        {
+            return dal.GetEmployeesByBranch(branchId, currentManagerId);
+        }
+        public List<string> GetRoles()
+        {
+            return dal.GetsRoles();
+        }
+        public bool Add(Employee emp) => dal.Adds(emp);
+        public bool Update(Employee emp) => dal.Updates(emp);
+        public bool Delete(int id) => dal.Deletes(id);
+        public bool AddAccount(Account ac)
+        {
+            return dal.AddAccount(ac);
+        }
 
     }
 }
