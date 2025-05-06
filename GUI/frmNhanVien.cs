@@ -7,15 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BLL;
 
 namespace GUI
 {
     public partial class frmNhanVien : Form
     {
-        public frmNhanVien()
+        public frmNhanVien(Employee em)
         {
             InitializeComponent();
+            currentEmployee = em;
         }
+
+        private Employee currentEmployee = new Employee();
 
         private void frmNhanVien_Load(object sender, EventArgs e)
         {

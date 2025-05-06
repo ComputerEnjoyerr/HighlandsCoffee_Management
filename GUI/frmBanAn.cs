@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,13 @@ namespace GUI
 {
     public partial class frmBanAn : Form
     {
-        public frmBanAn()
+        public frmBanAn(Employee em)
         {
             InitializeComponent();
+            currentEmployee = em;
         }
+
+        private Employee currentEmployee = new Employee();
 
         private void frmAdBanAn_Load(object sender, EventArgs e)
         {

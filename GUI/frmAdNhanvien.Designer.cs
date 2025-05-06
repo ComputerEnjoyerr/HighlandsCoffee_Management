@@ -31,6 +31,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.cbBranchId = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtGioLamThem = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -57,14 +59,11 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.txtTim = new System.Windows.Forms.TextBox();
             this.lbTim = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cbBranchId = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -128,6 +127,14 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(950, 261);
             this.pnlMain.TabIndex = 2;
+            // 
+            // cbBranchId
+            // 
+            this.cbBranchId.FormattingEnabled = true;
+            this.cbBranchId.Location = new System.Drawing.Point(139, 224);
+            this.cbBranchId.Name = "cbBranchId";
+            this.cbBranchId.Size = new System.Drawing.Size(242, 26);
+            this.cbBranchId.TabIndex = 13;
             // 
             // button6
             // 
@@ -252,6 +259,18 @@
             this.label7.Size = new System.Drawing.Size(101, 18);
             this.label7.TabIndex = 0;
             this.label7.Text = "Giờ làm thêm:";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(32, 227);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(78, 18);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Chi nhánh:";
             // 
             // label6
             // 
@@ -409,25 +428,26 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Tài khoản:";
             // 
-            // dataGridView1
+            // dgvNhanVien
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 327);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(949, 322);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhanVien.Location = new System.Drawing.Point(13, 327);
+            this.dgvNhanVien.Name = "dgvNhanVien";
+            this.dgvNhanVien.RowHeadersWidth = 62;
+            this.dgvNhanVien.Size = new System.Drawing.Size(949, 322);
+            this.dgvNhanVien.TabIndex = 3;
             // 
-            // textBox12
+            // txtTim
             // 
-            this.textBox12.Location = new System.Drawing.Point(113, 292);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(303, 24);
-            this.textBox12.TabIndex = 14;
+            this.txtTim.Location = new System.Drawing.Point(113, 292);
+            this.txtTim.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(303, 24);
+            this.txtTim.TabIndex = 14;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // lbTim
             // 
@@ -439,44 +459,14 @@
             this.lbTim.TabIndex = 13;
             this.lbTim.Text = "Tìm nhân viên:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(423, 288);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 33);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // cbBranchId
-            // 
-            this.cbBranchId.FormattingEnabled = true;
-            this.cbBranchId.Location = new System.Drawing.Point(139, 224);
-            this.cbBranchId.Name = "cbBranchId";
-            this.cbBranchId.Size = new System.Drawing.Size(242, 26);
-            this.cbBranchId.TabIndex = 13;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(32, 227);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(78, 18);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Chi nhánh:";
-            // 
             // frmAdNhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 661);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.txtTim);
             this.Controls.Add(this.lbTim);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvNhanVien);
             this.Controls.Add(this.pnlMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -485,7 +475,7 @@
             this.Load += new System.EventHandler(this.frmAdNhanvien_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -521,10 +511,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.DataGridView dgvNhanVien;
+        private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label lbTim;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ComboBox cbBranchId;
         private System.Windows.Forms.Label label13;

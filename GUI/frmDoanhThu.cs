@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,13 @@ namespace GUI
 {
     public partial class frmDoanhThu : Form
     {
-        public frmDoanhThu()
+        public frmDoanhThu(Employee em)
         {
             InitializeComponent();
+            currentEmployee = em;
         }
 
+        private Employee currentEmployee = new Employee();
 
         private void frmDoanhThu_Load(object sender, EventArgs e)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,21 +17,11 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        BLL_Account bllAccount = new BLL_Account();
+        BLL_Employee bllEmployee = new BLL_Employee();
         public Form NextForm { get; private set; } // Lưu form tiếp theo
 
-        // Dữ liệu tạm
-        private List<User> users = new List<User>
-        {
-            new User { Username = "ad", Password = "1", Role = "Admin" },
-            new User { Username = "ma", Password = "1", Role = "Quản lý" },
-            new User { Username = "em", Password = "1", Role = "Nhân viên" },
-        };
-        private class User
-        {
-            public string Username { get; set; }
-            public string Password { get; set; }
-            public string Role { get; set; }
-        }
         private void frmLogin_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#DED4CA");
@@ -54,18 +45,23 @@ namespace GUI
             string password = txtPass.Text;
 
             // Kiểm tra thông tin đăng nhập
-            var user = users.FirstOrDefault(u => u.Username == username && u.Password == password);
-            if (user != null)
+            var account = bllAccount.GetAll().FirstOrDefault(a => a.AccountName.ToLower() == username.ToLower() && a.Password == password);
+            if (account != null)
             {
-                
-                if (user.Role == "Admin")
+                var employee = bllEmployee.GetDataEmployee().FirstOrDefault(em => em.EmployeeId == account.EmployeeId);
+                if (employee != null)
                 {
-                    NextForm = new frmAdMain();
+                    if (account.AccountId == 1)
+                    {
+                        NextForm = new frmAdMain(employee);
+                    }
+                    else if (employee.Role == "Quản lý" || employee.Role == "Nhân viên")
+                    {
+                        NextForm = new frmMain(employee);
+                    }
                 }
-                else if (user.Role == "Quản lý" || user.Role == "Nhân viên")
-                {
-                    NextForm = new frmMain(user.Role);
-                }
+
+
                 // Đăng nhập thành công
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -74,12 +70,20 @@ namespace GUI
             {
                 // Đăng nhập thất bại
                 MessageBox.Show("Vui lòng nhập đúng tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPass.Clear();
+                txtUser.Clear();
+                txtUser.Focus();
             }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void pnlLogo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

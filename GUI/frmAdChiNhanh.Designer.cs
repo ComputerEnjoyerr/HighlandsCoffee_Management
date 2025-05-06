@@ -52,9 +52,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaCN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtTim = new System.Windows.Forms.TextBox();
             this.lbTim = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -302,13 +301,14 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Mã chi nhánh:";
             // 
-            // textBox12
+            // txtTim
             // 
-            this.textBox12.Location = new System.Drawing.Point(119, 13);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(303, 24);
-            this.textBox12.TabIndex = 17;
+            this.txtTim.Location = new System.Drawing.Point(119, 13);
+            this.txtTim.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(303, 24);
+            this.txtTim.TabIndex = 17;
+            this.txtTim.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // lbTim
             // 
@@ -320,23 +320,13 @@
             this.lbTim.TabIndex = 16;
             this.lbTim.Text = "Tìm chi nhánh:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(429, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 33);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // frmAdChiNhanh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 661);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.txtTim);
             this.Controls.Add(this.lbTim);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.flpChiNhanh);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -375,9 +365,8 @@
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label lbTim;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtTenCN;
     }
