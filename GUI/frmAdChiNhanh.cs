@@ -21,8 +21,9 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BLL_Branch bll = new BLL_Branch();
+        static BLL_Branch bllBranch = new BLL_Branch();
         BLL_Employee bllEmployee = new BLL_Employee();
+        List<Branch> branches = bllBranch.GetDataBranch();
         private void frmAdChiNhanh_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#52362A");
@@ -31,7 +32,7 @@ namespace GUI
             flpChiNhanh.BackColor = ColorTranslator.FromHtml("#DED4CA");
             LoadComboBoxManager();
             LoadComboBoxStatus();
-            LoadDataBranch();
+            LoadDataBranch(branches);
             
             
 
@@ -74,10 +75,10 @@ namespace GUI
 
        
 
-        private void LoadDataBranch()
+        private void LoadDataBranch(List<Branch> chiNhanh)
         {
             flpChiNhanh.Controls.Clear();
-            var chiNhanh = bll.GetDataBranch();
+            
 
             foreach (var ch in chiNhanh)
             {
@@ -187,9 +188,9 @@ namespace GUI
             try
             {
                 int id = int.Parse(txtMaCN.Text);
-                bll.RemoveBranch(id);
+                bllBranch.RemoveBranch(id);
                 MessageBox.Show("Xóa thành công!");
-                LoadDataBranch();
+                LoadDataBranch(branches);
             }
             catch (Exception ex)
             {
@@ -206,8 +207,6 @@ namespace GUI
             }
             var br = new Branch
             {
-
-
                 BranchName = txtTenCN.Text,
                 ManagerId = (int)cbQuanLy.SelectedValue,
                 Address = txtDiaChi.Text,
@@ -216,14 +215,11 @@ namespace GUI
                 CloseTime = dtDongCua.Value.TimeOfDay,
                 MonthlyRent = monthlyRent,
                 Status = cbStatus.SelectedItem.ToString(),
-                
-
-
             };
 
-            bll.AddBranch(br);
+            bllBranch.AddBranch(br);
             MessageBox.Show("Thêm thành công!");
-            LoadDataBranch();
+            LoadDataBranch(branches);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -254,14 +250,20 @@ namespace GUI
 
             };
 
-            bll.UpdateBranch(br);
+            bllBranch.UpdateBranch(br);
             MessageBox.Show("Sửa thành công!");
-            LoadDataBranch();
+            LoadDataBranch(branches);
         }
 
         private void btnTim_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+            var data = bllBranch.GetDataBranch().Where(p => p.BranchName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
+            LoadDataBranch(data);
         }
     }
 }

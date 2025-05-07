@@ -114,25 +114,9 @@
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
       <Column Name="Unit" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="EXPDay" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="INGREDIENT_INVENTORY" Member="INVENTORies" ThisKey="IngredientId" OtherKey="IngredientId" Type="INVENTORY" />
       <Association Name="INGREDIENT_RECIPE" Member="RECIPEs" ThisKey="IngredientId" OtherKey="IngredientId" Type="RECIPE" />
+      <Association Name="INGREDIENT_INVENTORY" Member="INVENTORies" ThisKey="IngredientId" OtherKey="IngredientId" Type="INVENTORY" />
       <Association Name="SUPPLIER_INGREDIENT" Member="SUPPLIER" ThisKey="SupplierId" OtherKey="SupplierId" Type="SUPPLIER" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.INVENTORY" Member="INVENTORies">
-    <Type Name="INVENTORY">
-      <Column Name="InventoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IngredientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="RestockDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="EXPDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="EXPDate" Type="System.DateTime" DbType="Date" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
-      <Column Name="Unit" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" CanBeNull="false" />
-      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(21,2)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="BRANCH_INVENTORY" Member="BRANCH" ThisKey="BranchId" OtherKey="BranchId" Type="BRANCH" IsForeignKey="true" />
-      <Association Name="INGREDIENT_INVENTORY" Member="INGREDIENT" ThisKey="IngredientId" OtherKey="IngredientId" Type="INGREDIENT" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PRODUCTS" Member="PRODUCTs">
@@ -185,6 +169,22 @@
       <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="SUPPLIER_INGREDIENT" Member="INGREDIENTs" ThisKey="SupplierId" OtherKey="SupplierId" Type="INGREDIENT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.INVENTORY" Member="INVENTORies">
+    <Type Name="INVENTORY">
+      <Column Name="InventoryId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BranchId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IngredientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RestockDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EXPDay" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EXPDate" Type="System.DateTime" DbType="Date" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(10,0) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(21,2)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="BRANCH_INVENTORY" Member="BRANCH" ThisKey="BranchId" OtherKey="BranchId" Type="BRANCH" IsForeignKey="true" />
+      <Association Name="INGREDIENT_INVENTORY" Member="INGREDIENT" ThisKey="IngredientId" OtherKey="IngredientId" Type="INGREDIENT" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

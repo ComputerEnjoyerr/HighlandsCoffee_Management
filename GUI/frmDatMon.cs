@@ -15,11 +15,13 @@ namespace GUI
 {
     public partial class frmDatMon : Form
     {
-        public frmDatMon()
+        public frmDatMon(Employee em)
         {
             InitializeComponent();
+            currentEmployee = em;
         }
 
+        private Employee currentEmployee = new Employee();
         private BLL_Table tableBLL = new BLL_Table();
         private BLL_Bill billBLL = new BLL_Bill();
         private BLL_BillInfo billInfoBLL = new BLL_BillInfo();
@@ -29,7 +31,7 @@ namespace GUI
         {
             flpBan.Controls.Clear();
             // Hiển thị các btn Bàn ăn
-            var tables = tableBLL.GetAll().Where(t => t.BranchId == 1).ToList();
+            var tables = tableBLL.GetAll().Where(t => t.BranchId == currentEmployee.BranchId).ToList();
             foreach (var table in tables)
             {
                 Button btnTable = CreateTableButton(table);
@@ -52,6 +54,8 @@ namespace GUI
 
         private void frmDatMon_Load(object sender, EventArgs e)
         {
+            //MessageBox.Show(employeeThatUse.EmployeeName + " " + employeeThatUse.BranchId);
+
             this.BackColor = ColorTranslator.FromHtml("#B12830");
             flpBan.BackColor = ColorTranslator.FromHtml("#DED4CA");
             pnlDatMon.BackColor = ColorTranslator.FromHtml("#DED4CA");

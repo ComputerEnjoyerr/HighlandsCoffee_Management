@@ -57,9 +57,6 @@ namespace DAL
     partial void InsertINGREDIENT(INGREDIENT instance);
     partial void UpdateINGREDIENT(INGREDIENT instance);
     partial void DeleteINGREDIENT(INGREDIENT instance);
-    partial void InsertINVENTORY(INVENTORY instance);
-    partial void UpdateINVENTORY(INVENTORY instance);
-    partial void DeleteINVENTORY(INVENTORY instance);
     partial void InsertPRODUCT(PRODUCT instance);
     partial void UpdatePRODUCT(PRODUCT instance);
     partial void DeletePRODUCT(PRODUCT instance);
@@ -75,6 +72,9 @@ namespace DAL
     partial void InsertSUPPLIER(SUPPLIER instance);
     partial void UpdateSUPPLIER(SUPPLIER instance);
     partial void DeleteSUPPLIER(SUPPLIER instance);
+    partial void InsertINVENTORY(INVENTORY instance);
+    partial void UpdateINVENTORY(INVENTORY instance);
+    partial void DeleteINVENTORY(INVENTORY instance);
     #endregion
 		
 		public HLCMDataContext() : 
@@ -179,14 +179,6 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<INVENTORY> INVENTORies
-		{
-			get
-			{
-				return this.GetTable<INVENTORY>();
-			}
-		}
-		
 		public System.Data.Linq.Table<PRODUCT> PRODUCTs
 		{
 			get
@@ -224,6 +216,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<SUPPLIER>();
+			}
+		}
+		
+		public System.Data.Linq.Table<INVENTORY> INVENTORies
+		{
+			get
+			{
+				return this.GetTable<INVENTORY>();
 			}
 		}
 	}
@@ -2540,9 +2540,9 @@ namespace DAL
 		
 		private System.Nullable<int> _EXPDay;
 		
-		private EntitySet<INVENTORY> _INVENTORies;
-		
 		private EntitySet<RECIPE> _RECIPEs;
+		
+		private EntitySet<INVENTORY> _INVENTORies;
 		
 		private EntityRef<SUPPLIER> _SUPPLIER;
 		
@@ -2566,8 +2566,8 @@ namespace DAL
 		
 		public INGREDIENT()
 		{
-			this._INVENTORies = new EntitySet<INVENTORY>(new Action<INVENTORY>(this.attach_INVENTORies), new Action<INVENTORY>(this.detach_INVENTORies));
 			this._RECIPEs = new EntitySet<RECIPE>(new Action<RECIPE>(this.attach_RECIPEs), new Action<RECIPE>(this.detach_RECIPEs));
+			this._INVENTORies = new EntitySet<INVENTORY>(new Action<INVENTORY>(this.attach_INVENTORies), new Action<INVENTORY>(this.detach_INVENTORies));
 			this._SUPPLIER = default(EntityRef<SUPPLIER>);
 			OnCreated();
 		}
@@ -2696,19 +2696,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="INGREDIENT_INVENTORY", Storage="_INVENTORies", ThisKey="IngredientId", OtherKey="IngredientId")]
-		public EntitySet<INVENTORY> INVENTORies
-		{
-			get
-			{
-				return this._INVENTORies;
-			}
-			set
-			{
-				this._INVENTORies.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="INGREDIENT_RECIPE", Storage="_RECIPEs", ThisKey="IngredientId", OtherKey="IngredientId")]
 		public EntitySet<RECIPE> RECIPEs
 		{
@@ -2719,6 +2706,19 @@ namespace DAL
 			set
 			{
 				this._RECIPEs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="INGREDIENT_INVENTORY", Storage="_INVENTORies", ThisKey="IngredientId", OtherKey="IngredientId")]
+		public EntitySet<INVENTORY> INVENTORies
+		{
+			get
+			{
+				return this._INVENTORies;
+			}
+			set
+			{
+				this._INVENTORies.Assign(value);
 			}
 		}
 		
@@ -2776,18 +2776,6 @@ namespace DAL
 			}
 		}
 		
-		private void attach_INVENTORies(INVENTORY entity)
-		{
-			this.SendPropertyChanging();
-			entity.INGREDIENT = this;
-		}
-		
-		private void detach_INVENTORies(INVENTORY entity)
-		{
-			this.SendPropertyChanging();
-			entity.INGREDIENT = null;
-		}
-		
 		private void attach_RECIPEs(RECIPE entity)
 		{
 			this.SendPropertyChanging();
@@ -2799,365 +2787,17 @@ namespace DAL
 			this.SendPropertyChanging();
 			entity.INGREDIENT = null;
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.INVENTORY")]
-	public partial class INVENTORY : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _InventoryId;
-		
-		private int _BranchId;
-		
-		private int _IngredientId;
-		
-		private System.Nullable<System.DateTime> _RestockDate;
-		
-		private int _EXPDay;
-		
-		private System.Nullable<System.DateTime> _EXPDate;
-		
-		private System.Nullable<decimal> _Quantity;
-		
-		private string _Unit;
-		
-		private decimal _UnitPrice;
-		
-		private System.Nullable<decimal> _TotalPrice;
-		
-		private EntityRef<BRANCH> _BRANCH;
-		
-		private EntityRef<INGREDIENT> _INGREDIENT;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnInventoryIdChanging(int value);
-    partial void OnInventoryIdChanged();
-    partial void OnBranchIdChanging(int value);
-    partial void OnBranchIdChanged();
-    partial void OnIngredientIdChanging(int value);
-    partial void OnIngredientIdChanged();
-    partial void OnRestockDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnRestockDateChanged();
-    partial void OnEXPDayChanging(int value);
-    partial void OnEXPDayChanged();
-    partial void OnEXPDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnEXPDateChanged();
-    partial void OnQuantityChanging(System.Nullable<decimal> value);
-    partial void OnQuantityChanged();
-    partial void OnUnitChanging(string value);
-    partial void OnUnitChanged();
-    partial void OnUnitPriceChanging(decimal value);
-    partial void OnUnitPriceChanged();
-    partial void OnTotalPriceChanging(System.Nullable<decimal> value);
-    partial void OnTotalPriceChanged();
-    #endregion
-		
-		public INVENTORY()
+		private void attach_INVENTORies(INVENTORY entity)
 		{
-			this._BRANCH = default(EntityRef<BRANCH>);
-			this._INGREDIENT = default(EntityRef<INGREDIENT>);
-			OnCreated();
+			this.SendPropertyChanging();
+			entity.INGREDIENT = this;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InventoryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int InventoryId
+		private void detach_INVENTORies(INVENTORY entity)
 		{
-			get
-			{
-				return this._InventoryId;
-			}
-			set
-			{
-				if ((this._InventoryId != value))
-				{
-					this.OnInventoryIdChanging(value);
-					this.SendPropertyChanging();
-					this._InventoryId = value;
-					this.SendPropertyChanged("InventoryId");
-					this.OnInventoryIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
-		public int BranchId
-		{
-			get
-			{
-				return this._BranchId;
-			}
-			set
-			{
-				if ((this._BranchId != value))
-				{
-					if (this._BRANCH.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBranchIdChanging(value);
-					this.SendPropertyChanging();
-					this._BranchId = value;
-					this.SendPropertyChanged("BranchId");
-					this.OnBranchIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngredientId", DbType="Int NOT NULL")]
-		public int IngredientId
-		{
-			get
-			{
-				return this._IngredientId;
-			}
-			set
-			{
-				if ((this._IngredientId != value))
-				{
-					if (this._INGREDIENT.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIngredientIdChanging(value);
-					this.SendPropertyChanging();
-					this._IngredientId = value;
-					this.SendPropertyChanged("IngredientId");
-					this.OnIngredientIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RestockDate", DbType="Date")]
-		public System.Nullable<System.DateTime> RestockDate
-		{
-			get
-			{
-				return this._RestockDate;
-			}
-			set
-			{
-				if ((this._RestockDate != value))
-				{
-					this.OnRestockDateChanging(value);
-					this.SendPropertyChanging();
-					this._RestockDate = value;
-					this.SendPropertyChanged("RestockDate");
-					this.OnRestockDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPDay", DbType="Int NOT NULL")]
-		public int EXPDay
-		{
-			get
-			{
-				return this._EXPDay;
-			}
-			set
-			{
-				if ((this._EXPDay != value))
-				{
-					this.OnEXPDayChanging(value);
-					this.SendPropertyChanging();
-					this._EXPDay = value;
-					this.SendPropertyChanged("EXPDay");
-					this.OnEXPDayChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPDate", AutoSync=AutoSync.Always, DbType="Date", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> EXPDate
-		{
-			get
-			{
-				return this._EXPDate;
-			}
-			set
-			{
-				if ((this._EXPDate != value))
-				{
-					this.OnEXPDateChanging(value);
-					this.SendPropertyChanging();
-					this._EXPDate = value;
-					this.SendPropertyChanged("EXPDate");
-					this.OnEXPDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Decimal(10,2)")]
-		public System.Nullable<decimal> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this.OnQuantityChanging(value);
-					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unit", DbType="NVarChar(20)")]
-		public string Unit
-		{
-			get
-			{
-				return this._Unit;
-			}
-			set
-			{
-				if ((this._Unit != value))
-				{
-					this.OnUnitChanging(value);
-					this.SendPropertyChanging();
-					this._Unit = value;
-					this.SendPropertyChanged("Unit");
-					this.OnUnitChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitPrice", DbType="Decimal(10,0) NOT NULL")]
-		public decimal UnitPrice
-		{
-			get
-			{
-				return this._UnitPrice;
-			}
-			set
-			{
-				if ((this._UnitPrice != value))
-				{
-					this.OnUnitPriceChanging(value);
-					this.SendPropertyChanging();
-					this._UnitPrice = value;
-					this.SendPropertyChanged("UnitPrice");
-					this.OnUnitPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", AutoSync=AutoSync.Always, DbType="Decimal(21,2)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<decimal> TotalPrice
-		{
-			get
-			{
-				return this._TotalPrice;
-			}
-			set
-			{
-				if ((this._TotalPrice != value))
-				{
-					this.OnTotalPriceChanging(value);
-					this.SendPropertyChanging();
-					this._TotalPrice = value;
-					this.SendPropertyChanged("TotalPrice");
-					this.OnTotalPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_INVENTORY", Storage="_BRANCH", ThisKey="BranchId", OtherKey="BranchId", IsForeignKey=true)]
-		public BRANCH BRANCH
-		{
-			get
-			{
-				return this._BRANCH.Entity;
-			}
-			set
-			{
-				BRANCH previousValue = this._BRANCH.Entity;
-				if (((previousValue != value) 
-							|| (this._BRANCH.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._BRANCH.Entity = null;
-						previousValue.INVENTORies.Remove(this);
-					}
-					this._BRANCH.Entity = value;
-					if ((value != null))
-					{
-						value.INVENTORies.Add(this);
-						this._BranchId = value.BranchId;
-					}
-					else
-					{
-						this._BranchId = default(int);
-					}
-					this.SendPropertyChanged("BRANCH");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="INGREDIENT_INVENTORY", Storage="_INGREDIENT", ThisKey="IngredientId", OtherKey="IngredientId", IsForeignKey=true)]
-		public INGREDIENT INGREDIENT
-		{
-			get
-			{
-				return this._INGREDIENT.Entity;
-			}
-			set
-			{
-				INGREDIENT previousValue = this._INGREDIENT.Entity;
-				if (((previousValue != value) 
-							|| (this._INGREDIENT.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._INGREDIENT.Entity = null;
-						previousValue.INVENTORies.Remove(this);
-					}
-					this._INGREDIENT.Entity = value;
-					if ((value != null))
-					{
-						value.INVENTORies.Add(this);
-						this._IngredientId = value.IngredientId;
-					}
-					else
-					{
-						this._IngredientId = default(int);
-					}
-					this.SendPropertyChanged("INGREDIENT");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
+			this.SendPropertyChanging();
+			entity.INGREDIENT = null;
 		}
 	}
 	
@@ -4200,6 +3840,366 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.SUPPLIER = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.INVENTORY")]
+	public partial class INVENTORY : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _InventoryId;
+		
+		private int _BranchId;
+		
+		private int _IngredientId;
+		
+		private System.Nullable<System.DateTime> _RestockDate;
+		
+		private int _EXPDay;
+		
+		private System.Nullable<System.DateTime> _EXPDate;
+		
+		private System.Nullable<decimal> _Quantity;
+		
+		private string _Unit;
+		
+		private decimal _UnitPrice;
+		
+		private System.Nullable<decimal> _TotalPrice;
+		
+		private EntityRef<BRANCH> _BRANCH;
+		
+		private EntityRef<INGREDIENT> _INGREDIENT;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnInventoryIdChanging(int value);
+    partial void OnInventoryIdChanged();
+    partial void OnBranchIdChanging(int value);
+    partial void OnBranchIdChanged();
+    partial void OnIngredientIdChanging(int value);
+    partial void OnIngredientIdChanged();
+    partial void OnRestockDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRestockDateChanged();
+    partial void OnEXPDayChanging(int value);
+    partial void OnEXPDayChanged();
+    partial void OnEXPDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEXPDateChanged();
+    partial void OnQuantityChanging(System.Nullable<decimal> value);
+    partial void OnQuantityChanged();
+    partial void OnUnitChanging(string value);
+    partial void OnUnitChanged();
+    partial void OnUnitPriceChanging(decimal value);
+    partial void OnUnitPriceChanged();
+    partial void OnTotalPriceChanging(System.Nullable<decimal> value);
+    partial void OnTotalPriceChanged();
+    #endregion
+		
+		public INVENTORY()
+		{
+			this._BRANCH = default(EntityRef<BRANCH>);
+			this._INGREDIENT = default(EntityRef<INGREDIENT>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InventoryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int InventoryId
+		{
+			get
+			{
+				return this._InventoryId;
+			}
+			set
+			{
+				if ((this._InventoryId != value))
+				{
+					this.OnInventoryIdChanging(value);
+					this.SendPropertyChanging();
+					this._InventoryId = value;
+					this.SendPropertyChanged("InventoryId");
+					this.OnInventoryIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
+		public int BranchId
+		{
+			get
+			{
+				return this._BranchId;
+			}
+			set
+			{
+				if ((this._BranchId != value))
+				{
+					if (this._BRANCH.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBranchIdChanging(value);
+					this.SendPropertyChanging();
+					this._BranchId = value;
+					this.SendPropertyChanged("BranchId");
+					this.OnBranchIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IngredientId", DbType="Int NOT NULL")]
+		public int IngredientId
+		{
+			get
+			{
+				return this._IngredientId;
+			}
+			set
+			{
+				if ((this._IngredientId != value))
+				{
+					if (this._INGREDIENT.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIngredientIdChanging(value);
+					this.SendPropertyChanging();
+					this._IngredientId = value;
+					this.SendPropertyChanged("IngredientId");
+					this.OnIngredientIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RestockDate", DbType="Date")]
+		public System.Nullable<System.DateTime> RestockDate
+		{
+			get
+			{
+				return this._RestockDate;
+			}
+			set
+			{
+				if ((this._RestockDate != value))
+				{
+					this.OnRestockDateChanging(value);
+					this.SendPropertyChanging();
+					this._RestockDate = value;
+					this.SendPropertyChanged("RestockDate");
+					this.OnRestockDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPDay", DbType="Int NOT NULL")]
+		public int EXPDay
+		{
+			get
+			{
+				return this._EXPDay;
+			}
+			set
+			{
+				if ((this._EXPDay != value))
+				{
+					this.OnEXPDayChanging(value);
+					this.SendPropertyChanging();
+					this._EXPDay = value;
+					this.SendPropertyChanged("EXPDay");
+					this.OnEXPDayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPDate", AutoSync=AutoSync.Always, DbType="Date", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> EXPDate
+		{
+			get
+			{
+				return this._EXPDate;
+			}
+			set
+			{
+				if ((this._EXPDate != value))
+				{
+					this.OnEXPDateChanging(value);
+					this.SendPropertyChanging();
+					this._EXPDate = value;
+					this.SendPropertyChanged("EXPDate");
+					this.OnEXPDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Decimal(10,2)")]
+		public System.Nullable<decimal> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this.OnQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._Quantity = value;
+					this.SendPropertyChanged("Quantity");
+					this.OnQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Unit", DbType="NVarChar(20)")]
+		public string Unit
+		{
+			get
+			{
+				return this._Unit;
+			}
+			set
+			{
+				if ((this._Unit != value))
+				{
+					this.OnUnitChanging(value);
+					this.SendPropertyChanging();
+					this._Unit = value;
+					this.SendPropertyChanged("Unit");
+					this.OnUnitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitPrice", DbType="Decimal(10,0) NOT NULL")]
+		public decimal UnitPrice
+		{
+			get
+			{
+				return this._UnitPrice;
+			}
+			set
+			{
+				if ((this._UnitPrice != value))
+				{
+					this.OnUnitPriceChanging(value);
+					this.SendPropertyChanging();
+					this._UnitPrice = value;
+					this.SendPropertyChanged("UnitPrice");
+					this.OnUnitPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", AutoSync=AutoSync.Always, DbType="Decimal(21,2)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<decimal> TotalPrice
+		{
+			get
+			{
+				return this._TotalPrice;
+			}
+			set
+			{
+				if ((this._TotalPrice != value))
+				{
+					this.OnTotalPriceChanging(value);
+					this.SendPropertyChanging();
+					this._TotalPrice = value;
+					this.SendPropertyChanged("TotalPrice");
+					this.OnTotalPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_INVENTORY", Storage="_BRANCH", ThisKey="BranchId", OtherKey="BranchId", IsForeignKey=true)]
+		public BRANCH BRANCH
+		{
+			get
+			{
+				return this._BRANCH.Entity;
+			}
+			set
+			{
+				BRANCH previousValue = this._BRANCH.Entity;
+				if (((previousValue != value) 
+							|| (this._BRANCH.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BRANCH.Entity = null;
+						previousValue.INVENTORies.Remove(this);
+					}
+					this._BRANCH.Entity = value;
+					if ((value != null))
+					{
+						value.INVENTORies.Add(this);
+						this._BranchId = value.BranchId;
+					}
+					else
+					{
+						this._BranchId = default(int);
+					}
+					this.SendPropertyChanged("BRANCH");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="INGREDIENT_INVENTORY", Storage="_INGREDIENT", ThisKey="IngredientId", OtherKey="IngredientId", IsForeignKey=true)]
+		public INGREDIENT INGREDIENT
+		{
+			get
+			{
+				return this._INGREDIENT.Entity;
+			}
+			set
+			{
+				INGREDIENT previousValue = this._INGREDIENT.Entity;
+				if (((previousValue != value) 
+							|| (this._INGREDIENT.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._INGREDIENT.Entity = null;
+						previousValue.INVENTORies.Remove(this);
+					}
+					this._INGREDIENT.Entity = value;
+					if ((value != null))
+					{
+						value.INVENTORies.Add(this);
+						this._IngredientId = value.IngredientId;
+					}
+					else
+					{
+						this._IngredientId = default(int);
+					}
+					this.SendPropertyChanged("INGREDIENT");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

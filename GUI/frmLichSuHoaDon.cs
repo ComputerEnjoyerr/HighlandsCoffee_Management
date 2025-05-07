@@ -7,17 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BLL;
 
 namespace GUI
 {
     public partial class frmLichSuHoaDon : Form
     {
-        public frmLichSuHoaDon()
+        public frmLichSuHoaDon(Employee em)
         {
             InitializeComponent();
+            currentEmployee = em;
         }
-        
 
+        private Employee currentEmployee = new Employee();
         private void frmLichSuHoaDon_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#52362A");
