@@ -32,10 +32,10 @@
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.cbBranchId = new System.Windows.Forms.ComboBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnHoanTac = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.dtNgayVaoLam = new System.Windows.Forms.DateTimePicker();
             this.cbChucVu = new System.Windows.Forms.ComboBox();
             this.txtTongThuNhap = new System.Windows.Forms.TextBox();
@@ -94,10 +94,10 @@
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.Controls.Add(this.cbBranchId);
-            this.pnlMain.Controls.Add(this.button6);
-            this.pnlMain.Controls.Add(this.button4);
-            this.pnlMain.Controls.Add(this.button3);
-            this.pnlMain.Controls.Add(this.button2);
+            this.pnlMain.Controls.Add(this.btnHoanTac);
+            this.pnlMain.Controls.Add(this.btnSua);
+            this.pnlMain.Controls.Add(this.btnXoa);
+            this.pnlMain.Controls.Add(this.btnThem);
             this.pnlMain.Controls.Add(this.dtNgayVaoLam);
             this.pnlMain.Controls.Add(this.cbChucVu);
             this.pnlMain.Controls.Add(this.txtTongThuNhap);
@@ -136,41 +136,45 @@
             this.cbBranchId.Size = new System.Drawing.Size(242, 26);
             this.cbBranchId.TabIndex = 13;
             // 
-            // button6
+            // btnHoanTac
             // 
-            this.button6.Location = new System.Drawing.Point(768, 201);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(140, 41);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Hoàn tác";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnHoanTac.Location = new System.Drawing.Point(768, 201);
+            this.btnHoanTac.Name = "btnHoanTac";
+            this.btnHoanTac.Size = new System.Drawing.Size(140, 41);
+            this.btnHoanTac.TabIndex = 9;
+            this.btnHoanTac.Text = "Hoàn tác";
+            this.btnHoanTac.UseVisualStyleBackColor = true;
+            this.btnHoanTac.Click += new System.EventHandler(this.btnHoanTac_Click);
             // 
-            // button4
+            // btnSua
             // 
-            this.button4.Location = new System.Drawing.Point(768, 143);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(140, 41);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Sửa";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSua.Location = new System.Drawing.Point(768, 143);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(140, 41);
+            this.btnSua.TabIndex = 10;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // button3
+            // btnXoa
             // 
-            this.button3.Location = new System.Drawing.Point(768, 88);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 41);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnXoa.Location = new System.Drawing.Point(768, 88);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(140, 41);
+            this.btnXoa.TabIndex = 11;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // button2
+            // btnThem
             // 
-            this.button2.Location = new System.Drawing.Point(768, 32);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 41);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnThem.Location = new System.Drawing.Point(768, 32);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(140, 41);
+            this.btnThem.TabIndex = 12;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // dtNgayVaoLam
             // 
@@ -506,15 +510,15 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label lbTim;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnHoanTac;
         private System.Windows.Forms.ComboBox cbBranchId;
         private System.Windows.Forms.Label label13;
     }

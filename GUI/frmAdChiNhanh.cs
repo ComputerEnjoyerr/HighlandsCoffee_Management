@@ -207,8 +207,6 @@ namespace GUI
             }
             var br = new Branch
             {
-
-
                 BranchName = txtTenCN.Text,
                 ManagerId = (int)cbQuanLy.SelectedValue,
                 Address = txtDiaChi.Text,
@@ -217,9 +215,6 @@ namespace GUI
                 CloseTime = dtDongCua.Value.TimeOfDay,
                 MonthlyRent = monthlyRent,
                 Status = cbStatus.SelectedItem.ToString(),
-                
-
-
             };
 
             bllBranch.AddBranch(br);

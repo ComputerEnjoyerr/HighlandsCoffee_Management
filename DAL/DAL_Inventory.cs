@@ -37,18 +37,17 @@ namespace DAL
             {
                 var newItem = new INVENTORY
                 {
-                    InventoryId = item.InventoryId,
                     BranchId = item.BranchId,
                     IngredientId = item.IngredientId,
                     EXPDay = item.ExpDay,
-                    EXPDate = item.ExpDate,
+                    //EXPDate = item.ExpDate,
                     Quantity = (decimal)item.Quantity,
                     Unit = item.Unit,
                     RestockDate = (DateTime)item.RestockDate,
                     UnitPrice = (decimal)item.UnitPrice,
-                    TotalPrice = (decimal)item.TotalPrice
+                    //TotalPrice = (decimal)item.TotalPrice
                 };
-                if (newItem != null )
+                if (newItem != null)
                 {
                     db.INVENTORies.InsertOnSubmit(newItem);
                     db.SubmitChanges();
