@@ -150,7 +150,7 @@
             // 
             // dtDongCua
             // 
-            this.dtDongCua.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDongCua.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtDongCua.Location = new System.Drawing.Point(505, 90);
             this.dtDongCua.Name = "dtDongCua";
             this.dtDongCua.Size = new System.Drawing.Size(126, 24);
@@ -158,7 +158,7 @@
             // 
             // dtMoCua
             // 
-            this.dtMoCua.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtMoCua.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtMoCua.Location = new System.Drawing.Point(505, 58);
             this.dtMoCua.Name = "dtMoCua";
             this.dtMoCua.Size = new System.Drawing.Size(126, 24);
@@ -292,6 +292,7 @@
             this.txtMaCN.Location = new System.Drawing.Point(143, 28);
             this.txtMaCN.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaCN.Name = "txtMaCN";
+            this.txtMaCN.ReadOnly = true;
             this.txtMaCN.Size = new System.Drawing.Size(141, 24);
             this.txtMaCN.TabIndex = 32;
             // 

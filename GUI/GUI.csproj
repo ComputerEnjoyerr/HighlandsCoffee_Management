@@ -51,10 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="crptHoaDon.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>crptHoaDon.rpt</DependentUpon>
+    <Compile Include="frmChonKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChonKhachHang.Designer.cs">
+      <DependentUpon>frmChonKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdXoaSuaCongThuc.cs">
       <SubType>Form</SubType>
@@ -172,10 +173,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="crptHoaDon.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crptHoaDon.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAdXoaSuaCongThuc.resx">
       <DependentUpon>frmAdXoaSuaCongThuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChiTietHoaDon.resx">
       <DependentUpon>frmChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChonKhachHang.resx">
+      <DependentUpon>frmChonKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDatMon.resx">
       <DependentUpon>frmDatMon.cs</DependentUpon>

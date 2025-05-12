@@ -443,6 +443,7 @@
             this.dgvNhanVien.RowHeadersWidth = 62;
             this.dgvNhanVien.Size = new System.Drawing.Size(949, 322);
             this.dgvNhanVien.TabIndex = 3;
+            this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // txtTim
             // 

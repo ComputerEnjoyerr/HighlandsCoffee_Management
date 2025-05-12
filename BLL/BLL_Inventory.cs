@@ -24,7 +24,7 @@ namespace BLL
         {
             inventory.Update(t);
         }
-        public void Delete(int id)
+        public void Delete(string id)
         {
             inventory.Delete(id);
         }

@@ -83,6 +83,7 @@
             this.dgvKhachHang.RowHeadersWidth = 62;
             this.dgvKhachHang.Size = new System.Drawing.Size(949, 372);
             this.dgvKhachHang.TabIndex = 21;
+            this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
             // 
             // pnlMain
             // 
@@ -111,12 +112,13 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(739, 158);
+            this.button6.Location = new System.Drawing.Point(549, 102);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(140, 41);
+            this.button6.Size = new System.Drawing.Size(115, 41);
             this.button6.TabIndex = 13;
             this.button6.Text = "Hoàn tác";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.btnHoanTac_Click);
             // 
             // button4
             // 
@@ -126,6 +128,7 @@
             this.button4.TabIndex = 14;
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // button3
             // 
@@ -135,6 +138,7 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // button2
             // 
@@ -144,6 +148,7 @@
             this.button2.TabIndex = 16;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // cbHang
             // 
