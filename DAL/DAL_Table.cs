@@ -33,13 +33,13 @@ namespace DAL
             {
                 var newTable = new TABLE
                 {
-                    TableId = table.TableId,
                     BranchId = table.BranchId,
                     TableName = table.TableName,
                     Capacity = (int)table.Capacity,
                     Status = (int)table.Status,
                 };
                 db.TABLEs.InsertOnSubmit(newTable);
+                db.SubmitChanges();
             }
         }
 

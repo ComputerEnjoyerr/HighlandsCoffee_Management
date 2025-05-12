@@ -55,6 +55,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crptHoaDon.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="frmChonKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChonKhachHang.Designer.cs">
+      <DependentUpon>frmChonKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAdXoaSuaCongThuc.cs">
       <SubType>Form</SubType>
@@ -205,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChiTietHoaDon.resx">
       <DependentUpon>frmChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChonKhachHang.resx">
+      <DependentUpon>frmChonKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDatMon.resx">
       <DependentUpon>frmDatMon.cs</DependentUpon>

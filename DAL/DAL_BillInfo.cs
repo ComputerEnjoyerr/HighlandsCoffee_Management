@@ -46,10 +46,9 @@ namespace DAL
         {
             using (var db = new HLCMDataContext())
             {
-                var existingBillInfo = db.BILLINFOs.FirstOrDefault(b => b .BillId == bf.BillId);
+                var existingBillInfo = db.BILLINFOs.FirstOrDefault(b => b .BillInfoId == bf.BillInfoId);
                 if (existingBillInfo != null)
                 {
-                    existingBillInfo.BillInfoId = bf.BillInfoId;
                     existingBillInfo.BillId = bf.BillId;
                     existingBillInfo.ProductId = bf.ProductId;
                     existingBillInfo.Quantity = bf.Quantity;
@@ -62,10 +61,11 @@ namespace DAL
         {
             using (var db = new HLCMDataContext())
             {
-                var BillInfoToDel = db.BILLINFOs.FirstOrDefault(b => b.BillId == id);
+                var BillInfoToDel = db.BILLINFOs.FirstOrDefault(b => b.BillInfoId == id);
                 if (BillInfoToDel != null)
                 {
                     db.BILLINFOs.DeleteOnSubmit(BillInfoToDel);
+                    db.SubmitChanges();
                 }
             };
         }

@@ -34,6 +34,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnKho = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
+            this.btnBanAn = new System.Windows.Forms.Button();
             this.btnThemNV = new System.Windows.Forms.Button();
             this.btnThuNhap = new System.Windows.Forms.Button();
             this.btnLichSu = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.phóngToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thuNhỏToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnBanAn = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -111,6 +111,22 @@
             this.btnDangXuat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDangXuat.UseVisualStyleBackColor = true;
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
+            // btnBanAn
+            // 
+            this.btnBanAn.FlatAppearance.BorderSize = 0;
+            this.btnBanAn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBanAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBanAn.Image = ((System.Drawing.Image)(resources.GetObject("btnBanAn.Image")));
+            this.btnBanAn.Location = new System.Drawing.Point(0, 465);
+            this.btnBanAn.Name = "btnBanAn";
+            this.btnBanAn.Size = new System.Drawing.Size(186, 50);
+            this.btnBanAn.TabIndex = 4;
+            this.btnBanAn.Text = "QL BÀN ĂN";
+            this.btnBanAn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBanAn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBanAn.UseVisualStyleBackColor = true;
+            this.btnBanAn.Click += new System.EventHandler(this.btnBanAn_Click);
             // 
             // btnThemNV
             // 
@@ -213,6 +229,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.phóngToToolStripMenuItem,
             this.thuNhỏToolStripMenuItem});
@@ -232,22 +249,6 @@
             this.thuNhỏToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.thuNhỏToolStripMenuItem.Text = "Thu nhỏ";
             this.thuNhỏToolStripMenuItem.Click += new System.EventHandler(this.thuNhỏToolStripMenuItem_Click);
-            // 
-            // btnBanAn
-            // 
-            this.btnBanAn.FlatAppearance.BorderSize = 0;
-            this.btnBanAn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBanAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBanAn.Image = ((System.Drawing.Image)(resources.GetObject("btnBanAn.Image")));
-            this.btnBanAn.Location = new System.Drawing.Point(0, 465);
-            this.btnBanAn.Name = "btnBanAn";
-            this.btnBanAn.Size = new System.Drawing.Size(186, 50);
-            this.btnBanAn.TabIndex = 4;
-            this.btnBanAn.Text = "QL BÀN ĂN";
-            this.btnBanAn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBanAn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBanAn.UseVisualStyleBackColor = true;
-            this.btnBanAn.Click += new System.EventHandler(this.btnBanAn_Click);
             // 
             // frmMain
             // 

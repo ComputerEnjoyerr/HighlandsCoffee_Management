@@ -38,12 +38,19 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.lbTim = new System.Windows.Forms.Label();
             this.pnlDatMon = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.nbrSoLuong = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTenMon = new System.Windows.Forms.TextBox();
+            this.txtKH = new System.Windows.Forms.TextBox();
+            this.btnChonKhach = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.lbBan = new System.Windows.Forms.Label();
-            this.dgvSanPham = new System.Windows.Forms.DataGridView();
+            this.dgvMonAn = new System.Windows.Forms.DataGridView();
             this.flpSanPham = new System.Windows.Forms.FlowLayoutPanel();
             this.imlSanPham = new System.Windows.Forms.ImageList(this.components);
             this.tabBanAn.SuspendLayout();
@@ -51,7 +58,8 @@
             this.tabDatMon.SuspendLayout();
             this.pnlMain2.SuspendLayout();
             this.pnlDatMon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbrSoLuong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonAn)).BeginInit();
             this.SuspendLayout();
             // 
             // tabBanAn
@@ -133,77 +141,154 @@
             // 
             this.pnlDatMon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlDatMon.Controls.Add(this.button4);
-            this.pnlDatMon.Controls.Add(this.button3);
-            this.pnlDatMon.Controls.Add(this.button2);
-            this.pnlDatMon.Controls.Add(this.button1);
+            this.pnlDatMon.Controls.Add(this.nbrSoLuong);
+            this.pnlDatMon.Controls.Add(this.label2);
+            this.pnlDatMon.Controls.Add(this.label3);
+            this.pnlDatMon.Controls.Add(this.label1);
+            this.pnlDatMon.Controls.Add(this.txtTenMon);
+            this.pnlDatMon.Controls.Add(this.txtKH);
+            this.pnlDatMon.Controls.Add(this.btnChonKhach);
+            this.pnlDatMon.Controls.Add(this.btnLuu);
+            this.pnlDatMon.Controls.Add(this.btnHuy);
+            this.pnlDatMon.Controls.Add(this.btnThem);
+            this.pnlDatMon.Controls.Add(this.btnXoa);
             this.pnlDatMon.Controls.Add(this.lbBan);
-            this.pnlDatMon.Controls.Add(this.dgvSanPham);
+            this.pnlDatMon.Controls.Add(this.dgvMonAn);
             this.pnlDatMon.Location = new System.Drawing.Point(448, 3);
             this.pnlDatMon.Name = "pnlDatMon";
             this.pnlDatMon.Size = new System.Drawing.Size(326, 671);
             this.pnlDatMon.TabIndex = 5;
             // 
-            // button4
+            // nbrSoLuong
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.Location = new System.Drawing.Point(9, 609);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(122, 49);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Lưu";
-            this.button4.UseVisualStyleBackColor = true;
+            this.nbrSoLuong.Location = new System.Drawing.Point(102, 188);
+            this.nbrSoLuong.Name = "nbrSoLuong";
+            this.nbrSoLuong.Size = new System.Drawing.Size(135, 24);
+            this.nbrSoLuong.TabIndex = 7;
+            this.nbrSoLuong.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // button3
+            // label2
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(192, 609);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(122, 49);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Hủy bỏ";
-            this.button3.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 192);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 18);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Số lượng:";
             // 
-            // button2
+            // label3
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(7, 418);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 42);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Thêm món";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 156);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 18);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Tên món:";
             // 
-            // button1
+            // label1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(125, 418);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 42);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Xóa món";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 82);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 18);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Khách hàng:";
+            // 
+            // txtTenMon
+            // 
+            this.txtTenMon.Location = new System.Drawing.Point(102, 153);
+            this.txtTenMon.Name = "txtTenMon";
+            this.txtTenMon.ReadOnly = true;
+            this.txtTenMon.Size = new System.Drawing.Size(212, 24);
+            this.txtTenMon.TabIndex = 5;
+            // 
+            // txtKH
+            // 
+            this.txtKH.Location = new System.Drawing.Point(102, 79);
+            this.txtKH.Name = "txtKH";
+            this.txtKH.ReadOnly = true;
+            this.txtKH.Size = new System.Drawing.Size(212, 24);
+            this.txtKH.TabIndex = 5;
+            // 
+            // btnChonKhach
+            // 
+            this.btnChonKhach.Location = new System.Drawing.Point(7, 111);
+            this.btnChonKhach.Name = "btnChonKhach";
+            this.btnChonKhach.Size = new System.Drawing.Size(136, 36);
+            this.btnChonKhach.TabIndex = 4;
+            this.btnChonKhach.Text = "Chọn khách hàng";
+            this.btnChonKhach.UseVisualStyleBackColor = true;
+            this.btnChonKhach.Click += new System.EventHandler(this.btnChonKhach_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLuu.Location = new System.Drawing.Point(9, 609);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(122, 49);
+            this.btnLuu.TabIndex = 3;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHuy.Location = new System.Drawing.Point(192, 609);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(122, 49);
+            this.btnHuy.TabIndex = 3;
+            this.btnHuy.Text = "Hủy bỏ";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnThem.Location = new System.Drawing.Point(7, 531);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(112, 42);
+            this.btnThem.TabIndex = 3;
+            this.btnThem.Text = "Thêm món";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnXoa.Location = new System.Drawing.Point(125, 531);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(112, 42);
+            this.btnXoa.TabIndex = 3;
+            this.btnXoa.Text = "Xóa món";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // lbBan
             // 
             this.lbBan.AutoSize = true;
-            this.lbBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBan.Location = new System.Drawing.Point(10, 19);
+            this.lbBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBan.Location = new System.Drawing.Point(8, 9);
             this.lbBan.Name = "lbBan";
-            this.lbBan.Size = new System.Drawing.Size(110, 37);
+            this.lbBan.Size = new System.Drawing.Size(94, 31);
             this.lbBan.TabIndex = 1;
             this.lbBan.Text = "Bàn....";
             // 
-            // dgvSanPham
+            // dgvMonAn
             // 
-            this.dgvSanPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSanPham.Location = new System.Drawing.Point(0, 74);
-            this.dgvSanPham.Name = "dgvSanPham";
-            this.dgvSanPham.Size = new System.Drawing.Size(323, 338);
-            this.dgvSanPham.TabIndex = 0;
+            this.dgvMonAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMonAn.Location = new System.Drawing.Point(0, 223);
+            this.dgvMonAn.Name = "dgvMonAn";
+            this.dgvMonAn.RowHeadersWidth = 51;
+            this.dgvMonAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMonAn.Size = new System.Drawing.Size(323, 302);
+            this.dgvMonAn.TabIndex = 0;
             // 
             // flpSanPham
             // 
@@ -220,35 +305,7 @@
             // 
             this.imlSanPham.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imlSanPham.ImageStream")));
             this.imlSanPham.TransparentColor = System.Drawing.Color.Transparent;
-            this.imlSanPham.Images.SetKeyName(0, "americano.jpg");
-            this.imlSanPham.Images.SetKeyName(1, "bXiuDa.jpg");
-            this.imlSanPham.Images.SetKeyName(2, "c&c.jpg");
-            this.imlSanPham.Images.SetKeyName(3, "cappuccino.jpg");
-            this.imlSanPham.Images.SetKeyName(4, "cappuccinoDa.jpg");
-            this.imlSanPham.Images.SetKeyName(5, "chDaVien.jpg");
-            this.imlSanPham.Images.SetKeyName(6, "chDaXay.jpg");
-            this.imlSanPham.Images.SetKeyName(7, "cheeseCakes.jpg");
-            this.imlSanPham.Images.SetKeyName(8, "espresso.jpg");
-            this.imlSanPham.Images.SetKeyName(9, "kemDi.jpg");
-            this.imlSanPham.Images.SetKeyName(10, "latte.jpg");
-            this.imlSanPham.Images.SetKeyName(11, "mCaramel.jpg");
-            this.imlSanPham.Images.SetKeyName(12, "mMocha.jpg");
-            this.imlSanPham.Images.SetKeyName(13, "muffin.jpg");
-            this.imlSanPham.Images.SetKeyName(14, "pastry.jpg");
-            this.imlSanPham.Images.SetKeyName(15, "pCaramelFreeze.jpg");
-            this.imlSanPham.Images.SetKeyName(16, "pCassia.jpg");
-            this.imlSanPham.Images.SetKeyName(17, "pChoco.jpg");
-            this.imlSanPham.Images.SetKeyName(18, "pDenDa.jpg");
-            this.imlSanPham.Images.SetKeyName(19, "pDenNong.jpg");
-            this.imlSanPham.Images.SetKeyName(20, "pHanhNhan.jpg");
-            this.imlSanPham.Images.SetKeyName(21, "pKemSua.jpg");
-            this.imlSanPham.Images.SetKeyName(22, "pSuaDa.jpg");
-            this.imlSanPham.Images.SetKeyName(23, "pSuaNong.jpg");
-            this.imlSanPham.Images.SetKeyName(24, "tcDaVien.jpg");
-            this.imlSanPham.Images.SetKeyName(25, "trOiHong.jpg");
-            this.imlSanPham.Images.SetKeyName(26, "trQuaMongAnhDao.jpg");
-            this.imlSanPham.Images.SetKeyName(27, "trThachDao.jpg");
-            this.imlSanPham.Images.SetKeyName(28, "trThanhDao.jpg");
+            this.imlSanPham.Images.SetKeyName(0, "noImage.png");
             // 
             // frmDatMon
             // 
@@ -268,7 +325,8 @@
             this.pnlMain2.PerformLayout();
             this.pnlDatMon.ResumeLayout(false);
             this.pnlDatMon.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbrSoLuong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMonAn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -283,13 +341,20 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lbTim;
         private System.Windows.Forms.Panel pnlDatMon;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLuu;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label lbBan;
-        private System.Windows.Forms.DataGridView dgvSanPham;
+        private System.Windows.Forms.DataGridView dgvMonAn;
         private System.Windows.Forms.FlowLayoutPanel flpSanPham;
         private System.Windows.Forms.ImageList imlSanPham;
+        private System.Windows.Forms.Button btnChonKhach;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtKH;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown nbrSoLuong;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtTenMon;
     }
 }

@@ -26,7 +26,7 @@ namespace DAL
                     UnitPrice = (double)i.UnitPrice,
                     TotalPrice = (double)i.TotalPrice
                 });
-                if  (data != null ) return data.ToList();
+                if (data != null) return data.ToList();
                 return new List<Inventory>();
             }
         }
@@ -37,6 +37,7 @@ namespace DAL
             {
                 var newItem = new INVENTORY
                 {
+                    InventoryId = item.InventoryId,
                     BranchId = item.BranchId,
                     IngredientId = item.IngredientId,
                     EXPDay = item.ExpDay,
@@ -49,6 +50,7 @@ namespace DAL
                 };
                 if (newItem != null)
                 {
+                    //Console.WriteLine("Ma KH da duoc anh xa: " + newItem.InventoryId + $", chieu dai: {newItem.InventoryId.ToString().Length}");
                     db.INVENTORies.InsertOnSubmit(newItem);
                     db.SubmitChanges();
                 }
@@ -65,18 +67,18 @@ namespace DAL
                     existingItem.BranchId = item.BranchId;
                     existingItem.IngredientId = item.IngredientId;
                     existingItem.EXPDay = item.ExpDay;
-                    existingItem.EXPDate = item.ExpDate;
+                    //existingItem.EXPDate = item.ExpDate;
                     existingItem.Quantity = (decimal)item.Quantity;
                     existingItem.Unit = item.Unit;
                     existingItem.RestockDate = (DateTime)item.RestockDate;
                     existingItem.UnitPrice = (decimal)item.UnitPrice;
-                    existingItem.TotalPrice = (decimal)item.TotalPrice;
+                    //existingItem.TotalPrice = (decimal)item.TotalPrice;
                     db.SubmitChanges();
                 }
             }
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             using (var db = new HLCMDataContext())
             {
