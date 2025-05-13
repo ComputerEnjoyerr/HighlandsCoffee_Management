@@ -33,9 +33,9 @@ namespace DAL
     partial void InsertACCOUNT(ACCOUNT instance);
     partial void UpdateACCOUNT(ACCOUNT instance);
     partial void DeleteACCOUNT(ACCOUNT instance);
-    partial void InsertTABLE(TABLE instance);
-    partial void UpdateTABLE(TABLE instance);
-    partial void DeleteTABLE(TABLE instance);
+    partial void InsertSUPPLIER(SUPPLIER instance);
+    partial void UpdateSUPPLIER(SUPPLIER instance);
+    partial void DeleteSUPPLIER(SUPPLIER instance);
     partial void InsertBILL(BILL instance);
     partial void UpdateBILL(BILL instance);
     partial void DeleteBILL(BILL instance);
@@ -72,13 +72,13 @@ namespace DAL
     partial void InsertRECIPE(RECIPE instance);
     partial void UpdateRECIPE(RECIPE instance);
     partial void DeleteRECIPE(RECIPE instance);
-    partial void InsertSUPPLIER(SUPPLIER instance);
-    partial void UpdateSUPPLIER(SUPPLIER instance);
-    partial void DeleteSUPPLIER(SUPPLIER instance);
+    partial void InsertTABLE(TABLE instance);
+    partial void UpdateTABLE(TABLE instance);
+    partial void DeleteTABLE(TABLE instance);
     #endregion
 		
 		public HLCMDataContext() : 
-				base(global::DAL.Properties.Settings.Default.Highlands_DatabaseConnectionString, mappingSource)
+				base(global::DAL.Properties.Settings.Default.Highlands_DatabaseConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -115,11 +115,11 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<TABLE> TABLEs
+		public System.Data.Linq.Table<SUPPLIER> SUPPLIERs
 		{
 			get
 			{
-				return this.GetTable<TABLE>();
+				return this.GetTable<SUPPLIER>();
 			}
 		}
 		
@@ -219,11 +219,11 @@ namespace DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<SUPPLIER> SUPPLIERs
+		public System.Data.Linq.Table<TABLE> TABLEs
 		{
 			get
 			{
-				return this.GetTable<SUPPLIER>();
+				return this.GetTable<TABLE>();
 			}
 		}
 	}
@@ -427,197 +427,156 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TABLES")]
-	public partial class TABLE : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SUPPLIER")]
+	public partial class SUPPLIER : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _TableId;
+		private int _SupplierId;
 		
-		private string _TableName;
+		private string _Name;
 		
-		private int _BranchId;
+		private string _Phone;
 		
-		private System.Nullable<int> _Capacity;
+		private string _Address;
 		
-		private System.Nullable<int> _Status;
+		private string _Email;
 		
-		private EntitySet<BILL> _BILLs;
-		
-		private EntityRef<BRANCH> _BRANCH;
+		private EntitySet<INGREDIENT> _INGREDIENTs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnTableIdChanging(int value);
-    partial void OnTableIdChanged();
-    partial void OnTableNameChanging(string value);
-    partial void OnTableNameChanged();
-    partial void OnBranchIdChanging(int value);
-    partial void OnBranchIdChanged();
-    partial void OnCapacityChanging(System.Nullable<int> value);
-    partial void OnCapacityChanged();
-    partial void OnStatusChanging(System.Nullable<int> value);
-    partial void OnStatusChanged();
+    partial void OnSupplierIdChanging(int value);
+    partial void OnSupplierIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnPhoneChanging(string value);
+    partial void OnPhoneChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
     #endregion
 		
-		public TABLE()
+		public SUPPLIER()
 		{
-			this._BILLs = new EntitySet<BILL>(new Action<BILL>(this.attach_BILLs), new Action<BILL>(this.detach_BILLs));
-			this._BRANCH = default(EntityRef<BRANCH>);
+			this._INGREDIENTs = new EntitySet<INGREDIENT>(new Action<INGREDIENT>(this.attach_INGREDIENTs), new Action<INGREDIENT>(this.detach_INGREDIENTs));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int TableId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int SupplierId
 		{
 			get
 			{
-				return this._TableId;
+				return this._SupplierId;
 			}
 			set
 			{
-				if ((this._TableId != value))
+				if ((this._SupplierId != value))
 				{
-					this.OnTableIdChanging(value);
+					this.OnSupplierIdChanging(value);
 					this.SendPropertyChanging();
-					this._TableId = value;
-					this.SendPropertyChanged("TableId");
-					this.OnTableIdChanged();
+					this._SupplierId = value;
+					this.SendPropertyChanged("SupplierId");
+					this.OnSupplierIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableName", DbType="NVarChar(10)")]
-		public string TableName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Name
 		{
 			get
 			{
-				return this._TableName;
+				return this._Name;
 			}
 			set
 			{
-				if ((this._TableName != value))
+				if ((this._Name != value))
 				{
-					this.OnTableNameChanging(value);
+					this.OnNameChanging(value);
 					this.SendPropertyChanging();
-					this._TableName = value;
-					this.SendPropertyChanged("TableName");
-					this.OnTableNameChanged();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
-		public int BranchId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Phone
 		{
 			get
 			{
-				return this._BranchId;
+				return this._Phone;
 			}
 			set
 			{
-				if ((this._BranchId != value))
+				if ((this._Phone != value))
 				{
-					if (this._BRANCH.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBranchIdChanging(value);
+					this.OnPhoneChanging(value);
 					this.SendPropertyChanging();
-					this._BranchId = value;
-					this.SendPropertyChanged("BranchId");
-					this.OnBranchIdChanged();
+					this._Phone = value;
+					this.SendPropertyChanged("Phone");
+					this.OnPhoneChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Capacity", DbType="Int")]
-		public System.Nullable<int> Capacity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Address
 		{
 			get
 			{
-				return this._Capacity;
+				return this._Address;
 			}
 			set
 			{
-				if ((this._Capacity != value))
+				if ((this._Address != value))
 				{
-					this.OnCapacityChanging(value);
+					this.OnAddressChanging(value);
 					this.SendPropertyChanging();
-					this._Capacity = value;
-					this.SendPropertyChanged("Capacity");
-					this.OnCapacityChanged();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
 		{
 			get
 			{
-				return this._Status;
+				return this._Email;
 			}
 			set
 			{
-				if ((this._Status != value))
+				if ((this._Email != value))
 				{
-					this.OnStatusChanging(value);
+					this.OnEmailChanging(value);
 					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TABLE_BILL", Storage="_BILLs", ThisKey="TableId", OtherKey="TableId")]
-		public EntitySet<BILL> BILLs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SUPPLIER_INGREDIENT", Storage="_INGREDIENTs", ThisKey="SupplierId", OtherKey="SupplierId")]
+		public EntitySet<INGREDIENT> INGREDIENTs
 		{
 			get
 			{
-				return this._BILLs;
+				return this._INGREDIENTs;
 			}
 			set
 			{
-				this._BILLs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_TABLE", Storage="_BRANCH", ThisKey="BranchId", OtherKey="BranchId", IsForeignKey=true)]
-		public BRANCH BRANCH
-		{
-			get
-			{
-				return this._BRANCH.Entity;
-			}
-			set
-			{
-				BRANCH previousValue = this._BRANCH.Entity;
-				if (((previousValue != value) 
-							|| (this._BRANCH.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._BRANCH.Entity = null;
-						previousValue.TABLEs.Remove(this);
-					}
-					this._BRANCH.Entity = value;
-					if ((value != null))
-					{
-						value.TABLEs.Add(this);
-						this._BranchId = value.BranchId;
-					}
-					else
-					{
-						this._BranchId = default(int);
-					}
-					this.SendPropertyChanged("BRANCH");
-				}
+				this._INGREDIENTs.Assign(value);
 			}
 		}
 		
@@ -641,16 +600,16 @@ namespace DAL
 			}
 		}
 		
-		private void attach_BILLs(BILL entity)
+		private void attach_INGREDIENTs(INGREDIENT entity)
 		{
 			this.SendPropertyChanging();
-			entity.TABLE = this;
+			entity.SUPPLIER = this;
 		}
 		
-		private void detach_BILLs(BILL entity)
+		private void detach_INGREDIENTs(INGREDIENT entity)
 		{
 			this.SendPropertyChanging();
-			entity.TABLE = null;
+			entity.SUPPLIER = null;
 		}
 	}
 	
@@ -674,15 +633,17 @@ namespace DAL
 		
 		private System.Nullable<System.DateTime> _CreateDate;
 		
-		private EntitySet<BILLINFO> _BILLINFOs;
+		private System.Nullable<int> _Status;
 		
-		private EntityRef<TABLE> _TABLE;
+		private EntitySet<BILLINFO> _BILLINFOs;
 		
 		private EntityRef<BRANCH> _BRANCH;
 		
 		private EntityRef<CUSTOMER> _CUSTOMER;
 		
 		private EntityRef<EMPLOYEE> _EMPLOYEE;
+		
+		private EntityRef<TABLE> _TABLE;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -702,15 +663,17 @@ namespace DAL
     partial void OnTotalPriceChanged();
     partial void OnCreateDateChanging(System.Nullable<System.DateTime> value);
     partial void OnCreateDateChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
     #endregion
 		
 		public BILL()
 		{
 			this._BILLINFOs = new EntitySet<BILLINFO>(new Action<BILLINFO>(this.attach_BILLINFOs), new Action<BILLINFO>(this.detach_BILLINFOs));
-			this._TABLE = default(EntityRef<TABLE>);
 			this._BRANCH = default(EntityRef<BRANCH>);
 			this._CUSTOMER = default(EntityRef<CUSTOMER>);
 			this._EMPLOYEE = default(EntityRef<EMPLOYEE>);
+			this._TABLE = default(EntityRef<TABLE>);
 			OnCreated();
 		}
 		
@@ -870,6 +833,26 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BILL_BILLINFO", Storage="_BILLINFOs", ThisKey="BillId", OtherKey="BillId")]
 		public EntitySet<BILLINFO> BILLINFOs
 		{
@@ -880,40 +863,6 @@ namespace DAL
 			set
 			{
 				this._BILLINFOs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TABLE_BILL", Storage="_TABLE", ThisKey="TableId", OtherKey="TableId", IsForeignKey=true)]
-		public TABLE TABLE
-		{
-			get
-			{
-				return this._TABLE.Entity;
-			}
-			set
-			{
-				TABLE previousValue = this._TABLE.Entity;
-				if (((previousValue != value) 
-							|| (this._TABLE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TABLE.Entity = null;
-						previousValue.BILLs.Remove(this);
-					}
-					this._TABLE.Entity = value;
-					if ((value != null))
-					{
-						value.BILLs.Add(this);
-						this._TableId = value.TableId;
-					}
-					else
-					{
-						this._TableId = default(int);
-					}
-					this.SendPropertyChanged("TABLE");
-				}
 			}
 		}
 		
@@ -1015,6 +964,40 @@ namespace DAL
 						this._EmployeeId = default(int);
 					}
 					this.SendPropertyChanged("EMPLOYEE");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TABLE_BILL", Storage="_TABLE", ThisKey="TableId", OtherKey="TableId", IsForeignKey=true)]
+		public TABLE TABLE
+		{
+			get
+			{
+				return this._TABLE.Entity;
+			}
+			set
+			{
+				TABLE previousValue = this._TABLE.Entity;
+				if (((previousValue != value) 
+							|| (this._TABLE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TABLE.Entity = null;
+						previousValue.BILLs.Remove(this);
+					}
+					this._TABLE.Entity = value;
+					if ((value != null))
+					{
+						value.BILLs.Add(this);
+						this._TableId = value.TableId;
+					}
+					else
+					{
+						this._TableId = default(int);
+					}
+					this.SendPropertyChanged("TABLE");
 				}
 			}
 		}
@@ -1292,8 +1275,6 @@ namespace DAL
 		
 		private string _Status;
 		
-		private EntitySet<TABLE> _TABLEs;
-		
 		private EntitySet<BILL> _BILLs;
 		
 		private EntitySet<EMPLOYEE> _EMPLOYEEs;
@@ -1301,6 +1282,8 @@ namespace DAL
 		private EntitySet<FINANCIAL> _FINANCIALs;
 		
 		private EntitySet<INVENTORY> _INVENTORies;
+		
+		private EntitySet<TABLE> _TABLEs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1328,11 +1311,11 @@ namespace DAL
 		
 		public BRANCH()
 		{
-			this._TABLEs = new EntitySet<TABLE>(new Action<TABLE>(this.attach_TABLEs), new Action<TABLE>(this.detach_TABLEs));
 			this._BILLs = new EntitySet<BILL>(new Action<BILL>(this.attach_BILLs), new Action<BILL>(this.detach_BILLs));
 			this._EMPLOYEEs = new EntitySet<EMPLOYEE>(new Action<EMPLOYEE>(this.attach_EMPLOYEEs), new Action<EMPLOYEE>(this.detach_EMPLOYEEs));
 			this._FINANCIALs = new EntitySet<FINANCIAL>(new Action<FINANCIAL>(this.attach_FINANCIALs), new Action<FINANCIAL>(this.detach_FINANCIALs));
 			this._INVENTORies = new EntitySet<INVENTORY>(new Action<INVENTORY>(this.attach_INVENTORies), new Action<INVENTORY>(this.detach_INVENTORies));
+			this._TABLEs = new EntitySet<TABLE>(new Action<TABLE>(this.attach_TABLEs), new Action<TABLE>(this.detach_TABLEs));
 			OnCreated();
 		}
 		
@@ -1516,19 +1499,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_TABLE", Storage="_TABLEs", ThisKey="BranchId", OtherKey="BranchId")]
-		public EntitySet<TABLE> TABLEs
-		{
-			get
-			{
-				return this._TABLEs;
-			}
-			set
-			{
-				this._TABLEs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_BILL", Storage="_BILLs", ThisKey="BranchId", OtherKey="BranchId")]
 		public EntitySet<BILL> BILLs
 		{
@@ -1581,6 +1551,19 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_TABLE", Storage="_TABLEs", ThisKey="BranchId", OtherKey="BranchId")]
+		public EntitySet<TABLE> TABLEs
+		{
+			get
+			{
+				return this._TABLEs;
+			}
+			set
+			{
+				this._TABLEs.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1599,18 +1582,6 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_TABLEs(TABLE entity)
-		{
-			this.SendPropertyChanging();
-			entity.BRANCH = this;
-		}
-		
-		private void detach_TABLEs(TABLE entity)
-		{
-			this.SendPropertyChanging();
-			entity.BRANCH = null;
 		}
 		
 		private void attach_BILLs(BILL entity)
@@ -1656,6 +1627,18 @@ namespace DAL
 		}
 		
 		private void detach_INVENTORies(INVENTORY entity)
+		{
+			this.SendPropertyChanging();
+			entity.BRANCH = null;
+		}
+		
+		private void attach_TABLEs(TABLE entity)
+		{
+			this.SendPropertyChanging();
+			entity.BRANCH = this;
+		}
+		
+		private void detach_TABLEs(TABLE entity)
 		{
 			this.SendPropertyChanging();
 			entity.BRANCH = null;
@@ -2807,7 +2790,7 @@ namespace DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _InventoryId;
+		private string _InventoryId;
 		
 		private int _BranchId;
 		
@@ -2835,7 +2818,7 @@ namespace DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnInventoryIdChanging(int value);
+    partial void OnInventoryIdChanging(string value);
     partial void OnInventoryIdChanged();
     partial void OnBranchIdChanging(int value);
     partial void OnBranchIdChanged();
@@ -2864,8 +2847,8 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InventoryId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int InventoryId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InventoryId", DbType="VarChar(14) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string InventoryId
 		{
 			get
 			{
@@ -4019,156 +4002,197 @@ namespace DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SUPPLIER")]
-	public partial class SUPPLIER : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TABLES")]
+	public partial class TABLE : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _SupplierId;
+		private int _TableId;
 		
-		private string _Name;
+		private string _TableName;
 		
-		private string _Phone;
+		private int _BranchId;
 		
-		private string _Address;
+		private System.Nullable<int> _Capacity;
 		
-		private string _Email;
+		private System.Nullable<int> _Status;
 		
-		private EntitySet<INGREDIENT> _INGREDIENTs;
+		private EntitySet<BILL> _BILLs;
+		
+		private EntityRef<BRANCH> _BRANCH;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnSupplierIdChanging(int value);
-    partial void OnSupplierIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnPhoneChanging(string value);
-    partial void OnPhoneChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
+    partial void OnTableIdChanging(int value);
+    partial void OnTableIdChanged();
+    partial void OnTableNameChanging(string value);
+    partial void OnTableNameChanged();
+    partial void OnBranchIdChanging(int value);
+    partial void OnBranchIdChanged();
+    partial void OnCapacityChanging(System.Nullable<int> value);
+    partial void OnCapacityChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
     #endregion
 		
-		public SUPPLIER()
+		public TABLE()
 		{
-			this._INGREDIENTs = new EntitySet<INGREDIENT>(new Action<INGREDIENT>(this.attach_INGREDIENTs), new Action<INGREDIENT>(this.detach_INGREDIENTs));
+			this._BILLs = new EntitySet<BILL>(new Action<BILL>(this.attach_BILLs), new Action<BILL>(this.detach_BILLs));
+			this._BRANCH = default(EntityRef<BRANCH>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int SupplierId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TableId
 		{
 			get
 			{
-				return this._SupplierId;
+				return this._TableId;
 			}
 			set
 			{
-				if ((this._SupplierId != value))
+				if ((this._TableId != value))
 				{
-					this.OnSupplierIdChanging(value);
+					this.OnTableIdChanging(value);
 					this.SendPropertyChanging();
-					this._SupplierId = value;
-					this.SendPropertyChanged("SupplierId");
-					this.OnSupplierIdChanged();
+					this._TableId = value;
+					this.SendPropertyChanged("TableId");
+					this.OnTableIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TableName", DbType="NVarChar(10)")]
+		public string TableName
 		{
 			get
 			{
-				return this._Name;
+				return this._TableName;
 			}
 			set
 			{
-				if ((this._Name != value))
+				if ((this._TableName != value))
 				{
-					this.OnNameChanging(value);
+					this.OnTableNameChanging(value);
 					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
+					this._TableName = value;
+					this.SendPropertyChanged("TableName");
+					this.OnTableNameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Phone
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BranchId", DbType="Int NOT NULL")]
+		public int BranchId
 		{
 			get
 			{
-				return this._Phone;
+				return this._BranchId;
 			}
 			set
 			{
-				if ((this._Phone != value))
+				if ((this._BranchId != value))
 				{
-					this.OnPhoneChanging(value);
+					if (this._BRANCH.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBranchIdChanging(value);
 					this.SendPropertyChanging();
-					this._Phone = value;
-					this.SendPropertyChanged("Phone");
-					this.OnPhoneChanged();
+					this._BranchId = value;
+					this.SendPropertyChanged("BranchId");
+					this.OnBranchIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Address
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Capacity", DbType="Int")]
+		public System.Nullable<int> Capacity
 		{
 			get
 			{
-				return this._Address;
+				return this._Capacity;
 			}
 			set
 			{
-				if ((this._Address != value))
+				if ((this._Capacity != value))
 				{
-					this.OnAddressChanging(value);
+					this.OnCapacityChanging(value);
 					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
+					this._Capacity = value;
+					this.SendPropertyChanged("Capacity");
+					this.OnCapacityChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Email
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
 		{
 			get
 			{
-				return this._Email;
+				return this._Status;
 			}
 			set
 			{
-				if ((this._Email != value))
+				if ((this._Status != value))
 				{
-					this.OnEmailChanging(value);
+					this.OnStatusChanging(value);
 					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SUPPLIER_INGREDIENT", Storage="_INGREDIENTs", ThisKey="SupplierId", OtherKey="SupplierId")]
-		public EntitySet<INGREDIENT> INGREDIENTs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TABLE_BILL", Storage="_BILLs", ThisKey="TableId", OtherKey="TableId")]
+		public EntitySet<BILL> BILLs
 		{
 			get
 			{
-				return this._INGREDIENTs;
+				return this._BILLs;
 			}
 			set
 			{
-				this._INGREDIENTs.Assign(value);
+				this._BILLs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BRANCH_TABLE", Storage="_BRANCH", ThisKey="BranchId", OtherKey="BranchId", IsForeignKey=true)]
+		public BRANCH BRANCH
+		{
+			get
+			{
+				return this._BRANCH.Entity;
+			}
+			set
+			{
+				BRANCH previousValue = this._BRANCH.Entity;
+				if (((previousValue != value) 
+							|| (this._BRANCH.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BRANCH.Entity = null;
+						previousValue.TABLEs.Remove(this);
+					}
+					this._BRANCH.Entity = value;
+					if ((value != null))
+					{
+						value.TABLEs.Add(this);
+						this._BranchId = value.BranchId;
+					}
+					else
+					{
+						this._BranchId = default(int);
+					}
+					this.SendPropertyChanged("BRANCH");
+				}
 			}
 		}
 		
@@ -4192,16 +4216,16 @@ namespace DAL
 			}
 		}
 		
-		private void attach_INGREDIENTs(INGREDIENT entity)
+		private void attach_BILLs(BILL entity)
 		{
 			this.SendPropertyChanging();
-			entity.SUPPLIER = this;
+			entity.TABLE = this;
 		}
 		
-		private void detach_INGREDIENTs(INGREDIENT entity)
+		private void detach_BILLs(BILL entity)
 		{
 			this.SendPropertyChanging();
-			entity.SUPPLIER = null;
+			entity.TABLE = null;
 		}
 	}
 }

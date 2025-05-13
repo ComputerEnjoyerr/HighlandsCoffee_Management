@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,21 +18,11 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        BLL_Account bllAccount = new BLL_Account();
+        BLL_Employee bllEmployee = new BLL_Employee();
         public Form NextForm { get; private set; } // Lưu form tiếp theo
 
-        // Dữ liệu tạm
-        private List<User> users = new List<User>
-        {
-            new User { Username = "ad", Password = "1", Role = "Admin" },
-            new User { Username = "ma", Password = "1", Role = "Quản lý" },
-            new User { Username = "em", Password = "1", Role = "Nhân viên" },
-        };
-        private class User
-        {
-            public string Username { get; set; }
-            public string Password { get; set; }
-            public string Role { get; set; }
-        }
         private void frmLogin_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#DED4CA");
@@ -46,7 +37,7 @@ namespace GUI
             btnThoat.BackColor = ColorTranslator.FromHtml("#DED4CA");
             btnThoat.ForeColor = ColorTranslator.FromHtml("#AF262E");
 
-            //this.Icon = new Icon("icon-1.ico");
+            this.Icon = new Icon("icon-1.ico");
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -54,6 +45,7 @@ namespace GUI
             string username = txtUser.Text;
             string password = txtPass.Text;
 
+<<<<<<< HEAD
             //Đăng nhập bằng tài khoản và mật khẩu
             BLL_Account bll = new BLL_Account();
             var (account, employee) = bll.Login(username, password);
@@ -81,11 +73,53 @@ namespace GUI
                 // Đăng nhập thất bại
                 MessageBox.Show("Vui lòng nhập đúng tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+=======
+            //// Kiểm tra thông tin đăng nhập
+            //var account = bllAccount.GetAll().FirstOrDefault(a => a.AccountName.ToLower() == username.ToLower() && a.Password == password);
+            //if (account != null)
+            //{
+            //    var employee = bllEmployee.GetDataEmployee().FirstOrDefault(em => em.EmployeeId == account.EmployeeId);
+            //    if (employee != null)
+            //    {
+            //        if (account.AccountId == 1)
+            //        {
+            //            NextForm = new frmAdMain(employee);
+            //        }
+            //        else if (employee.Role == "Quản lý" || employee.Role == "Nhân viên")
+            //        {
+            //            NextForm = new frmMain(employee);
+            //        }
+            //    }
+
+
+            //    // Đăng nhập thành công
+            //    this.DialogResult = DialogResult.OK;
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    // Đăng nhập thất bại
+            //    MessageBox.Show("Vui lòng nhập đúng tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    txtPass.Clear();
+            //    txtUser.Clear();
+            //    txtUser.Focus();
+            //}
+            var employee = bllEmployee.GetDataEmployee().First(em => em.EmployeeId == 1);
+            NextForm = new frmMain(employee);
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+>>>>>>> Thanh-Phú
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void pnlLogo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -21,63 +21,26 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BLL_Branch bll = new BLL_Branch();
+        static BLL_Branch bllBranch = new BLL_Branch();
         BLL_Employee bllEmployee = new BLL_Employee();
+        List<Branch> branches = bllBranch.GetDataBranch();
         private void frmAdChiNhanh_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#52362A");
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
             lbTim.ForeColor = ColorTranslator.FromHtml("#DED4CA");
             flpChiNhanh.BackColor = ColorTranslator.FromHtml("#DED4CA");
+
             LoadComboBoxManager();
             LoadComboBoxStatus();
-            LoadDataBranch();
-            
-            
-
-
-
-            // Hiển thị thông tin chi nhánh bằng panel
-            //foreach (var branch in braches)
-            //{
-            //    Panel panel = new Panel();
-            //    panel.Size = new Size(445, 150);
-            //    panel.BackColor = ColorTranslator.FromHtml("#BD965F");
-            //    panel.BorderStyle = BorderStyle.FixedSingle;
-            //    panel.Margin = new Padding(10);
-
-            //    Label lblBranchName = new Label();
-            //    lblBranchName.Size = new Size(panel.Width - 20, 20);
-            //    lblBranchName.Text = "Tên: " + branch.BranchName;
-            //    lblBranchName.Font = new Font("Arial", 12, FontStyle.Bold);
-            //    lblBranchName.Location = new Point(10, 10);
-            //    lblBranchName.ForeColor = ColorTranslator.FromHtml("#52362A");
-            //    panel.Controls.Add(lblBranchName);
-
-            //    Label lblAddress = new Label();
-            //    lblAddress.Size = new Size(panel.Width - 20, 40);
-            //    lblAddress.Text = "Địa chỉ: " + branch.Address;
-            //    lblAddress.ForeColor = Color.White;
-            //    lblAddress.Location = new Point(10, 35);
-            //    lblAddress.AllowDrop = true;
-            //    panel.Controls.Add(lblAddress);
-
-            //    Label lblPhoneNumber = new Label();
-            //    lblPhoneNumber.Size = new Size(panel.Width - 100, 20);
-            //    lblPhoneNumber.Text = "SĐT: " + branch.PhoneNumber;
-            //    lblPhoneNumber.ForeColor = Color.White;
-            //    lblPhoneNumber.Location = new Point(10, 90);
-            //    panel.Controls.Add(lblPhoneNumber);
-            //    flpChiNhanh.Controls.Add(panel);
-            //}
+            LoadDataBranch(branches); 
         }
 
        
 
-        private void LoadDataBranch()
+        private void LoadDataBranch(List<Branch> chiNhanh)
         {
             flpChiNhanh.Controls.Clear();
-            var chiNhanh = bll.GetDataBranch();
 
             foreach (var ch in chiNhanh)
             {
@@ -110,17 +73,16 @@ namespace GUI
                 lblPhoneNumber.Location = new Point(10, 90);
                 panel.Controls.Add(lblPhoneNumber);
 
-                //Add Tag để giữ lại dữ liệu
-                flpChiNhanh.Tag = ch;
-
-                flpChiNhanh.Click += flpChiNhanh_Click; // Gắn sự kiện
-                foreach (Control c in new Control[] { lblBranchName, lblAddress, lblPhoneNumber })
-                {
-                    panel.Controls.Add(c);
-                    c.Click += flpChiNhanh_Click; // Đảm bảo label click cũng gọi event
-                    c.Tag = ch;
-                }
-               
+                // Gắn giá trị mỗi chi nhánh vào panel và label
+                panel.Tag = ch; 
+                lblBranchName.Tag = ch;
+                lblAddress.Tag = ch;
+                lblPhoneNumber.Tag = ch;
+                // Gắn sự kiện click cho panel và label
+                panel.Click += flpChiNhanh_Click;
+                lblBranchName.Click += flpChiNhanh_Click;
+                lblAddress.Click += flpChiNhanh_Click;
+                lblPhoneNumber.Click += flpChiNhanh_Click;
 
                 flpChiNhanh.Controls.Add(panel);
             }
@@ -158,13 +120,7 @@ namespace GUI
 
         private void LoadComboBoxManager()
         {
-            //var managerList = ma.GetManagers();
-            //cbQuanLy.DataSource = managerList;
-            //cbQuanLy.DisplayMember = "EmployeeName";
-            //cbQuanLy.ValueMember = "EmployeeId";
-            //cbQuanLy.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            var emp = bllEmployee.GetDataEmployee().ToList();
+            var emp = bllEmployee.GetDataEmployee().Where(em => em.Role.ToLower().Contains("quản lý")).ToList();
             cbQuanLy.DataSource = emp;
             cbQuanLy.DisplayMember = "EmployeeName";
             cbQuanLy.ValueMember = "EmployeeId";
@@ -187,9 +143,9 @@ namespace GUI
             try
             {
                 int id = int.Parse(txtMaCN.Text);
-                bll.RemoveBranch(id);
+                bllBranch.RemoveBranch(id);
                 MessageBox.Show("Xóa thành công!");
-                LoadDataBranch();
+                LoadDataBranch(branches);
             }
             catch (Exception ex)
             {
@@ -206,8 +162,6 @@ namespace GUI
             }
             var br = new Branch
             {
-
-
                 BranchName = txtTenCN.Text,
                 ManagerId = (int)cbQuanLy.SelectedValue,
                 Address = txtDiaChi.Text,
@@ -216,14 +170,11 @@ namespace GUI
                 CloseTime = dtDongCua.Value.TimeOfDay,
                 MonthlyRent = monthlyRent,
                 Status = cbStatus.SelectedItem.ToString(),
-                
-
-
             };
 
-            bll.AddBranch(br);
+            bllBranch.AddBranch(br);
             MessageBox.Show("Thêm thành công!");
-            LoadDataBranch();
+            LoadDataBranch(branches);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -254,14 +205,20 @@ namespace GUI
 
             };
 
-            bll.UpdateBranch(br);
+            bllBranch.UpdateBranch(br);
             MessageBox.Show("Sửa thành công!");
-            LoadDataBranch();
+            LoadDataBranch(branches);
         }
 
         private void btnTim_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+            var data = bllBranch.GetDataBranch().Where(p => p.BranchName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
+            LoadDataBranch(data);
         }
     }
 }

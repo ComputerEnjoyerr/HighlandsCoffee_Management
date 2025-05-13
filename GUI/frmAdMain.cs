@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,13 @@ namespace GUI
 {
     public partial class frmAdMain : Form
     {
-        public frmAdMain()
+        public frmAdMain(Employee em)
         {
             InitializeComponent();
+            admin = em;
         }
+
+        private Employee admin = new Employee();
 
         // Biến tạm
         Form currentForm = new Form();
@@ -39,7 +43,7 @@ namespace GUI
             mnuMain.ForeColor = ColorTranslator.FromHtml("#DED4CA");
             this.BackColor = ColorTranslator.FromHtml("#DED4CA");
 
-            //this.Icon = new Icon("icon-1.ico");
+            this.Icon = new Icon("icon-1.ico");
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,12 +79,6 @@ namespace GUI
         private void nhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAdNhaCungCap fr = new frmAdNhaCungCap();
-            OpenMain(fr);
-        }
-
-        private void bànĂnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmBanAn fr = new frmBanAn();
             OpenMain(fr);
         }
 

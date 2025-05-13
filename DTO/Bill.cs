@@ -8,12 +8,12 @@ namespace DTO
 {
     public class Bill
     {
-        private int billId, branchId, employeeId, customerId, tableId;
+        private int billId, branchId, employeeId, customerId, tableId, status;
         private double totalPrice;
         private DateTime createDate;
 
         public Bill() { }
-        public Bill(int billId, int branchId, int employeeId, int customerId, int tableId, double totalPrice, DateTime createDate)
+        public Bill(int billId, int branchId, int employeeId, int customerId, int tableId, double totalPrice, DateTime createDate, int satus)
         {
             this.BillId = billId;
             this.BranchId = branchId;
@@ -22,6 +22,7 @@ namespace DTO
             this.TableId = tableId;
             this.TotalPrice = totalPrice;
             this.CreateDate = createDate;
+            this.Status = satus;
         }
 
         public int BillId { get => billId; set => billId = value; }
@@ -29,6 +30,7 @@ namespace DTO
         public int EmployeeId { get => employeeId; set => employeeId = value; }
         public int CustomerId { get => customerId; set => customerId = value; }
         public int TableId { get => tableId; set => tableId = value; }
+        public int Status { get => status; set => status = value; }
         public double TotalPrice { get => totalPrice; set => totalPrice = value; }
         public DateTime CreateDate { get => createDate; set => createDate = value; }
     }

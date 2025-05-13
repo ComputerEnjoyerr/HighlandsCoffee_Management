@@ -44,5 +44,16 @@ namespace DAL.Properties {
                 return ((string)(this["CoffeeBrandManagementConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-DU2DCF6\\SQLEXPRESS;Initial Catalog=Highlands_Database;Integra" +
+            "ted Security=True;TrustServerCertificate=True")]
+        public string Highlands_DatabaseConnectionString1 {
+            get {
+                return ((string)(this["Highlands_DatabaseConnectionString1"]));
+            }
+        }
     }
 }

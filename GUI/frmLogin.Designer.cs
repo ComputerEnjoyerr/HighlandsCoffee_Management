@@ -51,6 +51,7 @@
             this.pnlLogo.Name = "pnlLogo";
             this.pnlLogo.Size = new System.Drawing.Size(291, 361);
             this.pnlLogo.TabIndex = 7;
+            this.pnlLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlLogo_Paint);
             // 
             // pictureBox1
             // 
@@ -69,7 +70,7 @@
             this.label1.Location = new System.Drawing.Point(129, 39);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 55);
+            this.label1.Size = new System.Drawing.Size(122, 37);
             this.label1.TabIndex = 4;
             this.label1.Text = "LOGIN";
             // 
@@ -80,7 +81,7 @@
             this.label2.Location = new System.Drawing.Point(39, 126);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 26);
+            this.label2.Size = new System.Drawing.Size(49, 18);
             this.label2.TabIndex = 5;
             this.label2.Text = "User:";
             // 
@@ -89,7 +90,7 @@
             this.txtUser.Location = new System.Drawing.Point(136, 120);
             this.txtUser.Margin = new System.Windows.Forms.Padding(4);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(201, 32);
+            this.txtUser.Size = new System.Drawing.Size(201, 24);
             this.txtUser.TabIndex = 0;
             // 
             // label3
@@ -99,7 +100,7 @@
             this.label3.Location = new System.Drawing.Point(39, 158);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 26);
+            this.label3.Size = new System.Drawing.Size(88, 18);
             this.label3.TabIndex = 6;
             this.label3.Text = "Password:";
             // 
@@ -109,7 +110,7 @@
             this.txtPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(201, 32);
+            this.txtPass.Size = new System.Drawing.Size(201, 24);
             this.txtPass.TabIndex = 1;
             this.txtPass.UseSystemPasswordChar = true;
             // 
@@ -146,7 +147,7 @@
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 361);
             this.Controls.Add(this.btnThoat);

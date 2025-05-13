@@ -18,15 +18,15 @@ namespace GUI
         {
             InitializeComponent();
         }
-        private BLL_Employee bll_employee = new BLL_Employee();
-        private BLL_Branch bll_branch = new BLL_Branch();
+        private BLL_Employee bllEmployee = new BLL_Employee();
+        private BLL_Branch bllBranch = new BLL_Branch();
         private void frmAdNhanvien_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#52362A");
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
             lbTim.ForeColor = ColorTranslator.FromHtml("#DED4CA");
 
-            dataGridView1.DataSource = bll_employee.GetDataEmployee();
+            dgvNhanVien.DataSource = bllEmployee.GetDataEmployee();
             LoadComboBoxRole();
             LoadComboBox();
 
@@ -36,7 +36,7 @@ namespace GUI
         {
             if(e.RowIndex >= 0)
             {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow row = dgvNhanVien.Rows[e.RowIndex];
                 txtMaNV.Text = row.Cells[0].Value.ToString();
                 cbBranchId.SelectedValue = row.Cells[1].Value;
                 txtHoTen.Text = row.Cells[3].Value.ToString();
@@ -93,9 +93,9 @@ namespace GUI
 
             };
 
-            bll_employee.AddEmployee(emp);
+            bllEmployee.AddEmployee(emp);
             MessageBox.Show("Thêm thành công!");
-            dataGridView1.DataSource = bll_employee.GetDataEmployee();
+            dgvNhanVien.DataSource = bllEmployee.GetDataEmployee();
         }
 
         private void btnHoanTac_Click(object sender, EventArgs e)
@@ -115,9 +115,9 @@ namespace GUI
             try
             {
                 int id = int.Parse(txtMaNV.Text);
-                bll_employee.DeleteEmployee(id);
+                bllEmployee.DeleteEmployee(id);
                 MessageBox.Show("Xóa thành công!");
-                dataGridView1.DataSource = bll_employee.GetDataEmployee();
+                dgvNhanVien.DataSource = bllEmployee.GetDataEmployee();
             }
             catch (Exception ex)
             {
@@ -163,14 +163,14 @@ namespace GUI
                 BranchId = (int)cbBranchId.SelectedValue,
             };
 
-            bll_employee.UpdateEmployee(emp);
+            bllEmployee.UpdateEmployee(emp);
             MessageBox.Show("Sửa thành công!");
-            dataGridView1.DataSource = bll_employee.GetDataEmployee();
+            dgvNhanVien.DataSource = bllEmployee.GetDataEmployee();
         }
 
         private void LoadComboBoxRole()
         {
-            cbChucVu.DataSource = bll_employee.GetRole();
+            cbChucVu.DataSource = bllEmployee.GetRole();
            
         }
 
@@ -180,10 +180,16 @@ namespace GUI
             //cbBranchId.DisplayMember = "BranchName"; // hoặc "Display" nếu dùng anonymous
             //cbBranchId.ValueMember = "BranchId";     // hoặc "Id" nếu dùng anonymous
 
-            var branches = bll_branch.GetDataBranch().ToList();
+            var branches = bllBranch.GetDataBranch().ToList();
             cbBranchId.DataSource = branches;
             cbBranchId.DisplayMember = "BranchName";
             cbBranchId.ValueMember = "BranchId";
+        }
+
+        private void txtTim_TextChanged(object sender, EventArgs e)
+        {
+            var data = bllEmployee.GetDataEmployee().Where(em => em.EmployeeName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
+            dgvNhanVien.DataSource = data;
         }
     }
 }

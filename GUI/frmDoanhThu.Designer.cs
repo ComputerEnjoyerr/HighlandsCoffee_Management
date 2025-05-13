@@ -30,9 +30,9 @@
         {
             this.dgvDoanhThu = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLoc = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.cboThang = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThu)).BeginInit();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +46,8 @@
             this.dgvDoanhThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoanhThu.Location = new System.Drawing.Point(3, 60);
             this.dgvDoanhThu.Name = "dgvDoanhThu";
+            this.dgvDoanhThu.RowHeadersWidth = 51;
+            this.dgvDoanhThu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoanhThu.Size = new System.Drawing.Size(763, 623);
             this.dgvDoanhThu.TabIndex = 27;
             this.dgvDoanhThu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoanhThu_CellClick);
@@ -53,36 +55,28 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 28);
+            this.label2.Location = new System.Drawing.Point(14, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 18);
+            this.label2.Size = new System.Drawing.Size(70, 24);
             this.label2.TabIndex = 31;
-            this.label2.Text = "Ngày tạo:";
+            this.label2.Text = "Tháng:";
             // 
-            // dateTimePicker2
+            // btnLoc
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(90, 22);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(128, 24);
-            this.dateTimePicker2.TabIndex = 32;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(224, 18);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 36);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "Lọc dữ liệu";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLoc.Location = new System.Drawing.Point(226, 14);
+            this.btnLoc.Name = "btnLoc";
+            this.btnLoc.Size = new System.Drawing.Size(119, 36);
+            this.btnLoc.TabIndex = 33;
+            this.btnLoc.Text = "Lọc dữ liệu";
+            this.btnLoc.UseVisualStyleBackColor = true;
             // 
             // pnlMain
             // 
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlMain.Controls.Add(this.button2);
-            this.pnlMain.Controls.Add(this.dateTimePicker2);
+            this.pnlMain.Controls.Add(this.cboThang);
+            this.pnlMain.Controls.Add(this.btnLoc);
             this.pnlMain.Controls.Add(this.label2);
             this.pnlMain.Controls.Add(this.dgvDoanhThu);
             this.pnlMain.Location = new System.Drawing.Point(13, 13);
@@ -90,9 +84,20 @@
             this.pnlMain.Size = new System.Drawing.Size(769, 686);
             this.pnlMain.TabIndex = 0;
             // 
+            // cboThang
+            // 
+            this.cboThang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboThang.FormattingEnabled = true;
+            this.cboThang.Items.AddRange(new object[] {
+            "<<All>>"});
+            this.cboThang.Location = new System.Drawing.Point(72, 18);
+            this.cboThang.Name = "cboThang";
+            this.cboThang.Size = new System.Drawing.Size(139, 30);
+            this.cboThang.TabIndex = 34;
+            // 
             // frmDoanhThu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 711);
             this.Controls.Add(this.pnlMain);
@@ -112,8 +117,8 @@
 
         private System.Windows.Forms.DataGridView dgvDoanhThu;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLoc;
         private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.ComboBox cboThang;
     }
 }

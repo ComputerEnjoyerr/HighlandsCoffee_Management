@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,7 @@ namespace BLL
 {
     public class BLL_Account
     {
+<<<<<<< HEAD
         private DAL_Account dal = new DAL_Account();
         //public (DTO.Account, DTO.Employee) Login(string username, string password)
         //{
@@ -44,5 +47,13 @@ namespace BLL
         {
             return dal.Login(username, password);
         }
+=======
+        DAL_Account account = new DAL_Account();
+
+        public List<Account> GetAll() { return account.GetAll(); }
+        public void Add (Account ac) { account.Add(ac); }
+        public void Update (Account ac) { account.Update(ac); }
+        public void Delete (int id) { account.Delete(id); }
+>>>>>>> Thanh-Phú
     }
 }

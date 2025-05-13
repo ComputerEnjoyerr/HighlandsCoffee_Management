@@ -31,10 +31,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cbBranchId = new System.Windows.Forms.ComboBox();
+            this.btnHoanTac = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.dtNgayVaoLam = new System.Windows.Forms.DateTimePicker();
             this.cbChucVu = new System.Windows.Forms.ComboBox();
             this.txtTongThuNhap = new System.Windows.Forms.TextBox();
@@ -43,6 +44,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtGioLamThem = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -57,14 +59,11 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.txtTim = new System.Windows.Forms.TextBox();
             this.lbTim = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cbBranchId = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -95,10 +94,10 @@
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.Controls.Add(this.cbBranchId);
-            this.pnlMain.Controls.Add(this.button6);
-            this.pnlMain.Controls.Add(this.button4);
-            this.pnlMain.Controls.Add(this.button3);
-            this.pnlMain.Controls.Add(this.button2);
+            this.pnlMain.Controls.Add(this.btnHoanTac);
+            this.pnlMain.Controls.Add(this.btnSua);
+            this.pnlMain.Controls.Add(this.btnXoa);
+            this.pnlMain.Controls.Add(this.btnThem);
             this.pnlMain.Controls.Add(this.dtNgayVaoLam);
             this.pnlMain.Controls.Add(this.cbChucVu);
             this.pnlMain.Controls.Add(this.txtTongThuNhap);
@@ -129,41 +128,53 @@
             this.pnlMain.Size = new System.Drawing.Size(950, 261);
             this.pnlMain.TabIndex = 2;
             // 
-            // button6
+            // cbBranchId
             // 
-            this.button6.Location = new System.Drawing.Point(768, 201);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(140, 41);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Hoàn tác";
-            this.button6.UseVisualStyleBackColor = true;
+            this.cbBranchId.FormattingEnabled = true;
+            this.cbBranchId.Location = new System.Drawing.Point(139, 224);
+            this.cbBranchId.Name = "cbBranchId";
+            this.cbBranchId.Size = new System.Drawing.Size(242, 26);
+            this.cbBranchId.TabIndex = 13;
             // 
-            // button4
+            // btnHoanTac
             // 
-            this.button4.Location = new System.Drawing.Point(768, 143);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(140, 41);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Sửa";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnHoanTac.Location = new System.Drawing.Point(768, 201);
+            this.btnHoanTac.Name = "btnHoanTac";
+            this.btnHoanTac.Size = new System.Drawing.Size(140, 41);
+            this.btnHoanTac.TabIndex = 9;
+            this.btnHoanTac.Text = "Hoàn tác";
+            this.btnHoanTac.UseVisualStyleBackColor = true;
+            this.btnHoanTac.Click += new System.EventHandler(this.btnHoanTac_Click);
             // 
-            // button3
+            // btnSua
             // 
-            this.button3.Location = new System.Drawing.Point(768, 88);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 41);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSua.Location = new System.Drawing.Point(768, 143);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(140, 41);
+            this.btnSua.TabIndex = 10;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // button2
+            // btnXoa
             // 
-            this.button2.Location = new System.Drawing.Point(768, 32);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 41);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnXoa.Location = new System.Drawing.Point(768, 88);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(140, 41);
+            this.btnXoa.TabIndex = 11;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(768, 32);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(140, 41);
+            this.btnThem.TabIndex = 12;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // dtNgayVaoLam
             // 
@@ -252,6 +263,18 @@
             this.label7.Size = new System.Drawing.Size(101, 18);
             this.label7.TabIndex = 0;
             this.label7.Text = "Giờ làm thêm:";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(32, 227);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(78, 18);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Chi nhánh:";
             // 
             // label6
             // 
@@ -409,25 +432,27 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Tài khoản:";
             // 
-            // dataGridView1
+            // dgvNhanVien
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 327);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(949, 322);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhanVien.Location = new System.Drawing.Point(13, 327);
+            this.dgvNhanVien.Name = "dgvNhanVien";
+            this.dgvNhanVien.RowHeadersWidth = 62;
+            this.dgvNhanVien.Size = new System.Drawing.Size(949, 322);
+            this.dgvNhanVien.TabIndex = 3;
+            this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // textBox12
+            // txtTim
             // 
-            this.textBox12.Location = new System.Drawing.Point(113, 292);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(303, 24);
-            this.textBox12.TabIndex = 14;
+            this.txtTim.Location = new System.Drawing.Point(113, 292);
+            this.txtTim.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(303, 24);
+            this.txtTim.TabIndex = 14;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // lbTim
             // 
@@ -439,44 +464,14 @@
             this.lbTim.TabIndex = 13;
             this.lbTim.Text = "Tìm nhân viên:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(423, 288);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 33);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // cbBranchId
-            // 
-            this.cbBranchId.FormattingEnabled = true;
-            this.cbBranchId.Location = new System.Drawing.Point(139, 224);
-            this.cbBranchId.Name = "cbBranchId";
-            this.cbBranchId.Size = new System.Drawing.Size(242, 26);
-            this.cbBranchId.TabIndex = 13;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(32, 227);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(78, 18);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Chi nhánh:";
-            // 
             // frmAdNhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 661);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.txtTim);
             this.Controls.Add(this.lbTim);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvNhanVien);
             this.Controls.Add(this.pnlMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -485,7 +480,7 @@
             this.Load += new System.EventHandler(this.frmAdNhanvien_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,16 +511,15 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.DataGridView dgvNhanVien;
+        private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label lbTim;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnHoanTac;
         private System.Windows.Forms.ComboBox cbBranchId;
         private System.Windows.Forms.Label label13;
     }

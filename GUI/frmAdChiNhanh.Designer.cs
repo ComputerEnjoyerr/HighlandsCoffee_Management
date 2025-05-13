@@ -52,9 +52,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaCN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtTim = new System.Windows.Forms.TextBox();
             this.lbTim = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,6 +116,7 @@
             this.button6.TabIndex = 37;
             this.button6.Text = "Hoàn tác";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.btnHoanTac_Click);
             // 
             // button4
             // 
@@ -126,6 +126,7 @@
             this.button4.TabIndex = 38;
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // button3
             // 
@@ -135,6 +136,7 @@
             this.button3.TabIndex = 39;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // button2
             // 
@@ -144,10 +146,11 @@
             this.button2.TabIndex = 40;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // dtDongCua
             // 
-            this.dtDongCua.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtDongCua.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtDongCua.Location = new System.Drawing.Point(505, 90);
             this.dtDongCua.Name = "dtDongCua";
             this.dtDongCua.Size = new System.Drawing.Size(126, 24);
@@ -155,7 +158,7 @@
             // 
             // dtMoCua
             // 
-            this.dtMoCua.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtMoCua.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtMoCua.Location = new System.Drawing.Point(505, 58);
             this.dtMoCua.Name = "dtMoCua";
             this.dtMoCua.Size = new System.Drawing.Size(126, 24);
@@ -289,6 +292,7 @@
             this.txtMaCN.Location = new System.Drawing.Point(143, 28);
             this.txtMaCN.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaCN.Name = "txtMaCN";
+            this.txtMaCN.ReadOnly = true;
             this.txtMaCN.Size = new System.Drawing.Size(141, 24);
             this.txtMaCN.TabIndex = 32;
             // 
@@ -302,13 +306,14 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Mã chi nhánh:";
             // 
-            // textBox12
+            // txtTim
             // 
-            this.textBox12.Location = new System.Drawing.Point(119, 13);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(303, 24);
-            this.textBox12.TabIndex = 17;
+            this.txtTim.Location = new System.Drawing.Point(119, 13);
+            this.txtTim.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(303, 24);
+            this.txtTim.TabIndex = 17;
+            this.txtTim.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // lbTim
             // 
@@ -320,23 +325,13 @@
             this.lbTim.TabIndex = 16;
             this.lbTim.Text = "Tìm chi nhánh:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(429, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 33);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // frmAdChiNhanh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 661);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.txtTim);
             this.Controls.Add(this.lbTim);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.flpChiNhanh);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -375,9 +370,8 @@
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label lbTim;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox txtDiaChi;
         private System.Windows.Forms.TextBox txtTenCN;
     }

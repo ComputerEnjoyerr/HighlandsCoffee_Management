@@ -13,7 +13,7 @@ namespace GUI
 {
     public partial class frmAdKhachHang : Form
     {
-        BLL_Customer bll = new BLL_Customer();
+        BLL_Customer bllCustomer = new BLL_Customer();
         public frmAdKhachHang()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace GUI
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
             lbTim.ForeColor = ColorTranslator.FromHtml("#DED4CA");
 
-            dgvKhachHang.DataSource = bll.GetAll();
+            dgvKhachHang.DataSource = bllCustomer.GetAll();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -48,9 +48,9 @@ namespace GUI
                 Point = point,
                 Tier = cbHang.SelectedItem.ToString()
             };
-                bll.AddCustomer(customer);
+                bllCustomer.AddCustomer(customer);
                 MessageBox.Show("Thêm thành công!");
-                dgvKhachHang.DataSource = bll.GetAll();
+                dgvKhachHang.DataSource = bllCustomer.GetAll();
                 
             
         }
@@ -60,9 +60,9 @@ namespace GUI
             try
             {
                 int id = int.Parse(txtMaKH.Text);
-                bll.DeleteCustomer(id);
+                bllCustomer.DeleteCustomer(id);
                 MessageBox.Show("Xóa thành công!");
-                dgvKhachHang.DataSource = bll.GetAll(); 
+                dgvKhachHang.DataSource = bllCustomer.GetAll(); 
             }
             catch (Exception ex)
             {
@@ -86,7 +86,7 @@ namespace GUI
         
         private void LoadComboBox()
         {
-            cbHang.DataSource = bll.GetTears();
+            cbHang.DataSource = bllCustomer.GetTears();
         }
 
         private void btnHoanTac_Click(object sender, EventArgs e)
@@ -120,21 +120,16 @@ namespace GUI
                 Point = point,
                 Tier = cbHang.SelectedItem.ToString()
             };
-            bll.UpdateCustomer(customer);
+            bllCustomer.UpdateCustomer(customer);
             MessageBox.Show("Sửa thành công!");
-            dgvKhachHang.DataSource = bll.GetAll();
+            dgvKhachHang.DataSource = bllCustomer.GetAll();
 
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
+        private void txtTim_TextChanged(object sender, EventArgs e)
         {
-            //string key = txtTimKiem.Text.Trim();
-            //var kq = bll.
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
+            var data = bllCustomer.GetAll().Where(c => c.CustomerName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
+            dgvKhachHang.DataSource= data;
         }
     }
 }

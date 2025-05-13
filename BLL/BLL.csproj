@@ -51,7 +51,6 @@
     <Compile Include="BLL_Financial.cs" />
     <Compile Include="BLL_Ingredient.cs" />
     <Compile Include="BLL_Inventory.cs" />
-    <Compile Include="BLL_Manager.cs" />
     <Compile Include="BLL_Product.cs" />
     <Compile Include="BLL_Promotion.cs" />
     <Compile Include="BLL_PromotionCustomer.cs" />

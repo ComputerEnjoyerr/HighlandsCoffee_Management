@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace GUI
 {
     public partial class frmMain : Form
     {
+<<<<<<< HEAD
         private Employee data;
         public frmMain(string role, Employee employee)
         {
@@ -21,6 +23,15 @@ namespace GUI
             this.data = employee;
         }
 
+=======
+        public frmMain(Employee employee)
+        {
+            InitializeComponent();
+            em = employee;
+            this.userRole = employee.Role;
+        }
+        private Employee em = new Employee();
+>>>>>>> Thanh-Phú
         private string userRole;
         // Biến tạm
         Form currentForm = new Form();
@@ -41,6 +52,9 @@ namespace GUI
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            //MessageBox.Show(em.EmployeeName + " " + em.BranchId);
+
+
             this.Icon = new Icon("icon-1.ico");
 
             this.BackColor = ColorTranslator.FromHtml("#DED4CA");
@@ -73,7 +87,7 @@ namespace GUI
             btnBanAn.BackColor = ColorTranslator.FromHtml("#52362A");
             btnBanAn.ForeColor = ColorTranslator.FromHtml("#DED4CA");
 
-            if (userRole == "Nhân viên")
+            if (userRole.Trim().ToLower().Contains("Nhân viên".ToLower()))
             {
                 btnThemNV.Enabled = false;
                 btnThuNhap.Enabled = false;
@@ -107,37 +121,45 @@ namespace GUI
 
         private void btnDatMon_Click(object sender, EventArgs e)
         {
-            frmDatMon fr = new frmDatMon();
+            frmDatMon fr = new frmDatMon(em);
             OpenMain(fr);
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            frmThanhToan fr = new frmThanhToan();
+            frmThanhToan fr = new frmThanhToan(em);
             OpenMain(fr);
         }
 
         private void btnThemNV_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             frmNhanVien fr = new frmNhanVien(data.BranchId, data.EmployeeId);
+=======
+            frmNhanVien fr = new frmNhanVien(em);
+>>>>>>> Thanh-Phú
             OpenMain(fr);
         }
 
         private void btnLichSu_Click(object sender, EventArgs e)
         {
-            frmLichSuHoaDon fr = new frmLichSuHoaDon();
+            frmLichSuHoaDon fr = new frmLichSuHoaDon(em);
             OpenMain(fr);
         }
 
         private void btnThuNhap_Click(object sender, EventArgs e)
         {
-            frmDoanhThu fr = new frmDoanhThu();
+            frmDoanhThu fr = new frmDoanhThu(em);
             OpenMain(fr);
         }
 
         private void btnKho_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             frmKhoHang fr = new frmKhoHang(data.BranchId);
+=======
+            frmKhoHang fr = new frmKhoHang(em);
+>>>>>>> Thanh-Phú
             OpenMain(fr);
         }
 
@@ -153,7 +175,7 @@ namespace GUI
 
         private void btnBanAn_Click(object sender, EventArgs e)
         {
-            frmBanAn frm = new frmBanAn();
+            frmBanAn frm = new frmBanAn(em);
             OpenMain(frm);
         }
     }

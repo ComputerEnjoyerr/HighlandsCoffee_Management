@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,13 @@ namespace GUI
 {
     public partial class frmThanhToan : Form
     {
-        public frmThanhToan()
+        public frmThanhToan(Employee em)
         {
             InitializeComponent();
+            currentEmployee = em;
         }
+
+        private Employee currentEmployee = new Employee();
 
         private void frmThanhToan_Load(object sender, EventArgs e)
         {

@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtTim = new System.Windows.Forms.TextBox();
             this.lbTim = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
@@ -53,13 +52,14 @@
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox12
+            // txtTim
             // 
-            this.textBox12.Location = new System.Drawing.Point(136, 242);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(280, 24);
-            this.textBox12.TabIndex = 24;
+            this.txtTim.Location = new System.Drawing.Point(136, 242);
+            this.txtTim.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTim.Name = "txtTim";
+            this.txtTim.Size = new System.Drawing.Size(280, 24);
+            this.txtTim.TabIndex = 24;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // lbTim
             // 
@@ -70,15 +70,6 @@
             this.lbTim.Size = new System.Drawing.Size(117, 18);
             this.lbTim.TabIndex = 23;
             this.lbTim.Text = "Tìm khách hàng:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(423, 238);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 33);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // dgvKhachHang
             // 
@@ -92,6 +83,7 @@
             this.dgvKhachHang.RowHeadersWidth = 62;
             this.dgvKhachHang.Size = new System.Drawing.Size(949, 372);
             this.dgvKhachHang.TabIndex = 21;
+            this.dgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellClick);
             // 
             // pnlMain
             // 
@@ -120,12 +112,13 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(739, 158);
+            this.button6.Location = new System.Drawing.Point(549, 102);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(140, 41);
+            this.button6.Size = new System.Drawing.Size(115, 41);
             this.button6.TabIndex = 13;
             this.button6.Text = "Hoàn tác";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.btnHoanTac_Click);
             // 
             // button4
             // 
@@ -135,6 +128,7 @@
             this.button4.TabIndex = 14;
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // button3
             // 
@@ -144,6 +138,7 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // button2
             // 
@@ -153,6 +148,7 @@
             this.button2.TabIndex = 16;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // cbHang
             // 
@@ -216,7 +212,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(242, 24);
             this.txtEmail.TabIndex = 1;
-            this.txtEmail.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label3
             // 
@@ -270,9 +265,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 661);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.txtTim);
             this.Controls.Add(this.lbTim);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvKhachHang);
             this.Controls.Add(this.pnlMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -290,9 +284,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label lbTim;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvKhachHang;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.ComboBox cbHang;

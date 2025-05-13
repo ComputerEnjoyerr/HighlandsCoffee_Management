@@ -18,21 +18,21 @@ namespace GUI
         {
             InitializeComponent();
         }
-        BLL_Promotion bll = new BLL_Promotion();
+        BLL_Promotion bllPromotion = new BLL_Promotion();
         private void frmAdKhuyenMai_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#52362A");
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
             lbTim.ForeColor = ColorTranslator.FromHtml("#DED4CA");
 
-            dataGridView1.DataSource = bll.GetDataPromotion();
+            dgvKhuyenMai.DataSource = bllPromotion.GetDataPromotion();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow row = dgvKhuyenMai.Rows[e.RowIndex];
                 txtMaKM.Text = row.Cells[0].Value.ToString();
                 txtTenKM.Text = row.Cells[2].Value.ToString();
                 txtNoiDung.Text = row.Cells[3].Value.ToString();
@@ -74,9 +74,9 @@ namespace GUI
                 StartDate = dtNgayBatDau.Value,
                 EndDate = dtNgayKetThuc.Value
             };
-            bll.AddPromotion(promotion);
+            bllPromotion.AddPromotion(promotion);
             MessageBox.Show("Them thanh cong");
-            dataGridView1.DataSource = bll.GetDataPromotion();
+            dgvKhuyenMai.DataSource = bllPromotion.GetDataPromotion();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -84,9 +84,9 @@ namespace GUI
             try
             {
                 int id = int.Parse(txtMaKM.Text);
-                bll.RemovePromotion(id);
+                bllPromotion.RemovePromotion(id);
                 MessageBox.Show("Xóa thành công!");
-                dataGridView1.DataSource = bll.GetDataPromotion();
+                dgvKhuyenMai.DataSource = bllPromotion.GetDataPromotion();
             }
             catch (Exception ex)
             {
@@ -122,9 +122,15 @@ namespace GUI
                 StartDate = dtNgayBatDau.Value,
                 EndDate = dtNgayKetThuc.Value
             };
-            bll.UpdatePromotion(promotion);
+            bllPromotion.UpdatePromotion(promotion);
             MessageBox.Show("Sua thanh cong");
-            dataGridView1.DataSource = bll.GetDataPromotion();
+            dgvKhuyenMai.DataSource = bllPromotion.GetDataPromotion();
+        }
+
+        private void txtTim_TextChanged(object sender, EventArgs e)
+        {
+            var data = bllPromotion.GetDataPromotion().Where(p => p.PromotionName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
+            dgvKhuyenMai.DataSource = data;
         }
     }
 }
