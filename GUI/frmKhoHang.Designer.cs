@@ -56,6 +56,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnInDS = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhoHang)).BeginInit();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNguyenLieu)).BeginInit();
@@ -92,7 +93,7 @@
             this.dgvKhoHang.Name = "dgvKhoHang";
             this.dgvKhoHang.ReadOnly = true;
             this.dgvKhoHang.RowHeadersWidth = 62;
-            this.dgvKhoHang.Size = new System.Drawing.Size(770, 379);
+            this.dgvKhoHang.Size = new System.Drawing.Size(770, 328);
             this.dgvKhoHang.TabIndex = 26;
             this.dgvKhoHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhoHang_CellClick);
             // 
@@ -370,11 +371,23 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã hàng:";
             // 
+            // btnInDS
+            // 
+            this.btnInDS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInDS.Location = new System.Drawing.Point(691, 664);
+            this.btnInDS.Name = "btnInDS";
+            this.btnInDS.Size = new System.Drawing.Size(91, 35);
+            this.btnInDS.TabIndex = 30;
+            this.btnInDS.Text = "In DS kho";
+            this.btnInDS.UseVisualStyleBackColor = true;
+            this.btnInDS.Click += new System.EventHandler(this.btnInDS_Click);
+            // 
             // frmKhoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 711);
+            this.Controls.Add(this.btnInDS);
             this.Controls.Add(this.txtTim);
             this.Controls.Add(this.lbTim);
             this.Controls.Add(this.dgvKhoHang);
@@ -423,5 +436,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtSoNgayHH;
         private System.Windows.Forms.TextBox txtSoLuong;
+        private System.Windows.Forms.Button btnInDS;
     }
 }

@@ -33,7 +33,6 @@
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvChiTietDoanhThu = new System.Windows.Forms.DataGridView();
-            this.btnReport = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietDoanhThu)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +42,6 @@
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlMain.Controls.Add(this.btnReport);
             this.pnlMain.Controls.Add(this.txtTongTien);
             this.pnlMain.Controls.Add(this.label1);
             this.pnlMain.Controls.Add(this.dgvChiTietDoanhThu);
@@ -84,19 +82,8 @@
             this.dgvChiTietDoanhThu.Location = new System.Drawing.Point(4, 4);
             this.dgvChiTietDoanhThu.Margin = new System.Windows.Forms.Padding(4);
             this.dgvChiTietDoanhThu.Name = "dgvChiTietDoanhThu";
-            this.dgvChiTietDoanhThu.Size = new System.Drawing.Size(725, 322);
+            this.dgvChiTietDoanhThu.Size = new System.Drawing.Size(725, 352);
             this.dgvChiTietDoanhThu.TabIndex = 5;
-            // 
-            // btnReport
-            // 
-            this.btnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReport.Location = new System.Drawing.Point(613, 356);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(105, 42);
-            this.btnReport.TabIndex = 8;
-            this.btnReport.Text = "In danh sách";
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // frmChiTietDoanhThu
             // 
@@ -124,6 +111,5 @@
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvChiTietDoanhThu;
-        private System.Windows.Forms.Button btnReport;
     }
 }

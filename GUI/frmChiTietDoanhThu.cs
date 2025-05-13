@@ -30,7 +30,7 @@ namespace GUI
         private void LoadData()
         {
             // Lọc các hóa đơn theo ngày lập hóa đơn và đã được thanh toán (status = 1)
-            var filteredBills = bllBill.GetAll().Where(b => b.CreateDate.Date == doanhThu.ReportDate.Date && b.Status == 1).ToList();
+            var filteredBills = bllBill.GetAll().Where(b => b.CreateDate.Date == doanhThu.ReportDate.Date && b.Status == 1 && b.BranchId == doanhThu.BranchId).ToList();
             // Tìm các chi tiết hóa đơn trong filteredBills
             var filteredBillInfos = bllBillInfo.GetAll().Where(bi => filteredBills.Any(b => b.BillId == bi.BillId)).ToList();
             var products = bllProduct.GetAll().ToList();
@@ -70,11 +70,6 @@ namespace GUI
                 tongTien += int.Parse(dgvChiTietDoanhThu.Rows[i].Cells["TotalPrice"].Value.ToString());
             }
             txtTongTien.Text = string.Format("{0:0,0}", tongTien) + " VNĐ";
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

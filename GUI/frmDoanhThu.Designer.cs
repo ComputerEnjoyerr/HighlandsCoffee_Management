@@ -33,6 +33,8 @@
             this.btnLoc = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.cboThang = new System.Windows.Forms.ComboBox();
+            this.btnIn = new System.Windows.Forms.Button();
+            this.btnXem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThu)).BeginInit();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +79,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.Controls.Add(this.cboThang);
+            this.pnlMain.Controls.Add(this.btnXem);
+            this.pnlMain.Controls.Add(this.btnIn);
             this.pnlMain.Controls.Add(this.btnLoc);
             this.pnlMain.Controls.Add(this.label2);
             this.pnlMain.Controls.Add(this.dgvDoanhThu);
@@ -95,6 +99,26 @@
             this.cboThang.Name = "cboThang";
             this.cboThang.Size = new System.Drawing.Size(139, 26);
             this.cboThang.TabIndex = 34;
+            // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(664, 12);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(102, 36);
+            this.btnIn.TabIndex = 33;
+            this.btnIn.Text = "In DS";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(538, 12);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(102, 36);
+            this.btnXem.TabIndex = 33;
+            this.btnXem.Text = "Xem DS";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // frmDoanhThu
             // 
@@ -121,5 +145,7 @@
         private System.Windows.Forms.Button btnLoc;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.ComboBox cboThang;
+        private System.Windows.Forms.Button btnXem;
+        private System.Windows.Forms.Button btnIn;
     }
 }

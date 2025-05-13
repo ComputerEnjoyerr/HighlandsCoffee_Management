@@ -82,5 +82,37 @@ namespace GUI
             }
             
         }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            // Xem chi tiết doanh thu 
+            if (dgvDoanhThu.SelectedRows.Count > 0)
+            {
+                // Lấy thông tin doanh thu đã chọn
+                Financial selectedDoanhThu = dgvDoanhThu.SelectedRows[0].DataBoundItem as Financial;
+                // Hiển thị thông tin chi tiết doanh thu
+                if (selectedDoanhThu == null) return;
+                frmChiTietDoanhThu fr = new frmChiTietDoanhThu(selectedDoanhThu);
+                fr.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một doanh thu để xem chi tiết.");
+            }
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            if (dgvDoanhThu.SelectedRows.Count > 0)
+            {
+                Financial selectedDoanhThu = dgvDoanhThu.SelectedRows[0].DataBoundItem as Financial;
+                frmRPTChiTietDoanhThu frm = new frmRPTChiTietDoanhThu(selectedDoanhThu);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một doanh thu để in báo cáo.");
+            }
+        }
     }
 }

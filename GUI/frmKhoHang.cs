@@ -299,5 +299,11 @@ namespace GUI
         {
             ClearDuLieuNhap();
         }
+
+        private void btnInDS_Click(object sender, EventArgs e)
+        {
+            frmRPTKhoHang fr = new frmRPTKhoHang(currentEmployee);
+            fr.ShowDialog();
+        }
     }
 }
