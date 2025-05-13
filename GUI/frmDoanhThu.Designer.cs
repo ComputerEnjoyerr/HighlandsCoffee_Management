@@ -57,7 +57,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(14, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 24);
+            this.label2.Size = new System.Drawing.Size(53, 18);
             this.label2.TabIndex = 31;
             this.label2.Text = "Tháng:";
             // 
@@ -69,6 +69,7 @@
             this.btnLoc.TabIndex = 33;
             this.btnLoc.Text = "Lọc dữ liệu";
             this.btnLoc.UseVisualStyleBackColor = true;
+            this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
             // 
             // pnlMain
             // 
@@ -92,12 +93,12 @@
             "<<All>>"});
             this.cboThang.Location = new System.Drawing.Point(72, 18);
             this.cboThang.Name = "cboThang";
-            this.cboThang.Size = new System.Drawing.Size(139, 30);
+            this.cboThang.Size = new System.Drawing.Size(139, 26);
             this.cboThang.TabIndex = 34;
             // 
             // frmDoanhThu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 711);
             this.Controls.Add(this.pnlMain);

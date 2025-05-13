@@ -45,8 +45,6 @@
             this.txtTenMon = new System.Windows.Forms.TextBox();
             this.txtKH = new System.Windows.Forms.TextBox();
             this.btnChonKhach = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
-            this.btnHuy = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.lbBan = new System.Windows.Forms.Label();
@@ -148,8 +146,6 @@
             this.pnlDatMon.Controls.Add(this.txtTenMon);
             this.pnlDatMon.Controls.Add(this.txtKH);
             this.pnlDatMon.Controls.Add(this.btnChonKhach);
-            this.pnlDatMon.Controls.Add(this.btnLuu);
-            this.pnlDatMon.Controls.Add(this.btnHuy);
             this.pnlDatMon.Controls.Add(this.btnThem);
             this.pnlDatMon.Controls.Add(this.btnXoa);
             this.pnlDatMon.Controls.Add(this.lbBan);
@@ -224,32 +220,12 @@
             this.btnChonKhach.UseVisualStyleBackColor = true;
             this.btnChonKhach.Click += new System.EventHandler(this.btnChonKhach_Click);
             // 
-            // btnLuu
-            // 
-            this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLuu.Location = new System.Drawing.Point(9, 609);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(122, 49);
-            this.btnLuu.TabIndex = 3;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHuy.Location = new System.Drawing.Point(192, 609);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(122, 49);
-            this.btnHuy.TabIndex = 3;
-            this.btnHuy.Text = "Hủy bỏ";
-            this.btnHuy.UseVisualStyleBackColor = true;
-            // 
             // btnThem
             // 
             this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnThem.Location = new System.Drawing.Point(7, 531);
+            this.btnThem.Location = new System.Drawing.Point(3, 597);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(112, 42);
+            this.btnThem.Size = new System.Drawing.Size(140, 69);
             this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm món";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -258,9 +234,9 @@
             // btnXoa
             // 
             this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnXoa.Location = new System.Drawing.Point(125, 531);
+            this.btnXoa.Location = new System.Drawing.Point(192, 597);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(112, 42);
+            this.btnXoa.Size = new System.Drawing.Size(131, 69);
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xóa món";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -287,7 +263,7 @@
             this.dgvMonAn.Name = "dgvMonAn";
             this.dgvMonAn.RowHeadersWidth = 51;
             this.dgvMonAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMonAn.Size = new System.Drawing.Size(323, 302);
+            this.dgvMonAn.Size = new System.Drawing.Size(323, 368);
             this.dgvMonAn.TabIndex = 0;
             // 
             // flpSanPham
@@ -341,8 +317,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lbTim;
         private System.Windows.Forms.Panel pnlDatMon;
-        private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label lbBan;

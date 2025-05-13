@@ -56,5 +56,31 @@ namespace GUI
                 fr.ShowDialog();
             }
         }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+            if (cboThang.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn tháng để lọc doanh thu.");
+                return;
+            }
+            int selectedMonth = int.Parse(cboThang.SelectedIndex.ToString());
+            if (selectedMonth == 0)
+            {
+                var doanhthus = bllFinancial.GetAll().Where(f => f.BranchId == currentEmployee.BranchId);
+                if (doanhthus.Any())
+                    dgvDoanhThu.DataSource = doanhthus.ToList();
+            }
+            else
+            {   
+                // Lọc doanh thu theo tháng đã chọn
+                var filteredDoanhThu = bllFinancial.GetAll().Where(f => f.BranchId == currentEmployee.BranchId && f.ReportDate.Month == selectedMonth).ToList();
+                if (filteredDoanhThu.Any())
+                    dgvDoanhThu.DataSource = filteredDoanhThu.ToList();
+                else
+                    MessageBox.Show("Không có doanh thu nào trong tháng " + selectedMonth);
+            }
+            
+        }
     }
 }

@@ -35,6 +35,8 @@ namespace GUI
         private List<Table> cachedTables = null;
         private List<Product> cachedProducts = null;
 
+        //private List<BillInfo> listOfBillInfo = null;
+
         private void LoadBanAn()
         {
             flpBan.Controls.Clear();
