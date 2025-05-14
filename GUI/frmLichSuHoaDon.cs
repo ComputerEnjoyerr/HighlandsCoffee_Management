@@ -14,13 +14,15 @@ namespace GUI
 {
     public partial class frmLichSuHoaDon : Form
     {
-        public frmLichSuHoaDon(Employee em)
+        BLL_Bill bllBill = new BLL_Bill();
+        BLL_Table table = new BLL_Table();
+        public frmLichSuHoaDon()
         {
             InitializeComponent();
-            currentEmployee = em;
+            LoadLichSu();
         }
 
-        private Employee currentEmployee = new Employee();
+       
         private void frmLichSuHoaDon_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#52362A");
@@ -50,5 +52,25 @@ namespace GUI
             //frmChiTietHoaDon fr = new frmChiTietHoaDon(billInfo);
             //fr.ShowDialog();
         }
+        public void LoadLichSu()
+        {
+            var data = bllBill.GetAll()
+            .Where(b => b.Status == 1)
+            .Join(table.GetAll(),
+                  b => b.TableId,
+                  t => t.TableId,
+                  (b, t) => new
+                  {
+                      b.BillId,
+                      b.TotalPrice,
+                      b.CreateDate,
+                      TableName = t.TableName
+                  })
+            .OrderByDescending(b => b.CreateDate)
+            .ToList();
+
+            dgvHoaDon.DataSource = data;
+        }
+
     }
 }

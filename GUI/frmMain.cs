@@ -35,6 +35,8 @@ namespace GUI
             // Đưa form mới vào main menu
             childForm.Show();
             currentForm = childForm;
+
+
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -42,7 +44,7 @@ namespace GUI
             //MessageBox.Show(em.EmployeeName + " " + em.BranchId);
 
 
-            this.Icon = new Icon("icon-1.ico");
+            //this.Icon = new Icon("icon-1.ico");
 
             this.BackColor = ColorTranslator.FromHtml("#DED4CA");
             pnlMenu.BackColor = ColorTranslator.FromHtml("#B12830");
@@ -105,7 +107,9 @@ namespace GUI
                 this.Close();
             }
         }
+        private Employee currentEmployee = new Employee(); // hoặc lấy từ login
 
+        
         private void btnDatMon_Click(object sender, EventArgs e)
         {
             frmDatMon fr = new frmDatMon(em);
@@ -116,6 +120,7 @@ namespace GUI
         {
             frmThanhToan fr = new frmThanhToan(em);
             OpenMain(fr);
+
         }
 
         private void btnThemNV_Click(object sender, EventArgs e)
@@ -126,7 +131,7 @@ namespace GUI
 
         private void btnLichSu_Click(object sender, EventArgs e)
         {
-            frmLichSuHoaDon fr = new frmLichSuHoaDon(em);
+            frmLichSuHoaDon fr = new frmLichSuHoaDon();
             OpenMain(fr);
         }
 

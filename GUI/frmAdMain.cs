@@ -43,7 +43,7 @@ namespace GUI
             mnuMain.ForeColor = ColorTranslator.FromHtml("#DED4CA");
             this.BackColor = ColorTranslator.FromHtml("#DED4CA");
 
-            this.Icon = new Icon("icon-1.ico");
+            //this.Icon = new Icon("icon-1.ico");
         }
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,6 +110,18 @@ namespace GUI
 
             this.WindowState = FormWindowState.Normal;
             
+        }
+
+        private void khuyếnMãiCủaKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rptViewKhuyenMai rpt = new rptViewKhuyenMai();
+            rpt.ShowDialog();
+        }
+
+        private void lươngNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rptViewLuongNV rptViewLuongNV = new rptViewLuongNV();
+            rptViewLuongNV.ShowDialog();
         }
     }
 }

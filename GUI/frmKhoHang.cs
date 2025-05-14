@@ -141,14 +141,17 @@ namespace GUI
                 else if (!double.TryParse(txtTongTien.Text, out double tongTien) || tongTien <= 0)
                 {
                     MessageBox.Show("Tổng tiền phải lớn hơn 0");
+                }else if(!int.TryParse(txtMa.Text, out int id))
+                {
+                    MessageBox.Show("Mã Kho hàng lớn hơn 0");
                 }
                 else
                 {
-                    DateTime dateTime = DateTime.Now;
-                    string id = dateTime.Day.ToString("00") + dateTime.Month.ToString("00") + dateTime.Year.ToString().Substring(2, 2) + dateTime.Second.ToString("00") + dateTime.Minute.ToString("00") + dateTime.Hour.ToString("00");
+                    //DateTime dateTime = DateTime.Now;
+                    //string id = dateTime.Day.ToString("00") + dateTime.Month.ToString("00") + dateTime.Year.ToString().Substring(2, 2) + dateTime.Second.ToString("00") + dateTime.Minute.ToString("00") + dateTime.Hour.ToString("00");
                     Inventory inventory = new Inventory
                     {
-                        InventoryId = "KH" + id,
+                        InventoryId = id,
                         BranchId = currentEmployee.BranchId,
                         IngredientId = bllIngredient.GetAll().FirstOrDefault(ig => ig.IngredientName == txtNguyenLieu.Text).IngredientId,
                         ExpDay = int.Parse(txtSoNgayHH.Text),
@@ -209,7 +212,11 @@ namespace GUI
                 return;
             try
             {
-                bllInventory.Delete(txtMa.Text);
+                if (!int.TryParse(txtMa.Text, out int id))
+                {
+                    MessageBox.Show("Mã Kho hàng lớn hơn 0");
+                }
+                bllInventory.Delete(id);
                 ClearDuLieuNhap();
                 LoadKhoHang();
             }
@@ -247,12 +254,16 @@ namespace GUI
                 {
                     MessageBox.Show("Tổng tiền phải lớn hơn 0");
                 }
+                else if (!int.TryParse(txtMa.Text, out int id))
+                {
+                    MessageBox.Show("Mã Kho hàng lớn hơn 0");
+                }
                 else
                 {
                     DateTime dateTime = DateTime.Now;;
                     Inventory inventory = new Inventory
                     {
-                        InventoryId = txtMa.Text,
+                        InventoryId = id,
                         BranchId = currentEmployee.BranchId,
                         IngredientId = bllIngredient.GetAll().FirstOrDefault(ig => ig.IngredientName == txtNguyenLieu.Text).IngredientId,
                         ExpDay = int.Parse(txtSoNgayHH.Text),

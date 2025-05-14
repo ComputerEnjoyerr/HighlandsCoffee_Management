@@ -78,7 +78,7 @@ namespace DAL
             }
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             using (var db = new HLCMDataContext())
             {

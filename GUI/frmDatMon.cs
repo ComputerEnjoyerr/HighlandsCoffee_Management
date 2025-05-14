@@ -152,7 +152,7 @@ namespace GUI
             {
                 // Xử lý lỗi nếu không tải được ảnh
                 //Console.WriteLine("Lỗi khi tải ảnh: " + ex.Message);
-                pictureBox.Image = imlSanPham.Images[1];
+                //pictureBox.Image = imlSanPham.Images[1];
             }
             Label ten = new Label
             {

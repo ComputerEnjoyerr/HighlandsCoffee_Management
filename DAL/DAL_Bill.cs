@@ -22,7 +22,7 @@ namespace DAL
                     EmployeeId = b.EmployeeId,
                     TableId = b.TableId,
                     TotalPrice = (double)b.TotalPrice,
-                    Status = (int)b.Status,
+                    //Status = (int)b.Status,
                 });
                 if (data.Any()) return data.ToList();
                 return new List<Bill>();
@@ -42,7 +42,7 @@ namespace DAL
                     EmployeeId = bl.EmployeeId,
                     TableId = bl.TableId,
                     TotalPrice = (decimal)bl.TotalPrice,
-                    Status = bl.Status,
+                    //Status = bl.Status,
                 };
                 db.BILLs.InsertOnSubmit(newBill);
                 db.SubmitChanges();
@@ -62,7 +62,7 @@ namespace DAL
                     existingBill.EmployeeId = bl.EmployeeId;
                     existingBill.TableId = bl.TableId;
                     existingBill.TotalPrice =  (decimal)bl.TotalPrice;
-                    existingBill.Status = bl.Status;
+                   // existingBill.Status = bl.Status;
                     db.SubmitChanges();
                 }
             }

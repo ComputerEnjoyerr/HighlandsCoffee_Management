@@ -234,25 +234,25 @@
             this.phóngToToolStripMenuItem,
             this.thuNhỏToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(143, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(168, 64);
             // 
             // phóngToToolStripMenuItem
             // 
             this.phóngToToolStripMenuItem.Name = "phóngToToolStripMenuItem";
-            this.phóngToToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.phóngToToolStripMenuItem.Size = new System.Drawing.Size(167, 30);
             this.phóngToToolStripMenuItem.Text = "Phóng to";
             this.phóngToToolStripMenuItem.Click += new System.EventHandler(this.phóngToToolStripMenuItem_Click);
             // 
             // thuNhỏToolStripMenuItem
             // 
             this.thuNhỏToolStripMenuItem.Name = "thuNhỏToolStripMenuItem";
-            this.thuNhỏToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.thuNhỏToolStripMenuItem.Size = new System.Drawing.Size(167, 30);
             this.thuNhỏToolStripMenuItem.Text = "Thu nhỏ";
             this.thuNhỏToolStripMenuItem.Click += new System.EventHandler(this.thuNhỏToolStripMenuItem_Click);
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnDangXuat;
             this.ClientSize = new System.Drawing.Size(984, 711);

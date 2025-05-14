@@ -8,13 +8,13 @@ namespace DTO
 {
     public class Inventory
     {
-        private int branchId, ingredientId, expDay;
+        private int inventoryId, branchId, ingredientId, expDay;
         private double quantity, unitPrice, totalPrice;
         private DateTime expDate, restockDate;
-        private string unit, inventoryId;
+        private string unit;
 
         public Inventory() { }
-        public Inventory(string inventoryId, int branchId, int ingredientId, DateTime restockDate, int expDay, DateTime expDate, double quantity, string unit, double unitPrice, double totalP)
+        public Inventory(int inventoryId, int branchId, int ingredientId, DateTime restockDate, int expDay, DateTime expDate, double quantity, string unit, double unitPrice, double totalP)
         {
             this.InventoryId = inventoryId;
             this.BranchId = branchId;
@@ -28,7 +28,7 @@ namespace DTO
             this.TotalPrice = totalP;
         }
 
-        public string InventoryId { get => inventoryId; set => inventoryId = value; }
+        public int InventoryId { get => inventoryId; set => inventoryId = value; }
         public int BranchId { get => branchId; set => branchId = value; }
         public int IngredientId { get => ingredientId; set => ingredientId = value; }
         public int ExpDay { get => expDay; set => expDay = value; }
