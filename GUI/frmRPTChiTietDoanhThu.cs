@@ -69,7 +69,7 @@ namespace GUI
 
         private void frmRPTChiTietDoanhThu_Load(object sender, EventArgs e)
         {
-
+            this.Icon = new Icon("icon-1.ico");
         }
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)

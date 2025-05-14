@@ -111,5 +111,17 @@ namespace GUI
             this.WindowState = FormWindowState.Normal;
             
         }
+
+        private void lươngNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRPTLuongNhanVIen fr = new frmRPTLuongNhanVIen();
+            OpenMain(fr);
+        }
+
+        private void khuyếnMãiToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmRPTKhuyenMaiCuaKH fr = new frmRPTKhuyenMaiCuaKH();
+            OpenMain(fr);
+        }
     }
 }

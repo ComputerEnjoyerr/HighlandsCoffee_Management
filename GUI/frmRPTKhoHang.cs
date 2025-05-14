@@ -50,7 +50,7 @@ namespace GUI
 
         private void frmRPTKhoHang_Load(object sender, EventArgs e)
         {
-
+            this.Icon = new Icon("icon-1.ico");
         }
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)

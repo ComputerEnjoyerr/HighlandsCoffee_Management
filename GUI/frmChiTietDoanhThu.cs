@@ -61,7 +61,7 @@ namespace GUI
             this.BackColor = ColorTranslator.FromHtml("#52362A");
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
 
-            
+            txtTongTien.ReadOnly = true;
 
             LoadData();
             int tongTien = 0;

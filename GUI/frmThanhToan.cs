@@ -1,50 +1,212 @@
 ﻿using DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace GUI
 {
     public partial class frmThanhToan : Form
     {
+
+
         public frmThanhToan(Employee em)
         {
             InitializeComponent();
             currentEmployee = em;
         }
 
-        private Employee currentEmployee = new Employee();
+        private readonly Employee currentEmployee;
+
+        private readonly BLL_Table bllTable = new BLL_Table();
+        private readonly BLL_BillInfo bllBillInfo = new BLL_BillInfo();
+        private readonly BLL_Bill bllBill = new BLL_Bill();
+        private readonly BLL_PromotionCustomer bllPromotionCustomer = new BLL_PromotionCustomer();
+        private readonly BLL_Product bllProduct = new BLL_Product();
+        private readonly BLL_Promotion bllPromotion = new BLL_Promotion();
+        private readonly BLL_Financial bllFinancial = new BLL_Financial();
 
         private void frmThanhToan_Load(object sender, EventArgs e)
         {
-            this.BackColor = ColorTranslator.FromHtml("#52362A");
+            // Cài đặt màu sắc
+            BackColor = ColorTranslator.FromHtml("#52362A");
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
             pnlChonBan.BackColor = ColorTranslator.FromHtml("#DED4CA");
             flpKhuyenMai.BackColor = ColorTranslator.FromHtml("#DED4CA");
 
-            // Dữ liệu khuyến mãi ở đây
-            //foreach (var promotion in promotionList)
-            //{
-            //    Panel panel = new Panel();
-            //    panel.Size = new Size(flpKhuyenMai.Width - 25, 60);
-            //    panel.BackColor = ColorTranslator.FromHtml("#BD965F");
+            LoadBan();
+        }
 
-            //    CheckBox checkBox = new CheckBox();
-            //    checkBox.Size = new Size(panel.Width - 20, panel.Height - 10);
-            //    checkBox.Font = new Font("Arial", 12, FontStyle.Bold);
-            //    checkBox.Location = new Point(10, 10);
-            //    checkBox.Text = promotion.Name;
-            //    checkBox.Tag = promotion.Discount;
-            //    checkBox.AllowDrop = true;
-            //    panel.Controls.Add(checkBox);
-            //    flpKhuyenMai.Controls.Add(panel);
-            //}
+        private void LoadBan()
+        {
+            var dsBan = bllTable.GetAll()
+                .Where(t => t.Status == 1)
+                .Select(t => new { t.TableId, t.TableName })
+                .ToList();
+
+            cboBanAn.DisplayMember = "TableName";
+            cboBanAn.ValueMember = "TableId";
+            cboBanAn.DataSource = dsBan;
+        }
+
+        private void LoadKhuyenMai(int customerId)
+        {
+            flpKhuyenMai.Controls.Clear(); // Xóa danh sách khuyến mãi cũ
+
+            var promotions = bllPromotionCustomer.GetAll()
+                .Join(bllPromotion.GetDataPromotion(),
+                    pc => pc.PromotionId,
+                    p => p.PromotionId,
+                    (pc, p) => new { pc.CustomerId, Promotion = p })
+                .Where(x => x.CustomerId == customerId &&
+                            x.Promotion.StartDate <= DateTime.Now &&
+                            x.Promotion.EndDate >= DateTime.Now)
+                .Select(x => x.Promotion)
+                .ToList();
+
+            // Tạo một GroupBox hoặc sử dụng chính FlowLayoutPanel để nhóm các RadioButton
+            foreach (var promotion in promotions)
+            {
+                var radioButton = new RadioButton
+                {
+                    Size = new Size(flpKhuyenMai.Width - 10, 70),
+                    Padding = new Padding(10),
+                    Font = new Font("Arial", 12, FontStyle.Bold),
+                    Location = new Point(10, 10),
+                    Text = promotion.PromotionName,
+                    Tag = promotion.Discount,
+                    Name = $"radio_{promotion.PromotionId}",
+                    BackColor = ColorTranslator.FromHtml("#BD965F")
+                };
+
+                radioButton.CheckedChanged += RadioButton_CheckedChanged;
+                flpKhuyenMai.Controls.Add(radioButton);
+            }
+        }
+
+        private void cboBanAn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboBanAn.SelectedValue == null) return;
+
+            int tableId = Convert.ToInt32(cboBanAn.SelectedValue);
+            var bill = bllBill.GetAll().FirstOrDefault(b => b.TableId == tableId && b.Status == 0);
+
+            if (bill == null)
+            {
+                ResetForm();
+                return;
+            }
+
+            // Load chi tiết hóa đơn
+            var chiTiet = bllBillInfo.GetAll()
+                .Where(bi => bi.BillId == bill.BillId)
+                .Join(bllProduct.GetAll(),
+                    bi => bi.ProductId,
+                    p => p.ProductId,
+                    (bi, p) => new
+                    {
+                        p.ProductName,
+                        bi.Quantity,
+                        DonGia = p.Price,
+                        ThanhTien = bi.Quantity * p.Price
+                    })
+                .ToList();
+
+            dgvChiTietHoaDon.DataSource = chiTiet;
+
+            // Tính tổng món và tổng tiền
+            int tongMon = chiTiet.Sum(ct => ct.Quantity);
+            double tongTien = chiTiet.Sum(ct => ct.ThanhTien);
+
+            txtTongMon.Text = tongMon.ToString("N0");
+            txtThanhTien.Text = tongTien.ToString("N0");
+            textBox3.Text = tongTien.ToString("N0");
+
+            // Load danh sách khuyến mãi của khách hàng
+            LoadKhuyenMai(bill.CustomerId);
+        }
+
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            var selectedRadio = sender as RadioButton;
+            if (!selectedRadio.Checked) return;
+
+            double discount = (double)selectedRadio.Tag;
+            double tongTien = double.Parse(txtThanhTien.Text.Replace(",", ""));
+            double thanhTien = tongTien * (1 - discount);
+
+            textBox3.Text = thanhTien.ToString("N0");
+            txtKhuyenMai.Text = $"{discount:P0}";
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            if (cboBanAn.SelectedValue == null) return;
+
+            int tableId = (int)cboBanAn.SelectedValue;
+            var bill = bllBill.GetAll().FirstOrDefault(b => b.TableId == tableId && b.Status == 0);
+            if (bill == null) return;
+
+            // Cập nhật hóa đơn
+            bill.TotalPrice = double.Parse(textBox3.Text.Replace(",", ""));
+            bill.Status = 1; // Đã thanh toán
+            bllBill.Update(bill);
+
+            // Cập nhật trạng thái bàn
+            var ban = bllTable.GetAll().FirstOrDefault(tb => tb.TableId == tableId);
+            if (ban != null)
+            {
+                ban.Status = 0; // Trống
+                bllTable.Update(ban);
+            }
+
+            // Cập nhật doanh thu
+            DateTime today = DateTime.Today;
+            var financial = bllFinancial.GetAll().FirstOrDefault(f =>
+                f.BranchId == bill.BranchId &&
+                f.ReportDate.Month == today.Month &&
+                f.ReportDate.Year == today.Year);
+
+            if (financial == null)
+            {
+                bllFinancial.Add(new Financial
+                {
+                    BranchId = bill.BranchId,
+                    ReportDate = today,
+                    Revenue = bill.TotalPrice,
+                    OperationCost = 0,
+                    IngredientCost = 0
+                });
+            }
+            else
+            {
+                financial.Revenue += bill.TotalPrice;
+                bllFinancial.Update(financial);
+            }
+
+            // Xóa chi tiết hóa đơn
+            var danhSachMon = bllBillInfo.GetAll().Where(bi => bi.BillId == bill.BillId).ToList();
+            foreach (var item in danhSachMon)
+            {
+                bllBillInfo.Delete(item.BillInfoId);
+            }
+
+            MessageBox.Show("Thanh toán thành công!");
+            ResetForm();
+            LoadBan();
+        }
+
+        private void ResetForm()
+        {
+            dgvChiTietHoaDon.DataSource = null;
+            txtTongMon.Clear();
+            txtThanhTien.Clear();
+            textBox3.Clear();
+            txtKhuyenMai.Clear();
+            flpKhuyenMai.Controls.Clear();
+            cboBanAn.SelectedIndex = -1;
         }
     }
 }

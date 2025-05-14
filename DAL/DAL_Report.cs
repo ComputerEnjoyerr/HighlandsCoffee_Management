@@ -20,7 +20,7 @@ namespace DAL
                 try
                 {
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_ChiTietHoaDon", conn);
+                    SqlCommand cmd = new SqlCommand("sp_ChiTietDoanhThu", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ReportDate", reportDate.Date);
                     cmd.Parameters.AddWithValue("@Status", status);
