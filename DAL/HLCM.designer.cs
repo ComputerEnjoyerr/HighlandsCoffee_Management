@@ -3122,10 +3122,8 @@ namespace DAL
 				}
 			}
 		}
-
-        public DateTime LastRestock { get; internal set; }
-
-        public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
 		

@@ -17,10 +17,13 @@ namespace GUI
         public frmMain(Employee employee)
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             em = employee;
+            branchId = employee.BranchId;
             this.userRole = employee.Role;
         }
         private Employee em = new Employee();
+        private int branchId;
         private string userRole;
         // Biến tạm
         Form currentForm = new Form();
@@ -128,7 +131,7 @@ namespace GUI
 
         private void btnLichSu_Click(object sender, EventArgs e)
         {
-            frmLichSuHoaDon fr = new frmLichSuHoaDon(em);
+            frmLichSuHoaDon fr = new frmLichSuHoaDon(em, branchId);
             OpenMain(fr);
         }
 

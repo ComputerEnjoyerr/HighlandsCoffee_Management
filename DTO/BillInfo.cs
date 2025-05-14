@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,5 +24,8 @@ namespace DTO
         public int ProductId { get => productId; set => productId = value; }
         public int BillId { get => billId; set => billId = value; }
         public int Quantity { get => quantity; set => quantity = value; }
+        public string ProductName { get; set; }
+        public decimal Price { get; set; }
+        public decimal Total { get; set; }
     }
 }

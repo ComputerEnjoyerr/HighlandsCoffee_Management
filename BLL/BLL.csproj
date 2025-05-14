@@ -55,6 +55,7 @@
     <Compile Include="BLL_Promotion.cs" />
     <Compile Include="BLL_PromotionCustomer.cs" />
     <Compile Include="BLL_Recipe.cs" />
+    <Compile Include="BLL_Report.cs" />
     <Compile Include="BLL_Supplier.cs" />
     <Compile Include="BLL_Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

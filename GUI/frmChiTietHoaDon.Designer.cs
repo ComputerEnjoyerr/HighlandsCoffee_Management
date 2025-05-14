@@ -54,12 +54,13 @@
             this.dgvBillInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBillInfo.Location = new System.Drawing.Point(3, 3);
             this.dgvBillInfo.Name = "dgvBillInfo";
+            this.dgvBillInfo.RowHeadersWidth = 51;
             this.dgvBillInfo.Size = new System.Drawing.Size(809, 444);
             this.dgvBillInfo.TabIndex = 1;
             // 
             // frmChiTietHoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 474);
             this.Controls.Add(this.pnlMain);
@@ -79,5 +80,6 @@
 
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.DataGridView dgvBillInfo;
+
     }
 }

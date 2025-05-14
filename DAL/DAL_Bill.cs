@@ -80,5 +80,85 @@ namespace DAL
                 }
             }
         }
+
+        // Lấy Bill theo chi nhánh và ngày
+        HLCMDataContext db = new HLCMDataContext();
+        public List<DTO.Bill> GetBillsByFilter(int branchId, int? employeeId, DateTime date)
+        {
+            var query = db.BILLs.Where(b =>
+                b.BranchId == branchId &&
+                b.CreateDate == date.Date
+            );
+
+            if (employeeId.HasValue)
+                query = query.Where(b => b.EmployeeId == employeeId.Value);
+
+            var result = query.Select(b => new DTO.Bill
+            {
+                BillId = b.BillId,
+                BranchId = b.BranchId,
+                EmployeeId = b.EmployeeId,
+                EmployeeName = b.EMPLOYEE.EmployeeName,
+                CustomerId = b.CustomerId,
+                TableId = b.TableId,
+                TotalPrice = (double)(b.TotalPrice ?? 0),
+                CreateDate = (DateTime)b.CreateDate,
+                Status = b.Status ?? 0
+            });
+
+            return result.ToList();
+        }
+
+
+        //Lấy nhân viên theo chi nhánh
+        public List<Employee> GetEmployeesByBranch(int branchId)
+        {
+            using (var db = new HLCMDataContext())
+            {
+                var query = from em in db.EMPLOYEEs
+                            where em.BranchId == branchId
+                            select new Employee
+                            {
+                                EmployeeId = em.EmployeeId,
+                                EmployeeName = em.EmployeeName,
+                                PhoneNumber = em.Phone,
+                                Address = em.Address,
+                                Role = em.Role,
+                                BranchId = em.BranchId,
+                                HireDate = (DateTime)em.HireDate,
+                                OverTimeHour = em.OverTimeHours ?? 0,
+                                BaseSalary = (double)em.BaseSalary,
+                                TotalSalary = (double)(em.TotalSalary ?? 0)
+                            };
+
+                return query.ToList();
+            }
+        }
+
+        //Lấy bill theo chi nhánh
+        public List<Bill> GetBillsByBranch(int branchId)
+        {
+            using (var db = new HLCMDataContext())
+            {
+                var query = from b in db.BILLs
+                            join e in db.EMPLOYEEs on b.EmployeeId equals e.EmployeeId
+                            where b.BranchId == branchId
+                            select new Bill
+                            {
+                                BillId = b.BillId,
+                                BranchId = b.BranchId,
+                                EmployeeId = b.EmployeeId,
+                                CustomerId = b.CustomerId,
+                                TableId = b.TableId,
+                                EmployeeName = e.EmployeeName,
+                                CreateDate = (DateTime)b.CreateDate,
+                                Status = b.Status ?? 0,
+                                TotalPrice = (double)(b.TotalPrice ?? 0)
+                            };
+
+                return query.ToList();
+            }
+        }
+
     }
 }

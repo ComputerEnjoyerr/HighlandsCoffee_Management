@@ -69,5 +69,29 @@ namespace DAL
                 }
             };
         }
+
+        //Lấy chi tiết hóa đơn theo BillId
+        public List<BillInfo> GetBillByBillId(int billId)
+        {
+            using (var db = new HLCMDataContext())
+            {
+                var result = from bi in db.BILLINFOs
+                             join p in db.PRODUCTs on bi.ProductId equals p.ProductId
+                             where bi.BillId == billId
+                             select new BillInfo
+                             {
+                                 BillInfoId = bi.BillInfoId,
+                                 BillId = bi.BillId,
+                                 ProductId = bi.ProductId,
+                                 ProductName = p.ProductName,
+                                 Quantity = bi.Quantity,
+                                 Price = p.Price,
+                                 Total = bi.Quantity * p.Price
+                             };
+
+                return result.ToList();
+            }
+        }
+
     }
 }

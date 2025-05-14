@@ -40,5 +40,11 @@ namespace BLL
         {
             return dal.GetStatus();
         }
+
+        public List<int> GetAllBranches()
+        {
+            return dal.GetBranchId();
+        }
+
     }
 }

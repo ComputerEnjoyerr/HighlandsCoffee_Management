@@ -16,5 +16,18 @@ namespace BLL
         public void Add(Bill b) { bill.Add(b); }
         public void Delete(int id) { bill.Delete(id); }
         public void Update(Bill b) { bill.Update(b); }
+
+        public List<Bill> FilterBills(int branchId, int? employeeId, DateTime date)
+        {
+            return bill.GetBillsByFilter(branchId, employeeId, date);
+        }
+        public List<Employee> GetEmployeesByBranchId(int branchId)
+        {
+            return bill.GetEmployeesByBranch(branchId);
+        }
+        public List<Bill> GetBillsByBranch(int branchId)
+        {
+            return bill.GetBillsByBranch(branchId);
+        }
     }
 }

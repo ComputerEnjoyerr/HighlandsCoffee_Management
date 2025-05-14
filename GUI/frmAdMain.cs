@@ -16,6 +16,7 @@ namespace GUI
         public frmAdMain(Employee em)
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             admin = em;
         }
 
@@ -110,6 +111,18 @@ namespace GUI
 
             this.WindowState = FormWindowState.Normal;
             
+        }
+
+        private void báoCáoLợiNhuậnCủaTừngChiNhánhTrong1ThángToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBaoCaoDoanhThu fr = new frmBaoCaoDoanhThu();
+            OpenMain(fr);
+        }
+
+        private void báoCáoSốLượngHàngCònTồnKhoCủaMỗiChiNhánhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBaoCaoHangTonKho fr = new frmBaoCaoHangTonKho();
+            OpenMain(fr);
         }
     }
 }

@@ -33,5 +33,6 @@ namespace DTO
         public int Status { get => status; set => status = value; }
         public double TotalPrice { get => totalPrice; set => totalPrice = value; }
         public DateTime CreateDate { get => createDate; set => createDate = value; }
+        public string EmployeeName { get; set; }
     }
 }

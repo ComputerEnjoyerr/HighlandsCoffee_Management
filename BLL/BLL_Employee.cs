@@ -33,10 +33,6 @@ namespace BLL
         {
             return dal.GetRoles();
         }
-        //public List<KeyValuePair<int, string>> GetBranchList()
-        //{
-        //    return dal.GetBranchList();
-        //}
 
         //Lấy nhân viên theo chi nhánh
         public List<Employee> GetEmployeesForManager(int branchId, int currentManagerId)
@@ -53,6 +49,10 @@ namespace BLL
         public bool AddAccount(Account ac)
         {
             return dal.AddAccount(ac);
+        }
+        public bool TestEmployee(string name, string phone)
+        {
+            return dal.TestEmployee(name, phone);
         }
 
     }

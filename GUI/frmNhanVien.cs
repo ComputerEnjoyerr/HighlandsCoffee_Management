@@ -40,6 +40,17 @@ namespace GUI
                                 e.Role
                             };
             dgvNhanVien.DataSource = employees.ToList();
+
+            //Đặt tên cột
+            dgvNhanVien.Columns["EmployeeId"].HeaderText = "Mã NV";
+            dgvNhanVien.Columns["EmployeeName"].HeaderText = "Họ Tên";
+            dgvNhanVien.Columns["PhoneNumber"].HeaderText = "Số Điện Thoại";
+            dgvNhanVien.Columns["Address"].HeaderText = "Địa Chỉ";
+            dgvNhanVien.Columns["HireDate"].HeaderText = "Ngày Vào Làm";
+            dgvNhanVien.Columns["BaseSalary"].HeaderText = "Lương Cơ Bản";
+            dgvNhanVien.Columns["OverTimeHour"].HeaderText = "Giờ Làm Thêm";
+            dgvNhanVien.Columns["TotalSalary"].HeaderText = "Tổng Thu Nhập";
+            dgvNhanVien.Columns["Role"].HeaderText = "Chức Vụ";
         }
 
         private void frmNhanVien_Load(object sender, EventArgs e)
@@ -98,6 +109,11 @@ namespace GUI
                     Role = cbChucVu.Text,
                     BranchId = currentEmployee.BranchId
                 };
+                if (bllEmployee.TestEmployee(newEmployee.EmployeeName, newEmployee.PhoneNumber))
+                {
+                    MessageBox.Show("Nhân viên đã tồn tại", "Thông báo");
+                    return;
+                }
                 bllEmployee.AddEmployee(newEmployee);
                 LoadNhanVien();
             }
@@ -105,6 +121,8 @@ namespace GUI
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
+
+            Clear();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -172,24 +190,6 @@ namespace GUI
             }
         }
 
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-            var data = bllEmployee.GetDataEmployee()
-                .Where(em => em.EmployeeName.Contains(txtTim.Text) && em.BranchId == currentEmployee.BranchId)
-                .Select(em => new
-                {
-                    em.EmployeeId,
-                    em.EmployeeName,
-                    em.PhoneNumber,
-                    em.Address,
-                    em.HireDate,
-                    em.BaseSalary,
-                    em.OverTimeHour,
-                    em.TotalSalary,
-                    em.Role
-                }).ToList();
-            dgvNhanVien.DataSource = data;
-        }
 
         private void txtLuongCB_TextChanged(object sender, EventArgs e)
         {
@@ -219,6 +219,12 @@ namespace GUI
 
         private void btnHoanTac_Click(object sender, EventArgs e)
         {
+            Clear();
+            LoadNhanVien();
+        }
+
+        private void Clear()
+        {
             txtMaNV.Clear();
             txtHoTen.Clear();
             txtPhone.Clear();
@@ -226,9 +232,39 @@ namespace GUI
             txtLuongCB.Text = "0";
             txtTongThuNhap.Text = "0";
             txtGioLamThem.Text = "0";
-            cbChucVu.SelectedIndex = -1; 
-            dtNgayVaoLam.Value = DateTime.Now; 
+            cbChucVu.SelectedIndex = -1;
+            dtNgayVaoLam.Value = DateTime.Now;
             txtHoTen.Focus();
+        }
+
+        private void txtTim_TextChanged(object sender, EventArgs e)
+        {
+            var data = bllEmployee.GetDataEmployee()
+            .Where(em => em.EmployeeName.Contains(txtTim.Text) && em.BranchId == currentEmployee.BranchId)
+            .Select(em => new
+            {
+                em.EmployeeId,
+                em.EmployeeName,
+                em.PhoneNumber,
+                em.Address,
+                em.HireDate,
+                em.BaseSalary,
+                em.OverTimeHour,
+                em.TotalSalary,
+                em.Role
+            }).ToList();
+            dgvNhanVien.DataSource = data;
+
+            //Đặt tên cột
+            dgvNhanVien.Columns["EmployeeId"].HeaderText = "Mã NV";
+            dgvNhanVien.Columns["EmployeeName"].HeaderText = "Họ Tên";
+            dgvNhanVien.Columns["PhoneNumber"].HeaderText = "Số Điện Thoại";
+            dgvNhanVien.Columns["Address"].HeaderText = "Địa Chỉ";
+            dgvNhanVien.Columns["HireDate"].HeaderText = "Ngày Vào Làm";
+            dgvNhanVien.Columns["BaseSalary"].HeaderText = "Lương Cơ Bản";
+            dgvNhanVien.Columns["OverTimeHour"].HeaderText = "Giờ Làm Thêm";
+            dgvNhanVien.Columns["TotalSalary"].HeaderText = "Tổng Thu Nhập";
+            dgvNhanVien.Columns["Role"].HeaderText = "Chức Vụ";
         }
     }
 }

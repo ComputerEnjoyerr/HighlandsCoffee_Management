@@ -123,22 +123,6 @@ namespace DAL
             }
         }
 
-        //public List<Branch> GetBranchList()
-        //{
-        //    using (var db = new HLCMDataContext())
-        //    {
-        //        // t
-        //        var data = db.BRANCHes.Select(b => new Branch
-        //        {
-        //            BranchId = b.BranchId,
-        //            BranchName = b.BranchName,
-        //            Address = b.Address,
-        //            CloseTime = (TimeSpan)b.CloseTime,
-        //            OpenTime = (TimeSpan)b.OpenTime,
-        //        });
-        //    }
-        //}
-
         //Lấy nhân viên theo chi nhánh
         public List<Employee> GetEmployeesByBranch(int branchId, int currentManagerId)
         {
@@ -259,6 +243,14 @@ namespace DAL
             }
         }
 
-        //Tìm Nhân 
+        //Kiểm tra nhân viên trùng
+        public bool TestEmployee(string name, string phone)
+        {
+            using (var db = new HLCMDataContext())
+            {
+                return db.EMPLOYEEs.Any(e => e.EmployeeName == name && e.Phone == phone);
+            }
+        }
+
     }
 }

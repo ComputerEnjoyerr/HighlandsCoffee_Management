@@ -7,19 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 using static GUI.frmLichSuHoaDon;
 
 namespace GUI
 {
     public partial class frmChiTietHoaDon : Form
     {
-        // Tham chiếu dữ liệu lấy từ frmLichSuHoaDon
-        //List<BillInfo> info = new List<BillInfo>();
+        private int billId;
+        BLL_BillInfo billInfo = new BLL_BillInfo();
 
-        public frmChiTietHoaDon(/*List<BillInfo> billInfo*/)
+        public frmChiTietHoaDon(int billId)
         {
             InitializeComponent();
-            //info = billInfo;
+            this.billId = billId;
         }
 
 
@@ -27,7 +28,18 @@ namespace GUI
         {
             this.Icon = new Icon("icon-1.ico");
             this.BackColor = ColorTranslator.FromHtml("#52362A");
-            //dgvBillInfo.DataSource = info;
+
+            var details = billInfo.GetDetailsByBillId(billId);
+            dgvBillInfo.DataSource = details;
+
+            // Đặt tên cột
+            dgvBillInfo.Columns["BillInfoId"].HeaderText = "Mã chi tiết hóa đơn";
+            dgvBillInfo.Columns["BillId"].HeaderText = "Mã hóa đơn";
+            dgvBillInfo.Columns["ProductId"].HeaderText = "Mã sản phẩm";
+            dgvBillInfo.Columns["ProductName"].HeaderText = "Tên sản phẩm";
+            dgvBillInfo.Columns["Quantity"].HeaderText = "Số lượng";
+            dgvBillInfo.Columns["Price"].HeaderText = "Đơn giá";
+            dgvBillInfo.Columns["Total"].HeaderText = "Thành tiền";
         }
     }
 }

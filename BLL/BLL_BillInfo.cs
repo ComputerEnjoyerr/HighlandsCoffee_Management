@@ -16,5 +16,9 @@ namespace BLL
         public void Add(BillInfo bf) { billInfo.Add(bf); }
         public void Update(BillInfo bf) { billInfo.Update(bf); }
         public void Delete(int id) { billInfo.Delete(id); }
+        public List<BillInfo> GetDetailsByBillId(int billId)
+        {
+            return billInfo.GetBillByBillId(billId);
+        }
     }
 }

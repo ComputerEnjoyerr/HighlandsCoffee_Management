@@ -117,5 +117,14 @@ namespace DAL
                 return db.BRANCHes.Select(c => c.Status).Distinct().ToList();
             }
         }
+
+        //Lấy mã chi nhánh
+        public List<int> GetBranchId()
+        {
+            using (var db = new HLCMDataContext())
+            {
+                return db.BRANCHes.Select(c => c.BranchId).Distinct().ToList();
+            }
+        }
     }
 }
