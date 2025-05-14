@@ -31,7 +31,7 @@ namespace GUI
             {
 
                 // Lấy dữ liệu từ BLL
-                DataTable dt = bllReports.GetRevenueDetails(doanhThu.ReportDate, 1, 1); // Status = 1 (đã thanh toán)
+                DataTable dt = bllReports.GetRevenueDetails(doanhThu.ReportDate, 1, doanhThu.BranchId); // Status = 1 (đã thanh toán)
 
                 // Gán dữ liệu vào báo cáo
                 rptChiTietDoanhThu rpt = new rptChiTietDoanhThu();

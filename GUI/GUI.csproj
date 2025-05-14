@@ -60,6 +60,12 @@
     <Compile Include="frmRPTKhoHang.Designer.cs">
       <DependentUpon>frmRPTKhoHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTaoTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaoTaiKhoan.Designer.cs">
+      <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptChiTietDoanhThu.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -202,6 +208,9 @@
     </Compile>
     <EmbeddedResource Include="frmRPTKhoHang.resx">
       <DependentUpon>frmRPTKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaoTaiKhoan.resx">
+      <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptChiTietDoanhThu.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

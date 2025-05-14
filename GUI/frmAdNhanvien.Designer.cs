@@ -51,17 +51,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtHoTen = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.lbTim = new System.Windows.Forms.Label();
+            this.btnTaoTK = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +89,7 @@
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.Controls.Add(this.cbBranchId);
+            this.pnlMain.Controls.Add(this.btnTaoTK);
             this.pnlMain.Controls.Add(this.btnHoanTac);
             this.pnlMain.Controls.Add(this.btnSua);
             this.pnlMain.Controls.Add(this.btnXoa);
@@ -113,14 +109,8 @@
             this.pnlMain.Controls.Add(this.label4);
             this.pnlMain.Controls.Add(this.txtDiaChi);
             this.pnlMain.Controls.Add(this.label3);
-            this.pnlMain.Controls.Add(this.textBox10);
-            this.pnlMain.Controls.Add(this.label12);
-            this.pnlMain.Controls.Add(this.textBox6);
-            this.pnlMain.Controls.Add(this.label11);
             this.pnlMain.Controls.Add(this.txtHoTen);
-            this.pnlMain.Controls.Add(this.textBox5);
             this.pnlMain.Controls.Add(this.label1);
-            this.pnlMain.Controls.Add(this.label10);
             this.pnlMain.Controls.Add(this.txtMaNV);
             this.pnlMain.Controls.Add(this.label2);
             this.pnlMain.Location = new System.Drawing.Point(12, 12);
@@ -344,50 +334,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Địa chỉ:";
             // 
-            // textBox10
-            // 
-            this.textBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox10.Location = new System.Drawing.Point(552, 218);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(175, 24);
-            this.textBox10.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(414, 224);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(130, 18);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Nhập lại mật khẩu:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox6.Location = new System.Drawing.Point(552, 186);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(175, 24);
-            this.textBox6.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(413, 192);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(73, 18);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Mật khẩu:";
-            // 
             // txtHoTen
             // 
             this.txtHoTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -397,16 +343,6 @@
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(242, 24);
             this.txtHoTen.TabIndex = 1;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox5.Location = new System.Drawing.Point(552, 154);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(141, 24);
-            this.textBox5.TabIndex = 1;
             // 
             // label1
             // 
@@ -419,18 +355,6 @@
             this.label1.Size = new System.Drawing.Size(75, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ và tên:";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(413, 160);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 18);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Tài khoản:";
             // 
             // dgvNhanVien
             // 
@@ -463,6 +387,16 @@
             this.lbTim.Size = new System.Drawing.Size(103, 18);
             this.lbTim.TabIndex = 13;
             this.lbTim.Text = "Tìm nhân viên:";
+            // 
+            // btnTaoTK
+            // 
+            this.btnTaoTK.Location = new System.Drawing.Point(419, 143);
+            this.btnTaoTK.Name = "btnTaoTK";
+            this.btnTaoTK.Size = new System.Drawing.Size(140, 41);
+            this.btnTaoTK.TabIndex = 9;
+            this.btnTaoTK.Text = "Tạo tài khoản NV";
+            this.btnTaoTK.UseVisualStyleBackColor = true;
+            this.btnTaoTK.Click += new System.EventHandler(this.btnTaoTK_Click);
             // 
             // frmAdNhanvien
             // 
@@ -507,20 +441,15 @@
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtNgayVaoLam;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.TextBox txtTim;
         private System.Windows.Forms.Label lbTim;
         private System.Windows.Forms.Button btnHoanTac;
         private System.Windows.Forms.ComboBox cbBranchId;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnTaoTK;
     }
 }

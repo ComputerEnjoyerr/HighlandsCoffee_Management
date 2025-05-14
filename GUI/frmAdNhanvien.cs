@@ -191,5 +191,12 @@ namespace GUI
             var data = bllEmployee.GetDataEmployee().Where(em => em.EmployeeName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
             dgvNhanVien.DataSource = data;
         }
+
+        private void btnTaoTK_Click(object sender, EventArgs e)
+        {
+            var admin = bllEmployee.GetDataEmployee().FirstOrDefault(em => em.EmployeeId == 1);
+            frmTaoTaiKhoan fr = new frmTaoTaiKhoan(admin);
+            fr.ShowDialog();
+        }
     }
 }
