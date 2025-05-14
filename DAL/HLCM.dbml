@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Highlands_Database" Class="HLCMDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-<<<<<<< HEAD
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-9VSNCL6\VALKYRIE;Initial Catalog=Highlands_Database;Integrated Security=True;Encrypt=False;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="Highlands_DatabaseConnectionString" Provider="System.Data.SqlClient" />
-=======
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-DU2DCF6\SQLEXPRESS;Initial Catalog=Highlands_Database;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="Highlands_DatabaseConnectionString1" Provider="System.Data.SqlClient" />
->>>>>>> Thanh-Phú
   <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
     <Type Name="ACCOUNT">
       <Column Name="AccountId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

@@ -63,20 +63,12 @@
             // 
             // txtTim
             // 
-<<<<<<< HEAD
-            this.textBox12.Location = new System.Drawing.Point(112, 336);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(303, 28);
-            this.textBox12.TabIndex = 29;
-=======
             this.txtTim.Location = new System.Drawing.Point(128, 295);
             this.txtTim.Margin = new System.Windows.Forms.Padding(4);
             this.txtTim.Name = "txtTim";
             this.txtTim.Size = new System.Drawing.Size(303, 24);
             this.txtTim.TabIndex = 29;
             this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
->>>>>>> Thanh-Phú
             // 
             // lbTim
             // 
@@ -84,11 +76,7 @@
             this.lbTim.Location = new System.Drawing.Point(10, 298);
             this.lbTim.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTim.Name = "lbTim";
-<<<<<<< HEAD
-            this.lbTim.Size = new System.Drawing.Size(135, 24);
-=======
             this.lbTim.Size = new System.Drawing.Size(114, 18);
->>>>>>> Thanh-Phú
             this.lbTim.TabIndex = 28;
             this.lbTim.Text = "Tìm nguyên liêu:";
             // 
@@ -143,25 +131,6 @@
             // 
             // txtNguyenLieu
             // 
-<<<<<<< HEAD
-            this.numericUpDown1.Location = new System.Drawing.Point(98, 49);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(182, 28);
-            this.numericUpDown1.TabIndex = 16;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(98, 79);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 30);
-            this.comboBox1.TabIndex = 15;
-            // 
-            // dgvNguyenLieu
-            // 
-            this.dgvNguyenLieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvNguyenLieu.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-=======
             this.txtNguyenLieu.Location = new System.Drawing.Point(447, 82);
             this.txtNguyenLieu.Name = "txtNguyenLieu";
             this.txtNguyenLieu.ReadOnly = true;
@@ -173,7 +142,6 @@
             this.dgvNguyenLieu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvNguyenLieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
->>>>>>> Thanh-Phú
             this.dgvNguyenLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNguyenLieu.Location = new System.Drawing.Point(331, 117);
             this.dgvNguyenLieu.MultiSelect = false;
@@ -185,14 +153,6 @@
             // 
             // cboDVT
             // 
-<<<<<<< HEAD
-            this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(479, 49);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(141, 28);
-            this.dateTimePicker2.TabIndex = 13;
-=======
             this.cboDVT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDVT.FormattingEnabled = true;
             this.cboDVT.Items.AddRange(new object[] {
@@ -204,24 +164,15 @@
             this.cboDVT.Name = "cboDVT";
             this.cboDVT.Size = new System.Drawing.Size(182, 26);
             this.cboDVT.TabIndex = 15;
->>>>>>> Thanh-Phú
             // 
             // dtpNgayHH
             // 
-<<<<<<< HEAD
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(479, 19);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(141, 28);
-            this.dateTimePicker1.TabIndex = 13;
-=======
             this.dtpNgayHH.Enabled = false;
             this.dtpNgayHH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayHH.Location = new System.Drawing.Point(447, 49);
             this.dtpNgayHH.Name = "dtpNgayHH";
             this.dtpNgayHH.Size = new System.Drawing.Size(180, 24);
             this.dtpNgayHH.TabIndex = 13;
->>>>>>> Thanh-Phú
             // 
             // dtpNgayNhap
             // 
@@ -281,11 +232,7 @@
             this.label5.Location = new System.Drawing.Point(359, 85);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-<<<<<<< HEAD
-            this.label5.Size = new System.Drawing.Size(117, 24);
-=======
             this.label5.Size = new System.Drawing.Size(0, 18);
->>>>>>> Thanh-Phú
             this.label5.TabIndex = 0;
             // 
             // label9
@@ -304,11 +251,7 @@
             this.label7.Location = new System.Drawing.Point(19, 117);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-<<<<<<< HEAD
-            this.label7.Size = new System.Drawing.Size(95, 24);
-=======
             this.label7.Size = new System.Drawing.Size(63, 18);
->>>>>>> Thanh-Phú
             this.label7.TabIndex = 0;
             this.label7.Text = "Đơn giá:";
             // 
@@ -318,23 +261,12 @@
             this.label6.Location = new System.Drawing.Point(19, 85);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-<<<<<<< HEAD
-            this.label6.Size = new System.Drawing.Size(103, 24);
-=======
             this.label6.Size = new System.Drawing.Size(81, 18);
->>>>>>> Thanh-Phú
             this.label6.TabIndex = 0;
             this.label6.Text = "Đơn vị tính:";
             // 
             // txtTongTien
             // 
-<<<<<<< HEAD
-            this.textBox3.Location = new System.Drawing.Point(98, 112);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(182, 28);
-            this.textBox3.TabIndex = 1;
-=======
             this.txtTongTien.Location = new System.Drawing.Point(99, 144);
             this.txtTongTien.Margin = new System.Windows.Forms.Padding(4);
             this.txtTongTien.Name = "txtTongTien";
@@ -388,7 +320,6 @@
             this.label8.Size = new System.Drawing.Size(88, 18);
             this.label8.TabIndex = 0;
             this.label8.Text = "Nguyên liệu:";
->>>>>>> Thanh-Phú
             // 
             // label4
             // 
@@ -396,11 +327,7 @@
             this.label4.Location = new System.Drawing.Point(18, 181);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-<<<<<<< HEAD
-            this.label4.Size = new System.Drawing.Size(127, 24);
-=======
             this.label4.Size = new System.Drawing.Size(118, 18);
->>>>>>> Thanh-Phú
             this.label4.TabIndex = 0;
             this.label4.Text = "Số ngày hết hạn:";
             // 
@@ -410,11 +337,7 @@
             this.label3.Location = new System.Drawing.Point(19, 53);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-<<<<<<< HEAD
-            this.label3.Size = new System.Drawing.Size(91, 24);
-=======
             this.label3.Size = new System.Drawing.Size(71, 18);
->>>>>>> Thanh-Phú
             this.label3.TabIndex = 0;
             this.label3.Text = "Số lượng:";
             // 
@@ -424,39 +347,18 @@
             this.label1.Location = new System.Drawing.Point(329, 24);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-<<<<<<< HEAD
-            this.label1.Size = new System.Drawing.Size(143, 24);
-=======
             this.label1.Size = new System.Drawing.Size(111, 18);
->>>>>>> Thanh-Phú
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày nhập kho:";
             // 
             // txtMa
             // 
-<<<<<<< HEAD
-            this.txtUnitPrice.Location = new System.Drawing.Point(479, 79);
-            this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(182, 28);
-            this.txtUnitPrice.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(99, 21);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(141, 28);
-            this.textBox2.TabIndex = 1;
-=======
             this.txtMa.Location = new System.Drawing.Point(99, 21);
             this.txtMa.Margin = new System.Windows.Forms.Padding(4);
             this.txtMa.Name = "txtMa";
             this.txtMa.ReadOnly = true;
             this.txtMa.Size = new System.Drawing.Size(141, 24);
             this.txtMa.TabIndex = 1;
->>>>>>> Thanh-Phú
             // 
             // label2
             // 
@@ -464,21 +366,13 @@
             this.label2.Location = new System.Drawing.Point(19, 27);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-<<<<<<< HEAD
-            this.label2.Size = new System.Drawing.Size(89, 24);
-=======
             this.label2.Size = new System.Drawing.Size(69, 18);
->>>>>>> Thanh-Phú
             this.label2.TabIndex = 0;
             this.label2.Text = "Mã hàng:";
             // 
             // frmKhoHang
             // 
-<<<<<<< HEAD
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
-=======
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
->>>>>>> Thanh-Phú
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 711);
             this.Controls.Add(this.txtTim);

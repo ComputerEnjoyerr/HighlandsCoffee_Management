@@ -1,107 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.25, 20" name="HLCM">
-  <DataContextMoniker Name="/HLCMDataContext" />
-  <nestedChildShapes>
-    <classShape Id="4a262765-43fc-4cf8-953f-ddf8c5553813" absoluteBounds="6.25, 10.625, 2, 1.7708968098958344">
-      <DataClassMoniker Name="/HLCMDataContext/ACCOUNT" />
-      <nestedChildShapes>
-        <elementListCompartment Id="916f97ec-0e9c-440c-9dbc-c8bd107707d0" absoluteBounds="6.265, 11.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="bccf7161-dc46-4f48-856e-9893c6e93db5" absoluteBounds="3.5, 4.5, 2, 1.7708968098958326">
-      <DataClassMoniker Name="/HLCMDataContext/TABLE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="db7b866e-0dfd-46ca-a1e1-bf54e239a66a" absoluteBounds="3.515, 4.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="4c5a0bdd-0a91-4ab6-a38e-6d682ae4d722" absoluteBounds="6.25, 7.625, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/HLCMDataContext/BILL" />
-      <nestedChildShapes>
-        <elementListCompartment Id="27c8c9b7-ce3a-4c99-91fe-4a9e58dd13e2" absoluteBounds="6.265, 8.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="5e855cbe-d370-4627-b15c-dee2a8d5df5a" absoluteBounds="9, 8, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/HLCMDataContext/BILLINFO" />
-      <nestedChildShapes>
-        <elementListCompartment Id="21c858b9-d17b-438f-a103-72d72674ce94" absoluteBounds="9.015, 8.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="d85497fa-2d5a-4bed-b239-4e2f5761c37e" absoluteBounds="0.75, 7.5, 2, 2.5401025390625005">
-      <DataClassMoniker Name="/HLCMDataContext/BRANCH" />
-      <nestedChildShapes>
-        <elementListCompartment Id="b2582a8d-5edc-49a8-b04b-521ced1457ff" absoluteBounds="0.765, 7.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="c600bff4-c752-4a3b-ac61-9587d8853247" absoluteBounds="3.5, 14.75, 2, 1.9631982421875023">
-      <DataClassMoniker Name="/HLCMDataContext/CUSTOMER" />
-      <nestedChildShapes>
-        <elementListCompartment Id="34eda0f0-d113-469f-88b4-62a57f94a57b" absoluteBounds="3.515, 15.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="dc6cc6cc-f60e-45fa-8f75-db217d7aea63" absoluteBounds="3.5, 10.125, 2, 2.7324039713541666">
-      <DataClassMoniker Name="/HLCMDataContext/EMPLOYEE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d2425929-ac23-4c05-9b47-1637622efb4d" absoluteBounds="3.515, 10.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="a4365e0a-00e7-4102-aa24-423407e51b14" absoluteBounds="3.5, 7.125, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/HLCMDataContext/FINANCIAL" />
-      <nestedChildShapes>
-        <elementListCompartment Id="f5305f2b-9d23-4238-ac36-503399671659" absoluteBounds="3.515, 7.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="c213f503-507d-41bd-a46d-70d0013bb556" absoluteBounds="3.75, 0.75, 2, 1.9631982421875">
-      <DataClassMoniker Name="/HLCMDataContext/INGREDIENT" />
-      <nestedChildShapes>
-        <elementListCompartment Id="9152c272-c9ab-4cee-828f-64d1da5eb4c0" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="8805866f-4da1-4a47-b7c4-7365fffc2cea" absoluteBounds="6.5, 3.375, 2, 2.7324039713541666">
-      <DataClassMoniker Name="/HLCMDataContext/INVENTORY" />
-      <nestedChildShapes>
-        <elementListCompartment Id="ab2faedc-4b4d-4bb0-8596-2e29ee6c1831" absoluteBounds="6.515, 3.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="de126545-4572-4c9c-a868-6a8f3acaad96" absoluteBounds="6.25, 14, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/HLCMDataContext/PRODUCT" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5ec6193c-f793-4d1f-a4ed-495143e1d49d" absoluteBounds="6.265, 14.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="0f0450c7-7288-47ea-bbc2-4fa77c115256" absoluteBounds="3.5, 17.625, 2, 2.15549967447917">
-      <DataClassMoniker Name="/HLCMDataContext/PROMOTION" />
-      <nestedChildShapes>
-        <elementListCompartment Id="adadea65-603c-46f5-8e98-4922151eac9c" absoluteBounds="3.515, 18.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="5087dfd3-290f-4489-8140-4507d9488da1" absoluteBounds="6.25, 17, 2, 1.3862939453125023">
-      <DataClassMoniker Name="/HLCMDataContext/PROMOTION_CUSTOMER" />
-      <nestedChildShapes>
-        <elementListCompartment Id="3763c2e7-676f-423b-8743-900bddf51a76" absoluteBounds="6.265, 17.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="8d9bf5f3-7de9-4a05-973b-9b41522087d7" absoluteBounds="10, 5.25, 2, 1.7708968098958326">
-      <DataClassMoniker Name="/HLCMDataContext/RECIPE" />
-      <nestedChildShapes>
-        <elementListCompartment Id="e77ee860-d277-421a-877f-e07e05b95662" absoluteBounds="10.015, 5.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="4672475c-f1ed-401b-91a7-e95e42041ab8" absoluteBounds="1, 1.375, 2, 1.7708968098958331">
-      <DataClassMoniker Name="/HLCMDataContext/SUPPLIER" />
-      <nestedChildShapes>
-        <elementListCompartment Id="02eaa519-53e8-46ff-8a95-ab2f90d83bfd" absoluteBounds="1.0150000000000001, 1.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(5.5 : 6.34509521484375); (6.34375 : 6.34509521484375); (6.34375 : 7.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/HLCMDataContext/TABLE/TABLE_BILL" />
-      <nodes>
-        <classShapeMoniker Id="bccf7161-dc46-4f48-856e-9893c6e93db5" />
-        <classShapeMoniker Id="4c5a0bdd-0a91-4ab6-a38e-6d682ae4d722" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 8.82739888509115); (9 : 8.82739888509115)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-=======
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.5, 16.75" name="HLCM">
   <DataContextMoniker Name="/HLCMDataContext" />
   <nestedChildShapes>
@@ -190,140 +87,55 @@
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(8.25 : 9.32739888509115); (9 : 9.32739888509115)]" fixedFrom="Algorithm" fixedTo="Algorithm">
->>>>>>> Thanh-Phú
       <AssociationMoniker Name="/HLCMDataContext/BILL/BILL_BILLINFO" />
       <nodes>
         <classShapeMoniker Id="875e8244-44ef-4a8c-a417-d9e10783b40f" />
         <classShapeMoniker Id="5cfb644c-9032-4c10-9f42-170c3500fb55" />
       </nodes>
     </associationConnector>
-<<<<<<< HEAD
-    <associationConnector edgePoints="[(1.75 : 7.5); (1.75 : 5.43047709147135); (3.5 : 5.43047709147135)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/HLCMDataContext/BRANCH/BRANCH_TABLE" />
-      <nodes>
-        <classShapeMoniker Id="d85497fa-2d5a-4bed-b239-4e2f5761c37e" />
-        <classShapeMoniker Id="bccf7161-dc46-4f48-856e-9893c6e93db5" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 9.67951700846354); (5.79166666666667 : 9.67951700846354 : JumpStart); (5.95833333333333 : 9.67951700846354 : JumpEnd); (6.25 : 9.67951700846354)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-=======
     <associationConnector edgePoints="[(2.75 : 8.09375); (5.60416916666667 : 8.09375 : JumpStart); (5.77083583333333 : 8.09375 : JumpEnd); (5.91666666666667 : 8.09375 : JumpStart); (6.08333333333333 : 8.09375 : JumpEnd); (6.25 : 8.09375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
->>>>>>> Thanh-Phú
       <AssociationMoniker Name="/HLCMDataContext/BRANCH/BRANCH_BILL" />
       <nodes>
         <classShapeMoniker Id="b5c5bf00-2ef9-4c86-bbd1-681d52abec58" />
         <classShapeMoniker Id="875e8244-44ef-4a8c-a417-d9e10783b40f" />
       </nodes>
     </associationConnector>
-<<<<<<< HEAD
-    <associationConnector edgePoints="[(5.5 : 14.75); (5.875 : 14.375); (5.875 : 8.62100650423177); (6.25 : 8.62100650423177)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-=======
     <associationConnector edgePoints="[(5.5 : 9.28355529785156); (5.60416916666667 : 9.28355529785156 : JumpStart); (5.77083583333333 : 9.28355529785156 : JumpEnd); (6.25 : 9.28355529785156)]" fixedFrom="Algorithm" fixedTo="Algorithm">
->>>>>>> Thanh-Phú
       <AssociationMoniker Name="/HLCMDataContext/CUSTOMER/CUSTOMER_BILL" />
       <nodes>
         <classShapeMoniker Id="877f13c5-6625-4815-94d8-fdbd04e0474d" />
         <classShapeMoniker Id="875e8244-44ef-4a8c-a417-d9e10783b40f" />
       </nodes>
     </associationConnector>
-<<<<<<< HEAD
-    <associationConnector edgePoints="[(5.5 : 11.5554770914714); (6.25 : 11.5554770914714)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-=======
     <associationConnector edgePoints="[(5.5 : 12.5554770914714); (6.25 : 12.5554770914714)]" fixedFrom="Algorithm" fixedTo="Algorithm">
->>>>>>> Thanh-Phú
       <AssociationMoniker Name="/HLCMDataContext/EMPLOYEE/EMPLOYEE_ACCOUNT" />
       <nodes>
         <classShapeMoniker Id="529ff873-055b-4169-b4a2-b6ed4998ab85" />
         <classShapeMoniker Id="8ded937b-668a-4fbc-908e-b02078f2fa7b" />
       </nodes>
     </associationConnector>
-<<<<<<< HEAD
-    <associationConnector edgePoints="[(5.5 : 10.1865374615385); (6.0625 : 9.62403746153846); (6.0625 : 10.0857670084635); (6.25 : 9.89826700846354)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-=======
     <associationConnector edgePoints="[(5.5 : 11.125); (5.62857693490112 : 10.9964230650989 : JumpStart); (5.74642806509888 : 10.8785719349011 : JumpEnd); (5.875 : 10.75); (5.875 : 9.91274135953776); (6.25 : 9.91274135953776)]" fixedFrom="NotFixed" fixedTo="Algorithm">
->>>>>>> Thanh-Phú
       <AssociationMoniker Name="/HLCMDataContext/EMPLOYEE/EMPLOYEE_BILL" />
       <nodes>
         <classShapeMoniker Id="529ff873-055b-4169-b4a2-b6ed4998ab85" />
         <classShapeMoniker Id="875e8244-44ef-4a8c-a417-d9e10783b40f" />
       </nodes>
     </associationConnector>
-<<<<<<< HEAD
-    <associationConnector edgePoints="[(1.75 : 10.1855798339844); (1.75 : 11.6011585403646); (3.5 : 11.6011585403646)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-=======
     <associationConnector edgePoints="[(1.75 : 9.18557983398437); (1.75 : 12.5708681233724); (2.19791916666667 : 12.5708681233724 : JumpStart); (2.36458583333333 : 12.5708681233724 : JumpEnd); (3.07291666666667 : 12.5708681233724 : JumpStart); (3.23958333333333 : 12.5708681233724 : JumpEnd); (3.5 : 12.5708681233724)]" fixedFrom="Algorithm" fixedTo="Algorithm">
->>>>>>> Thanh-Phú
       <AssociationMoniker Name="/HLCMDataContext/BRANCH/BRANCH_EMPLOYEE" />
       <nodes>
         <classShapeMoniker Id="b5c5bf00-2ef9-4c86-bbd1-681d52abec58" />
         <classShapeMoniker Id="529ff873-055b-4169-b4a2-b6ed4998ab85" />
       </nodes>
     </associationConnector>
-<<<<<<< HEAD
-    <associationConnector edgePoints="[(2.75 : 8.44913350423177); (3.5 : 8.44913350423177)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-=======
     <associationConnector edgePoints="[(2.75 : 6.82413350423177); (3.5 : 6.82413350423177)]" fixedFrom="Algorithm" fixedTo="Algorithm">
->>>>>>> Thanh-Phú
       <AssociationMoniker Name="/HLCMDataContext/BRANCH/BRANCH_FINANCIAL" />
       <nodes>
         <classShapeMoniker Id="b5c5bf00-2ef9-4c86-bbd1-681d52abec58" />
         <classShapeMoniker Id="8844b429-7c25-46f8-9e80-6fa2b318bf11" />
       </nodes>
     </associationConnector>
-<<<<<<< HEAD
-    <associationConnector edgePoints="[(2.2812525 : 7.5); (2.2812525 : 3.90625); (5.57291666666667 : 3.90625 : JumpStart); (5.73958333333333 : 3.90625 : JumpEnd); (6.5 : 3.90625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/HLCMDataContext/BRANCH/BRANCH_INVENTORY" />
-      <nodes>
-        <classShapeMoniker Id="d85497fa-2d5a-4bed-b239-4e2f5761c37e" />
-        <classShapeMoniker Id="8805866f-4da1-4a47-b7c4-7365fffc2cea" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 1.78355529785156); (7.5 : 1.78355529785156); (7.5 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/HLCMDataContext/INGREDIENT/INGREDIENT_INVENTORY" />
-      <nodes>
-        <classShapeMoniker Id="c213f503-507d-41bd-a46d-70d0013bb556" />
-        <classShapeMoniker Id="8805866f-4da1-4a47-b7c4-7365fffc2cea" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 14.8273988850911); (10 : 14.8273988850911); (10 : 9.65479777018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/HLCMDataContext/PRODUCT/PRODUCT_BILLINFO" />
-      <nodes>
-        <classShapeMoniker Id="de126545-4572-4c9c-a868-6a8f3acaad96" />
-        <classShapeMoniker Id="5e855cbe-d370-4627-b15c-dee2a8d5df5a" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 16.8155711341647); (5.875 : 17.1905711341647); (5.875 : 16.625); (6.25 : 17)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/HLCMDataContext/CUSTOMER/CUSTOMER_PROMOTION_CUSTOMER" />
-      <nodes>
-        <classShapeMoniker Id="c600bff4-c752-4a3b-ac61-9587d8853247" />
-        <classShapeMoniker Id="5087dfd3-290f-4489-8140-4507d9488da1" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 18.0368206787109); (6.25 : 18.0368206787109)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/HLCMDataContext/PROMOTION/PROMOTION_PROMOTION_CUSTOMER" />
-      <nodes>
-        <classShapeMoniker Id="0f0450c7-7288-47ea-bbc2-4fa77c115256" />
-        <classShapeMoniker Id="5087dfd3-290f-4489-8140-4507d9488da1" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.65625 : 2.81711059570313); (5.65625 : 6.76720418294271); (6.26041666666667 : 6.76720418294271 : JumpStart); (6.42708333333333 : 6.76720418294271 : JumpEnd); (10 : 6.76720418294271)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/HLCMDataContext/INGREDIENT/INGREDIENT_RECIPE" />
-      <nodes>
-        <classShapeMoniker Id="c213f503-507d-41bd-a46d-70d0013bb556" />
-        <classShapeMoniker Id="8d9bf5f3-7de9-4a05-973b-9b41522087d7" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 14.3824469425456); (11.53125 : 14.3824469425456); (11.53125 : 7.11095418294271)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/HLCMDataContext/PRODUCT/PRODUCT_RECIPE" />
-      <nodes>
-        <classShapeMoniker Id="de126545-4572-4c9c-a868-6a8f3acaad96" />
-        <classShapeMoniker Id="8d9bf5f3-7de9-4a05-973b-9b41522087d7" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(3 : 2.09605529785156); (3.75 : 2.09605529785156)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-=======
     <associationConnector edgePoints="[(3 : 2.80547709147135); (3.75 : 2.80547709147135)]" fixedFrom="Algorithm" fixedTo="Algorithm">
->>>>>>> Thanh-Phú
       <AssociationMoniker Name="/HLCMDataContext/SUPPLIER/SUPPLIER_INGREDIENT" />
       <nodes>
         <classShapeMoniker Id="5593e17e-e9d3-4fc2-b0b9-533b778d1dd7" />

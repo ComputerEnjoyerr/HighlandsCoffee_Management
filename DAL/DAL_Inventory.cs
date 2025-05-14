@@ -10,24 +10,6 @@ namespace DAL
 {
     public class DAL_Inventory
     {
-<<<<<<< HEAD
-        private HLCMDataContext db = new HLCMDataContext();
-        //Lấy danh sách hàng hóa theo chi nhánh
-        public List<Inventory> GetInventoryByBranchId(int branchId)
-        {
-            using (var db = new HLCMDataContext())
-            {
-                var data = db.INVENTORies.Where(t => t.BranchId == branchId).Select(t => new Inventory
-                {
-                    InventoryId = t.InventoryId,
-                    BranchId = t.BranchId,
-                    IngredientId = t.IngredientId,
-                    Quantity = (double)t.Quantity,
-                    //LastRestock = (DateTime)t.LastRestock,
-                    Unit = t.Unit,
-                });
-                return data.ToList();
-=======
         public List<Inventory> GetAll()
         {
             using (var db = new HLCMDataContext())
@@ -107,7 +89,6 @@ namespace DAL
                     db.INVENTORies.DeleteOnSubmit(itemToDelete);
                     db.SubmitChanges();
                 }
->>>>>>> Thanh-Phú
             }
         }
     }

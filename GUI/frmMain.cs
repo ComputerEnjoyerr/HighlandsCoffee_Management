@@ -14,16 +14,6 @@ namespace GUI
 {
     public partial class frmMain : Form
     {
-<<<<<<< HEAD
-        private Employee data;
-        public frmMain(string role, Employee employee)
-        {
-            InitializeComponent();
-            this.userRole = role;
-            this.data = employee;
-        }
-
-=======
         public frmMain(Employee employee)
         {
             InitializeComponent();
@@ -31,7 +21,6 @@ namespace GUI
             this.userRole = employee.Role;
         }
         private Employee em = new Employee();
->>>>>>> Thanh-Phú
         private string userRole;
         // Biến tạm
         Form currentForm = new Form();
@@ -133,11 +122,7 @@ namespace GUI
 
         private void btnThemNV_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            frmNhanVien fr = new frmNhanVien(data.BranchId, data.EmployeeId);
-=======
             frmNhanVien fr = new frmNhanVien(em);
->>>>>>> Thanh-Phú
             OpenMain(fr);
         }
 
@@ -155,11 +140,7 @@ namespace GUI
 
         private void btnKho_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            frmKhoHang fr = new frmKhoHang(data.BranchId);
-=======
             frmKhoHang fr = new frmKhoHang(em);
->>>>>>> Thanh-Phú
             OpenMain(fr);
         }
 

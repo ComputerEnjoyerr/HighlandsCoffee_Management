@@ -45,35 +45,6 @@ namespace GUI
             string username = txtUser.Text;
             string password = txtPass.Text;
 
-<<<<<<< HEAD
-            //Đăng nhập bằng tài khoản và mật khẩu
-            BLL_Account bll = new BLL_Account();
-            var (account, employee) = bll.Login(username, password);
-
-            // Kiểm tra thông tin đăng nhập
-            //var user = users.FirstOrDefault(u => u.Username == username && u.Password == password);
-            if (/*user != null ||*/ account != null && employee != null)
-            {
-                
-                if (employee.Role == "Admin")
-                {
-                    NextForm = new frmAdMain();
-                }
-                else if (employee.Role == "Quản lý" || employee.Role == "Nhân viên")
-                {
-                    MessageBox.Show("Đăng nhập thành công! Xin chào " + employee.EmployeeName, "Thông báo");
-                    NextForm = new frmMain(employee.Role, employee);
-                }
-                // Đăng nhập thành công
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            else
-            {
-                // Đăng nhập thất bại
-                MessageBox.Show("Vui lòng nhập đúng tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-=======
             //// Kiểm tra thông tin đăng nhập
             //var account = bllAccount.GetAll().FirstOrDefault(a => a.AccountName.ToLower() == username.ToLower() && a.Password == password);
             //if (account != null)
@@ -109,7 +80,6 @@ namespace GUI
 
             this.DialogResult = DialogResult.OK;
             this.Close();
->>>>>>> Thanh-Phú
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

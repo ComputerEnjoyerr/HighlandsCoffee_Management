@@ -15,14 +15,6 @@ namespace GUI
 {
     public partial class frmKhoHang : Form
     {
-<<<<<<< HEAD
-        private BLL_Inventory bll = new BLL_Inventory();
-        private int branchId;
-        public frmKhoHang(int branchId)
-        {
-            InitializeComponent();
-            this.branchId = branchId;
-=======
         public frmKhoHang(Employee em)
         {
             InitializeComponent();
@@ -85,7 +77,6 @@ namespace GUI
             dtpNgayNhap.Value = DateTime.Now;
             cboDVT.SelectedIndex = -1;
             txtSoLuong.Focus();
->>>>>>> Thanh-Phú
         }
 
         private void frmKhoHang_Load(object sender, EventArgs e)
@@ -94,18 +85,8 @@ namespace GUI
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
             lbTim.ForeColor = ColorTranslator.FromHtml("#DED4CA");
 
-<<<<<<< HEAD
-            LoadData();
-        }
-
-        public void LoadData()
-        {
-            List<DTO.Inventory> list = bll.GetInventoryByBranchId(branchId);
-            dgvNguyenLieu.DataSource = list;
-=======
             LoadKhoHang();
             LoadNguyenLieu();
->>>>>>> Thanh-Phú
         }
 
         private void dgvKhoHang_CellClick(object sender, DataGridViewCellEventArgs e)
