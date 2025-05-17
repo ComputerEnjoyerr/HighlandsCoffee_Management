@@ -1,6 +1,6 @@
 **Highlands Coffee Management System**  
 *Team Project – C#, WinForms, LINQ, SQL Server, Crystal Reports*  
-(Project is still in development)
+**(Project is still in development)**
 
 - Developed a desktop management system for a coffee shop chain using a 3-layer architecture.
 - Implemented features including employee, product, and invoice management, with role-based access control.
