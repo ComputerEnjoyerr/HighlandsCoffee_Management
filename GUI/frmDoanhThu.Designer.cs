@@ -33,8 +33,8 @@
             this.btnLoc = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.cboThang = new System.Windows.Forms.ComboBox();
-            this.btnIn = new System.Windows.Forms.Button();
             this.btnXem = new System.Windows.Forms.Button();
+            this.btnIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThu)).BeginInit();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +47,9 @@
             this.dgvDoanhThu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDoanhThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoanhThu.Location = new System.Drawing.Point(3, 60);
+            this.dgvDoanhThu.MultiSelect = false;
             this.dgvDoanhThu.Name = "dgvDoanhThu";
+            this.dgvDoanhThu.ReadOnly = true;
             this.dgvDoanhThu.RowHeadersWidth = 51;
             this.dgvDoanhThu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoanhThu.Size = new System.Drawing.Size(763, 623);
@@ -100,16 +102,6 @@
             this.cboThang.Size = new System.Drawing.Size(139, 26);
             this.cboThang.TabIndex = 34;
             // 
-            // btnIn
-            // 
-            this.btnIn.Location = new System.Drawing.Point(664, 12);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(102, 36);
-            this.btnIn.TabIndex = 33;
-            this.btnIn.Text = "In DS";
-            this.btnIn.UseVisualStyleBackColor = true;
-            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
-            // 
             // btnXem
             // 
             this.btnXem.Location = new System.Drawing.Point(538, 12);
@@ -119,6 +111,16 @@
             this.btnXem.Text = "Xem DS";
             this.btnXem.UseVisualStyleBackColor = true;
             this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(664, 12);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(102, 36);
+            this.btnIn.TabIndex = 33;
+            this.btnIn.Text = "In DS";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // frmDoanhThu
             // 

@@ -111,7 +111,7 @@
             // 
             this.cbxInHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxInHoaDon.AutoSize = true;
-            this.cbxInHoaDon.Location = new System.Drawing.Point(140, 646);
+            this.cbxInHoaDon.Location = new System.Drawing.Point(158, 646);
             this.cbxInHoaDon.Name = "cbxInHoaDon";
             this.cbxInHoaDon.Size = new System.Drawing.Size(96, 22);
             this.cbxInHoaDon.TabIndex = 4;

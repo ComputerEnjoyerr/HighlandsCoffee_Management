@@ -148,5 +148,11 @@ namespace GUI
                 index = 0;
             picBanner.BackgroundImage = Image.FromFile("Banners/" + imgListBanners.Images.Keys[index]);
         }
+
+        private void doanhThuCácChiNhánhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRPTDoanhThuTheoThang fr = new frmRPTDoanhThuTheoThang();
+            OpenMain(fr);
+        }
     }
 }

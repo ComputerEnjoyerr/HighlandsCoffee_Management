@@ -47,6 +47,7 @@ namespace DAL
             }
         }
 
+
         public void Update(Financial fin)
         {
             using (var db = new HLCMDataContext())

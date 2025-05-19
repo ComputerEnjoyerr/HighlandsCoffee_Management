@@ -357,13 +357,13 @@ namespace GUI
                 var existingBillInfo = bllBillInfo.GetAll().FirstOrDefault(bi => bi.BillId == billId && bi.ProductId == selectedProduct.ProductId);
                 if (existingBillInfo != null)
                 {
-                    MessageBox.Show("Cập nhật số lượng món ăn");
+                    //MessageBox.Show("Cập nhật số lượng món ăn");
                     existingBillInfo.Quantity += (int)nbrSoLuong.Value;
                     bllBillInfo.Update(existingBillInfo);
                 }
                 else
                 {
-                    MessageBox.Show("Tạo chi tiết hóa đơn mới");
+                    //MessageBox.Show("Tạo chi tiết hóa đơn mới");
                     var newBillInfo = new BillInfo
                     {
                         BillId = billId,

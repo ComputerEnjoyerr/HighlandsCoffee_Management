@@ -283,10 +283,11 @@
             // 
             this.imgListBanners.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgListBanners.ImageStream")));
             this.imgListBanners.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgListBanners.Images.SetKeyName(0, "banner1.jpg");
-            this.imgListBanners.Images.SetKeyName(1, "banner2.jpg");
-            this.imgListBanners.Images.SetKeyName(2, "banner3.jpg");
-            this.imgListBanners.Images.SetKeyName(3, "banner4.jpg");
+            this.imgListBanners.Images.SetKeyName(0, "menu.png");
+            this.imgListBanners.Images.SetKeyName(1, "banner1.jpg");
+            this.imgListBanners.Images.SetKeyName(2, "banner2.jpg");
+            this.imgListBanners.Images.SetKeyName(3, "banner3.jpg");
+            this.imgListBanners.Images.SetKeyName(4, "banner4.jpg");
             // 
             // frmMain
             // 

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using BLL;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GUI
 {
@@ -143,11 +144,16 @@ namespace GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            if (cboBanAn.SelectedValue == null) return;
+
 
             int tableId = (int)cboBanAn.SelectedValue;
             var bill = bllBill.GetAll().FirstOrDefault(b => b.TableId == tableId && b.Status == 0);
+
             if (bill == null) return;
+            if (cboBanAn.SelectedValue == null) return;
+
+            DialogResult rs = MessageBox.Show($"Bạn có chắc chắn thanh toán cho {cboBanAn.SelectedText}?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (DialogResult.No == rs) return;
 
             // Cập nhật hóa đơn
             bill.TotalPrice = double.Parse(textBox3.Text.Replace(",", ""));
@@ -166,8 +172,7 @@ namespace GUI
             DateTime today = DateTime.Today;
             var financial = bllFinancial.GetAll().FirstOrDefault(f =>
                 f.BranchId == bill.BranchId &&
-                f.ReportDate.Month == today.Month &&
-                f.ReportDate.Year == today.Year);
+                f.ReportDate.Date == today.Date);
 
             if (financial == null)
             {
@@ -176,8 +181,8 @@ namespace GUI
                     BranchId = bill.BranchId,
                     ReportDate = today,
                     Revenue = bill.TotalPrice,
-                    OperationCost = 0,
-                    IngredientCost = 0
+                    OperationCost = 500000,
+                    IngredientCost = 500000
                 });
             }
             else

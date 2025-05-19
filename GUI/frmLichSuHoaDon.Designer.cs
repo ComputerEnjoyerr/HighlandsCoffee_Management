@@ -30,13 +30,13 @@
         {
             this.pnlMain = new System.Windows.Forms.Panel();
             this.cboEmployee = new System.Windows.Forms.ComboBox();
+            this.btnHoanTac = new System.Windows.Forms.Button();
             this.btnFilter = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
-            this.btnHoanTac = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,16 @@
             this.cboEmployee.Name = "cboEmployee";
             this.cboEmployee.Size = new System.Drawing.Size(176, 26);
             this.cboEmployee.TabIndex = 6;
+            // 
+            // btnHoanTac
+            // 
+            this.btnHoanTac.Location = new System.Drawing.Point(414, 14);
+            this.btnHoanTac.Name = "btnHoanTac";
+            this.btnHoanTac.Size = new System.Drawing.Size(113, 54);
+            this.btnHoanTac.TabIndex = 5;
+            this.btnHoanTac.Text = "Hoàn tác";
+            this.btnHoanTac.UseVisualStyleBackColor = true;
+            this.btnHoanTac.Click += new System.EventHandler(this.btnHoanTac_Click);
             // 
             // btnFilter
             // 
@@ -119,22 +129,14 @@
             this.dgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDon.Location = new System.Drawing.Point(3, 88);
+            this.dgvHoaDon.MultiSelect = false;
             this.dgvHoaDon.Name = "dgvHoaDon";
+            this.dgvHoaDon.ReadOnly = true;
             this.dgvHoaDon.RowHeadersWidth = 51;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHoaDon.Size = new System.Drawing.Size(762, 598);
             this.dgvHoaDon.TabIndex = 0;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
-            // 
-            // btnHoanTac
-            // 
-            this.btnHoanTac.Location = new System.Drawing.Point(414, 14);
-            this.btnHoanTac.Name = "btnHoanTac";
-            this.btnHoanTac.Size = new System.Drawing.Size(113, 54);
-            this.btnHoanTac.TabIndex = 5;
-            this.btnHoanTac.Text = "Hoàn tác";
-            this.btnHoanTac.UseVisualStyleBackColor = true;
-            this.btnHoanTac.Click += new System.EventHandler(this.btnHoanTac_Click);
             // 
             // frmLichSuHoaDon
             // 
