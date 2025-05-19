@@ -29,7 +29,7 @@ namespace GUI
             dgvNhanVien.DataSource = bllEmployee.GetDataEmployee();
             LoadComboBoxRole();
             LoadComboBox();
-
+            LoadComboBoxTimKiem();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -47,8 +47,6 @@ namespace GUI
                 txtGioLamThem.Text = row.Cells[2].Value.ToString();
                 txtLuongCB.Text = row.Cells[8].Value.ToString();
                 txtTongThuNhap.Text = row.Cells[9].Value.ToString();
-               
-
             }
         }
 
@@ -186,10 +184,35 @@ namespace GUI
             cbBranchId.ValueMember = "BranchId";
         }
 
+        private void LoadComboBoxTimKiem()
+        {
+            var branches = bllBranch.GetDataBranch().ToList();
+
+            // Tạo danh sách mới 
+            var allBranches = new List<Branch>
+            {
+                new Branch { BranchId = -1, BranchName = "<<All>>" } 
+            };
+            allBranches.AddRange(branches);
+
+            cboTimChiNhanh.DataSource = allBranches;
+            cboTimChiNhanh.DisplayMember = "BranchName";
+            cboTimChiNhanh.ValueMember = "BranchId";
+            cboTimChiNhanh.SelectedIndex = 0; // Mặc định chọn <<All>>
+        }
+
         private void txtTim_TextChanged(object sender, EventArgs e)
         {
-            var data = bllEmployee.GetDataEmployee().Where(em => em.EmployeeName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
-            dgvNhanVien.DataSource = data;
+            var tenNV = bllEmployee.GetDataEmployee().Where(em => em.EmployeeName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
+            var phoneNV = bllEmployee.GetDataEmployee().Where(em => em.PhoneNumber.ToLower().Contains(txtTim.Text.ToLower())).ToList();
+            if (tenNV.Count != 0)
+            {
+                dgvNhanVien.DataSource = tenNV;
+            }
+            else if (phoneNV.Count != 0)
+            {
+                dgvNhanVien.DataSource = phoneNV;
+            }
         }
 
         private void btnTaoTK_Click(object sender, EventArgs e)
@@ -197,6 +220,46 @@ namespace GUI
             var admin = bllEmployee.GetDataEmployee().FirstOrDefault(em => em.EmployeeId == 1);
             frmTaoTaiKhoan fr = new frmTaoTaiKhoan(admin);
             fr.ShowDialog();
+        }
+
+        private void btnCLearTK_Click(object sender, EventArgs e)
+        {
+            cboTimChiNhanh.SelectedIndex = 0;
+            txtTim.Clear();
+            txtTim.Focus();
+
+            //if (cboTimChiNhanh.SelectedValue is int selectedBranchId)
+            //{
+            //    if (selectedBranchId == -1) // <<All>>
+            //    {
+            //        dgvNhanVien.DataSource = bllEmployee.GetDataEmployee();
+            //    }
+            //    else
+            //    {
+            //        var data = bllEmployee.GetDataEmployee()
+            //                              .Where(em => em.BranchId == selectedBranchId)
+            //                              .ToList();
+            //        dgvNhanVien.DataSource = data;
+            //    }
+            //}
+        }
+
+        private void cboTimChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTimChiNhanh.SelectedValue is int selectedBranchId)
+            {
+                if (selectedBranchId == -1) // <<All>>
+                {
+                    dgvNhanVien.DataSource = bllEmployee.GetDataEmployee();
+                }
+                else
+                {
+                    var data = bllEmployee.GetDataEmployee()
+                                          .Where(em => em.BranchId == selectedBranchId)
+                                          .ToList();
+                    dgvNhanVien.DataSource = data;
+                }
+            }
         }
     }
 }

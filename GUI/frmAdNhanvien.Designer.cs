@@ -32,6 +32,7 @@
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.cbBranchId = new System.Windows.Forms.ComboBox();
+            this.btnTaoTK = new System.Windows.Forms.Button();
             this.btnHoanTac = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
@@ -56,7 +57,8 @@
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
             this.txtTim = new System.Windows.Forms.TextBox();
             this.lbTim = new System.Windows.Forms.Label();
-            this.btnTaoTK = new System.Windows.Forms.Button();
+            this.cboTimChiNhanh = new System.Windows.Forms.ComboBox();
+            this.btnCLearTK = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.SuspendLayout();
@@ -120,11 +122,22 @@
             // 
             // cbBranchId
             // 
+            this.cbBranchId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBranchId.FormattingEnabled = true;
             this.cbBranchId.Location = new System.Drawing.Point(139, 224);
             this.cbBranchId.Name = "cbBranchId";
             this.cbBranchId.Size = new System.Drawing.Size(242, 26);
             this.cbBranchId.TabIndex = 13;
+            // 
+            // btnTaoTK
+            // 
+            this.btnTaoTK.Location = new System.Drawing.Point(419, 143);
+            this.btnTaoTK.Name = "btnTaoTK";
+            this.btnTaoTK.Size = new System.Drawing.Size(140, 41);
+            this.btnTaoTK.TabIndex = 9;
+            this.btnTaoTK.Text = "Tạo tài khoản NV";
+            this.btnTaoTK.UseVisualStyleBackColor = true;
+            this.btnTaoTK.Click += new System.EventHandler(this.btnTaoTK_Click);
             // 
             // btnHoanTac
             // 
@@ -361,9 +374,12 @@
             this.dgvNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanVien.Location = new System.Drawing.Point(13, 327);
+            this.dgvNhanVien.MultiSelect = false;
             this.dgvNhanVien.Name = "dgvNhanVien";
+            this.dgvNhanVien.ReadOnly = true;
             this.dgvNhanVien.RowHeadersWidth = 62;
             this.dgvNhanVien.Size = new System.Drawing.Size(949, 322);
             this.dgvNhanVien.TabIndex = 3;
@@ -388,21 +404,35 @@
             this.lbTim.TabIndex = 13;
             this.lbTim.Text = "Tìm nhân viên:";
             // 
-            // btnTaoTK
+            // cboTimChiNhanh
             // 
-            this.btnTaoTK.Location = new System.Drawing.Point(419, 143);
-            this.btnTaoTK.Name = "btnTaoTK";
-            this.btnTaoTK.Size = new System.Drawing.Size(140, 41);
-            this.btnTaoTK.TabIndex = 9;
-            this.btnTaoTK.Text = "Tạo tài khoản NV";
-            this.btnTaoTK.UseVisualStyleBackColor = true;
-            this.btnTaoTK.Click += new System.EventHandler(this.btnTaoTK_Click);
+            this.cboTimChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTimChiNhanh.FormattingEnabled = true;
+            this.cboTimChiNhanh.Items.AddRange(new object[] {
+            "<<All>>"});
+            this.cboTimChiNhanh.Location = new System.Drawing.Point(424, 290);
+            this.cboTimChiNhanh.Name = "cboTimChiNhanh";
+            this.cboTimChiNhanh.Size = new System.Drawing.Size(282, 26);
+            this.cboTimChiNhanh.TabIndex = 15;
+            this.cboTimChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cboTimChiNhanh_SelectedIndexChanged);
+            // 
+            // btnCLearTK
+            // 
+            this.btnCLearTK.Location = new System.Drawing.Point(712, 287);
+            this.btnCLearTK.Name = "btnCLearTK";
+            this.btnCLearTK.Size = new System.Drawing.Size(84, 31);
+            this.btnCLearTK.TabIndex = 16;
+            this.btnCLearTK.Text = "Xóa";
+            this.btnCLearTK.UseVisualStyleBackColor = true;
+            this.btnCLearTK.Click += new System.EventHandler(this.btnCLearTK_Click);
             // 
             // frmAdNhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 661);
+            this.Controls.Add(this.btnCLearTK);
+            this.Controls.Add(this.cboTimChiNhanh);
             this.Controls.Add(this.txtTim);
             this.Controls.Add(this.lbTim);
             this.Controls.Add(this.dgvNhanVien);
@@ -451,5 +481,7 @@
         private System.Windows.Forms.ComboBox cbBranchId;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnTaoTK;
+        private System.Windows.Forms.ComboBox cboTimChiNhanh;
+        private System.Windows.Forms.Button btnCLearTK;
     }
 }

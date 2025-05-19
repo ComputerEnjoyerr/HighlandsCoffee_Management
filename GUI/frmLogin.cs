@@ -74,9 +74,9 @@ namespace GUI
             //    txtUser.Clear();
             //    txtUser.Focus();
             //}
-            var employee = bllEmployee.GetDataEmployee().First(em => em.EmployeeId == 1);
-            NextForm = new frmMain(employee);
 
+            var employee = bllEmployee.GetDataEmployee().FirstOrDefault(em => em.EmployeeId == 1);
+            NextForm = new frmMain(employee);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

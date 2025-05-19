@@ -81,7 +81,9 @@
             this.dgvChiTietDoanhThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChiTietDoanhThu.Location = new System.Drawing.Point(4, 4);
             this.dgvChiTietDoanhThu.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvChiTietDoanhThu.MultiSelect = false;
             this.dgvChiTietDoanhThu.Name = "dgvChiTietDoanhThu";
+            this.dgvChiTietDoanhThu.ReadOnly = true;
             this.dgvChiTietDoanhThu.Size = new System.Drawing.Size(725, 352);
             this.dgvChiTietDoanhThu.TabIndex = 5;
             // 

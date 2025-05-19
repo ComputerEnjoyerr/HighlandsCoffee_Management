@@ -123,7 +123,7 @@
             this.pnl1.Controls.Add(this.label9);
             this.pnl1.Location = new System.Drawing.Point(5, 4);
             this.pnl1.Name = "pnl1";
-            this.pnl1.Size = new System.Drawing.Size(407, 222);
+            this.pnl1.Size = new System.Drawing.Size(357, 222);
             this.pnl1.TabIndex = 15;
             // 
             // cboNguyenLieu
@@ -214,9 +214,9 @@
             this.pnl3.Controls.Add(this.txtTimSP2);
             this.pnl3.Controls.Add(this.label5);
             this.pnl3.Controls.Add(this.dgvSanPham2);
-            this.pnl3.Location = new System.Drawing.Point(418, 4);
+            this.pnl3.Location = new System.Drawing.Point(368, 4);
             this.pnl3.Name = "pnl3";
-            this.pnl3.Size = new System.Drawing.Size(537, 617);
+            this.pnl3.Size = new System.Drawing.Size(587, 617);
             this.pnl3.TabIndex = 14;
             // 
             // txtTimSP2
@@ -244,9 +244,11 @@
             this.dgvSanPham2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSanPham2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSanPham2.Location = new System.Drawing.Point(8, 39);
+            this.dgvSanPham2.MultiSelect = false;
             this.dgvSanPham2.Name = "dgvSanPham2";
+            this.dgvSanPham2.ReadOnly = true;
             this.dgvSanPham2.RowHeadersWidth = 62;
-            this.dgvSanPham2.Size = new System.Drawing.Size(526, 574);
+            this.dgvSanPham2.Size = new System.Drawing.Size(576, 574);
             this.dgvSanPham2.TabIndex = 10;
             this.dgvSanPham2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham2_CellClick);
             this.dgvSanPham2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham2_CellDoubleClick);
@@ -261,7 +263,7 @@
             this.pnl2.Controls.Add(this.dgvNguyenLieu2);
             this.pnl2.Location = new System.Drawing.Point(5, 232);
             this.pnl2.Name = "pnl2";
-            this.pnl2.Size = new System.Drawing.Size(407, 389);
+            this.pnl2.Size = new System.Drawing.Size(357, 389);
             this.pnl2.TabIndex = 13;
             // 
             // txtTimCT
@@ -289,9 +291,11 @@
             this.dgvNguyenLieu2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNguyenLieu2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNguyenLieu2.Location = new System.Drawing.Point(3, 38);
+            this.dgvNguyenLieu2.MultiSelect = false;
             this.dgvNguyenLieu2.Name = "dgvNguyenLieu2";
+            this.dgvNguyenLieu2.ReadOnly = true;
             this.dgvNguyenLieu2.RowHeadersWidth = 62;
-            this.dgvNguyenLieu2.Size = new System.Drawing.Size(401, 347);
+            this.dgvNguyenLieu2.Size = new System.Drawing.Size(351, 347);
             this.dgvNguyenLieu2.TabIndex = 6;
             this.dgvNguyenLieu2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNguyenLieu2_CellClick);
             // 
@@ -326,7 +330,9 @@
             this.dgvSanPham1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSanPham1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSanPham1.Location = new System.Drawing.Point(380, 66);
+            this.dgvSanPham1.MultiSelect = false;
             this.dgvSanPham1.Name = "dgvSanPham1";
+            this.dgvSanPham1.ReadOnly = true;
             this.dgvSanPham1.RowHeadersWidth = 62;
             this.dgvSanPham1.Size = new System.Drawing.Size(575, 553);
             this.dgvSanPham1.TabIndex = 5;
@@ -363,7 +369,9 @@
             this.dgvNguyenLieu1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNguyenLieu1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNguyenLieu1.Location = new System.Drawing.Point(3, 20);
+            this.dgvNguyenLieu1.MultiSelect = false;
             this.dgvNguyenLieu1.Name = "dgvNguyenLieu1";
+            this.dgvNguyenLieu1.ReadOnly = true;
             this.dgvNguyenLieu1.RowHeadersWidth = 62;
             this.dgvNguyenLieu1.Size = new System.Drawing.Size(356, 339);
             this.dgvNguyenLieu1.TabIndex = 0;

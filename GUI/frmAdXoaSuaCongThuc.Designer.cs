@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.txtMaCT = new System.Windows.Forms.TextBox();
             this.btnSuaCT = new System.Windows.Forms.Button();
             this.btnXoaCT = new System.Windows.Forms.Button();
             this.cboNguyenLieu = new System.Windows.Forms.ComboBox();
@@ -38,6 +37,7 @@
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtMaCT = new System.Windows.Forms.TextBox();
             this.dgvCongThuc = new System.Windows.Forms.DataGridView();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCongThuc)).BeginInit();
@@ -61,14 +61,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(724, 144);
             this.pnlMain.TabIndex = 0;
-            // 
-            // txtMaCT
-            // 
-            this.txtMaCT.Location = new System.Drawing.Point(132, 30);
-            this.txtMaCT.Name = "txtMaCT";
-            this.txtMaCT.Size = new System.Drawing.Size(10, 24);
-            this.txtMaCT.TabIndex = 35;
-            this.txtMaCT.Visible = false;
             // 
             // btnSuaCT
             // 
@@ -140,6 +132,14 @@
             this.label9.TabIndex = 29;
             this.label9.Text = "Nguyên liệu:";
             // 
+            // txtMaCT
+            // 
+            this.txtMaCT.Location = new System.Drawing.Point(132, 30);
+            this.txtMaCT.Name = "txtMaCT";
+            this.txtMaCT.Size = new System.Drawing.Size(10, 24);
+            this.txtMaCT.TabIndex = 35;
+            this.txtMaCT.Visible = false;
+            // 
             // dgvCongThuc
             // 
             this.dgvCongThuc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -149,7 +149,9 @@
             this.dgvCongThuc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCongThuc.Location = new System.Drawing.Point(20, 170);
             this.dgvCongThuc.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvCongThuc.MultiSelect = false;
             this.dgvCongThuc.Name = "dgvCongThuc";
+            this.dgvCongThuc.ReadOnly = true;
             this.dgvCongThuc.Size = new System.Drawing.Size(724, 436);
             this.dgvCongThuc.TabIndex = 1;
             this.dgvCongThuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCongThuc_CellClick);

@@ -79,7 +79,9 @@
             this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKhachHang.Location = new System.Drawing.Point(13, 277);
+            this.dgvKhachHang.MultiSelect = false;
             this.dgvKhachHang.Name = "dgvKhachHang";
+            this.dgvKhachHang.ReadOnly = true;
             this.dgvKhachHang.RowHeadersWidth = 62;
             this.dgvKhachHang.Size = new System.Drawing.Size(949, 372);
             this.dgvKhachHang.TabIndex = 21;

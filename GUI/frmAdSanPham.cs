@@ -68,10 +68,26 @@ namespace GUI
             dgvNguyenLieu1.Columns.Add("IngredientName", "Tên NL");
             dgvNguyenLieu1.Columns.Add("Quantity", "SL");
             dgvNguyenLieu1.Columns.Add("Unit", "ĐVT");
+            dgvNguyenLieu1.Columns["IngredientId"].Visible = false;
         }
         private void LoadCongThuc()
         {
-            dgvNguyenLieu2.DataSource = ingredientBLL.GetAll();
+            dgvNguyenLieu2.Columns.Add("IngredientId", "Mã NL");
+            dgvNguyenLieu2.Columns.Add("IngredientName", "Tên NL");
+            dgvNguyenLieu2.Columns.Add("Price", "Giá");
+            dgvNguyenLieu2.Columns.Add("Unit", "ĐVT");
+            dgvNguyenLieu2.Columns["IngredientId"].Visible = false;
+            var ingredients = ingredientBLL.GetAll().Select(ig => new
+            {
+                ig.IngredientId,
+                ig.IngredientName,
+                ig.Price,
+                ig.Unit
+            }).ToList();
+            foreach (var ig in ingredients)
+            {
+                dgvNguyenLieu2.Rows.Add(ig.IngredientId ,ig.IngredientName, ig.Price, ig.Unit);
+            }
         }
 
         private bool ThemAnhVaoThuMuc(Product product)
@@ -296,6 +312,11 @@ namespace GUI
             try
             {
                 // Kiểm tra đầu vào
+                if (cboNguyenLieu.SelectedValue == null || cboSanPham.SelectedValue == null)
+                {
+                    MessageBox.Show("Vui lòng chọn nguyên liệu và sản phẩm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 if (string.IsNullOrWhiteSpace(txtSoLuong.Text))
                 {
                     MessageBox.Show("Vui lòng nhập số lượng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -303,10 +324,9 @@ namespace GUI
                 }
                 if (!double.TryParse(txtSoLuong.Text, out double quantity) || quantity < 0)
                 {
-                    MessageBox.Show("Số lượng phải là một số không âm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Số lượng phải là một số hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
                 // Đồng bộ hóa đơn vị tính của nguyên liệu và sản phẩm
                 Ingredient ingredient = ingredientBLL.GetAll().FirstOrDefault(i => i.IngredientId == (int)cboNguyenLieu.SelectedValue);
                 if (ingredient == null)
@@ -314,17 +334,25 @@ namespace GUI
                     MessageBox.Show("Nguyên liệu không tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                Recipe recipe = new Recipe
+                // Kiểm tra công thức có bị trùng
+                if (recipeBLL.GetAll().Any(r =>
+                    r.ProductId == (int)cboSanPham.SelectedValue &&
+                    r.IngredientId == (int)cboNguyenLieu.SelectedValue))
+                {
+                    MessageBox.Show("Công thức này đã tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                Recipe newRecipe = new Recipe
                 {
                     IngredientId = (int)cboNguyenLieu.SelectedValue,
                     ProductId = (int)cboSanPham.SelectedValue,
-                    Quantity = quantity, 
+                    Quantity = quantity,
                     Unit = ingredient.Unit,
                 };
 
                 // Thêm công thức và làm mới
-                recipeBLL.Add(recipe);
-                LoadCongThuc();
+                recipeBLL.Add(newRecipe);
                 MessageBox.Show("Thêm công thức thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearDuLieu();
             }

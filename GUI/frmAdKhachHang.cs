@@ -57,6 +57,11 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.No)
+            {
+                return;
+            }
             try
             {
                 int id = int.Parse(txtMaKH.Text);
@@ -110,7 +115,11 @@ namespace GUI
                 MessageBox.Show("Mã khách hàng không hợp lệ!");
                 return;
             }
-
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn sửa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.No)
+            {
+                return;
+            }
             var customer = new Customer
             {
                 CustomerId = customerId,
@@ -128,8 +137,16 @@ namespace GUI
 
         private void txtTim_TextChanged(object sender, EventArgs e)
         {
-            var data = bllCustomer.GetAll().Where(c => c.CustomerName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
-            dgvKhachHang.DataSource= data;
+            var tenKH = bllCustomer.GetAll().Where(c => c.CustomerName.ToLower().Contains(txtTim.Text.ToLower())).ToList();
+            var phoneKH = bllCustomer.GetAll().Where(c => c.PhoneNumber.ToLower().Contains(txtTim.Text.ToLower())).ToList();
+            if (tenKH.Count != 0)
+            {
+                dgvKhachHang.DataSource = tenKH;
+            }
+            else if (phoneKH.Count != 0)
+            {
+                dgvKhachHang.DataSource = phoneKH;
+            }
         }
     }
 }

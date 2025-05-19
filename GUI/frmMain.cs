@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +21,7 @@ namespace GUI
             this.userRole = employee.Role;
         }
         private Employee em = new Employee();
+        private int index = 0;
         private string userRole;
         // Biến tạm
         Form currentForm = new Form();
@@ -35,12 +37,16 @@ namespace GUI
             // Đưa form mới vào main menu
             childForm.Show();
             currentForm = childForm;
+            // Tắt banner, tránh chạy ngầm
+            tmrBannerLoop.Stop();
+            picBanner.Visible = false;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show(em.EmployeeName + " " + em.BranchId);
-
+            tmrBannerLoop.Interval = 6000;
+            tmrBannerLoop.Start();
+            picBanner.BackgroundImage = Image.FromFile("Banners/" + imgListBanners.Images.Keys[index]);
 
             this.Icon = new Icon("icon-1.ico");
 
@@ -156,6 +162,22 @@ namespace GUI
         {
             frmBanAn frm = new frmBanAn(em);
             OpenMain(frm);
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            currentForm.Close();
+            picBanner.Visible = true;
+            tmrBannerLoop.Start();
+        }
+
+        private void tmrBannerLoop_Tick(object sender, EventArgs e)
+        {
+            // Chạy banner theo vòng lặp
+            index++;
+            if (index >= imgListBanners.Images.Count)
+                index = 0;
+            picBanner.BackgroundImage = Image.FromFile("Banners/" + imgListBanners.Images.Keys[index]);
         }
     }
 }

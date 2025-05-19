@@ -186,12 +186,12 @@ namespace GUI
                 bllFinancial.Update(financial);
             }
 
-            // Xóa chi tiết hóa đơn
-            var danhSachMon = bllBillInfo.GetAll().Where(bi => bi.BillId == bill.BillId).ToList();
-            foreach (var item in danhSachMon)
-            {
-                bllBillInfo.Delete(item.BillInfoId);
-            }
+            //// Xóa chi tiết hóa đơn
+            //var danhSachMon = bllBillInfo.GetAll().Where(bi => bi.BillId == bill.BillId).ToList();
+            //foreach (var item in danhSachMon)
+            //{
+            //    bllBillInfo.Delete(item.BillInfoId);
+            //}
 
             MessageBox.Show("Thanh toán thành công!");
             ResetForm();

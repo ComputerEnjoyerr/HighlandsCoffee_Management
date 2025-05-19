@@ -8,26 +8,53 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static GUI.frmLichSuHoaDon;
+using DTO;
+using BLL;
 
 namespace GUI
 {
     public partial class frmChiTietHoaDon : Form
     {
-        // Tham chiếu dữ liệu lấy từ frmLichSuHoaDon
-        //List<BillInfo> info = new List<BillInfo>();
 
-        public frmChiTietHoaDon(/*List<BillInfo> billInfo*/)
+
+        public frmChiTietHoaDon(List<BillInfo> bi)
         {
             InitializeComponent();
-            //info = billInfo;
+            billInfos = bi;
         }
 
+        private List<BillInfo> billInfos = new List<BillInfo>();
+        private BLL_Product bllProduct = new BLL_Product();
+
+        private void LoadBillInfo()
+        {
+            var data = billInfos
+                .Join(bllProduct.GetAll(),
+                    bi => bi.ProductId,
+                    p => p.ProductId,
+                    (bi, p) => new
+                    {
+                        bi.BillInfoId,
+                        p.ProductName,
+                        bi.Quantity,
+                        p.Price,
+                        Total = bi.Quantity * p.Price
+                    })
+                .ToList();
+            dgvBillInfo.DataSource = data;
+            dgvBillInfo.Columns["BillInfoId"].Visible = false;
+            dgvBillInfo.Columns["Total"].HeaderText = "Thành tiền";
+            dgvBillInfo.Columns["ProductName"].HeaderText = "Tên sản phẩm";
+            dgvBillInfo.Columns["Quantity"].HeaderText = "Số lượng";
+            dgvBillInfo.Columns["Price"].HeaderText = "Đơn giá";
+        }
 
         private void frmChiTietHoaDon_Load(object sender, EventArgs e)
         {
             this.Icon = new Icon("icon-1.ico");
             this.BackColor = ColorTranslator.FromHtml("#52362A");
-            //dgvBillInfo.DataSource = info;
+
+            LoadBillInfo();
         }
     }
 }
