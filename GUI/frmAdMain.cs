@@ -29,7 +29,10 @@ namespace GUI
         {
             // Tắt form hiện tại để chuyển form mới
             if (currentForm != null)
+            {
                 currentForm.Close();
+                currentForm.Dispose();
+            }
             // Chỉnh sửa thuộc tính của form mới
             childForm.MdiParent = this;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -153,6 +156,11 @@ namespace GUI
         {
             frmRPTDoanhThuTheoThang fr = new frmRPTDoanhThuTheoThang();
             OpenMain(fr);
+        }
+
+        private void picBanner_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

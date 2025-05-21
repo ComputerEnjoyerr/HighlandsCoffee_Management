@@ -15,8 +15,6 @@ namespace GUI
 {
     public partial class frmChiTietHoaDon : Form
     {
-
-
         public frmChiTietHoaDon(List<BillInfo> bi)
         {
             InitializeComponent();

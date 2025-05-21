@@ -268,18 +268,19 @@ namespace GUI
 
         private void btnChonKhach_Click(object sender, EventArgs e)
         {
-            frmChonKhachHang fr = new frmChonKhachHang(currentEmployee);
-
-            if (fr.ShowDialog() == DialogResult.OK)
+            using (frmChonKhachHang fr = new frmChonKhachHang(currentEmployee))
             {
-                selectedCustomer = fr.SelectedCustomer;
-                if (selectedCustomer != null)
+                if (fr.ShowDialog() == DialogResult.OK)
                 {
-                    txtKH.Text = selectedCustomer.CustomerName;
-                    txtKH.Tag = selectedCustomer;
+                    selectedCustomer = fr.SelectedCustomer;
+                    if (selectedCustomer != null)
+                    {
+                        txtKH.Text = selectedCustomer.CustomerName;
+                        txtKH.Tag = selectedCustomer;
+                    }
                 }
+                fr.Dispose();
             }
-            fr.Dispose();
         }
 
         private void btnThem_Click(object sender, EventArgs e)

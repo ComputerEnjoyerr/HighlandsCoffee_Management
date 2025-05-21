@@ -40,6 +40,7 @@ namespace GUI
                                 e.Role
                             };
             dgvNhanVien.DataSource = employees.ToList();
+            dgvNhanVien.Columns["EmployeeId"].Visible = false;
         }
 
         private void frmNhanVien_Load(object sender, EventArgs e)
@@ -189,6 +190,7 @@ namespace GUI
                     em.Role
                 }).ToList();
             dgvNhanVien.DataSource = data;
+            dgvNhanVien.Columns["EmployeeId"].Visible = false;
         }
 
         private void txtLuongCB_TextChanged(object sender, EventArgs e)

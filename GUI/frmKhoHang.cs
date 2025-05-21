@@ -41,11 +41,13 @@ namespace GUI
                            i.UnitPrice,
                            i.TotalPrice
                        };
-            if (data != null) dgvKhoHang.DataSource = data.ToList();
-            else
+            if  (data != null) 
             {
-                MessageBox.Show("Không có dữ liệu");
+                dgvKhoHang.DataSource = data.ToList();
+                dgvKhoHang.Columns["InventoryId"].Visible = false;
             }
+            else
+                MessageBox.Show("Không có dữ liệu");
         }
 
         private void LoadNguyenLieu()
@@ -59,9 +61,7 @@ namespace GUI
                            i.EXPDay
                        };
             if (data != null)
-            {
                 dgvNguyenLieu.DataSource = data.ToList();
-            }
         }
 
         private void ClearDuLieuNhap()
@@ -167,7 +167,6 @@ namespace GUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
         }
 
@@ -293,6 +292,7 @@ namespace GUI
                            i.TotalPrice
                        };
             dgvKhoHang.DataSource = data.ToList();
+            dgvKhoHang.Columns["InventoryId"].Visible = false;
         }
 
         private void btnHoanTac_Click(object sender, EventArgs e)
@@ -302,8 +302,8 @@ namespace GUI
 
         private void btnInDS_Click(object sender, EventArgs e)
         {
-            frmRPTKhoHang fr = new frmRPTKhoHang(currentEmployee);
-            fr.ShowDialog();
+            using (frmRPTKhoHang fr = new frmRPTKhoHang(currentEmployee))
+                fr.ShowDialog();
         }
     }
 }

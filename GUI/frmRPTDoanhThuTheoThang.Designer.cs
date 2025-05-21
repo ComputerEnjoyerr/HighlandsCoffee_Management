@@ -28,32 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.rptDoanhThuTheoThang1 = new GUI.rptDoanhThuTheoThang();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.txtNam = new System.Windows.Forms.TextBox();
+            this.btnLoc = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtThang = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnLoc = new System.Windows.Forms.Button();
+            this.txtNam = new System.Windows.Forms.TextBox();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // crystalReportViewer1
-            // 
-            this.crystalReportViewer1.ActiveViewIndex = 0;
-            this.crystalReportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 116);
-            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.rptDoanhThuTheoThang1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(828, 250);
-            this.crystalReportViewer1.TabIndex = 0;
-            this.crystalReportViewer1.ToolPanelWidth = 300;
             // 
             // pnlMain
             // 
@@ -64,18 +47,30 @@
             this.pnlMain.Controls.Add(this.txtNam);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
-            this.pnlMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(828, 108);
             this.pnlMain.TabIndex = 1;
             // 
-            // txtNam
+            // btnLoc
             // 
-            this.txtNam.Location = new System.Drawing.Point(84, 56);
-            this.txtNam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNam.Name = "txtNam";
-            this.txtNam.Size = new System.Drawing.Size(148, 24);
-            this.txtNam.TabIndex = 0;
+            this.btnLoc.Location = new System.Drawing.Point(267, 27);
+            this.btnLoc.Name = "btnLoc";
+            this.btnLoc.Size = new System.Drawing.Size(111, 50);
+            this.btnLoc.TabIndex = 2;
+            this.btnLoc.Text = "Lọc";
+            this.btnLoc.UseVisualStyleBackColor = true;
+            this.btnLoc.Click += new System.EventHandler(this.btnXem_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 27);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 18);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Tháng:";
             // 
             // label1
             // 
@@ -95,25 +90,28 @@
             this.txtThang.Size = new System.Drawing.Size(148, 24);
             this.txtThang.TabIndex = 0;
             // 
-            // label2
+            // txtNam
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 27);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Tháng:";
+            this.txtNam.Location = new System.Drawing.Point(84, 56);
+            this.txtNam.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNam.Name = "txtNam";
+            this.txtNam.Size = new System.Drawing.Size(148, 24);
+            this.txtNam.TabIndex = 0;
             // 
-            // btnLoc
+            // crystalReportViewer1
             // 
-            this.btnLoc.Location = new System.Drawing.Point(267, 27);
-            this.btnLoc.Name = "btnLoc";
-            this.btnLoc.Size = new System.Drawing.Size(111, 50);
-            this.btnLoc.TabIndex = 2;
-            this.btnLoc.Text = "Lọc";
-            this.btnLoc.UseVisualStyleBackColor = true;
-            this.btnLoc.Click += new System.EventHandler(this.btnXem_Click);
+            this.crystalReportViewer1.ActiveViewIndex = 0;
+            this.crystalReportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 116);
+            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(828, 250);
+            this.crystalReportViewer1.TabIndex = 0;
+            this.crystalReportViewer1.ToolPanelWidth = 300;
             // 
             // frmRPTDoanhThuTheoThang
             // 
@@ -123,7 +121,7 @@
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.crystalReportViewer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRPTDoanhThuTheoThang";
             this.Text = "frmRPTDoanhThuTheoThang";
             this.Load += new System.EventHandler(this.frmRPTDoanhThuTheoThang_Load);
@@ -136,7 +134,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private rptDoanhThuTheoThang rptDoanhThuTheoThang1;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button btnLoc;
         private System.Windows.Forms.Label label2;

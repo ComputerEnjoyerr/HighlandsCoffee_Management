@@ -144,7 +144,11 @@ namespace GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-
+            if (cboBanAn.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn bàn ăn trước khi thanh toán.");
+                return;
+            }
 
             int tableId = (int)cboBanAn.SelectedValue;
             var bill = bllBill.GetAll().FirstOrDefault(b => b.TableId == tableId && b.Status == 0);
@@ -191,12 +195,11 @@ namespace GUI
                 bllFinancial.Update(financial);
             }
 
-            //// Xóa chi tiết hóa đơn
-            //var danhSachMon = bllBillInfo.GetAll().Where(bi => bi.BillId == bill.BillId).ToList();
-            //foreach (var item in danhSachMon)
-            //{
-            //    bllBillInfo.Delete(item.BillInfoId);
-            //}
+            if (cbxInHoaDon.Checked)
+            {
+                using (frmRPTHoaDonThanhToan rpt = new frmRPTHoaDonThanhToan(bill))
+                    rpt.ShowDialog();
+            }
 
             MessageBox.Show("Thanh toán thành công!");
             ResetForm();

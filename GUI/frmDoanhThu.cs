@@ -26,8 +26,11 @@ namespace GUI
         private void LoadDoanhTHu()
         {
             var doanhthus = bllFinancial.GetAll().Where(f => f.BranchId == currentEmployee.BranchId);
-            if (doanhthus.Any()) 
+            if (doanhthus.Any())
+            {
                 dgvDoanhThu.DataSource = doanhthus.ToList();
+                dgvDoanhThu.Columns["FinancialId"].Visible = false;
+            }
         }
 
         private void frmDoanhThu_Load(object sender, EventArgs e)
@@ -52,8 +55,11 @@ namespace GUI
                 Financial selectedDoanhThu = dgvDoanhThu.SelectedRows[0].DataBoundItem as Financial;
                 // Hiển thị thông tin chi tiết doanh thu
                 if (selectedDoanhThu == null) return;
-                frmChiTietDoanhThu fr = new frmChiTietDoanhThu(selectedDoanhThu);
-                fr.ShowDialog();
+                using (frmChiTietDoanhThu fr = new frmChiTietDoanhThu(selectedDoanhThu))
+                {
+                    fr.ShowDialog();
+                }
+
             }
         }
 
@@ -69,7 +75,10 @@ namespace GUI
             {
                 var doanhthus = bllFinancial.GetAll().Where(f => f.BranchId == currentEmployee.BranchId);
                 if (doanhthus.Any())
+                {
                     dgvDoanhThu.DataSource = doanhthus.ToList();
+                    dgvDoanhThu.Columns["FinancialId"].Visible = false;
+                }
             }
             else
             {   
@@ -92,8 +101,10 @@ namespace GUI
                 Financial selectedDoanhThu = dgvDoanhThu.SelectedRows[0].DataBoundItem as Financial;
                 // Hiển thị thông tin chi tiết doanh thu
                 if (selectedDoanhThu == null) return;
-                frmChiTietDoanhThu fr = new frmChiTietDoanhThu(selectedDoanhThu);
-                fr.ShowDialog();
+                using (frmChiTietDoanhThu fr = new frmChiTietDoanhThu(selectedDoanhThu))
+                {
+                    fr.ShowDialog();
+                }
             }
             else
             {
@@ -106,8 +117,8 @@ namespace GUI
             if (dgvDoanhThu.SelectedRows.Count > 0)
             {
                 Financial selectedDoanhThu = dgvDoanhThu.SelectedRows[0].DataBoundItem as Financial;
-                frmRPTChiTietDoanhThu frm = new frmRPTChiTietDoanhThu(selectedDoanhThu);
-                frm.ShowDialog();
+                using (frmRPTChiTietDoanhThu frm = new frmRPTChiTietDoanhThu(selectedDoanhThu))
+                    frm.ShowDialog();
             }
             else
             {

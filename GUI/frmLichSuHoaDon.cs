@@ -27,6 +27,7 @@ namespace GUI
         private BLL_Branch bllBranch = new BLL_Branch();
         private BLL_Customer bllCustomer = new BLL_Customer();
         private BLL_BillInfo bllBillInfo = new BLL_BillInfo();
+        private BLL_Table bllTable = new BLL_Table();
 
         private void LoadNhanVien()
         {
@@ -65,10 +66,18 @@ namespace GUI
         {
             if (e.RowIndex >= 0)
             {
+                // Lấy mã hóa đơn từ dòng được chọn
                 int billId = (int)dgvHoaDon.Rows[e.RowIndex].Cells["BillId"].Value;
-                var billInfos = bllBillInfo.GetAll().Where(bi => bi.BillId == billId).ToList();
-                frmChiTietHoaDon fr = new frmChiTietHoaDon(billInfos);
-                fr.ShowDialog();
+                var billInfos = bllBillInfo.GetAll()
+                    .Where(bi => bi.BillId == billId)
+                    .ToList();
+                if (billInfos != null)
+                {
+                    using (frmChiTietHoaDon fr = new frmChiTietHoaDon(billInfos))
+                    {
+                        fr.ShowDialog();
+                    }
+                }
             }
 
         }
@@ -80,19 +89,22 @@ namespace GUI
             var filteredBills = from b in bllBill.GetAll()
                                 join em in bllEmployee.GetDataEmployee() on b.EmployeeId equals em.EmployeeId
                                 join c in bllCustomer.GetAll() on b.CustomerId equals c.CustomerId
-                                where b.EmployeeId == selectedEmployeeId 
+                                join t in bllTable.GetAll() on b.TableId equals t.TableId
+                                where b.EmployeeId == selectedEmployeeId && b.Status == 1
                                 && b.BranchId == currentEmployee.BranchId
                                 && b.CreateDate.Date == dtpDate.Value.Date
+                                orderby b.BillId descending
                                 select new
                                 {
                                     b.BillId,
-                                    b.TableId,
+                                    t.TableName,
                                     em.EmployeeName,
                                     c.CustomerName,
                                     b.CreateDate,
                                     b.TotalPrice,
                                 };
             dgvHoaDon.DataSource = filteredBills.ToList();
+            dgvHoaDon.Columns["BillId"].Visible = false;
         }
 
         private void LoadHoaDon()
@@ -100,19 +112,20 @@ namespace GUI
             var filteredBills = from b in bllBill.GetAll()
                                 join em in bllEmployee.GetDataEmployee() on b.EmployeeId equals em.EmployeeId
                                 join c in bllCustomer.GetAll() on b.CustomerId equals c.CustomerId
-                                where b.BranchId == currentEmployee.BranchId
+                                join t in bllTable.GetAll() on b.TableId equals t.TableId
+                                where b.BranchId == currentEmployee.BranchId && b.Status == 1
+                                orderby b.BillId descending
                                 select new
                                 {
                                     b.BillId,
-                                    b.TableId,
+                                    t.TableName,
                                     em.EmployeeName,
                                     c.CustomerName,
                                     b.CreateDate,
                                     b.TotalPrice,
                                 };
             dgvHoaDon.DataSource = filteredBills.ToList();
+            dgvHoaDon.Columns["BillId"].Visible = false;
         }
-
-
     }
 }

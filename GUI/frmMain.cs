@@ -29,7 +29,10 @@ namespace GUI
         {
             // Tắt form hiện tại để chuyển form mới
             if (currentForm != null)
+            {
                 currentForm.Close();
+                currentForm.Dispose();
+            }
             // Chỉnh sửa thuộc tính của form mới
             childForm.MdiParent = this;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -178,6 +181,11 @@ namespace GUI
             if (index >= imgListBanners.Images.Count)
                 index = 0;
             picBanner.BackgroundImage = Image.FromFile("Banners/" + imgListBanners.Images.Keys[index]);
+        }
+
+        private void picBanner_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

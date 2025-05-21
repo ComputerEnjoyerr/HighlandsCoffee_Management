@@ -18,6 +18,8 @@ namespace GUI
             InitializeComponent();
         }
 
+        private bool isFirst = true;
+
         private void frmRPTDoanhThuTheoThang_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#52362A");
@@ -51,32 +53,40 @@ namespace GUI
         {
             try
             {
-                //Khai báo biến
-                rptDoanhThuTheoThang report = new rptDoanhThuTheoThang();
-                //khai báo tham số
-                ParameterValues pa = new ParameterValues();
-                //Biến lấy giá trị
-                ParameterDiscreteValue paMonth = new ParameterDiscreteValue();
-                ParameterDiscreteValue paYear = new ParameterDiscreteValue();
+                ////Khai báo biến
+                //using (rptDoanhThuTheoThang report = new rptDoanhThuTheoThang())
+                //{
+                //    //khai báo tham số
+                //    ParameterValues pa = new ParameterValues();
+                //    //Biến lấy giá trị
+                //    ParameterDiscreteValue paMonth = new ParameterDiscreteValue();
+                //    ParameterDiscreteValue paYear = new ParameterDiscreteValue();
 
-                paMonth.Value = int.Parse(txtThang.Text);
-                paYear.Value = int.Parse(txtNam.Text);
+                //    paMonth.Value = int.Parse(txtThang.Text);
+                //    paYear.Value = int.Parse(txtNam.Text);
 
-                ParameterValues paMonthValues = new ParameterValues();
-                paMonthValues.Add(paMonth);
-                report.DataDefinition.ParameterFields["@Month"].ApplyCurrentValues(paMonthValues);
+                //    ParameterValues paMonthValues = new ParameterValues();
+                //    paMonthValues.Add(paMonth);
+                //    report.DataDefinition.ParameterFields["@Month"].ApplyCurrentValues(paMonthValues);
 
-                ParameterValues paYearValues = new ParameterValues();
-                paYearValues.Add(paYear);
-                report.DataDefinition.ParameterFields["@Year"].ApplyCurrentValues(paYearValues);
+                //    ParameterValues paYearValues = new ParameterValues();
+                //    paYearValues.Add(paYear);
+                //    report.DataDefinition.ParameterFields["@Year"].ApplyCurrentValues(paYearValues);
 
-                //Gán report vào viewer
-                crystalReportViewer1.ReportSource = report;
-                crystalReportViewer1.Refresh();
+                //    //Gán report vào viewer
+                //    crystalReportViewer1.ReportSource = report;
+                //    crystalReportViewer1.Refresh();
+                //}
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi tải báo cáo " + ex.Message, "Thông báo");
+            }
+            finally
+            {
+                // Giải phóng tài nguyên
+                //report.Close();
+                //report.Dispose();
             }
         }
     }

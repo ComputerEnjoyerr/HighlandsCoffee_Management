@@ -274,6 +274,7 @@
             this.picBanner.Size = new System.Drawing.Size(798, 711);
             this.picBanner.TabIndex = 2;
             this.picBanner.TabStop = false;
+            this.picBanner.Click += new System.EventHandler(this.picBanner_Click);
             // 
             // tmrBannerLoop
             // 

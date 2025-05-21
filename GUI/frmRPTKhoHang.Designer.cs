@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.rptHoaDonThanhToan1 = new GUI.rptHoaDonThanhToan();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -59,5 +60,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private rptHoaDonThanhToan rptHoaDonThanhToan1;
     }
 }

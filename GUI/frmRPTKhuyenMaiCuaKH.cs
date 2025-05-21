@@ -16,5 +16,21 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void frmRPTKhuyenMaiCuaKH_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmRPTKhuyenMaiCuaKH_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void frmRPTKhuyenMaiCuaKH_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            crystalReportViewer1.Dispose();
+            this.Dispose();
+        }
     }
 }

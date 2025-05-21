@@ -60,6 +60,12 @@
     <Compile Include="frmRPTDoanhThuTheoThang.Designer.cs">
       <DependentUpon>frmRPTDoanhThuTheoThang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRPTHoaDonThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRPTHoaDonThanhToan.Designer.cs">
+      <DependentUpon>frmRPTHoaDonThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRPTKhoHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,17 +224,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="rptDoanhThuTheoThang.cs">
+    <Compile Include="rptHoaDonThanhToan.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>rptDoanhThuTheoThang.rpt</DependentUpon>
+      <DependentUpon>rptHoaDonThanhToan.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptKhoHang.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptKhoHang.rpt</DependentUpon>
-      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="rptKhuyenMaiCuaKH.cs">
       <AutoGen>True</AutoGen>
@@ -244,6 +245,9 @@
     </Compile>
     <EmbeddedResource Include="frmRPTDoanhThuTheoThang.resx">
       <DependentUpon>frmRPTDoanhThuTheoThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRPTHoaDonThanhToan.resx">
+      <DependentUpon>frmRPTHoaDonThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRPTKhoHang.resx">
       <DependentUpon>frmRPTKhoHang.cs</DependentUpon>
@@ -333,13 +337,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="rptDoanhThuTheoThang.rpt">
+    <EmbeddedResource Include="rptHoaDonThanhToan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptDoanhThuTheoThang.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="rptKhoHang.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptKhoHang.cs</LastGenOutput>
+      <LastGenOutput>rptHoaDonThanhToan.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="rptKhuyenMaiCuaKH.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
