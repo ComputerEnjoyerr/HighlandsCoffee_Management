@@ -20,13 +20,13 @@ namespace GUI
             currentEmployee = em;
         }
 
-        private Employee currentEmployee = new Employee();
+        private Employee currentEmployee = null;
         private BLL_Employee bllEmployee = new BLL_Employee();
 
         public void LoadNhanVien()
         {
             var employees = from e in bllEmployee.GetDataEmployee()
-                            where e.BranchId == currentEmployee.BranchId
+                            where e.BranchId == currentEmployee.BranchId && e.EmployeeId != 1
                             select new
                             {
                                 e.EmployeeId,
@@ -40,6 +40,7 @@ namespace GUI
                                 e.Role
                             };
             dgvNhanVien.DataSource = employees.ToList();
+            dgvNhanVien.Columns["EmployeeId"].Visible = false;
         }
 
         private void frmNhanVien_Load(object sender, EventArgs e)
@@ -189,6 +190,7 @@ namespace GUI
                     em.Role
                 }).ToList();
             dgvNhanVien.DataSource = data;
+            dgvNhanVien.Columns["EmployeeId"].Visible = false;
         }
 
         private void txtLuongCB_TextChanged(object sender, EventArgs e)
@@ -229,6 +231,13 @@ namespace GUI
             cbChucVu.SelectedIndex = -1; 
             dtNgayVaoLam.Value = DateTime.Now; 
             txtHoTen.Focus();
+        }
+
+        private void btnTaoTK_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(currentEmployee.BranchId.ToString());
+            frmTaoTaiKhoan fr = new frmTaoTaiKhoan(currentEmployee);
+            fr.ShowDialog();
         }
     }
 }

@@ -54,6 +54,7 @@
     <Compile Include="DAL_Promotion.cs" />
     <Compile Include="DAL_PromotionCustomer.cs" />
     <Compile Include="DAL_Recipe.cs" />
+    <Compile Include="DAL_Report.cs" />
     <Compile Include="DAL_Supplier.cs" />
     <Compile Include="DAL_Table.cs" />
     <Compile Include="DAL_Product.cs" />

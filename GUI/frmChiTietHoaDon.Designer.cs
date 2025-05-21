@@ -54,6 +54,7 @@
             this.dgvBillInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBillInfo.Location = new System.Drawing.Point(3, 3);
             this.dgvBillInfo.Name = "dgvBillInfo";
+            this.dgvBillInfo.ReadOnly = true;
             this.dgvBillInfo.Size = new System.Drawing.Size(809, 444);
             this.dgvBillInfo.TabIndex = 1;
             // 

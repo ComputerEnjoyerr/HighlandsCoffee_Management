@@ -44,9 +44,14 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.phóngToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thuNhỏToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.picBanner = new System.Windows.Forms.PictureBox();
+            this.tmrBannerLoop = new System.Windows.Forms.Timer(this.components);
+            this.imgListBanners = new System.Windows.Forms.ImageList(this.components);
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBanner)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -232,9 +237,10 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.phóngToToolStripMenuItem,
-            this.thuNhỏToolStripMenuItem});
+            this.thuNhỏToolStripMenuItem,
+            this.thoátToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(143, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(143, 76);
             // 
             // phóngToToolStripMenuItem
             // 
@@ -250,6 +256,40 @@
             this.thuNhỏToolStripMenuItem.Text = "Thu nhỏ";
             this.thuNhỏToolStripMenuItem.Click += new System.EventHandler(this.thuNhỏToolStripMenuItem_Click);
             // 
+            // thoátToolStripMenuItem
+            // 
+            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
+            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
+            // 
+            // picBanner
+            // 
+            this.picBanner.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.picBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBanner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picBanner.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBanner.Location = new System.Drawing.Point(186, 0);
+            this.picBanner.Name = "picBanner";
+            this.picBanner.Size = new System.Drawing.Size(798, 711);
+            this.picBanner.TabIndex = 2;
+            this.picBanner.TabStop = false;
+            this.picBanner.Click += new System.EventHandler(this.picBanner_Click);
+            // 
+            // tmrBannerLoop
+            // 
+            this.tmrBannerLoop.Tick += new System.EventHandler(this.tmrBannerLoop_Tick);
+            // 
+            // imgListBanners
+            // 
+            this.imgListBanners.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgListBanners.ImageStream")));
+            this.imgListBanners.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgListBanners.Images.SetKeyName(0, "menu.png");
+            this.imgListBanners.Images.SetKeyName(1, "banner1.jpg");
+            this.imgListBanners.Images.SetKeyName(2, "banner2.jpg");
+            this.imgListBanners.Images.SetKeyName(3, "banner3.jpg");
+            this.imgListBanners.Images.SetKeyName(4, "banner4.jpg");
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -257,6 +297,7 @@
             this.CancelButton = this.btnDangXuat;
             this.ClientSize = new System.Drawing.Size(984, 711);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.picBanner);
             this.Controls.Add(this.pnlMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -266,10 +307,12 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBanner)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,5 +333,9 @@
         private System.Windows.Forms.ToolStripMenuItem phóngToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thuNhỏToolStripMenuItem;
         private System.Windows.Forms.Button btnBanAn;
+        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
+        private System.Windows.Forms.PictureBox picBanner;
+        private System.Windows.Forms.Timer tmrBannerLoop;
+        private System.Windows.Forms.ImageList imgListBanners;
     }
 }

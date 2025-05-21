@@ -19,6 +19,16 @@ namespace GUI
             InitializeComponent();
         }
         BLL_Promotion bllPromotion = new BLL_Promotion();
+
+        private void ClearDuLieuNhap()
+        {
+            txtMaKM.Clear();
+            txtTenKM.Clear();
+            txtNoiDung.Clear();
+            txtDiem.Clear();
+            txtGiamGia.Clear();
+        }
+
         private void frmAdKhuyenMai_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#52362A");
@@ -45,12 +55,7 @@ namespace GUI
 
         private void btnHoanTac_Click(object sender, EventArgs e)
         {
-            txtMaKM.Clear();
-            txtTenKM.Clear();
-            txtNoiDung.Clear();
-            txtDiem.Clear();
-            txtGiamGia.Clear();
-
+            ClearDuLieuNhap();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -75,18 +80,23 @@ namespace GUI
                 EndDate = dtNgayKetThuc.Value
             };
             bllPromotion.AddPromotion(promotion);
-            MessageBox.Show("Them thanh cong");
+            ClearDuLieuNhap();
             dgvKhuyenMai.DataSource = bllPromotion.GetDataPromotion();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.No)
+            {
+                return;
+            }
             try
             {
                 int id = int.Parse(txtMaKM.Text);
                 bllPromotion.RemovePromotion(id);
-                MessageBox.Show("Xóa thành công!");
                 dgvKhuyenMai.DataSource = bllPromotion.GetDataPromotion();
+                ClearDuLieuNhap();
             }
             catch (Exception ex)
             {
@@ -112,6 +122,11 @@ namespace GUI
             {
                 MessageBox.Show("Giam gia khong hop le");
             }
+            DialogResult rs = MessageBox.Show("Bạn có chắc chắn muốn sửa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.No)
+            {
+                return;
+            }
             var promotion = new Promotion
             {
                 PromotionId = id,
@@ -123,8 +138,8 @@ namespace GUI
                 EndDate = dtNgayKetThuc.Value
             };
             bllPromotion.UpdatePromotion(promotion);
-            MessageBox.Show("Sua thanh cong");
             dgvKhuyenMai.DataSource = bllPromotion.GetDataPromotion();
+            ClearDuLieuNhap();
         }
 
         private void txtTim_TextChanged(object sender, EventArgs e)

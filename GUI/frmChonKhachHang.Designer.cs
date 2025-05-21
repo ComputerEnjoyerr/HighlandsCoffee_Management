@@ -89,7 +89,9 @@
             this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKhachHang.Location = new System.Drawing.Point(6, 66);
             this.dgvKhachHang.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvKhachHang.MultiSelect = false;
             this.dgvKhachHang.Name = "dgvKhachHang";
+            this.dgvKhachHang.ReadOnly = true;
             this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKhachHang.Size = new System.Drawing.Size(746, 364);
             this.dgvKhachHang.TabIndex = 0;
@@ -105,6 +107,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChonKhachHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh sách khách hàng";
             this.Load += new System.EventHandler(this.frmChonKhachHang_Load);
             this.pnlMain.ResumeLayout(false);

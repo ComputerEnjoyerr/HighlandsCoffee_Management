@@ -44,41 +44,36 @@ namespace GUI
             string username = txtUser.Text;
             string password = txtPass.Text;
 
-            //// Kiểm tra thông tin đăng nhập
-            //var account = bllAccount.GetAll().FirstOrDefault(a => a.AccountName.ToLower() == username.ToLower() && a.Password == password);
-            //if (account != null)
-            //{
-            //    var employee = bllEmployee.GetDataEmployee().FirstOrDefault(em => em.EmployeeId == account.EmployeeId);
-            //    if (employee != null)
-            //    {
-            //        if (account.AccountId == 1)
-            //        {
-            //            NextForm = new frmAdMain(employee);
-            //        }
-            //        else if (employee.Role == "Quản lý" || employee.Role == "Nhân viên")
-            //        {
-            //            NextForm = new frmMain(employee);
-            //        }
-            //    }
+            // Kiểm tra thông tin đăng nhập
+            var account = bllAccount.GetAll().FirstOrDefault(a => a.AccountName.ToLower() == username.ToLower() && a.Password == password);
+            if (account != null)
+            {
+                var employee = bllEmployee.GetDataEmployee().FirstOrDefault(em => em.EmployeeId == account.EmployeeId);
+                if (employee != null)
+                {
+                    if (account.AccountId == 1)
+                    {
+                        NextForm = new frmAdMain(employee);
+                    }
+                    else if (employee.Role == "Quản lý" || employee.Role == "Nhân viên")
+                    {
+                        NextForm = new frmMain(employee);
+                    }
+                }
 
 
-            //    // Đăng nhập thành công
-            //    this.DialogResult = DialogResult.OK;
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    // Đăng nhập thất bại
-            //    MessageBox.Show("Vui lòng nhập đúng tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    txtPass.Clear();
-            //    txtUser.Clear();
-            //    txtUser.Focus();
-            //}
-            var employee = bllEmployee.GetDataEmployee().First(em => em.EmployeeId == 1);
-            NextForm = new frmMain(employee);
-
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                // Đăng nhập thành công
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                // Đăng nhập thất bại
+                MessageBox.Show("Vui lòng nhập đúng tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPass.Clear();
+                txtUser.Clear();
+                txtUser.Focus();
+            }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

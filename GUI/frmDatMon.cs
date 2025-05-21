@@ -35,6 +35,8 @@ namespace GUI
         private List<Table> cachedTables = null;
         private List<Product> cachedProducts = null;
 
+        //private List<BillInfo> listOfBillInfo = null;
+
         private void LoadBanAn()
         {
             flpBan.Controls.Clear();
@@ -266,18 +268,19 @@ namespace GUI
 
         private void btnChonKhach_Click(object sender, EventArgs e)
         {
-            frmChonKhachHang fr = new frmChonKhachHang(currentEmployee);
-
-            if (fr.ShowDialog() == DialogResult.OK)
+            using (frmChonKhachHang fr = new frmChonKhachHang(currentEmployee))
             {
-                selectedCustomer = fr.SelectedCustomer;
-                if (selectedCustomer != null)
+                if (fr.ShowDialog() == DialogResult.OK)
                 {
-                    txtKH.Text = selectedCustomer.CustomerName;
-                    txtKH.Tag = selectedCustomer;
+                    selectedCustomer = fr.SelectedCustomer;
+                    if (selectedCustomer != null)
+                    {
+                        txtKH.Text = selectedCustomer.CustomerName;
+                        txtKH.Tag = selectedCustomer;
+                    }
                 }
+                fr.Dispose();
             }
-            fr.Dispose();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -355,11 +358,13 @@ namespace GUI
                 var existingBillInfo = bllBillInfo.GetAll().FirstOrDefault(bi => bi.BillId == billId && bi.ProductId == selectedProduct.ProductId);
                 if (existingBillInfo != null)
                 {
+                    //MessageBox.Show("Cập nhật số lượng món ăn");
                     existingBillInfo.Quantity += (int)nbrSoLuong.Value;
                     bllBillInfo.Update(existingBillInfo);
                 }
                 else
                 {
+                    //MessageBox.Show("Tạo chi tiết hóa đơn mới");
                     var newBillInfo = new BillInfo
                     {
                         BillId = billId,

@@ -29,26 +29,30 @@ namespace GUI
         // Lọc dữ liệu theo yêu cầu để hiển thị vào dgv
         private void LoadData()
         {
-            var filteredBills = bllBill.GetAll().Where(b => b.CreateDate.Date == doanhThu.ReportDate.Date).ToList();
+            // Lọc các hóa đơn theo ngày lập hóa đơn và đã được thanh toán (status = 1)
+            var filteredBills = bllBill.GetAll().Where(b => b.CreateDate.Date == doanhThu.ReportDate.Date && b.Status == 1 && b.BranchId == doanhThu.BranchId).ToList();
+            // Tìm các chi tiết hóa đơn trong filteredBills
             var filteredBillInfos = bllBillInfo.GetAll().Where(bi => filteredBills.Any(b => b.BillId == bi.BillId)).ToList();
             var products = bllProduct.GetAll().ToList();
             //MessageBox.Show("Filtered Bills Count: " + filteredBills.Count);
             //MessageBox.Show("Filtered BillInfos Count: " + filteredBillInfos.Count);
-            var data = from b in filteredBills
-                       join bi in filteredBillInfos on b.BillId equals bi.BillId
-                       join p in products on bi.ProductId equals p.ProductId
-                       select new
-                       {
-                           b.BillId,
-                           b.TableId,
-                           b.EmployeeId,
-                           b.CreateDate,
-                           p.ProductName,
-                           p.Price,
-                           bi.Quantity,
-                           TotalPrice = p.Price * Convert.ToInt32(bi.Quantity)
-                       };
-            dgvChiTietDoanhThu.DataSource = data.ToList();
+
+            // Lọc dữ liệu để hiển thị vào dgv
+            var data = filteredBillInfos
+                .Join(products, bi => bi.ProductId, p => p.ProductId, (bi, p) => new { bi.ProductId, bi.Quantity })
+                .GroupBy(x => x.ProductId)
+                .Select(g => new
+                {
+                    ProductId = g.Key,
+                    ProductName = products.FirstOrDefault(p => p.ProductId == g.Key).ProductName,
+                    Price = products.FirstOrDefault(p => p.ProductId == g.Key)?.Price,
+                    Quantity = g.Sum(x => x.Quantity),
+                    TotalPrice = g.Sum(x => x.Quantity) * products.FirstOrDefault(p => p.ProductId == g.Key)?.Price
+                })
+                .OrderBy(x => x.ProductId) // Sắp xếp sản phẩm tăng theo id
+                .ToList();
+            if (data.Any())
+                dgvChiTietDoanhThu.DataSource = data;
         }
 
         private void frmChiTietDoanhThu_Load(object sender, EventArgs e)
@@ -56,6 +60,8 @@ namespace GUI
             this.Icon = new Icon("icon-1.ico");
             this.BackColor = ColorTranslator.FromHtml("#52362A");
             pnlMain.BackColor = ColorTranslator.FromHtml("#DED4CA");
+
+            txtTongTien.ReadOnly = true;
 
             LoadData();
             int tongTien = 0;

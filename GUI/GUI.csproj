@@ -36,9 +36,12 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,6 +54,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmRPTDoanhThuTheoThang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRPTDoanhThuTheoThang.Designer.cs">
+      <DependentUpon>frmRPTDoanhThuTheoThang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRPTHoaDonThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRPTHoaDonThanhToan.Designer.cs">
+      <DependentUpon>frmRPTHoaDonThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRPTKhoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRPTKhoHang.Designer.cs">
+      <DependentUpon>frmRPTKhoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRPTKhoHangMoiChiNhanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRPTKhoHangMoiChiNhanh.Designer.cs">
+      <DependentUpon>frmRPTKhoHangMoiChiNhanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRPTKhuyenMaiCuaKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRPTKhuyenMaiCuaKH.Designer.cs">
+      <DependentUpon>frmRPTKhuyenMaiCuaKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRPTLuongNhanVIen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRPTLuongNhanVIen.Designer.cs">
+      <DependentUpon>frmRPTLuongNhanVIen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTaoTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaoTaiKhoan.Designer.cs">
+      <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptChiTietDoanhThu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptChiTietDoanhThu.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmChonKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +216,12 @@
     <Compile Include="frmNhanVien.Designer.cs">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRPTChiTietDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRPTChiTietDoanhThu.Designer.cs">
+      <DependentUpon>frmRPTChiTietDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +230,68 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rptDoanhThuTheoThang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDoanhThuTheoThang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptHoaDonThanhToan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptHoaDonThanhToan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="rptKhoHang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptKhoHang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptKhoHangMoiChiNhanh.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptKhoHangMoiChiNhanh.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptKhuyenMaiCuaKH.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptKhuyenMaiCuaKH.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptLuongNhanVien.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLuongNhanVien.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="frmRPTDoanhThuTheoThang.resx">
+      <DependentUpon>frmRPTDoanhThuTheoThang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRPTHoaDonThanhToan.resx">
+      <DependentUpon>frmRPTHoaDonThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRPTKhoHang.resx">
+      <DependentUpon>frmRPTKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRPTKhoHangMoiChiNhanh.resx">
+      <DependentUpon>frmRPTKhoHangMoiChiNhanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRPTKhuyenMaiCuaKH.resx">
+      <DependentUpon>frmRPTKhuyenMaiCuaKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRPTLuongNhanVIen.resx">
+      <DependentUpon>frmRPTLuongNhanVIen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTaoTaiKhoan.resx">
+      <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptChiTietDoanhThu.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptChiTietDoanhThu.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdXoaSuaCongThuc.resx">
       <DependentUpon>frmAdXoaSuaCongThuc.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,6 +349,9 @@
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRPTChiTietDoanhThu.resx">
+      <DependentUpon>frmRPTChiTietDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThanhToan.resx">
       <DependentUpon>frmThanhToan.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +364,31 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rptDoanhThuTheoThang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDoanhThuTheoThang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptHoaDonThanhToan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptHoaDonThanhToan.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptKhoHang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptKhoHang.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptKhoHangMoiChiNhanh.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptKhoHangMoiChiNhanh.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptKhuyenMaiCuaKH.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptKhuyenMaiCuaKH.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptLuongNhanVien.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLuongNhanVien.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

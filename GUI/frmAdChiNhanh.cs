@@ -23,7 +23,6 @@ namespace GUI
         }
         static BLL_Branch bllBranch = new BLL_Branch();
         BLL_Employee bllEmployee = new BLL_Employee();
-        List<Branch> branches = bllBranch.GetDataBranch();
         private void frmAdChiNhanh_Load(object sender, EventArgs e)
         {
             this.BackColor = ColorTranslator.FromHtml("#52362A");
@@ -33,16 +32,16 @@ namespace GUI
 
             LoadComboBoxManager();
             LoadComboBoxStatus();
-            LoadDataBranch(branches); 
+            LoadDataBranch(bllBranch.GetDataBranch()); 
         }
 
        
 
-        private void LoadDataBranch(List<Branch> chiNhanh)
+        private void LoadDataBranch(List<Branch> branches)
         {
             flpChiNhanh.Controls.Clear();
 
-            foreach (var ch in chiNhanh)
+            foreach (var ch in branches)
             {
                 Panel panel = new Panel();
                 panel.Size = new Size(445, 150);
@@ -140,12 +139,19 @@ namespace GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtMaCN.Text))
+            {
+                MessageBox.Show("Vui lòng chọn chi nhánh để xóa!");
+                return;
+            }
+            DialogResult rs = MessageBox.Show("Bạn có muốn xóa chi nhánh này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.No) return;
             try
             {
                 int id = int.Parse(txtMaCN.Text);
                 bllBranch.RemoveBranch(id);
                 MessageBox.Show("Xóa thành công!");
-                LoadDataBranch(branches);
+                LoadDataBranch(bllBranch.GetDataBranch());
             }
             catch (Exception ex)
             {
@@ -160,21 +166,38 @@ namespace GUI
                 MessageBox.Show("Tien thue không hợp lệ!");
                 return;
             }
-            var br = new Branch
+            if (string.IsNullOrWhiteSpace(txtTenCN.Text) || string.IsNullOrWhiteSpace(txtDiaChi.Text) || string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                BranchName = txtTenCN.Text,
-                ManagerId = (int)cbQuanLy.SelectedValue,
-                Address = txtDiaChi.Text,
-                PhoneNumber = txtPhone.Text,
-                OpenTime = dtMoCua.Value.TimeOfDay,
-                CloseTime = dtDongCua.Value.TimeOfDay,
-                MonthlyRent = monthlyRent,
-                Status = cbStatus.SelectedItem.ToString(),
-            };
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+            if (cbQuanLy.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn quản lý!");
+                return;
+            }
+            // Quản lý không được trùng với các chi nhánh khác
+            var existingBranch = bllBranch.GetDataBranch().FirstOrDefault(b => b.ManagerId == (int)cbQuanLy.SelectedValue);
+            if (existingBranch == null)
+            {
+                var br = new Branch
+                {
+                    BranchName = txtTenCN.Text,
+                    ManagerId = (int)cbQuanLy.SelectedValue,
+                    Address = txtDiaChi.Text,
+                    PhoneNumber = txtPhone.Text,
+                    OpenTime = dtMoCua.Value.TimeOfDay,
+                    CloseTime = dtDongCua.Value.TimeOfDay,
+                    MonthlyRent = monthlyRent,
+                    Status = cbStatus.SelectedItem.ToString(),
+                };
 
-            bllBranch.AddBranch(br);
-            MessageBox.Show("Thêm thành công!");
-            LoadDataBranch(branches);
+                bllBranch.AddBranch(br);
+                MessageBox.Show("Thêm thành công!");
+                LoadDataBranch(bllBranch.GetDataBranch());
+            }
+            else
+                MessageBox.Show("Quản lý đã có chi nhánh khác!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -189,10 +212,10 @@ namespace GUI
                 MessageBox.Show("Tien thue không hợp lệ!");
                 return;
             }
-            
+            DialogResult rs = MessageBox.Show("Bạn có muốn cập nhật thông tin chi nhánh này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rs == DialogResult.No) return;
             var br = new Branch
             {
-
                 BranchId = branchId,
                 BranchName = txtTenCN.Text,
                 ManagerId = (int)cbQuanLy.SelectedValue,
@@ -202,17 +225,11 @@ namespace GUI
                 CloseTime = dtDongCua.Value.TimeOfDay,
                 MonthlyRent = monthlyRent,
                 Status = cbStatus.SelectedItem.ToString(),
-
             };
 
             bllBranch.UpdateBranch(br);
             MessageBox.Show("Sửa thành công!");
-            LoadDataBranch(branches);
-        }
-
-        private void btnTim_Click(object sender, EventArgs e)
-        {
-
+            LoadDataBranch(bllBranch.GetDataBranch());
         }
 
         private void textBox12_TextChanged(object sender, EventArgs e)

@@ -85,6 +85,7 @@
             this.dgvKhuyenMai.RowHeadersWidth = 62;
             this.dgvKhuyenMai.Size = new System.Drawing.Size(949, 365);
             this.dgvKhuyenMai.TabIndex = 16;
+            this.dgvKhuyenMai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // pnlMain
             // 
@@ -146,6 +147,7 @@
             this.button6.TabIndex = 9;
             this.button6.Text = "Hoàn tác";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.btnHoanTac_Click);
             // 
             // button4
             // 
@@ -155,6 +157,7 @@
             this.button4.TabIndex = 10;
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // button3
             // 
@@ -164,6 +167,7 @@
             this.button3.TabIndex = 11;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // button2
             // 
@@ -173,6 +177,7 @@
             this.button2.TabIndex = 12;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // txtGiamGia
             // 

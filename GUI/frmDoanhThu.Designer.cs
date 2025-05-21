@@ -33,6 +33,8 @@
             this.btnLoc = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.cboThang = new System.Windows.Forms.ComboBox();
+            this.btnXem = new System.Windows.Forms.Button();
+            this.btnIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThu)).BeginInit();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
@@ -45,19 +47,21 @@
             this.dgvDoanhThu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDoanhThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoanhThu.Location = new System.Drawing.Point(3, 60);
+            this.dgvDoanhThu.MultiSelect = false;
             this.dgvDoanhThu.Name = "dgvDoanhThu";
+            this.dgvDoanhThu.ReadOnly = true;
             this.dgvDoanhThu.RowHeadersWidth = 51;
             this.dgvDoanhThu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoanhThu.Size = new System.Drawing.Size(763, 623);
             this.dgvDoanhThu.TabIndex = 27;
-            this.dgvDoanhThu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoanhThu_CellClick);
+            this.dgvDoanhThu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoanhThu_CellClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(14, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 24);
+            this.label2.Size = new System.Drawing.Size(53, 18);
             this.label2.TabIndex = 31;
             this.label2.Text = "Tháng:";
             // 
@@ -69,6 +73,7 @@
             this.btnLoc.TabIndex = 33;
             this.btnLoc.Text = "Lọc dữ liệu";
             this.btnLoc.UseVisualStyleBackColor = true;
+            this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
             // 
             // pnlMain
             // 
@@ -76,6 +81,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.Controls.Add(this.cboThang);
+            this.pnlMain.Controls.Add(this.btnXem);
+            this.pnlMain.Controls.Add(this.btnIn);
             this.pnlMain.Controls.Add(this.btnLoc);
             this.pnlMain.Controls.Add(this.label2);
             this.pnlMain.Controls.Add(this.dgvDoanhThu);
@@ -92,12 +99,32 @@
             "<<All>>"});
             this.cboThang.Location = new System.Drawing.Point(72, 18);
             this.cboThang.Name = "cboThang";
-            this.cboThang.Size = new System.Drawing.Size(139, 30);
+            this.cboThang.Size = new System.Drawing.Size(139, 26);
             this.cboThang.TabIndex = 34;
+            // 
+            // btnXem
+            // 
+            this.btnXem.Location = new System.Drawing.Point(538, 12);
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Size = new System.Drawing.Size(102, 36);
+            this.btnXem.TabIndex = 33;
+            this.btnXem.Text = "Xem DS";
+            this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
+            // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(664, 12);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(102, 36);
+            this.btnIn.TabIndex = 33;
+            this.btnIn.Text = "In DS";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // frmDoanhThu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 711);
             this.Controls.Add(this.pnlMain);
@@ -120,5 +147,7 @@
         private System.Windows.Forms.Button btnLoc;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.ComboBox cboThang;
+        private System.Windows.Forms.Button btnXem;
+        private System.Windows.Forms.Button btnIn;
     }
 }
