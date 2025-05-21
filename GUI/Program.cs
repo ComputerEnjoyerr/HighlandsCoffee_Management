@@ -18,17 +18,20 @@ namespace GUI
             Application.SetCompatibleTextRenderingDefault(false);
             while (true)
             {
-                frmLogin log = new frmLogin();
-                DialogResult result = log.ShowDialog();
-                if (result == DialogResult.OK && log.NextForm != null)
+                using (frmLogin log = new frmLogin())
                 {
-                    Application.Run(log.NextForm);
-                }
-                else
-                {
-                    break;
+                    DialogResult result = log.ShowDialog();
+                    if (result == DialogResult.OK && log.NextForm != null)
+                    {
+                        Application.Run(log.NextForm);
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
             }
+
         }
     }
 }

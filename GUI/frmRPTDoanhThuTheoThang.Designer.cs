@@ -35,6 +35,7 @@
             this.txtThang = new System.Windows.Forms.TextBox();
             this.txtNam = new System.Windows.Forms.TextBox();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.rptDoanhThuTheoThang1 = new GUI.rptDoanhThuTheoThang();
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +110,7 @@
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 116);
             this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.ReportSource = this.rptDoanhThuTheoThang1;
             this.crystalReportViewer1.Size = new System.Drawing.Size(828, 250);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelWidth = 300;
@@ -140,5 +142,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtThang;
         private System.Windows.Forms.TextBox txtNam;
+        private rptDoanhThuTheoThang rptDoanhThuTheoThang1;
     }
 }

@@ -123,5 +123,50 @@ namespace DAL
             }
             return dt;
         }
+
+        public DataTable GetRevenueByMonth(int month, int year)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("sp_LoiNhuan_TatCaChiNhanhTheoThang", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Month", month);
+                    cmd.Parameters.AddWithValue("@Year", year);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Lỗi khi lấy dữ liệu từ Stored Procedure: " + ex.Message);
+                }
+            }
+            return dt;
+        }
+
+        public DataTable GetInventoryByBranch(int branch)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("sp_HangTonKho_TheoChiNhanh", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@BranchId", branch);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Lỗi khi lấy dữ liệu từ Stored Procedure: " + ex.Message);
+                }
+            }
+            return dt;
+        }
     }
 }

@@ -200,8 +200,10 @@ namespace GUI
                 using (frmRPTHoaDonThanhToan rpt = new frmRPTHoaDonThanhToan(bill))
                     rpt.ShowDialog();
             }
-
-            MessageBox.Show("Thanh toán thành công!");
+            else
+            {
+                MessageBox.Show("Thanh toán thành công!");
+            }
             ResetForm();
             LoadBan();
         }

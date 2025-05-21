@@ -54,6 +54,7 @@
             this.picBanner = new System.Windows.Forms.PictureBox();
             this.tmrBannerLoop = new System.Windows.Forms.Timer(this.components);
             this.imgListBanners = new System.Windows.Forms.ImageList(this.components);
+            this.khoHàngCácChiNhánhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBanner)).BeginInit();
@@ -139,7 +140,8 @@
             this.báoCáoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lươngNhânViênToolStripMenuItem,
             this.khuyếnMãiToolStripMenuItem1,
-            this.doanhThuCácChiNhánhToolStripMenuItem});
+            this.doanhThuCácChiNhánhToolStripMenuItem,
+            this.khoHàngCácChiNhánhToolStripMenuItem});
             this.báoCáoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.báoCáoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("báoCáoToolStripMenuItem.Image")));
             this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
@@ -272,6 +274,13 @@
             this.imgListBanners.Images.SetKeyName(3, "banner3.jpg");
             this.imgListBanners.Images.SetKeyName(4, "banner4.jpg");
             // 
+            // khoHàngCácChiNhánhToolStripMenuItem
+            // 
+            this.khoHàngCácChiNhánhToolStripMenuItem.Name = "khoHàngCácChiNhánhToolStripMenuItem";
+            this.khoHàngCácChiNhánhToolStripMenuItem.Size = new System.Drawing.Size(250, 24);
+            this.khoHàngCácChiNhánhToolStripMenuItem.Text = "Kho hàng các chi nhánh";
+            this.khoHàngCácChiNhánhToolStripMenuItem.Click += new System.EventHandler(this.khoHàngCácChiNhánhToolStripMenuItem_Click);
+            // 
             // frmAdMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -290,6 +299,7 @@
             this.Name = "frmAdMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdMain";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmAdMain_Load);
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
@@ -325,5 +335,6 @@
         private System.Windows.Forms.Timer tmrBannerLoop;
         private System.Windows.Forms.ImageList imgListBanners;
         private System.Windows.Forms.ToolStripMenuItem doanhThuCácChiNhánhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem khoHàngCácChiNhánhToolStripMenuItem;
     }
 }

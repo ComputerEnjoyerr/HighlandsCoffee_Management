@@ -22,27 +22,27 @@ namespace GUI
 
         private Employee currentEmployee = new Employee();
         private BLL_Report bllReports = new BLL_Report();
+        private bool isFirst = true;
 
         private void LoadData()
         {
+            rptKhoHang rpt = new rptKhoHang();
             try
             {
                 // Lấy dữ liệu từ BLL
                 DataTable dt = bllReports.GetInventoryDetails(currentEmployee.BranchId);
                 // Gán dữ liệu vào báo cáo
-                //using (rptKhoHang rpt = new rptKhoHang())
-                //{
-                //    rpt.SetDataSource(dt);
 
-                //    ParameterValues paraBranchId = new ParameterValues();
-                //    ParameterDiscreteValue paraValBranchId = new ParameterDiscreteValue();
-                //    paraValBranchId.Value = currentEmployee.BranchId;
-                //    paraBranchId.Add(paraValBranchId);
-                //    rpt.DataDefinition.ParameterFields["@BranchId"].ApplyCurrentValues(paraBranchId);
-                //    // Hiển thị báo cáo
-                //    crystalReportViewer1.ReportSource = rpt;
-                //    crystalReportViewer1.Refresh();
-                //}
+                rpt.SetDataSource(dt);
+
+                ParameterValues paraBranchId = new ParameterValues();
+                ParameterDiscreteValue paraValBranchId = new ParameterDiscreteValue();
+                paraValBranchId.Value = currentEmployee.BranchId;
+                paraBranchId.Add(paraValBranchId);
+                rpt.DataDefinition.ParameterFields["@BranchId"].ApplyCurrentValues(paraBranchId);
+                // Hiển thị báo cáo
+                crystalReportViewer1.ReportSource = rpt;
+                crystalReportViewer1.Refresh();
             }
             catch (Exception ex)
             {
@@ -50,9 +50,15 @@ namespace GUI
             }
             finally
             {
-                // Giải phóng tài nguyên
-                //rpt.Close();
-                //rpt.Dispose();
+                if (isFirst)
+                {
+                    isFirst = false;
+                }
+                else
+                {
+                    rpt.Clone();
+                    rpt.Dispose();
+                }
             }
         }
 
@@ -65,7 +71,6 @@ namespace GUI
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
-            LoadData();
         }
     }
 }

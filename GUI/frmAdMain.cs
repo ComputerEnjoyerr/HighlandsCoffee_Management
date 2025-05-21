@@ -158,9 +158,17 @@ namespace GUI
             OpenMain(fr);
         }
 
+        private void khoHàngCácChiNhánhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRPTKhoHangMoiChiNhanh fr = new frmRPTKhoHangMoiChiNhanh();
+            OpenMain(fr);
+        }
+
         private void picBanner_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

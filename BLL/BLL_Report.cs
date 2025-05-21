@@ -35,5 +35,15 @@ namespace BLL
         {
             return dalReport.GetBillInfo(billId);
         }
+
+        public DataTable GetRevenueByMonth(int month, int year)
+        {
+            return dalReport.GetRevenueByMonth(month, year);
+        }
+
+        public DataTable GetInventoryByBranch(int branchId)
+        {
+            return dalReport.GetInventoryByBranch(branchId);
+        }
     }
 }

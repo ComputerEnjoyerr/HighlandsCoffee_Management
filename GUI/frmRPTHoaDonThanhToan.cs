@@ -33,7 +33,7 @@ namespace GUI
                 MessageBox.Show("Không có dữ liệu để hiển thị báo cáo.");
                 return;
             }
-            MessageBox.Show(bill.BillId.ToString());
+            //MessageBox.Show(bill.BillId.ToString());
             rptHoaDonThanhToan rpt = new rptHoaDonThanhToan();
             try
             {
