@@ -1,5 +1,6 @@
 **Highlands Coffee Management System**  
-*Team Project – C#, WinForms, LINQ, SQL Server, Crystal Reports*  
+*Team Project – C#, WinForms, LINQ, SQL Server, Crystal Reports* 
+
 **⚠️ Before running the system:**
 
 **Please copy all the files inside the "Pictures" folder (⚠️ do not copy the folder itself) and paste them into the GUI/bin/Debug directory.**
