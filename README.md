@@ -9,4 +9,13 @@
 - Utilized LINQ to SQL for database operations and Crystal Reports for generating sales reports and statistics.
 - Designed an intuitive user interface and login system to enhance user experience.
 
-![image](https://github.com/user-attachments/assets/602395d3-2e5a-4544-b1c1-bceb055a4c66)
+**Admin's Main Menu:**
+![image](https://github.com/user-attachments/assets/69c60215-aaa6-446a-89c3-4b65792b3371)
+
+**Employee's Main Menu:**
+![image](https://github.com/user-attachments/assets/e3337546-f834-45a6-bd41-dccc7a946d23)
+
+*Ordering foods/drinks:*
+
+![screen_1750155688165](https://github.com/user-attachments/assets/0402bd0e-4d0f-46be-87a2-fdaa87d10b95)
+
