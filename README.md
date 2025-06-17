@@ -17,11 +17,11 @@
 
 *Ordering foods/drinks:*
 
-![screen_1750155688165-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/12efedc5-e973-410b-aef6-5fb4aae3a76c)
+![screen_1750155688165 (1)](https://github.com/user-attachments/assets/6bc543d8-6040-4d6b-b7d8-d9368f7b3628)
 
 *Checkout and printing bill*
 
-![ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/21cb4ebb-4cb3-41bc-8f7b-764e5d3073d3)
+![screen_1750158283811](https://github.com/user-attachments/assets/8eedb4b8-e1ba-4795-b7f5-946e702540b2)
 
 *Checking the checkout history*
 
