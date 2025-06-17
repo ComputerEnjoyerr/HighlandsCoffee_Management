@@ -8,3 +8,5 @@
 - Implemented features including employee, product, and invoice management, with role-based access control.
 - Utilized LINQ to SQL for database operations and Crystal Reports for generating sales reports and statistics.
 - Designed an intuitive user interface and login system to enhance user experience.
+
+![image](https://github.com/user-attachments/assets/602395d3-2e5a-4544-b1c1-bceb055a4c66)
